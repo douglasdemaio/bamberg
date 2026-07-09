@@ -62,9 +62,9 @@ const tierClass = site.tier;
       </section>
     )}
 
-    <section class="info-block">
+    <section class="info-block history-block">
       <h2>Geschichte / History</h2>
-      <p><strong>{site.history_60w.de}</strong></p>
+      <p class="history-de"><strong>{site.history_60w.de}</strong></p>
       <p><em>{site.history_60w.en}</em></p>
     </section>
 
@@ -221,18 +221,20 @@ if (lockEl && contentEl) {
   .tier-badge {
     display: inline-block;
     font-size: 0.7rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    padding: 0.2rem 0.5rem;
-    border-radius: 3px;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
     margin-bottom: 0.75rem;
     font-family: var(--font-mono);
+    box-shadow: var(--shadow-inset);
+    border: 1px solid rgba(0,0,0,0.12);
   }
-  .tier-gold { background: var(--amber); color: var(--paper); }
-  .tier-silver { background: #b0b0a8; color: var(--paper); }
-  .tier-bronze { background: #c49a6a; color: var(--paper); }
-  .tier-legendary { background: var(--wax-red); color: var(--paper); }
+  .tier-gold { background: linear-gradient(135deg, #d9a852, #b57821); color: #fff; }
+  .tier-silver { background: linear-gradient(135deg, #c0bfb6, #8f8e85); color: #fff; }
+  .tier-bronze { background: linear-gradient(135deg, #c99a6a, #91663a); color: #fff; }
+  .tier-legendary { background: linear-gradient(135deg, #a63431, var(--wax-red)); color: #fff; }
   .site-name-en {
     font-size: 0.9rem;
     color: var(--text-muted);
@@ -260,16 +262,26 @@ if (lockEl && contentEl) {
   }
   .info-block {
     margin-bottom: 1.5rem;
-    padding: 1rem;
+    padding: 1rem 1.1rem;
     background: var(--card-bg);
     border-radius: var(--radius);
     border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
   }
   .info-block h2 {
     font-size: 1rem;
     margin-bottom: 0.5rem;
   }
   .info-block p { font-size: 0.9rem; }
+  .history-block .history-de::first-letter {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    line-height: 0.85;
+    float: left;
+    padding: 0.25rem 0.4rem 0 0;
+    color: var(--wax-red);
+    font-weight: 700;
+  }
   .riddle-block {
     margin-top: 2rem;
     padding: 1rem;
