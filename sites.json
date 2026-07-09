@@ -1,0 +1,2045 @@
+[
+  {
+    "id": "a1",
+    "slug": "bamberger-dom",
+    "name": {
+      "de": "Bamberger Dom St. Peter und St. Georg",
+      "en": "Bamberg Cathedral"
+    },
+    "category": "seven-hills",
+    "subcategory": "domberg",
+    "tier": "gold",
+    "coords": [
+      49.8907,
+      10.8825
+    ],
+    "riddle": {
+      "de": "Vier Türme, doch einer trägt keine Spitze. Ein Reiter ohne Namen zeigt gen Osten. Ein Kaiserpaar schläft im Stein unter mir. Wer bin ich?",
+      "en": "Four towers, but one has no spire. A nameless rider points east. An imperial couple sleeps in stone beneath me. What am I?"
+    },
+    "hint": {
+      "de": "Domberg – das geistliche Zentrum der Stadt",
+      "en": "Cathedral Hill – the spiritual heart of the city"
+    },
+    "question": {
+      "de": "Am Fürstenportal: Wie viele Säulen flankieren den Eingang (linke und rechte Seite zusammen)?",
+      "en": "At the Princes' Portal: How many columns flank the entrance (left and right sides together)?"
+    },
+    "answers": [
+      "22",
+      "zweiundzwanzig",
+      "twenty-two",
+      "2×11"
+    ],
+    "history_60w": {
+      "de": "Heinrich II. und Kunigunde stifteten den Dom 1004, geweiht 1012. Nach einem Brand 1081 wurde er im 13. Jahrhundert im spätromanisch-frühgotischen Stil neu erbaut. Vier Türme prägen die Silhouette. Das Fürstenportal und der Bamberger Reiter zählen zu den bedeutendsten Bildwerken des deutschen Mittelalters.",
+      "en": "Henry II and Kunigunde founded the cathedral in 1004, consecrated 1012. After a fire in 1081 it was rebuilt in the 13th century in late Romanesque-early Gothic style. Four towers shape the skyline. The Princes' Portal and the Bamberg Horseman rank among Germany's finest medieval sculptures."
+    },
+    "look_for": {
+      "de": "Der Bamberger Reiter im nördlichen Chor – sein Blick nach Osten, die ungekrönte Freiheit.",
+      "en": "The Bamberg Horseman in the north choir – his eastward gaze, his crownless freedom."
+    },
+    "photo_tip": {
+      "de": "Vom Domplatz, Nordwest-Ecke, bei Abendlicht – die vier Türme gestaffelt imGolden Hour Licht.",
+      "en": "From the cathedral square, northwest corner, at golden hour – the four towers stepping upward."
+    },
+    "hours": {
+      "de": "Mo–Mi 9:00–18:00, Do–Fr 9:30–18:00, Sa 9:00–16:30, So 13:00–18:00. Liturgie hat Vorrang.",
+      "en": "Mon–Wed 9am–6pm, Thu–Fri 9:30am–6pm, Sat 9am–4:30pm, Sun 1pm–6pm. Liturgy takes precedence."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null
+  },
+  {
+    "id": "a3",
+    "slug": "kloster-st-michael",
+    "name": {
+      "de": "Kloster St. Michael",
+      "en": "St. Michael's Monastery"
+    },
+    "category": "seven-hills",
+    "subcategory": "michelsberg",
+    "tier": "silver",
+    "coords": [
+      49.8936,
+      10.8772
+    ],
+    "riddle": {
+      "de": "Über der Stadt thront ein Garten aus Stein. 578 Kräuter blühn unter der Decke – ein Himmel aus Malerei. Wer sucht den Weg hinauf?",
+      "en": "Above the city sits a garden of stone. 578 herbs bloom beneath the ceiling – a sky made of paint. Who climbs the way?"
+    },
+    "hint": {
+      "de": "Michelsberg – der Hügel mit der Aussichtsterrasse",
+      "en": "Michelsberg – the hill with the view terrace"
+    },
+    "question": {
+      "de": "Am Eingang zur Klosterkirche: Wie viele Stufen führen zur Kirchentür hinauf?",
+      "en": "At the monastery church entrance: How many steps lead up to the church door?"
+    },
+    "answers": [
+      "14",
+      "vierzehn",
+      "fourteen"
+    ],
+    "history_60w": {
+      "de": "Benediktinerkloster, gegründet 1015 von Bischof Eberhard I. Die Kirche birgt das Grab des heiligen Otto, Bistumsgründer. Das Deckenfresko 'Himmelsgarten' zeigt 578 Heilpflanzen – ein pharmazeutisches Meisterwerk. Seit 2012 aufwändig saniert. Die Terrasse bietet den schönsten Blick über Bamberg.",
+      "en": "Benedictine monastery founded 1015 by Bishop Eberhard I. The church holds the tomb of Saint Otto, founder of the diocese. The ceiling fresco 'Heavenly Garden' depicts 578 medicinal plants – a pharmaceutical masterpiece. Under renovation since 2012. The terrace offers the finest view over Bamberg."
+    },
+    "look_for": {
+      "de": "Das Deckengemälde mit den 578 Kräutern – ein botanischer Garten an der Decke.",
+      "en": "The ceiling painting with 578 herbs – a botanical garden on the ceiling."
+    },
+    "photo_tip": {
+      "de": "Vom Ostplateau der Terrasse, Blick über die Dächer zur Altenburg.",
+      "en": "From the east plateau terrace, looking over the roofs toward Altenburg."
+    },
+    "hours": {
+      "de": "Fr–So und feiertags 11:00–16:00. Eingeschränkt wegen Sanierung.",
+      "en": "Fri–Sun and holidays 11am–4pm. Limited access due to renovation."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null
+  },
+  {
+    "id": "a5",
+    "slug": "obere-pfarre",
+    "name": {
+      "de": "Obere Pfarre – Unsere Liebe Frau",
+      "en": "Upper Parish Church – Our Lady"
+    },
+    "category": "seven-hills",
+    "subcategory": "kaulberg",
+    "tier": "silver",
+    "coords": [
+      49.8894,
+      10.8844
+    ],
+    "riddle": {
+      "de": "Die zweite Krone über der Stadt, feiner geschnitzt als die erste. Vom Fluss aus ragt sie wie ein Schiff. Ich bin die Obere, doch die Untere gibt es nicht mehr.",
+      "en": "The second crown over the city, carved finer than the first. From the river she rises like a ship. I am the Upper, though the Lower is no more."
+    },
+    "hint": {
+      "de": "Kaulberg – zwischen Dom und Fluss",
+      "en": "Kaulberg – between the cathedral and the river"
+    },
+    "question": {
+      "de": "Vom Pfahlplätzchen aus: Wie viele Strebebögen stützen den Chor der Kirche?",
+      "en": "From Pfahlplätzchen: How many flying buttresses support the church choir?"
+    },
+    "answers": [
+      "7",
+      "sieben",
+      "seven"
+    ],
+    "history_60w": {
+      "de": "Die gotische Pfarrkirche, 1330 begonnen, 1385 geweiht. Ihr Name 'Obere Pfarre' unterscheidet sie von der abgebrochenen Unteren Pfarre St. Martin. Die mächtigen Substruktionen am Kaulberg sind die zweithöchsten in Deutschland nach dem Erfurter Dom. Die Ansicht vom Pfahlplätzchen ist berühmt.",
+      "en": "Gothic parish church, begun 1330, consecrated 1385. Named 'Upper Parish' to distinguish it from the demolished Lower Parish St. Martin. The massive substructures on Kaulberg Hill are the second highest in Germany after Erfurt Cathedral. The view from Pfahlplätzchen is iconic."
+    },
+    "look_for": {
+      "de": "Die filigranen Strebebögen und der unverputzte Sandstein der Ostfassade.",
+      "en": "The delicate flying buttresses and the bare sandstone of the east facade."
+    },
+    "photo_tip": {
+      "de": "Von der Oberen Brücke, Blick Richtung Kaulberg – die Kirche ragt über die Häuser.",
+      "en": "From the Upper Bridge, looking toward Kaulberg – the church rises above the rooftops."
+    },
+    "hours": null,
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null
+  },
+  {
+    "id": "b1",
+    "slug": "neue-residenz",
+    "name": {
+      "de": "Neue Residenz",
+      "en": "New Residence"
+    },
+    "category": "stone-and-power",
+    "subcategory": "prince-bishops",
+    "tier": "silver",
+    "coords": [
+      49.8917,
+      10.8825
+    ],
+    "riddle": {
+      "de": "Vierzig Fenster blicken auf den Domplatz. Der Fürstbischof wohnte hier, träumte von Rom, und pflanzte Rosen unter seinen Balkon. Was geb ich preis?",
+      "en": "Forty windows look out on Cathedral Square. The prince-bishop lived here, dreamed of Rome, and planted roses beneath his balcony. What do I reveal?"
+    },
+    "hint": {
+      "de": "Domplatz – direkt neben dem Dom",
+      "en": "Cathedral Square – right next to the cathedral"
+    },
+    "question": {
+      "de": "Im Innenhof: Wie viele Engel zieren den Brunnen?",
+      "en": "In the courtyard: How many angels adorn the fountain?"
+    },
+    "answers": [
+      "4",
+      "vier",
+      "four"
+    ],
+    "history_60w": {
+      "de": "Die Neue Residenz war ab 1602 Sitz der Bamberger Fürstbischöfe. Der Kaisersaal im Nordflügel beeindruckt mit Deckenfresken von Johann Joseph Scheubel. Der Rosengarten im Süden ist öffentlich. Von hier regierten die Schönborns das Hochstift, bis Bayern das Bistum 1803 säkularisierte.",
+      "en": "The New Residence was the seat of Bamberg's prince-bishops from 1602. The Imperial Hall impresses with ceiling frescoes by Johann Joseph Scheubel. The Rose Garden to the south is public. From here the Schönborns ruled until Bavaria secularized the bishopric in 1803."
+    },
+    "look_for": {
+      "de": "Die Doppeltreppe im Innenhof und das Portal mit den Wappen.",
+      "en": "The double staircase in the courtyard and the portal with the coats of arms."
+    },
+    "photo_tip": {
+      "de": "Vom Rosengarten aus, über die Blumen hinweg zur Domfassade.",
+      "en": "From the Rose Garden, over the flowers toward the cathedral facade."
+    },
+    "hours": {
+      "de": "April–3. Okt. tägl. 9:00–18:00, 4. Okt.–März tägl. 10:00–16:00. Geschlossen am 1. Jan., Fasching, 24./25./31. Dez.",
+      "en": "Apr–Oct 3 daily 9am–6pm, Oct 4–Mar daily 10am–4pm. Closed Jan 1, Mardi Gras, Dec 24, 25, 31."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null
+  },
+  {
+    "id": "b7",
+    "slug": "altes-rathaus",
+    "name": {
+      "de": "Altes Rathaus",
+      "en": "Old Town Hall"
+    },
+    "category": "stone-and-power",
+    "subcategory": "civic",
+    "tier": "silver",
+    "coords": [
+      49.8915,
+      10.8869
+    ],
+    "riddle": {
+      "de": "Ich lehne, weil ein Bischof und ein Bürger sich nicht einigen konnten, auf wessen Grund ich stehe. So baute man mich ins Wasser. Ein Engel streckt sein Bein aus der Mauer.",
+      "en": "I lean because a bishop and a burgher could not agree on whose ground I stood. So they built me in the water. An angel stretches his leg from my wall."
+    },
+    "hint": {
+      "de": "Obere Brücke – zwischen den beiden Altstadt-Hälften",
+      "en": "Upper Bridge – between the two halves of the old town"
+    },
+    "question": {
+      "de": "An der Ostfassade: Welche Farbe hat der Stiefel des herausragenden Engelsbeins?",
+      "en": "On the east facade: What color is the boot of the protruding angel's leg?"
+    },
+    "answers": [
+      "rot",
+      "gold und rot",
+      "gold-rot",
+      "rot-gold",
+      "red",
+      "gold and red",
+      "red and gold"
+    ],
+    "history_60w": {
+      "de": "Das Alte Rathaus steht auf einer künstlichen Insel in der Regnitz, erstmals erwähnt im 14. Jahrhundert. Der Überlieferung nach verweigerte der Bischof Land, also rammten die Bürger Pfähle in den Fluss. Die Fassadenmalerei von Johann Anwander (1755) täuscht dreidimensionale Architektur vor.",
+      "en": "The Old Town Hall stands on an artificial island in the Regnitz, first mentioned in the 14th century. Legend says the bishop refused land, so the burghers drove piles into the river. The facade painting by Johann Anwander (1755) feigns three-dimensional architecture."
+    },
+    "look_for": {
+      "de": "Das herausragende Putto-Bein an der Ostfassade – Anwanders Signatur in Gips.",
+      "en": "The protruding putto leg on the east facade – Anwander's signature in plaster."
+    },
+    "photo_tip": {
+      "de": "Vom Geyerswörthsteg bei 18 Uhr – das Rathaus spiegelt sich im Wasser.",
+      "en": "From Geyerswörthsteg at 6pm – the town hall reflects in the water."
+    },
+    "hours": null,
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null
+  },
+  {
+    "id": "c1",
+    "slug": "klein-venedig",
+    "name": {
+      "de": "Klein Venedig",
+      "en": "Little Venice"
+    },
+    "category": "water-and-bridges",
+    "subcategory": "fishermen",
+    "tier": "bronze",
+    "coords": [
+      49.8933,
+      10.8842
+    ],
+    "riddle": {
+      "de": "Bunte Häuser, Schulter an Schulter am Wasser. Hier zogen die Fischer ihre Netze. Vom Brückchen aus zählt man sie am besten.",
+      "en": "Colourful houses, shoulder to shoulder by the water. Here the fishermen pulled their nets. Best counted from the little bridge."
+    },
+    "hint": {
+      "de": "Untere Brücke – Blick flussabwärts",
+      "en": "Lower Bridge – looking downstream"
+    },
+    "question": {
+      "de": "Von der Unteren Brücke aus: Wie viele bunte Giebelhäuser zählst du in der Zeile von Klein Venedig?",
+      "en": "From the Lower Bridge: How many colourful gabled houses do you count in the Klein Venedig row?"
+    },
+    "answers": [
+      "8",
+      "acht",
+      "eight"
+    ],
+    "history_60w": {
+      "de": "Die Fischer- und Weberhäuser entlang der Regnitz wurden erstmals im 12. Jahrhundert urkundlich erwähnt. Zwei Journalisten gaben der Häuserzeile 1842 den Namen 'Klein Venedig'. Heute ist sie das meistfotografierte Motiv der Stadt – ein Postkartenbild, das Wirklichkeit wurde.",
+      "en": "The fishermen's and weavers' houses along the Regnitz were first documented in the 12th century. Two journalists named the row 'Little Venice' in 1842. Today it is the city's most photographed motif – a postcard come to life."
+    },
+    "look_for": {
+      "de": "Die Hausnummern und die kleinen Stege direkt am Wasser.",
+      "en": "The house numbers and the small jetties directly on the water."
+    },
+    "photo_tip": {
+      "de": "Vom Leinritt aus, früher Morgen – Nebel über dem Wasser, Sonne auf den Fassaden.",
+      "en": "From the Leinritt path, early morning – mist over the water, sun on the facades."
+    },
+    "hours": null,
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null
+  },
+  {
+    "id": "c2",
+    "slug": "untere-bruecke",
+    "name": {
+      "de": "Untere Brücke",
+      "en": "Lower Bridge"
+    },
+    "category": "water-and-bridges",
+    "subcategory": "bridges",
+    "tier": "bronze",
+    "coords": [
+      49.8923,
+      10.8881
+    ],
+    "riddle": {
+      "de": "Ich bin die Niedrigere unter den Schwestern. Eine Kaiserin aus Stein wacht über mich. Unter mir fließt die Regnitz, über mir der Himmel. Wer mich überquert, sieht Klein Venedig.",
+      "en": "I am the lower of the sisters. An empress of stone watches over me. Below flows the Regnitz, above the sky. Cross me and see Little Venice."
+    },
+    "hint": {
+      "de": "Zwischen Klein Venedig und der Inselstadt",
+      "en": "Between Little Venice and the island city"
+    },
+    "question": {
+      "de": "Welche Himmelsrichtung zeigt das Gesicht der heiligen Kunigunde auf der Brücke?",
+      "en": "Which direction does the face of Saint Kunigunde on the bridge face?"
+    },
+    "answers": [
+      "nord",
+      "norden",
+      "north",
+      "flussabwärts",
+      "downstream"
+    ],
+    "history_60w": {
+      "de": "Die Untere Brücke verbindet die Inselstadt mit der Wunderburg. Die steinerne Kunigunde thront auf der Brücke – die heilige Kaiserin, die Bamberg mitgründete. Der Blick flussabwärts auf Klein Venedig ist der berühmteste der Stadt. Die Brücke selbst wurde mehrfach zerstört und wieder aufgebaut.",
+      "en": "The Lower Bridge connects the island city to Wunderburg. The stone Kunigunde sits enthroned on the bridge – the holy empress who co-founded Bamberg. The view downstream to Little Venice is the city's most famous. The bridge itself was destroyed and rebuilt several times."
+    },
+    "look_for": {
+      "de": "Die Statue der heiligen Kunigunde mit Krone und Zepter.",
+      "en": "The statue of Saint Kunigunde with crown and sceptre."
+    },
+    "photo_tip": {
+      "de": "Von der Brückenmitte, Blick flussabwärts – die Häuserzeile von Klein Venedig.",
+      "en": "From the middle of the bridge, looking downstream – the row of Klein Venedig houses."
+    },
+    "hours": null,
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null
+  },
+  {
+    "id": "d1",
+    "slug": "schlenkerla",
+    "name": {
+      "de": "Schlenkerla",
+      "en": "Schlenkerla"
+    },
+    "category": "beer",
+    "subcategory": "taproom",
+    "tier": "silver",
+    "coords": [
+      49.891,
+      10.8861
+    ],
+    "riddle": {
+      "de": "Ein blauer Löwe hing einst über der Tür. Heute riecht man mich schon von weitem – Rauch, Malz, Eichenfass. Wer hier einkehrt, trinkt flüssiges Gold aus Holz.",
+      "en": "A blue lion once hung above the door. Today you can smell me from afar – smoke, malt, oak cask. Whoever stops here drinks liquid gold from wood."
+    },
+    "hint": {
+      "de": "Dominikanerstraße – unter dem Domberg",
+      "en": "Dominikanerstraße – below Cathedral Hill"
+    },
+    "question": {
+      "de": "Über dem Eingang: Welche Jahreszahl erinnert an die erste Erwähnung des Hauses?",
+      "en": "Above the entrance: What year marks the first mention of the house?"
+    },
+    "answers": [
+      "1405",
+      "vierzehnhundertfünf"
+    ],
+    "history_60w": {
+      "de": "Erstmals 1405 als 'Haus zum blauen Löwen' erwähnt, wird Schlenkerla seit sechs Generationen von der Familie Trum geführt. Das Rauchbier reift über Buchenholzfeuer – eine Tradition, die Bamberg weltweit berühmt machte. Aus Eichenfässern gezapft, serviert im denkmalgeschützten Gewölbe.",
+      "en": "First mentioned in 1405 as the 'Blue Lion,' Schlenkerla has been run by the Trum family for six generations. The smoked beer matures over beechwood fire – a tradition that made Bamberg world-famous. Drawn from oak casks, served in a heritage-listed vault."
+    },
+    "look_for": {
+      "de": "Das Schlenkerla-Schild über der Tür und die Eichenfässer im Schankraum.",
+      "en": "The Schlenkerla sign above the door and the oak barrels in the taproom."
+    },
+    "photo_tip": {
+      "de": "Von der Dominikanerstraße aus, das Fachwerk und den Biergarten im Hof.",
+      "en": "From Dominikanerstraße, capture the timber frame and the beer garden in the courtyard."
+    },
+    "hours": {
+      "de": "Täglich 9:30–23:30. Küche 11:00–22:00. Biergarten bei schönem Wetter Ostern bis Oktober.",
+      "en": "Daily 9:30am–11:30pm. Kitchen 11am–10pm. Beer garden weather permitting, Easter to October."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": "Rauchbier Märzen",
+    "is_rauchbier": true,
+    "malts_own": true,
+    "house_lore": {
+      "de": "Das Malz wird über Buchenholzfeuer in der eigenen Mälzerei gedarrt.",
+      "en": "The malt is kilned over beechwood fire in their own malt house."
+    },
+    "codeword": "rauch"
+  },
+  {
+    "id": "e1",
+    "slug": "gaertner-museum",
+    "name": {
+      "de": "Gärtner- und Häckermuseum",
+      "en": "Gardener and Winegrower Museum"
+    },
+    "category": "gardens-guilds-trades",
+    "subcategory": "gaertnerstadt",
+    "tier": "silver",
+    "coords": [
+      49.9008,
+      10.8978
+    ],
+    "riddle": {
+      "de": "Versteckt in der Gärtnerstadt, wo noch heute Gemüse wächst, wo einst die Häcker ihre Weinberge pflegten. Ein Haus aus dem Jahr 1767 verrät, wie die Stadt wirklich ernährt wurde.",
+      "en": "Hidden in the Gardeners' Quarter, where vegetables still grow, where winegrowers once tended their vines. A house from 1767 reveals how the city was truly fed."
+    },
+    "hint": {
+      "de": "Mittlere Gärtnerstadt – die andere Welterbe-Hälfte",
+      "en": "Central Gardeners' Quarter – the other UNESCO half"
+    },
+    "question": {
+      "de": "Im Museumsgarten: Wie viele Beete sind mit Gemüsen und Kräutern bepflanzt?",
+      "en": "In the museum garden: How many beds are planted with vegetables and herbs?"
+    },
+    "answers": [
+      "12",
+      "zwölf",
+      "twelve"
+    ],
+    "history_60w": {
+      "de": "Das einzige süddeutsche Museum für gewerblichen Gemüse- und Weinanbau. Untergebracht in einem typischen Gärtnerhaus von 1767, zeigt es das Leben um 1900. Der Museumsverein gründete sich 1975, eröffnet 1979. Die Gärtnerstadt ist die andere Hälfte des Welterbes – und die, die jeder übersieht.",
+      "en": "The only museum in southern Germany dedicated to commercial vegetable and wine growing. Housed in a typical gardener's house from 1767, it shows life around 1900. The museum association formed in 1975, opened 1979. The Gardeners' Quarter is the other half of the World Heritage – the half everyone misses."
+    },
+    "look_for": {
+      "de": "Die original erhaltene Küche und die Werkzeuge der Gärtner.",
+      "en": "The original preserved kitchen and the gardeners' tools."
+    },
+    "photo_tip": {
+      "de": "Im Museumsgarten von oben (vom Nachbarhaus aus) – die symmetrischen Beete.",
+      "en": "From above in the museum garden (from the neighbouring house) – the symmetrical beds."
+    },
+    "hours": {
+      "de": "Di–So 11:00–17:00 (April–Anfang November).",
+      "en": "Tue–Sun 11am–5pm (April–early November)."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null
+  },
+  {
+    "id": "f8",
+    "slug": "zentrum-welterbe",
+    "name": {
+      "de": "Zentrum Welterbe Bamberg",
+      "en": "Bamberg World Heritage Centre"
+    },
+    "category": "ghosts-curiosities-archive",
+    "subcategory": "visitor-centre",
+    "tier": "bronze",
+    "coords": [
+      49.891,
+      10.8883
+    ],
+    "riddle": {
+      "de": "Hier beginnt jede Reise. Was macht eine Stadt zur Weltkultur? Finde den Schlüssel – und das Modell der ganzen Stadt aus der Vogelperspektive.",
+      "en": "Every journey begins here. What makes a city world culture? Find the key – and the model of the entire city from a bird's-eye view."
+    },
+    "hint": {
+      "de": "Untere Mühlbrücke – am Rand der Inselstadt",
+      "en": "Untere Mühlbrücke – at the edge of the island city"
+    },
+    "question": {
+      "de": "Im Zentrum: Wie viele Welterbestätten zeigt die Weltkarte an der Wand?",
+      "en": "In the centre: How many World Heritage sites does the world map on the wall show?"
+    },
+    "answers": [
+      "52",
+      "52+",
+      "52 plus",
+      "über 50",
+      "fifty-two"
+    ],
+    "history_60w": {
+      "de": "Das Welterbe-Besuchszentrum informiert über Bambergs UNESCO-Status seit 2003. Ein interaktives Stadtmodell und eine multimediale Ausstellung erklären, warum die Altstadt 1993 zum Weltkulturerbe ernannt wurde. Der Eintritt ist frei.",
+      "en": "The World Heritage Visitor Centre has informed about Bamberg's UNESCO status since 2003. An interactive city model and multimedia exhibition explain why the old town was named a World Heritage site in 1993. Entry is free."
+    },
+    "look_for": {
+      "de": "Das große Stadtmodell – such dein nächstes Ziel auf der Karte.",
+      "en": "The large city model – find your next quest on the map."
+    },
+    "photo_tip": {
+      "de": "Das Stadtmodell von oben – ein Plan für den Tag.",
+      "en": "The city model from above – a plan for the day."
+    },
+    "hours": {
+      "de": "Täglich 9:30–17:00 oder nach Angabe.",
+      "en": "Daily 9:30am–5pm or as posted."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null
+  },
+  {
+    "id": "d2",
+    "slug": "spezial",
+    "name": {
+      "de": "Brauerei Spezial",
+      "en": "Spezial Brewery"
+    },
+    "category": "beer",
+    "subcategory": "taproom",
+    "tier": "silver",
+    "coords": [
+      49.8908,
+      10.8985
+    ],
+    "riddle": {
+      "de": "Seit 1536 wird hier Rauchmalz selbst gemacht. Zwei Schornsteine ragen über der Königstraße. Der zweite Rauchbier-Gipfel Bambergs.",
+      "en": "Since 1536, smoked malt has been made here themselves. Two chimneys rise above Königstraße. Bamberg's second Rauchbier summit."
+    },
+    "hint": {
+      "de": "Obere Königstraße – am Rand der Gärtnerstadt",
+      "en": "Obere Königstraße – at the edge of the Gardeners' Quarter"
+    },
+    "question": {
+      "de": "Wie viele Schornsteine hat die Brauerei Spezial?",
+      "en": "How many chimneys does Spezial Brewery have?"
+    },
+    "answers": [
+      "2",
+      "zwei",
+      "two"
+    ],
+    "history_60w": {
+      "de": "Die Brauerei Spezial stellt seit 1536 Rauchbier her – und betreibt eine der letzten handwerklichen Mälzereien Deutschlands. Das Malz wird über offenem Buchenholzfeuer gedarrt. Die Brauerei ist bis heute in Familienbesitz.",
+      "en": "Spezial has brewed Rauchbier since 1536 – and runs one of Germany's last craft malt houses. The malt is kilned over open beechwood fire. The brewery remains family-owned to this day."
+    },
+    "look_for": {
+      "de": "Die beiden Schornsteine der Mälzerei über der Königstraße.",
+      "en": "The two chimneys of the malt house above Königstraße."
+    },
+    "photo_tip": {
+      "de": "Von der Königstraße aus, Blick auf die beiden Schornsteine.",
+      "en": "From Königstraße, looking up at the two chimneys."
+    },
+    "hours": {
+      "de": "Täglich 9:00–23:00, Sa bis 14:00.",
+      "en": "Daily 9am–11pm, Sat until 2pm."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": "Rauchbier Lager",
+    "is_rauchbier": true,
+    "malts_own": true,
+    "house_lore": {
+      "de": "Eine der letzten Brauereien mit eigener Mälzerei.",
+      "en": "One of the last breweries with its own malt house."
+    },
+    "codeword": "malz"
+  },
+  {
+    "id": "d3",
+    "slug": "faessla",
+    "name": {
+      "de": "Brauerei Fässla",
+      "en": "Fässla Brewery"
+    },
+    "category": "beer",
+    "subcategory": "taproom",
+    "tier": "silver",
+    "coords": [
+      49.8911,
+      10.8982
+    ],
+    "riddle": {
+      "de": "Ein Fässchen ist mein Zeichen. An der Königstraße findest du mich, fünf Minuten vom Bahnhof. Gold fließt hier aus dem Hahn.",
+      "en": "A little barrel is my sign. On Königstraße you'll find me, five minutes from the station. Gold flows here from the tap."
+    },
+    "hint": {
+      "de": "Obere Königstraße – nahe Spezial",
+      "en": "Obere Königstraße – near Spezial"
+    },
+    "question": {
+      "de": "Wie viele Zapfhähne hat der Schanktisch im Fässla?",
+      "en": "How many taps does the bar at Fässla have?"
+    },
+    "answers": [
+      "6",
+      "sechs",
+      "six"
+    ],
+    "history_60w": {
+      "de": "Seit 1860 braut Fässla an der Königstraße. Bekannt für das Goldpils und das Zwergla – ein Starkbier. Die Gaststube ist holzvertäfelt, der Biergarten im Innenhof lädt zum Verweilen ein.",
+      "en": "Since 1860, Fässla has brewed on Königstraße. Known for Goldpils and Zwergla – a strong beer. The parlour is wood-panelled, the beer garden in the courtyard invites lingering."
+    },
+    "look_for": {
+      "de": "Das Fässla-Schild und die Holzvertäfelung in der Gaststube.",
+      "en": "The Fässla sign and the wood panelling in the parlour."
+    },
+    "photo_tip": {
+      "de": "Der Biergarten im Innenhof an einem Sommerabend.",
+      "en": "The beer garden in the courtyard on a summer evening."
+    },
+    "hours": {
+      "de": "Täglich 10:00–23:00.",
+      "en": "Daily 10am–11pm."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": "Goldpils",
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": {
+      "de": "Das Zwergla ist ein Starkbier mit 7,5 % – nur im Herbst.",
+      "en": "Zwergla is a strong beer at 7.5% – autumn only."
+    },
+    "codeword": "zwergla"
+  },
+  {
+    "id": "d4",
+    "slug": "klosterbraeu",
+    "name": {
+      "de": "Klosterbräu",
+      "en": "Klosterbräu"
+    },
+    "category": "beer",
+    "subcategory": "taproom",
+    "tier": "silver",
+    "coords": [
+      49.8893,
+      10.8871
+    ],
+    "riddle": {
+      "de": "An der Mühlbrücke, wo einst Mönche brauten. Der älteste Gasthof der Stadt – und immer noch ein Bier aus dem Klosterkeller.",
+      "en": "At the Mill Bridge, where monks once brewed. The oldest inn in town – still beer from the monastery cellar."
+    },
+    "hint": {
+      "de": "Obere Mühlbrücke – zwischen Fluss und Kaulberg",
+      "en": "Obere Mühlbrücke – between river and Kaulberg"
+    },
+    "question": {
+      "de": "Welche Jahreszahl steht über dem Eingang des Klosterbräu?",
+      "en": "What year is above the entrance of Klosterbräu?"
+    },
+    "answers": [
+      "1533",
+      "fünfzehnhundertdreiunddreißig"
+    ],
+    "history_60w": {
+      "de": "1533 als Klosterbrauerei der Karmeliten gegründet, ist Klosterbräu die älteste noch betriebene Brauerei Bambergs. Das Bier reift in historischen Sandsteinkellern unter dem Kaulberg. Die Gaststube bewahrt den ursprünglichen Charme.",
+      "en": "Founded in 1533 as the Carmelite monastery brewery, Klosterbräu is Bamberg's oldest still-operating brewery. The beer matures in historic sandstone cellars beneath Kaulberg. The taproom preserves its original charm."
+    },
+    "look_for": {
+      "de": "Die Sandsteingewölbe im Gastraum.",
+      "en": "The sandstone vaults in the dining room."
+    },
+    "photo_tip": {
+      "de": "Von der Oberen Mühlbrücke aus, das Fachwerk bei Abendlicht.",
+      "en": "From Obere Mühlbrücke, the timber frame in evening light."
+    },
+    "hours": {
+      "de": "Täglich 10:00–23:00.",
+      "en": "Daily 10am–11pm."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": "Klosterbräu Lager",
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": {
+      "de": "Das Bier reift in Sandsteinkellern unter dem Kaulberg.",
+      "en": "Beer matures in sandstone cellars beneath Kaulberg."
+    },
+    "codeword": "karmelit"
+  },
+  {
+    "id": "d5",
+    "slug": "keesmann",
+    "name": {
+      "de": "Brauerei Keesmann",
+      "en": "Keesmann Brewery"
+    },
+    "category": "beer",
+    "subcategory": "taproom",
+    "tier": "silver",
+    "coords": [
+      49.8904,
+      10.9056
+    ],
+    "riddle": {
+      "de": "In der Wunderburg, wo die Gärtnerstadt endet. Ein Stern über der Tür – und ein Bier, das nach Hopfen schmeckt, wie Hopfen schmecken soll.",
+      "en": "In Wunderburg, where the Gardeners' Quarter ends. A star above the door – and a beer that tastes like hops should taste."
+    },
+    "hint": {
+      "de": "Wunderburg – östlich der Gärtnerstadt",
+      "en": "Wunderburg – east of the Gardeners' Quarter"
+    },
+    "question": {
+      "de": "Wie viele Zacken hat der Stern im Keesmann-Logo?",
+      "en": "How many points does the star in the Keesmann logo have?"
+    },
+    "answers": [
+      "5",
+      "fünf",
+      "five"
+    ],
+    "history_60w": {
+      "de": "Die Brauerei Keesmann in der Wunderburg braut seit 1907. Bekannt für das ungefilterte Hopfenseidel – ein Bier, das die Hopfenbitte bewahrt. Die Gaststube ist ein Treffpunkt für Einheimische.",
+      "en": "Keesmann Brewery in Wunderburg has brewed since 1907. Known for unfiltered Hopfenseidel – a beer that preserves hop bitterness. The taproom is a local meeting spot."
+    },
+    "look_for": {
+      "de": "Der Stern über dem Eingang und die Holztheke.",
+      "en": "The star above the entrance and the wooden counter."
+    },
+    "photo_tip": {
+      "de": "Die gemütliche Gaststube mit den Stammtischen.",
+      "en": "The cosy taproom with regulars' tables."
+    },
+    "hours": {
+      "de": "Mo–Fr ab 16:00, Sa ab 11:00, So Ruhetag.",
+      "en": "Mon–Fri from 4pm, Sat from 11am, Sun closed."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": "Hopfenseidel",
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": {
+      "de": "Das Hopfenseidel ist ungefiltert und hopfenbetont.",
+      "en": "Hopfenseidel is unfiltered and hop-forward."
+    },
+    "codeword": "hopfen"
+  },
+  {
+    "id": "d6",
+    "slug": "mahrs-braeu",
+    "name": {
+      "de": "Mahrs Bräu",
+      "en": "Mahrs Bräu"
+    },
+    "category": "beer",
+    "subcategory": "taproom",
+    "tier": "silver",
+    "coords": [
+      49.8899,
+      10.9065
+    ],
+    "riddle": {
+      "de": "Auch in der Wunderburg – aber das Bier ist ungespundet. Nur Natur, kein Druck. Seit 1895 in Familienhand.",
+      "en": "Also in Wunderburg – but the beer is unspunded. Only nature, no pressure. Family-owned since 1895."
+    },
+    "hint": {
+      "de": "Wunderburg – neben Keesmann",
+      "en": "Wunderburg – next to Keesmann"
+    },
+    "question": {
+      "de": "Wie viele Jahre braucht Mahrs Bräu für sein Ungespundetes?",
+      "en": "How long does Mahrs Bräu's Ungespundetes take to mature?"
+    },
+    "answers": [
+      "14 wochen",
+      "14 wochen",
+      "14 weeks",
+      "fourteen weeks"
+    ],
+    "history_60w": {
+      "de": "Seit 1895 im Besitz der Familie Michel. Mahrs Bräu ist berühmt für das 'Ungespundete' – ein Lager, das ohne Überdruck reift. Das Bier lagert 14 Wochen in Sandsteinkellern. Die Brauerei produziert 23.000 Hektoliter jährlich.",
+      "en": "Owned by the Michel family since 1895. Mahrs Bräu is famous for 'Ungespundetes' – a lager that matures without overpressure. The beer ages 14 weeks in sandstone cellars. Annual production: 23,000 hectolitres."
+    },
+    "look_for": {
+      "de": "Die historischen Sudkessel im Brauhaus.",
+      "en": "The historic brew kettles in the brewhouse."
+    },
+    "photo_tip": {
+      "de": "Der Biergarten unter den Kastanien.",
+      "en": "The beer garden beneath the chestnut trees."
+    },
+    "hours": {
+      "de": "Täglich 10:00–23:00.",
+      "en": "Daily 10am–11pm."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": "Ungespundetes Lager",
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": {
+      "de": "Das Ungespundetes reift ohne Druck – eine alte fränkische Methode.",
+      "en": "Ungespundetes matures without pressure – an old Franconian method."
+    },
+    "codeword": "ungespundet"
+  },
+  {
+    "id": "d7",
+    "slug": "kaiserdom",
+    "name": {
+      "de": "Brauerei Kaiserdom",
+      "en": "Kaiserdom Brewery"
+    },
+    "category": "beer",
+    "subcategory": "taproom",
+    "tier": "silver",
+    "coords": [
+      49.9042,
+      10.8522
+    ],
+    "riddle": {
+      "de": "Etwas außerhalb, im Gaustadt-Grünen, braue ich das Bier für den Dom. Mein Name ist größer als mein Haus – aber mein Bier reist um die Welt.",
+      "en": "A bit outside, in Gaustadt's greenery, I brew the beer for the cathedral. My name is bigger than my house – but my beer travels the world."
+    },
+    "hint": {
+      "de": "Gaustadt – nordwestlich der Altstadt",
+      "en": "Gaustadt – northwest of the old town"
+    },
+    "question": {
+      "de": "Wie viele Bögen hat das Kaiserdom-Logo?",
+      "en": "How many arches does the Kaiserdom logo have?"
+    },
+    "answers": [
+      "3",
+      "drei",
+      "three"
+    ],
+    "history_60w": {
+      "de": "Kaiserdom braut seit 1789 in Gaustadt am Rand Bambergs. Trotz des Namens ist die Brauerei bodenständig: Das Pils ist das meistgetrunkene Bier der Region. Vom Biergarten blickt man auf die Wiesen des Regnitztals.",
+      "en": "Kaiserdom has brewed since 1789 in Gaustadt on the edge of Bamberg. Despite the grand name, the brewery is down-to-earth: the Pils is the region's most popular. The beer garden overlooks Regnitz valley meadows."
+    },
+    "look_for": {
+      "de": "Der Biergarten mit Blick aufs Regnitztal.",
+      "en": "The beer garden overlooking the Regnitz valley."
+    },
+    "photo_tip": {
+      "de": "Vom Biergarten aus, Blick über die Felder.",
+      "en": "From the beer garden, looking over the fields."
+    },
+    "hours": {
+      "de": "Mo–Fr 11:00–23:00, Sa/So 10:00–23:00.",
+      "en": "Mon–Fri 11am–11pm, Sat/Sun 10am–11pm."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": "Kaiserdom Pils",
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": {
+      "de": "Das meistgetrunkene Bier der Region.",
+      "en": "The most popular beer in the region."
+    },
+    "codeword": "gaustadt"
+  },
+  {
+    "id": "d8",
+    "slug": "greifenklau",
+    "name": {
+      "de": "Brauerei Greifenklau",
+      "en": "Greifenklau Brewery"
+    },
+    "category": "beer",
+    "subcategory": "taproom",
+    "tier": "silver",
+    "coords": [
+      49.8905,
+      10.8764
+    ],
+    "riddle": {
+      "de": "Am Laurenziplatz, unter der Altenburg. Seit 1719 fließt hier das Bier. Ein Greif wacht über dem Eingang.",
+      "en": "At Laurenziplatz, beneath Altenburg castle. Since 1719, beer has flowed here. A griffin guards the entrance."
+    },
+    "hint": {
+      "de": "Laurenziplatz – am Fuß der Altenburg",
+      "en": "Laurenziplatz – at the foot of Altenburg"
+    },
+    "question": {
+      "de": "Wie viele Stufen führen vom Laurenziplatz zur Brauerei hinauf?",
+      "en": "How many steps lead from Laurenziplatz up to the brewery?"
+    },
+    "answers": [
+      "5",
+      "fünf",
+      "five"
+    ],
+    "history_60w": {
+      "de": "Seit 1719 im Familienbesitz, braut Greifenklau am Laurenziplatz unterhalb der Altenburg. Der Biergarten bietet Blick auf die Burg. Spezialität: der Greif-R, ein mildes Rauchbier, und der Rote Bock im Frühjahr.",
+      "en": "Family-owned since 1719, Greifenklau brews at Laurenziplatz below Altenburg castle. The beer garden offers views of the castle. Specialities: Greif-R, a mild smoked beer, and Red Bock in spring."
+    },
+    "look_for": {
+      "de": "Der Greif über dem Eingang und der Blick zur Altenburg.",
+      "en": "The griffin above the entrance and the view toward Altenburg."
+    },
+    "photo_tip": {
+      "de": "Vom Biergarten aus, Blick hinauf zur Altenburg.",
+      "en": "From the beer garden, looking up at Altenburg castle."
+    },
+    "hours": {
+      "de": "Di–Fr ab 15:00, Sa ab 11:00, So/Mo Ruhetag.",
+      "en": "Tue–Fri from 3pm, Sat from 11am, Sun/Mon closed."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": "Greifenklau Lager",
+    "is_rauchbier": true,
+    "malts_own": false,
+    "house_lore": {
+      "de": "Der Greif-R ist ein mildes Rauchbier – der Geheimtipp.",
+      "en": "Greif-R is a mild smoked beer – the insider tip."
+    },
+    "codeword": "greif"
+  },
+  {
+    "id": "d9",
+    "slug": "ambraeusianum",
+    "name": {
+      "de": "Ambräusianum",
+      "en": "Ambräusianum"
+    },
+    "category": "beer",
+    "subcategory": "taproom",
+    "tier": "silver",
+    "coords": [
+      49.8913,
+      10.8862
+    ],
+    "riddle": {
+      "de": "Hausgebraut, nur hier. In der Dominikanerstraße, direkt neben dem Schlenkerla. Kleiner, jünger – aber selbst gebraut.",
+      "en": "House-brewed, only here. On Dominikanerstraße, right next to Schlenkerla. Smaller, younger – but self-brewed."
+    },
+    "hint": {
+      "de": "Dominikanerstraße – neben Schlenkerla",
+      "en": "Dominikanerstraße – next to Schlenkerla"
+    },
+    "question": {
+      "de": "Wie viele Biere sind auf der Tageskarte des Ambräusianum?",
+      "en": "How many beers are on Ambräusianum's daily menu?"
+    },
+    "answers": [
+      "4",
+      "vier",
+      "four"
+    ],
+    "history_60w": {
+      "de": "Die jüngste Brauerei Bambergs, eröffnet 2005. Das Ambräusianum ist eine Gasthausbrauerei – gebraut wird im Haus, ausgeschenkt im Parterre. Vier Biere wechseln ständig. Ein Handwerk, das man schmeckt.",
+      "en": "Bamberg's newest brewery, opened in 2005. Ambräusianum is a brewpub – brewed in-house, served downstairs. Four constantly rotating beers. A craft you can taste."
+    },
+    "look_for": {
+      "de": "Die Sudpfanne hinter der Theke.",
+      "en": "The brew kettle behind the counter."
+    },
+    "photo_tip": {
+      "de": "Die kleine Brauanlage im Gastraum.",
+      "en": "The small brewing system in the dining room."
+    },
+    "hours": {
+      "de": "Mo–Sa ab 16:00, So ab 11:00.",
+      "en": "Mon–Sat from 4pm, Sun from 11am."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": "Saisonale Biere",
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": {
+      "de": "Vier wechselnde Biere – immer frisch gebraut.",
+      "en": "Four rotating beers – always freshly brewed."
+    },
+    "codeword": "hausbrau"
+  },
+  {
+    "id": "d10",
+    "slug": "spezial-keller",
+    "name": {
+      "de": "Spezial-Keller",
+      "en": "Spezial-Keller"
+    },
+    "category": "beer",
+    "subcategory": "keller",
+    "tier": "silver",
+    "coords": [
+      49.8945,
+      10.8775
+    ],
+    "riddle": {
+      "de": "Auf dem Keller sitzt man, nicht in ihm. Über den Dächern, mit Blick auf den Dom. Das Rauchbier schmeckt hier noch einmal anders.",
+      "en": "You sit on the cellar, not in it. Above the rooftops, overlooking the cathedral. The smoked beer tastes different up here."
+    },
+    "hint": {
+      "de": "Sternwartstraße – oberhalb der Sandstraße",
+      "en": "Sternwartstraße – above Sandstraße"
+    },
+    "question": {
+      "de": "Welche Farbe hat die Bankreihe mit dem schönsten Domblick?",
+      "en": "What colour is the bench row with the best cathedral view?"
+    },
+    "answers": [
+      "grün",
+      "green",
+      "dunkelgrün",
+      "dark green"
+    ],
+    "history_60w": {
+      "de": "Der Spezial-Keller ist der traditionelle Bierkeller der Brauerei Spezial auf dem Michaelsberg. 'Auf den Keller gehen' heißt hier: Bier im Freien, selbst mitgebrachte Brotzeit, Blick über die Stadt. Geöffnet nur bei gutem Wetter.",
+      "en": "Spezial-Keller is the traditional beer cellar of Spezial Brewery on Michaelsberg. 'Going to the cellar' means: beer outdoors, self-brought snacks, views over the city. Open only in good weather."
+    },
+    "look_for": {
+      "de": "Der Blick vom Keller auf den Dom.",
+      "en": "The view from the cellar toward the cathedral."
+    },
+    "photo_tip": {
+      "de": "Bei Sonnenuntergang von der obersten Bankreihe.",
+      "en": "At sunset from the top bench row."
+    },
+    "hours": {
+      "de": "Bei schönem Wetter, etwa April–Oktober.",
+      "en": "In good weather, approximately April–October."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": "Rauchbier (vom Fass)",
+    "is_rauchbier": true,
+    "malts_own": false,
+    "house_lore": {
+      "de": "Klassischer Bierkeller – 'Auf den Keller gehen' ist fränkische Tradition.",
+      "en": "Classic beer cellar – 'going to the cellar' is Franconian tradition."
+    },
+    "codeword": "aussicht"
+  },
+  {
+    "id": "d11",
+    "slug": "wilde-rose-keller",
+    "name": {
+      "de": "Wilde Rose Keller",
+      "en": "Wilde Rose Keller"
+    },
+    "category": "beer",
+    "subcategory": "keller",
+    "tier": "silver",
+    "coords": [
+      49.8885,
+      10.877
+    ],
+    "riddle": {
+      "de": "Auf dem Stephansberg, versteckt hinter Bäumen. Wildrosen ranken um den Eingang. Seit über 100 Jahren ein Sommertreff.",
+      "en": "On Stephansberg, hidden behind trees. Wild roses climb around the entrance. A summer meeting spot for over 100 years."
+    },
+    "hint": {
+      "de": "Oberer Stephansberg – der ruhigste Bierkeller",
+      "en": "Oberer Stephansberg – the quietest beer cellar"
+    },
+    "question": {
+      "de": "Wie viele Sitzplätze hat der Wilde Rose Keller?",
+      "en": "How many seats does the Wilde Rose Keller have?"
+    },
+    "answers": [
+      "1500",
+      "fünfzehnhundert",
+      "fifteen hundred"
+    ],
+    "history_60w": {
+      "de": "Der Wilde Rose Keller auf dem Oberen Stephansberg ist seit über 100 Jahren ein Bamberger Sommertreff. 1.500 Sitzplätze, großer Spielplatz, Bier von verschiedenen Brauereien. Hier treffen sich Familien und Freunde.",
+      "en": "Wilde Rose Keller on Oberer Stephansberg has been a Bamberg summer meeting spot for over 100 years. 1,500 seats, large playground, beer from various breweries. Families and friends gather here."
+    },
+    "look_for": {
+      "de": "Die Wildrosen am Eingang und der weite Blick.",
+      "en": "The wild roses at the entrance and the wide view."
+    },
+    "photo_tip": {
+      "de": "Der Biergarten mit Blick auf die Altenburg.",
+      "en": "The beer garden with a view of Altenburg castle."
+    },
+    "hours": {
+      "de": "Bei schönem Wetter, etwa Mai–September.",
+      "en": "In good weather, approximately May–September."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": "Verschiedene Biere",
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": {
+      "de": "Der einzige Keller, der nicht nur das eigene Bier ausschenkt.",
+      "en": "The only cellar serving beer from multiple breweries."
+    },
+    "codeword": "stephansberg"
+  },
+  {
+    "id": "d12",
+    "slug": "greifenklau-keller",
+    "name": {
+      "de": "Greifenklau Keller",
+      "en": "Greifenklau Keller"
+    },
+    "category": "beer",
+    "subcategory": "keller",
+    "tier": "silver",
+    "coords": [
+      49.89,
+      10.875
+    ],
+    "riddle": {
+      "de": "Unter der Altenburg, im Grünen versteckt. Der Geheimtipp unter den Kellern – hier sitzt man mit Einheimischen, ohne Touristen.",
+      "en": "Beneath Altenburg castle, hidden in greenery. The insider tip among the cellars – here you sit with locals, without tourists."
+    },
+    "hint": {
+      "de": "Laurenziplatz – der Garten der Brauerei",
+      "en": "Laurenziplatz – the brewery garden"
+    },
+    "question": {
+      "de": "Wie viele Sitzplätze hat der Biergarten (außen)?",
+      "en": "How many outdoor seats does the beer garden have?"
+    },
+    "answers": [
+      "300",
+      "dreihundert",
+      "three hundred"
+    ],
+    "history_60w": {
+      "de": "Der Biergarten der Brauerei Greifenklau unter der Altenburg. 300 Sitzplätze im Freien, 140 überdacht. Bekannt für Innereien-Gerichte und fränkische Brotzeiten. Hier ist man unter sich – Einheimische, Schafkopf und ein Bier vom Fass.",
+      "en": "The beer garden of Greifenklau Brewery beneath Altenburg castle. 300 outdoor seats, 140 covered. Known for innards dishes and Franconian snacks. Here you're among locals – Schafkopf cards and draught beer."
+    },
+    "look_for": {
+      "de": "Der Blick durch die Bäume zur Altenburg.",
+      "en": "The view through the trees toward Altenburg castle."
+    },
+    "photo_tip": {
+      "de": "Durch die Kastanien zur Altenburg hinauf.",
+      "en": "Through the chestnut trees up toward Altenburg."
+    },
+    "hours": {
+      "de": "Di–Fr ab 15:00, Sa ab 11:00, So/Mo Ruhetag. Nur bei gutem Wetter.",
+      "en": "Tue–Fri from 3pm, Sat from 11am, Sun/Mon closed. Good weather only."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": "Greifenklau Lager (vom Fass)",
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": {
+      "de": "Einheimische unter sich – hier findet man selten Touristen.",
+      "en": "Locals among themselves – you'll rarely find tourists here."
+    },
+    "codeword": "altenburg"
+  },
+  {
+    "id": "a6",
+    "slug": "st-stephan",
+    "name": {
+      "de": "St. Stephan",
+      "en": "St. Stephen's Church"
+    },
+    "category": "a",
+    "subcategory": "churches",
+    "tier": "silver",
+    "coords": [
+      49.8883,
+      10.8878
+    ],
+    "riddle": {
+      "de": "Ich stehe hoch auf einem Hügel, mein Turm ist schlank und schaut weit. In mir findet Orgelmusik statt, die durch die Säulen hallt.",
+      "en": "I stand high on a hill, my tower slender and far-seeing. Within me organ music resounds through the columns."
+    },
+    "hint": {
+      "de": "Einer der sieben Hügel – südwestlich vom Dom.",
+      "en": "One of the seven hills – southwest of the cathedral."
+    },
+    "question": {
+      "de": "Wie viele große Rundbogenfenster hat die Westfassade von St. Stephan?",
+      "en": "How many large arched windows does the west façade of St. Stephen's have?"
+    },
+    "answers": [
+      "3",
+      "drei"
+    ],
+    "history_60w": {
+      "de": "St. Stephan wurde ab dem 11. Jahrhundert erbaut und war Kollegiatstift. Der heutige Barockbau stammt aus dem 17./18. Jahrhundert. Die Kirche gehört zu den sieben Bamberger Hügelkirchen. Berühmt ist die St.-Stephans-Orgel, eine der größten Orgeln Frankens. Von hier hat man einen weiten Blick über die Altstadt.",
+      "en": "St. Stephen's was built from the 11th century as a collegiate foundation. The current Baroque building dates to the 17th/18th centuries. It is one of Bamberg's seven hill churches. Famous for its organ, one of Franconia's largest. The hilltop offers sweeping views of the old town."
+    },
+    "look_for": {
+      "de": "Der Blick vom Stephansberg über die Dächer der Altstadt.",
+      "en": "The view from Stephansberg over the old town rooftops."
+    },
+    "photo_tip": {
+      "de": "Kirchenschiff mit Orgel von hinten.",
+      "en": "The nave with the organ from the rear."
+    },
+    "hours": {
+      "de": "Täglich 9–18 Uhr",
+      "en": "Daily 9am–6pm"
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "a7",
+    "slug": "st-jakob",
+    "name": {
+      "de": "St. Jakob",
+      "en": "St. James's Church"
+    },
+    "category": "a",
+    "subcategory": "churches",
+    "tier": "silver",
+    "coords": [
+      49.8942,
+      10.8898
+    ],
+    "riddle": {
+      "de": "Am Jakobsberg bin ich zu Haus, einst Pilgerherberge am weiten Weg nach Spanien. Mein Grundriss ist streng und klar, romanisch und alt.",
+      "en": "I make my home on Jakobsberg, once a pilgrim hostel on the long road to Spain. My floorplan is strict and clear, Romanesque and old."
+    },
+    "hint": {
+      "de": "Nördlicher Hügel, nah am Bahnhof.",
+      "en": "Northern hill, near the train station."
+    },
+    "question": {
+      "de": "Wie viele Säulen trägt das Mittelschiff von St. Jakob?",
+      "en": "How many columns support the nave of St. James's?"
+    },
+    "answers": [
+      "8",
+      "acht"
+    ],
+    "history_60w": {
+      "de": "St. Jakob wurde um 1100 als Kirche eines Benediktinerklosters gegründet und diente als Station am Jakobsweg. Der romanische Bau ist eine der ältesten Kirchen Bambergs. Die schlichte Architektur mit flacher Decke und mächtigen Säulen prägt den Innenraum. Die Kirche überstand die Säkularisation als Pfarrkirche.",
+      "en": "St. James's was founded around 1100 as a Benedictine monastery church on the Way of St. James. This Romanesque building is one of Bamberg's oldest churches. The simple architecture with a flat ceiling and massive columns characterizes the interior. It survived secularization as a parish church."
+    },
+    "look_for": {
+      "de": "Die schlichte romanische Apsis und die mächtigen Säulen.",
+      "en": "The plain Romanesque apse and the massive columns."
+    },
+    "photo_tip": {
+      "de": "Mittelschiff nach Osten, Säulenreihe.",
+      "en": "Nave looking east, the row of columns."
+    },
+    "hours": {
+      "de": "Täglich 9–17 Uhr",
+      "en": "Daily 9am–5pm"
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "a8",
+    "slug": "altenburg",
+    "name": {
+      "de": "Altenburg",
+      "en": "Altenburg Castle"
+    },
+    "category": "a",
+    "subcategory": "castles",
+    "tier": "gold",
+    "coords": [
+      49.8805,
+      10.8699
+    ],
+    "riddle": {
+      "de": "Der höchste der sieben Hügel trägt mich. Ich bin eine alte Festung, heute laden Biergarten und Turm zum Verweilen. Von oben siehst du ganz Bamberg zu deinen Füßen.",
+      "en": "The highest of the seven hills bears me. I am an old fortress; today a beer garden and tower invite you to linger. From the top you see all of Bamberg at your feet."
+    },
+    "hint": {
+      "de": "Der steile Weg hinauf lohnt sich – höchster Punkt der Stadt.",
+      "en": "The steep climb is worth it – the highest point in the city."
+    },
+    "question": {
+      "de": "Wie viele Fensterachsen hat der Hauptbau der Altenburg zur Stadtseite?",
+      "en": "How many window axes does the main building of Altenburg have on the city side?"
+    },
+    "answers": [
+      "7",
+      "sieben"
+    ],
+    "history_60w": {
+      "de": "Die Altenburg wurde erstmals um 1109 erwähnt und diente als bischöfliche Residenz, bevor die Bischöfe in die Stadt zogen. Im 16. Jahrhundert verfiel sie, bevor das Bürgertum sie als Ausflugsziel wiederbelebte. Der Turm bietet den berühmtesten Panoramablick über Bamberg. Der Biergarten unter Kastanien ist lokale Institution.",
+      "en": "Altenburg was first mentioned around 1109. It served as the bishops' residence before they moved into the city. In the 16th century it fell into disrepair before being revived as a civic excursion destination. The tower offers the most famous panoramic view of Bamberg. The beer garden under chestnut trees is a local institution."
+    },
+    "look_for": {
+      "de": "Der Blick vom Turm über alle sieben Hügel.",
+      "en": "The view from the tower over all seven hills."
+    },
+    "photo_tip": {
+      "de": "Panorama vom Turm bei Sonnenuntergang.",
+      "en": "Panorama from the tower at sunset."
+    },
+    "hours": {
+      "de": "Turm: April–Okt. tägl. 10–18 Uhr. Biergarten: saisonal.",
+      "en": "Tower: Apr–Oct daily 10am–6pm. Beer garden: seasonal."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "a9",
+    "slug": "abtsberg",
+    "name": {
+      "de": "Abtsberg",
+      "en": "Abtsberg Hill"
+    },
+    "category": "a",
+    "subcategory": "landmarks",
+    "tier": "gold",
+    "coords": [
+      49.8865,
+      10.894
+    ],
+    "riddle": {
+      "de": "Ich bin kein Berg mit Gipfelkreuz, sondern ein Ort der Stille zwischen den Hügeln. Kräuter und Blumen wachsen auf mir, und der Blick fällt auf die Neue Residenz.",
+      "en": "I am no mountain with a summit cross, but a place of calm between the hills. Herbs and flowers grow on me, and the view falls upon the New Residence."
+    },
+    "hint": {
+      "de": "Hinter der Neuen Residenz, zwischen Dom und St. Michael.",
+      "en": "Behind the New Residence, between the cathedral and St. Michael's."
+    },
+    "question": {
+      "de": "Wie viele Stufen führen vom Abtsberg hinunter zur Neuen Residenz?",
+      "en": "How many steps lead down from Abtsberg to the New Residence?"
+    },
+    "answers": [
+      "46",
+      "sechsundvierzig"
+    ],
+    "history_60w": {
+      "de": "Der Abtsberg ist ein bewaldeter Hügel zwischen Dom und Michelsberg, früher Klostergarten der Benediktinerabtei St. Michael. Der Name erinnert an die Äbte, die hier ihre Kräuter zogen. Heute ist es ein ruhiger Park mit Bänken und altem Baumbestand, ideal für eine Pause abseits der Touristenströme.",
+      "en": "Abtsberg is a wooded hill between the cathedral and Michelsberg, formerly the monastery garden of St. Michael's Abbey. The name recalls the abbots who grew their herbs here. Today it is a quiet park with benches and old trees, ideal for a break away from the tourist crowds."
+    },
+    "look_for": {
+      "de": "Die alten Bäume und der Blick über die Dächer.",
+      "en": "The old trees and the view over the rooftops."
+    },
+    "photo_tip": {
+      "de": "Durch die Bäume auf die Neue Residenz.",
+      "en": "Through the trees toward the New Residence."
+    },
+    "hours": {
+      "de": "Immer zugänglich",
+      "en": "Always accessible"
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "b2",
+    "slug": "rosengarten",
+    "name": {
+      "de": "Rosengarten",
+      "en": "Rose Garden"
+    },
+    "category": "b",
+    "subcategory": "gardens",
+    "tier": "bronze",
+    "coords": [
+      49.8913,
+      10.8842
+    ],
+    "riddle": {
+      "de": "Hinter den Mauern der Macht blühe ich in tausend Farben. Der Duft steigt zum Himmel, die Blicke schweifen über Bamberg.",
+      "en": "Behind the walls of power I bloom in a thousand colours. The scent rises to heaven, eyes wander over Bamberg."
+    },
+    "hint": {
+      "de": "Hinter der Neuen Residenz, Richtung Dom.",
+      "en": "Behind the New Residence, toward the cathedral."
+    },
+    "question": {
+      "de": "Wie viele steinerne Putten (kleine Figuren) stehen auf der Balustrade des Rosengartens?",
+      "en": "How many small stone cherub figures stand on the balustrade of the Rose Garden?"
+    },
+    "answers": [
+      "4",
+      "vier"
+    ],
+    "history_60w": {
+      "de": "Der Rosengarten der Neuen Residenz wurde Anfang des 18. Jahrhunderts als Barockgarten angelegt. Über 4.000 Rosen in vielen Sorten blühen hier von Mai bis September. Die Terrasse bietet einen der schönsten Ausblicke auf die Bamberger Altstadt. Der Garten ist öffentlich zugänglich und dient heute als Parkanlage.",
+      "en": "The Rose Garden of the New Residence was laid out in the early 18th century as a Baroque garden. Over 4,000 roses in many varieties bloom here from May to September. The terrace offers one of the most beautiful views of Bamberg's old town. The garden is publicly accessible."
+    },
+    "look_for": {
+      "de": "Der Ausblick über die Altstadt von der Terrasse.",
+      "en": "The view over the old town from the terrace."
+    },
+    "photo_tip": {
+      "de": "Rosen im Vordergrund, Altstadt im Hintergrund.",
+      "en": "Roses in the foreground, old town in the background."
+    },
+    "hours": {
+      "de": "Täglich bis Einbruch der Dunkelheit",
+      "en": "Daily until nightfall"
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "b3",
+    "slug": "alte-hofhaltung",
+    "name": {
+      "de": "Alte Hofhaltung",
+      "en": "Old Court"
+    },
+    "category": "b",
+    "subcategory": "palaces",
+    "tier": "silver",
+    "coords": [
+      49.891,
+      10.883
+    ],
+    "riddle": {
+      "de": "Hier tagten einst Bischof und Domkapitel. Der Renaissancehof ist still und würdig. In meinem Innenhof findet jeden Sommer das historische Fest statt.",
+      "en": "Here once met the bishop and cathedral chapter. The Renaissance courtyard is quiet and dignified. Within my courtyard the historical festival takes place every summer."
+    },
+    "hint": {
+      "de": "Neben dem Dom, gegenüber der Neuen Residenz.",
+      "en": "Next to the cathedral, opposite the New Residence."
+    },
+    "question": {
+      "de": "Wie viele Rundbogenarkaden hat der Innenhof der Alten Hofhaltung?",
+      "en": "How many rounded archways does the inner courtyard of the Old Court have?"
+    },
+    "answers": [
+      "16",
+      "sechzehn"
+    ],
+    "history_60w": {
+      "de": "Die Alte Hofhaltung war von etwa 1200 bis 1603 Sitz der Bamberger Bischöfe, bevor sie in die Neue Residenz umzogen. Der Renaissance-Innenhof mit seinen Arkaden und Erkern stammt aus dem 16. Jahrhundert. Heute beherbergt das Gebäude das Historische Museum. Jährlich findet hier das Sandkerwa-Fest mit historischem Markt statt.",
+      "en": "The Old Court was the seat of Bamberg's bishops from around 1200 to 1603 before they moved to the New Residence. The Renaissance courtyard with its arcades and oriels dates from the 16th century. Today the building houses the Historical Museum. The annual Sandkerwa festival with a historical market takes place here."
+    },
+    "look_for": {
+      "de": "Der Renaissance-Innenhof mit den Arkaden und dem Zierbrunnen.",
+      "en": "The Renaissance courtyard with arcades and the ornamental fountain."
+    },
+    "photo_tip": {
+      "de": "Arkadengang im Innenhof, von unten fotografiert.",
+      "en": "Arcade walkway in the courtyard, photographed from below."
+    },
+    "hours": {
+      "de": "Innenhof jederzeit zugänglich. Museum: Di–So 10–17 Uhr.",
+      "en": "Courtyard always accessible. Museum: Tue–Sun 10am–5pm."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "b5",
+    "slug": "boettingerhaus",
+    "name": {
+      "de": "Böttingerhaus",
+      "en": "Böttinger House"
+    },
+    "category": "b",
+    "subcategory": "buildings",
+    "tier": "silver",
+    "coords": [
+      49.8923,
+      10.8863
+    ],
+    "riddle": {
+      "de": "Prunkvoll und protzig, so nannten es die Nachbarn. Ein aufstrebender Hofbeamter baute mich, den die Adligen verachteten. Heute bestaunen mich alle.",
+      "en": "Opulent and showy, so the neighbours called me. An ambitious court official built me, whom the nobles despised. Today everyone marvels at me."
+    },
+    "hint": {
+      "de": "In der Judenstraße, zwischen Geyerswörth und Oberer Brücke.",
+      "en": "On Judenstraße, between Geyerswörth and the Upper Bridge."
+    },
+    "question": {
+      "de": "Wie viele Maskaron-Köpfe (steinerne Gesichter) zählen das Böttingerhaus zur Straßenseite?",
+      "en": "How many mascaron faces adorn the street side of Böttinger House?"
+    },
+    "answers": [
+      "5",
+      "fünf"
+    ],
+    "history_60w": {
+      "de": "Das Böttingerhaus wurde 1707–1713 für Ignaz Tobias Böttinger, einen Beamten des Fürstbischofs, erbaut. Der Barockpalast ist das prächtigste Bürgerhaus Bambergs. Die Nachbarn, die Grafen von Stauffenberg, waren über den protzigen Bau empört. Das Haus gilt als eines der schönsten Barockhäuser Süddeutschlands.",
+      "en": "Böttinger House was built 1707–1713 for Ignaz Tobias Böttinger, a prince-bishop's official. This Baroque palace is Bamberg's most splendid townhouse. The neighbours, the counts of Stauffenberg, were outraged by the showy construction. It is considered one of the finest Baroque houses in southern Germany."
+    },
+    "look_for": {
+      "de": "Die reich verzierten Fensterrahmen und die Fassadenskulpturen.",
+      "en": "The richly decorated window frames and facade sculptures."
+    },
+    "photo_tip": {
+      "de": "Fassade von schräg gegenüber, um die Tiefe der Gliederung zu zeigen.",
+      "en": "Facade from diagonally across to show the depth of its articulation."
+    },
+    "hours": {
+      "de": "Von außen jederzeit zu besichtigen.",
+      "en": "Visible from outside at all times."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "b9",
+    "slug": "maxplatz",
+    "name": {
+      "de": "Maxplatz",
+      "en": "Maximilian's Square"
+    },
+    "category": "b",
+    "subcategory": "squares",
+    "tier": "bronze",
+    "coords": [
+      49.8947,
+      10.8895
+    ],
+    "riddle": {
+      "de": "Ich bin der Torplatz zur Stadt, wo einst die Reisenden aus dem Norden empfangen wurden. Heute treffen sich hier Studenten und Marktleute.",
+      "en": "I am the gateway square to the city, where travellers from the north were once received. Today students and market folk meet here."
+    },
+    "hint": {
+      "de": "Am nördlichen Ende der Fußgängerzone, nahe St. Jakob.",
+      "en": "At the northern end of the pedestrian zone, near St. James's."
+    },
+    "question": {
+      "de": "Wie viele Linden stehen auf dem Maxplatz?",
+      "en": "How many linden trees stand on Maxplatz?"
+    },
+    "answers": [
+      "6",
+      "sechs"
+    ],
+    "history_60w": {
+      "de": "Der Maxplatz entstand im 19. Jahrhundert am ehemaligen nördlichen Stadttor. Benannt ist er nach König Maximilian II. Joseph von Bayern. Der Platz ist von historischen Bürgerhäusern gesäumt, darunter das ehemalige Gasthaus ‚Weißes Ross‘. Der tägliche Wochenmarkt findet hier statt.",
+      "en": "Maxplatz was created in the 19th century at the former northern city gate. It is named after King Maximilian II Joseph of Bavaria. The square is lined with historic townhouses, including the former 'Weißes Ross' inn. The daily weekly market takes place here."
+    },
+    "look_for": {
+      "de": "Die alten Bürgerhäuser und der Brunnen in der Platzmitte.",
+      "en": "The old townhouses and the fountain in the centre of the square."
+    },
+    "photo_tip": {
+      "de": "Von Norden mit Blick in die Fußgängerzone.",
+      "en": "From the north looking into the pedestrian zone."
+    },
+    "hours": {
+      "de": "Immer zugänglich. Markt: Mo–Sa 7–14 Uhr.",
+      "en": "Always accessible. Market: Mon–Sat 7am–2pm."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "c3",
+    "slug": "obere-bruecke",
+    "name": {
+      "de": "Obere Brücke",
+      "en": "Upper Bridge"
+    },
+    "category": "c",
+    "subcategory": "bridges",
+    "tier": "bronze",
+    "coords": [
+      49.8927,
+      10.8883
+    ],
+    "riddle": {
+      "de": "Ich bin die jüngere Schwester der Unteren Brücke, aber nicht weniger geschäftig. Auf mir drängen sich die Menschen zwischen den Läden.",
+      "en": "I am the younger sister of the Lower Bridge, but no less busy. People crowd between the shops upon me."
+    },
+    "hint": {
+      "de": "Die Brücke am Ende der Judenstraße, Richtung Insel.",
+      "en": "The bridge at the end of Judenstraße, toward the island."
+    },
+    "question": {
+      "de": "Wie viele Laternen stehen auf der Oberen Brücke?",
+      "en": "How many lamps stand on the Upper Bridge?"
+    },
+    "answers": [
+      "4",
+      "vier"
+    ],
+    "history_60w": {
+      "de": "Die Obere Brücke verbindet die Altstadt mit der Inselstadt über die Regnitz. Die heutige Brücke stammt aus dem 19. Jahrhundert. Sie ist eine wichtige Fußgängerverbindung zwischen den Einkaufsstraßen. An ihrem südlichen Ende liegt das ehemalige Zollhaus.",
+      "en": "The Upper Bridge connects the old town with the island city across the Regnitz. The current bridge dates from the 19th century. It is an important pedestrian link between the shopping streets. At its southern end lies the former customs house."
+    },
+    "look_for": {
+      "de": "Der Blick von der Brücke flussaufwärts auf Klein Venedig.",
+      "en": "The view upstream from the bridge toward Little Venice."
+    },
+    "photo_tip": {
+      "de": "Von der Brückenmitte Richtung Klein Venedig.",
+      "en": "From the middle of the bridge toward Little Venice."
+    },
+    "hours": {
+      "de": "Immer zugänglich",
+      "en": "Always accessible"
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "c5",
+    "slug": "am-kranen",
+    "name": {
+      "de": "Am Kranen",
+      "en": "The Crane Wharf"
+    },
+    "category": "c",
+    "subcategory": "waterfront",
+    "tier": "silver",
+    "coords": [
+      49.8916,
+      10.888
+    ],
+    "riddle": {
+      "de": "Hier lud man einst die Schiffe aus, der hölzerne Kran ragte über die Regnitz. Heute sitzen die Menschen am Wasser und genießen die Sonne.",
+      "en": "Here ships were once unloaded, the wooden crane reaching over the Regnitz. Today people sit by the water and enjoy the sun."
+    },
+    "hint": {
+      "de": "Am Ufer der Regnitz, zwischen Unterer und Oberer Brücke.",
+      "en": "On the Regnitz bank, between the Lower and Upper Bridges."
+    },
+    "question": {
+      "de": "Wie viele steinerne Poller (Festmacher) stehen entlang der Ufermauer Am Kranen?",
+      "en": "How many stone bollards stand along the quay wall at Am Kranen?"
+    },
+    "answers": [
+      "6",
+      "sechs"
+    ],
+    "history_60w": {
+      "de": "Am Kranen war der mittelalterliche Hafen Bambergs, benannt nach dem hölzernen Kran, der hier Fracht aus den Schiffen hob. Der Kran wurde 1808 abgerissen, der Name blieb. Heute ist die Uferpromenade ein beliebter Treffpunkt mit Blick auf Klein Venedig. Hier legen auch die Ausflugsschiffe an.",
+      "en": "Am Kranen was Bamberg's medieval harbour, named after the wooden crane that lifted cargo from ships. The crane was demolished in 1808, but the name remained. Today the riverside promenade is a popular meeting place with a view of Little Venice. Sightseeing boats also dock here."
+    },
+    "look_for": {
+      "de": "Die alte Ufermauer und der Blick zu Klein Venedig.",
+      "en": "The old quay wall and the view toward Little Venice."
+    },
+    "photo_tip": {
+      "de": "Vom Kranen aus über das Wasser zu den Fachwerkhäusern.",
+      "en": "From Am Kranen across the water to the half-timbered houses."
+    },
+    "hours": {
+      "de": "Immer zugänglich",
+      "en": "Always accessible"
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "e4",
+    "slug": "sandstrasse",
+    "name": {
+      "de": "Sandstraße",
+      "en": "Sand Street"
+    },
+    "category": "e",
+    "subcategory": "streets",
+    "tier": "bronze",
+    "coords": [
+      49.8956,
+      10.8928
+    ],
+    "riddle": {
+      "de": "Ich bin keine Sandwüste, sondern eine Straße voller Leben. Hier wohnen die Gärtner, und am Morgen riecht es nach frischem Gemüse.",
+      "en": "I am no desert of sand, but a street full of life. Here the gardeners live, and in the morning it smells of fresh vegetables."
+    },
+    "hint": {
+      "de": "Nördlich des Maxplatzes, Richtung Gärtnerviertel.",
+      "en": "North of Maxplatz, toward the gardeners' quarter."
+    },
+    "question": {
+      "de": "Wie viele Gärtner-Brunnen (mit Gemüsemotiven) stehen in der Sandstraße?",
+      "en": "How many gardeners' fountains (with vegetable motifs) stand on Sandstraße?"
+    },
+    "answers": [
+      "1",
+      "eins",
+      "einer"
+    ],
+    "history_60w": {
+      "de": "Die Sandstraße ist die Hauptachse des Bamberger Gärtnerviertels im Stadtteil Wunderburg. Schon seit dem Mittelalter wird hier im sandigen Boden Gemüse angebaut. Die Straße ist gesäumt von Gärtnerhäusern und Kleingärten. Der Gärtnerbrunnen erinnert an die Tradition des Gemüseanbaus, die Bambergs Gärtnerstadt-Identität prägt.",
+      "en": "Sand Street is the main axis of Bamberg's gardeners' quarter in the Wunderburg district. Vegetables have been grown in the sandy soil here since the Middle Ages. The street is lined with gardeners' houses and small gardens. The gardeners' fountain recalls the vegetable-growing tradition that shapes Bamberg's identity as a gardener city."
+    },
+    "look_for": {
+      "de": "Der Gärtnerbrunnen und die typischen Gärtnerhäuser.",
+      "en": "The gardeners' fountain and the typical gardeners' houses."
+    },
+    "photo_tip": {
+      "de": "Gärtnerbrunnen im Vordergrund, Häuserzeile dahinter.",
+      "en": "Gardeners' fountain in the foreground, row of houses behind."
+    },
+    "hours": {
+      "de": "Immer zugänglich",
+      "en": "Always accessible"
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "f4",
+    "slug": "historisches-museum",
+    "name": {
+      "de": "Historisches Museum",
+      "en": "Historical Museum"
+    },
+    "category": "f",
+    "subcategory": "museums",
+    "tier": "silver",
+    "coords": [
+      49.8908,
+      10.8831
+    ],
+    "riddle": {
+      "de": "In der Alten Hofhaltung wohne ich. Von der Steinzeit bis heute erzähle ich Bambergs Geschichte. Meine Schätze sind still und warten auf Entdeckung.",
+      "en": "I dwell in the Old Court. From the Stone Age to the present, I tell Bamberg's story. My treasures are silent and await discovery."
+    },
+    "hint": {
+      "de": "Im Innenhof der Alten Hofhaltung, neben dem Dom.",
+      "en": "In the courtyard of the Old Court, next to the cathedral."
+    },
+    "question": {
+      "de": "Wie viele Stockwerke hat das Historische Museum in der Alten Hofhaltung?",
+      "en": "How many floors does the Historical Museum in the Old Court have?"
+    },
+    "answers": [
+      "3",
+      "drei"
+    ],
+    "history_60w": {
+      "de": "Das Historische Museum Bamberg wurde 1839 gegründet und ist in der Alten Hofhaltung untergebracht. Die Sammlung umfasst Exponate von der Urgeschichte bis ins 20. Jahrhundert, darunter die berühmte Bamberger Götzenfigur (keltisch) und die spätgotische Bamberger Marienfigur. Der Eintritt ist für Kinder und Jugendliche frei.",
+      "en": "The Historical Museum Bamberg was founded in 1839 and is housed in the Old Court. The collection spans from prehistory to the 20th century, including the famous Bamberg idol figure (Celtic) and the late Gothic Bamberg Madonna. Admission is free for children and young people."
+    },
+    "look_for": {
+      "de": "Die keltische Götzenfigur und der Blick aus dem Museum auf den Dom.",
+      "en": "The Celtic idol figure and the view of the cathedral from the museum."
+    },
+    "photo_tip": {
+      "de": "Römische Funde im Museum.",
+      "en": "Roman artefacts in the museum."
+    },
+    "hours": {
+      "de": "Di–So 10–17 Uhr. Mo geschlossen.",
+      "en": "Tue–Sun 10am–5pm. Mon closed."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "f9",
+    "slug": "eta-hoffmann-theater",
+    "name": {
+      "de": "E.T.A.-Hoffmann-Theater",
+      "en": "E.T.A. Hoffmann Theatre"
+    },
+    "category": "f",
+    "subcategory": "theatres",
+    "tier": "silver",
+    "coords": [
+      49.8937,
+      10.8866
+    ],
+    "riddle": {
+      "de": "Nach einem Dichter und Komponisten bin ich benannt, der in dieser Stadt lebte. Hier tanzen die Puppen und die Geister der Fantasie über die Bühne.",
+      "en": "I am named after a poet and composer who lived in this city. Here puppets dance and the ghosts of fantasy cross the stage."
+    },
+    "hint": {
+      "de": "Am Schillerplatz, zwischen Maxplatz und Oberer Brücke.",
+      "en": "At Schillerplatz, between Maxplatz and the Upper Bridge."
+    },
+    "question": {
+      "de": "Wie viele Säulen tragen den Portikus (Vorbau) des Theaters?",
+      "en": "How many columns support the portico of the theatre?"
+    },
+    "answers": [
+      "4",
+      "vier"
+    ],
+    "history_60w": {
+      "de": "Das E.T.A.-Hoffmann-Theater wurde 1805 als ‚Schauspielhaus zu Bamberg‘ eröffnet. E.T.A. Hoffmann, der namensgebende Dichter und Komponist, wirkte hier von 1808 bis 1813 als Musikdirektor und Bühnenbildner. Das Gebäude ist eines der wenigen erhaltenen Theater des Klassizismus in Bayern.",
+      "en": "The E.T.A. Hoffmann Theatre opened in 1805 as the 'Bamberg Playhouse'. E.T.A. Hoffmann, the namesake poet and composer, worked here from 1808 to 1813 as music director and set designer. The building is one of the few preserved Classical theatres in Bavaria."
+    },
+    "look_for": {
+      "de": "Die klassizistische Fassade und der Schriftzug über dem Eingang.",
+      "en": "The Classical facade and the lettering above the entrance."
+    },
+    "photo_tip": {
+      "de": "Fassade von schräg gegenüber, am besten am Abend mit Beleuchtung.",
+      "en": "Facade from diagonally across, best in the evening with lighting."
+    },
+    "hours": {
+      "de": "Theaterkasse: Mo–Fr 11–13 und 16–19 Uhr. Spielplan variiert.",
+      "en": "Box office: Mon–Fri 11am–1pm & 4pm–7pm. Programme varies."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "b8",
+    "slug": "concordia-bein",
+    "name": {
+      "de": "Concordias Cherub-Beinchen",
+      "en": "Concordia's Cherub Leg"
+    },
+    "category": "b",
+    "subcategory": "hidden",
+    "tier": "legendary",
+    "coords": [
+      49.8921,
+      10.8887
+    ],
+    "riddle": {
+      "de": "Hinter dem Brunnen, im Schatten des großen Hauses, streckt sich ein einsames Beinchen aus Stein. Niemand beachtet es, nur wer die Augen offen hält.",
+      "en": "Behind the fountain, in the shadow of the great house, a lonely little stone leg stretches out. No one notices it — only those with open eyes."
+    },
+    "hint": {
+      "de": "An der Fassade des Böttingerhauses, Richtung Geyerswörth, unten am Sockel.",
+      "en": "On the facade of Böttinger House, toward Geyerswörth, down at the base."
+    },
+    "question": {
+      "de": "Wie viele Zehen hat das Cherub-Beinchen?",
+      "en": "How many toes does the cherub leg have?"
+    },
+    "answers": [
+      "5",
+      "fünf"
+    ],
+    "history_60w": {
+      "de": "Ein steinernes Baby-Beinchen ragt aus der Wand des Böttingerhauses – übrig geblieben von einer zerstörten Cherub-Figur. Niemand weiß genau, wann das Bein abbrach. Die Sage sagt, ein neidischer Nachbar habe die Figur in einer stürmischen Nacht zerschlagen. Das Beinchen blieb als stilles Zeugnis übrig.",
+      "en": "A stone baby leg protrudes from the wall of Böttinger House — all that remains of a destroyed cherub figure. No one knows exactly when the leg broke off. Legend says a jealous neighbour smashed the figure on a stormy night. The little leg remains as a silent testament."
+    },
+    "look_for": {
+      "de": "Das steinerne Beinchen am Sockel der Südfassade.",
+      "en": "The stone leg at the base of the south facade."
+    },
+    "photo_tip": {
+      "de": "Nahaufnahme des Beinchens von unten.",
+      "en": "Close-up of the leg from below."
+    },
+    "hours": {
+      "de": "Immer sichtbar (Außenfassade)",
+      "en": "Always visible (exterior facade)"
+    },
+    "accessible": true,
+    "requires_claimed": [
+      "boettingerhaus",
+      "neue-residenz"
+    ],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  }
+]

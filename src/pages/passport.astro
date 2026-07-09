@@ -1,0 +1,478 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import sites from '../../sites.json';
+
+const beerSites = sites.filter(s => s.category === 'beer');
+const taprooms = beerSites.filter(s => s.subcategory === 'taproom');
+const kellers = beerSites.filter(s => s.subcategory === 'keller');
+---
+
+<BaseLayout title="Bierpass – Bamberg Quest" description="Dein Bierpass für die Brauereien Bambergs.">
+  <header class="page-header">
+    <div class="header-row">
+      <div>
+        <h1>🍺 Bierpass / Beer Passport</h1>
+        <p class="subtitle">Sammle Stempel in allen neun Brauereien und drei Bierkellern</p>
+      </div>
+      <div class="header-actions">
+        <label class="toggle-label">
+          <input type="checkbox" id="alcohol-toggle" />
+          <span class="toggle-text">🍇 Ohne Alkohol spielen / <em>Play without alcohol</em></span>
+        </label>
+      </div>
+    </div>
+    <div class="age-gate" id="age-gate">
+      <label class="age-check">
+        <input type="checkbox" id="age-check" />
+        <span>Ich bin 16 oder älter / <em>I am 16 or older</em></span>
+      </label>
+    </div>
+    <p class="optional-note" id="optional-note">
+      🍺 Bier ist optional. Jeder Ort kann auch ohne Alkohol erkundet werden – mit einem Softdrink oder von außen.
+      <br /><em>Beer is optional. Every site can be completed with a soft drink or from outside the building.</em>
+    </p>
+  </header>
+
+  <main>
+    <section class="badges-section">
+      <h2>Abzeichen / Badges</h2>
+      <div class="badges-grid">
+        <div class="badge" id="badge-nine">
+          <div class="badge-icon">🏅</div>
+          <div class="badge-info">
+            <strong>Nine Breweries</strong>
+            <span class="badge-count" id="badge-nine-count">0/9 Taprooms</span>
+          </div>
+        </div>
+        <div class="badge" id="badge-keller">
+          <div class="badge-icon">🏅</div>
+          <div class="badge-info">
+            <strong>Keller-König / Cellar King</strong>
+            <span class="badge-count" id="badge-keller-count">0/3 Keller</span>
+          </div>
+        </div>
+        <div class="badge" id="badge-all">
+          <div class="badge-icon">🏆</div>
+          <div class="badge-info">
+            <strong>Bier-Meister / Beer Master</strong>
+            <span class="badge-count" id="badge-all-count">0/12 Alle</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stamps-section">
+      <h2>Brauereien / Breweries <span class="section-en">(Taprooms)</span></h2>
+      <div class="stamp-grid" id="taproom-stamps">
+        {taprooms.map(site => (
+          <div class="stamp-card" id={`stamp-${site.slug}`} data-slug={site.slug} data-codeword={site.codeword} data-name-de={site.name.de} data-name-en={site.name.en} data-style={site.beer_style} data-rauch={site.is_rauchbier} data-malt={site.malts_own}>
+            <div class="stamp-unclaimed" id={`stamp-unclaimed-${site.slug}`}>
+              <div class="stamp-seal">🫱</div>
+              <div class="stamp-name">{site.name.de}</div>
+              <div class="stamp-method">
+                <button class="codeword-btn" id={`codeword-btn-${site.slug}`}>🔑 Code-Wort / <em>Code word</em></button>
+              </div>
+              <div class="codeword-input-wrap" id={`codeword-input-${site.slug}`} hidden>
+                <input type="text" class="codeword-input" id={`codeword-value-${site.slug}`} placeholder="Code-Wort" autocomplete="off" />
+                <button class="codeword-submit" id={`codeword-submit-${site.slug}`}>Prüfen</button>
+                <span class="codeword-feedback" id={`codeword-feedback-${site.slug}`}></span>
+              </div>
+            </div>
+            <div class="stamp-claimed" id={`stamp-claimed-${site.slug}`} hidden>
+              <div class="stamp-ink">✅</div>
+              <div class="stamp-name">{site.name.de}</div>
+              <div class="stamp-details">
+                <span class="stamp-style">{site.beer_style}</span>
+                {site.is_rauchbier && <span class="stamp-tag rauch">Rauch</span>}
+                {site.malts_own && <span class="stamp-tag malt">Eigenmalz</span>}
+              </div>
+              <div class="stamp-lore">{site.house_lore?.de || ''}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="stamps-section">
+      <h2>Bierkeller / Beer Cellars</h2>
+      <div class="stamp-grid" id="keller-stamps">
+        {kellers.map(site => (
+          <div class="stamp-card" id={`stamp-${site.slug}`} data-slug={site.slug} data-codeword={site.codeword} data-name-de={site.name.de} data-name-en={site.name.en} data-style={site.beer_style} data-rauch={site.is_rauchbier} data-malt={site.malts_own}>
+            <div class="stamp-unclaimed" id={`stamp-unclaimed-${site.slug}`}>
+              <div class="stamp-seal">🫱</div>
+              <div class="stamp-name">{site.name.de}</div>
+              <div class="stamp-method">
+                <button class="codeword-btn" id={`codeword-btn-${site.slug}`}>🔑 Code-Wort / <em>Code word</em></button>
+              </div>
+              <div class="codeword-input-wrap" id={`codeword-input-${site.slug}`} hidden>
+                <input type="text" class="codeword-input" id={`codeword-value-${site.slug}`} placeholder="Code-Wort" autocomplete="off" />
+                <button class="codeword-submit" id={`codeword-submit-${site.slug}`}>Prüfen</button>
+                <span class="codeword-feedback" id={`codeword-feedback-${site.slug}`}></span>
+              </div>
+            </div>
+            <div class="stamp-claimed" id={`stamp-claimed-${site.slug}`} hidden>
+              <div class="stamp-ink">✅</div>
+              <div class="stamp-name">{site.name.de}</div>
+              <div class="stamp-details">
+                <span class="stamp-style">{site.beer_style}</span>
+                {site.is_rauchbier && <span class="stamp-tag rauch">Rauch</span>}
+              </div>
+              <div class="stamp-lore">{site.house_lore?.de || ''}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <p class="alcohol-mode-note" id="alcohol-mode-note" hidden>
+      🍇 Der Bierpass zeigt Brauereigeschichte statt Bier. Jeder Ort kann ohne Alkohol erkundet werden.
+      <br /><em>The passport shows brewing heritage instead of beer. Every site can be explored without alcohol.</em>
+    </p>
+  </main>
+
+  <footer class="page-footer">
+    <a href="/">← Übersicht / Overview</a>
+  </footer>
+</BaseLayout>
+
+<script>
+import { isClaimed, claimSite } from '../lib/game.js';
+
+const lang = document.documentElement.lang;
+
+// Age gate
+const ageCheck = document.getElementById('age-check');
+const ageGate = document.getElementById('age-gate');
+
+// Alcohol toggle
+const alcoholToggle = document.getElementById('alcohol-toggle');
+const alcoholNote = document.getElementById('alcohol-mode-note');
+
+// Badges
+const badgeNineCount = document.getElementById('badge-nine-count');
+const badgeKellerCount = document.getElementById('badge-keller-count');
+const badgeAllCount = document.getElementById('badge-all-count');
+const badgeNine = document.getElementById('badge-nine');
+const badgeKeller = document.getElementById('badge-keller');
+const badgeAll = document.getElementById('badge-all');
+
+function updateStamp(slug) {
+  const claim = isClaimed(slug);
+  const unclaimed = document.getElementById(`stamp-unclaimed-${slug}`);
+  const claimed = document.getElementById(`stamp-claimed-${slug}`);
+  if (!unclaimed || !claimed) return;
+  unclaimed.hidden = claim;
+  claimed.hidden = !claim;
+}
+
+// Codeword handlers
+function setupCodeword(slug) {
+  const btn = document.getElementById(`codeword-btn-${slug}`);
+  const inputWrap = document.getElementById(`codeword-input-${slug}`);
+  const submit = document.getElementById(`codeword-submit-${slug}`);
+  const input = document.getElementById(`codeword-value-${slug}`);
+  const feedback = document.getElementById(`codeword-feedback-${slug}`);
+  if (!btn || !inputWrap) return;
+
+  btn.addEventListener('click', () => {
+    inputWrap.hidden = !inputWrap.hidden;
+    if (!inputWrap.hidden) input?.focus();
+  });
+
+  submit?.addEventListener('click', () => {
+    const stamp = document.getElementById(`stamp-${slug}`);
+    const codeword = stamp?.dataset?.codeword || '';
+    const value = input?.value?.trim().toLowerCase() || '';
+    if (value === codeword) {
+      claimSite(slug, 'codeword');
+      if (feedback) feedback.textContent = lang === 'de' ? '✓ Erkundet!' : '✓ Explored!';
+      updateStamp(slug);
+      updateBadges();
+    } else {
+      if (feedback) feedback.textContent = lang === 'de' ? '✗ Falsch. Frag an der Theke.' : '✗ Wrong. Ask at the bar.';
+    }
+  });
+
+  input?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') submit?.click();
+  });
+}
+
+function updateAllStamps() {
+  const allStamps = document.querySelectorAll('[data-slug]');
+  allStamps.forEach(el => {
+    const slug = el.dataset.slug;
+    if (slug) updateStamp(slug);
+  });
+}
+
+function updateBadges() {
+  const taproomSlugs = ['schlenkerla', 'spezial', 'faessla', 'klosterbraeu', 'keesmann', 'mahrs-braeu', 'kaiserdom', 'greifenklau', 'ambraeusianum'];
+  const kellerSlugs = ['spezial-keller', 'wilde-rose-keller', 'greifenklau-keller'];
+
+  const claimedTaprooms = taproomSlugs.filter(s => isClaimed(s)).length;
+  const claimedKellers = kellerSlugs.filter(s => isClaimed(s)).length;
+
+  if (badgeNineCount) badgeNineCount.textContent = `${claimedTaprooms}/9 Taprooms`;
+  if (badgeKellerCount) badgeKellerCount.textContent = `${claimedKellers}/3 Keller`;
+  if (badgeAllCount) badgeAllCount.textContent = `${claimedTaprooms + claimedKellers}/12 Alle`;
+
+  if (badgeNine) badgeNine.classList.toggle('badge-complete', claimedTaprooms === 9);
+  if (badgeKeller) badgeKeller.classList.toggle('badge-complete', claimedKellers === 3);
+  if (badgeAll) badgeAll.classList.toggle('badge-complete', claimedTaprooms + claimedKellers === 12);
+}
+
+// Alcohol toggle
+alcoholToggle?.addEventListener('change', () => {
+  const isActive = alcoholToggle.checked;
+  document.querySelectorAll('.stamp-card').forEach(card => {
+    card.classList.toggle('alcohol-free', isActive);
+  });
+  if (alcoholNote) alcoholNote.hidden = !isActive;
+});
+
+// Age gate - hide content until age confirmed
+if (ageGate) {
+  const content = document.querySelector('main');
+  if (content) content.style.opacity = '0.3';
+  const inputs = document.querySelectorAll('.codeword-input, .codeword-submit, .codeword-btn');
+  inputs.forEach(el => el.disabled = true);
+
+  ageCheck?.addEventListener('change', () => {
+    const checked = ageCheck.checked;
+    if (content) content.style.opacity = checked ? '1' : '0.3';
+    const els = document.querySelectorAll('.codeword-input, .codeword-submit, .codeword-btn, .stamp-seal');
+    els.forEach(el => el.toggleAttribute('disabled', !checked));
+  });
+}
+
+// Init
+if (typeof document !== 'undefined') {
+  // Setup codeword buttons
+  document.querySelectorAll('[data-slug]').forEach(el => {
+    setupCodeword(el.dataset.slug);
+  });
+  updateAllStamps();
+  updateBadges();
+}
+</script>
+
+<style>
+  .page-header {
+    padding: 2rem 0 1rem;
+    border-bottom: 2px solid var(--amber);
+    margin-bottom: 1.5rem;
+  }
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .page-header h1 { font-size: 1.5rem; }
+  .subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .header-actions { text-align: right; }
+  .toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  .toggle-text em { display: block; font-size: 0.75rem; color: var(--text-muted); }
+  .age-gate {
+    background: var(--paper-dark);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--amber);
+    margin-bottom: 0.75rem;
+  }
+  .age-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .age-check em { font-weight: 400; color: var(--text-muted); }
+  .optional-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 0;
+  }
+  .badges-section {
+    margin-bottom: 2rem;
+  }
+  .badges-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  .badges-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 2px solid var(--border);
+    flex: 1;
+    min-width: 160px;
+    transition: all 0.2s;
+  }
+  .badge-complete {
+    border-color: var(--amber);
+    background: #f5edd6;
+  }
+  .badge-icon { font-size: 1.5rem; }
+  .badge-info { display: flex; flex-direction: column; }
+  .badge-info strong { font-size: 0.9rem; }
+  .badge-count { font-size: 0.75rem; color: var(--text-muted); }
+  .stamps-section {
+    margin-bottom: 2rem;
+  }
+  .stamps-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  .section-en {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+  }
+  .stamp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+  .stamp-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.2s;
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .stamp-card.alcohol-free .stamp-tag.rauch,
+  .stamp-card.alcohol-free .stamp-style {
+    display: none;
+  }
+  .stamp-card.alcohol-free .stamp-tag.malt {
+    display: inline-block;
+  }
+  .stamp-card.alcohol-free .stamp-lore::before {
+    content: "🍇 ";
+  }
+  .stamp-unclaimed, .stamp-claimed {
+    width: 100%;
+  }
+  .stamp-seal { font-size: 2rem; margin-bottom: 0.35rem; }
+  .stamp-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+  }
+  .stamp-method { margin-bottom: 0.5rem; }
+  .codeword-btn {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    background: var(--sandstone);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+  .codeword-btn:hover { background: var(--paper-dark); }
+  .codeword-btn:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .codeword-btn em { font-style: normal; color: var(--text-muted); }
+  .codeword-input-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .codeword-input {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+  }
+  .codeword-input:focus {
+    outline: none;
+    border-color: var(--wax-red);
+  }
+  .codeword-submit {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
+    background: var(--verdigris);
+    color: var(--paper);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .codeword-feedback {
+    font-size: 0.7rem;
+    min-height: 1em;
+  }
+  .stamp-ink { font-size: 2rem; margin-bottom: 0.35rem; }
+  .stamp-details {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    margin-bottom: 0.35rem;
+    flex-wrap: wrap;
+  }
+  .stamp-style { font-size: 0.75rem; color: var(--text-muted); }
+  .stamp-tag {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+  .stamp-tag.rauch { background: var(--amber); color: var(--paper); }
+  .stamp-tag.malt { background: var(--verdigris); color: var(--paper); }
+  .stamp-lore {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.3;
+  }
+  .alcohol-mode-note {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: #e8f0e8;
+    border-radius: var(--radius);
+    border: 1px solid var(--verdigris);
+    font-size: 0.85rem;
+    color: var(--verdigris);
+  }
+  .page-footer {
+    padding: 2rem 0;
+    font-size: 0.85rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .stamp-card, .badge { transition: none; }
+  }
+</style>

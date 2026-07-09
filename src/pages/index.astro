@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import sites from '../../sites.json';
+
+const categories = [
+  { id: 'seven-hills', label: { de: 'Die Sieben Hügel', en: 'The Seven Hills' }, icon: '⛰' },
+  { id: 'stone-and-power', label: { de: 'Stein und Macht', en: 'Stone & Power' }, icon: '🏛' },
+  { id: 'water-and-bridges', label: { de: 'Wasser und Brücken', en: 'Water & Bridges' }, icon: '🌉' },
+  { id: 'beer', label: { de: 'Bier', en: 'Beer' }, icon: '🍺' },
+  { id: 'gardens-guilds-trades', label: { de: 'Gärtnerstadt', en: 'Gardens, Guilds & Trades' }, icon: '🌿' },
+  { id: 'ghosts-curiosities-archive', label: { de: 'Geister, Kuriositäten & Archiv', en: 'Ghosts, Curiosities & Archive' }, icon: '🔍' },
+];
+const tierLabel = { bronze: 'Bronze', silver: 'Silber', gold: 'Gold', legendary: 'Legende' };
+---
+
+<BaseLayout title="Bamberg Quest – Entdecke die Stadt" description="Ein selbstgeführter Entdeckungsspaziergang durch Bamberg – Guidebook und Schatzsuche in einem.">
+  <header class="site-header">
+    <h1 class="site-title">Bamberg Quest</h1>
+    <p class="site-subtitle">Guidebook &amp; Schatzsuche / Guidebook &amp; Treasure Hunt</p>
+    <nav class="nav-links" aria-label="Seitenavigation">
+      <a href="/">Karte / Map</a>
+      <a href="/trails">Routen / Trails</a>
+      <a href="/passport">Bierpass / Beer Passport</a>
+      <a href="/collection">Sammlung / Collection</a>
+      <a href="/party">🎉 Party</a>
+      <a href="/plan">Planen / Plan</a>
+    </nav>
+    <p class="progress-stats" id="progress-stats" hidden data-total={sites.length}>
+      <span class="seal-count">🫱 <span id="claim-count">0</span>/<span id="total-count">{sites.length}</span></span>
+      <span class="progress-pct" id="progress-pct"></span>
+    </p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p>Willkommen in Bamberg, UNESCO-Welterbe auf sieben Hügeln. Ob Guidebook oder Schatzsuche – hier findest du alle Sehenswürdigkeiten.</p>
+      <p class="lang-switch"><em>Welcome to Bamberg. Browse the sites below — or <a href="/plan">start planning your visit</a>.</em></p>
+    </section>
+
+    {categories.map(cat => {
+      const catSites = sites.filter(s => s.category === cat.id);
+      if (catSites.length === 0) return null;
+      return (
+        <section class="category-section">
+          <h2 class="category-heading">{cat.icon} {cat.label.de} <span class="category-en">{cat.label.en}</span></h2>
+          <ul class="site-list" id="site-list">
+            {catSites.map(site => (
+              <li class="site-card" data-slug={site.slug} id={`card-${site.slug}`}>
+                <a href={`/site/${site.slug}`} class="site-link">
+                  <span class={`seal-icon`} id={`seal-${site.slug}`} aria-hidden="true">🫱</span>
+                  <span class={`site-tier tier-${site.tier}`}>{tierLabel[site.tier]}</span>
+                  <span class="site-name">{site.name.de}</span>
+                  <span class="site-name-en">{site.name.en}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      );
+    })}
+  </main>
+
+  <footer class="site-footer">
+    <p>Ein Spaziergang durch Bamberg. Keine App, kein Account, kein Standort-Tracking. Deine Fortschritte bleiben auf deinem Gerät.</p>
+  </footer>
+</BaseLayout>
+
+<script>
+import { getClaimedSlugs, getClaimCount } from '../lib/game.js';
+
+function updateProgress() {
+  const slugs = getClaimedSlugs();
+  const count = slugs.length;
+  const statsEl = document.getElementById('progress-stats');
+  const total = parseInt(statsEl?.dataset?.total || '0', 10);
+
+  const countEl = document.getElementById('claim-count');
+  const pctEl = document.getElementById('progress-pct');
+
+  if (countEl) countEl.textContent = count;
+  if (pctEl && total > 0) pctEl.textContent = `(${Math.round(count / total * 100)}%)`;
+  if (statsEl) statsEl.hidden = false;
+
+  slugs.forEach(slug => {
+    const card = document.getElementById(`card-${slug}`);
+    const seal = document.getElementById(`seal-${slug}`);
+    if (card) card.classList.add('site-card-claimed');
+    if (seal) seal.textContent = '✅';
+  });
+}
+
+if (document.getElementById('claim-count')) {
+  updateProgress();
+}
+</script>
+
+<style>
+  .site-header {
+    padding: 2rem 0 1rem;
+    border-bottom: 2px solid var(--verdigris);
+    margin-bottom: 1.5rem;
+  }
+  .site-title {
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.15rem;
+  }
+  .site-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+  }
+  .progress-stats {
+    font-size: 0.85rem;
+    color: var(--verdigris);
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+  .progress-pct {
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+  .intro {
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+  .lang-switch { font-size: 0.85rem; }
+  .category-section {
+    margin-bottom: 2rem;
+  }
+  .category-heading {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .category-en {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+  }
+  .site-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .site-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: border-color 0.15s, opacity 0.15s;
+  }
+  .site-card:hover { border-color: var(--wax-red); }
+  .site-card-claimed {
+    border-color: var(--verdigris);
+    opacity: 0.85;
+  }
+  .site-link {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: 0.35rem 0.75rem;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: var(--text);
+    align-items: baseline;
+  }
+  .seal-icon {
+    grid-row: span 2;
+    align-self: center;
+    font-size: 1.1rem;
+  }
+  .site-tier {
+    grid-row: span 2;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--sandstone);
+    color: var(--ink);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    align-self: center;
+    font-family: var(--font-mono);
+  }
+  .tier-gold { background: var(--amber); color: var(--paper); }
+  .tier-silver { background: #b0b0a8; color: var(--paper); }
+  .tier-bronze { background: #c49a6a; color: var(--paper); }
+  .site-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .site-name-en {
+    grid-column: 3;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .site-footer {
+    margin-top: 3rem;
+    padding: 1.5rem 0 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+</style>

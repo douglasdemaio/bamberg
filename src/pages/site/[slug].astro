@@ -1,0 +1,412 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import sites from '../../../sites.json';
+
+export async function getStaticPaths() {
+  return sites.map(site => ({
+    params: { slug: site.slug },
+    props: { site },
+  }));
+}
+
+const { site } = Astro.props;
+const tierLabel = {
+  bronze: 'Bronze – Name sichtbar / Name visible',
+  silver: 'Silber – Rätsel / Riddle',
+  gold: 'Gold – Rätsel, verschlüsselt / Cipher riddle',
+  legendary: 'Legendär / Legendary',
+};
+const tierClass = site.tier;
+---
+
+<BaseLayout title={`${site.name.de} – Bamberg Quest`} description={`Besuche ${site.name.de} in Bamberg. Öffnungszeiten, Geschichte, Anfahrt.`}>
+  <nav class="breadcrumb" aria-label="Brotkrümelnavigation">
+    <a href="/">← Alle Sehenswürdigkeiten</a>
+  </nav>
+
+  <article class="site-page">
+    <header class="site-header">
+      <span class={`tier-badge tier-${tierClass}`} data-tier={site.tier}>
+        {tierLabel[site.tier]}
+      </span>
+      <h1>{site.name.de}</h1>
+      <p class="site-name-en">{site.name.en}</p>
+      {site.requires_claimed && site.requires_claimed.length > 0 && (
+        <div class="legendary-lock" id="legendary-lock">
+          <p>🔒 <strong>Legendär / Legendary</strong></p>
+          <p class="legendary-req">Erfordert: {site.requires_claimed.join(', ')}</p>
+        </div>
+      )}
+      <dl class="meta-list">
+        <div class="meta-item">
+          <dt>Kategorie</dt>
+          <dd>{site.category}</dd>
+        </div>
+        <div class="meta-item">
+          <dt>Koordinaten</dt>
+          <dd><code>{site.coords[0].toFixed(4)}, {site.coords[1].toFixed(4)}</code></dd>
+        </div>
+        <div class="meta-item">
+          <dt>Barrierefrei</dt>
+          <dd>{site.accessible ? 'Ja / Yes' : 'Eingeschränkt / Limited'}</dd>
+        </div>
+      </dl>
+    </header>
+
+    <div id="legendary-content" class={site.requires_claimed?.length ? 'legendary-gated' : ''}>
+
+    {site.hours && (
+      <section class="info-block">
+        <h2>Öffnungszeiten / Opening Hours</h2>
+        <p>{site.hours.de}<br /><em>{site.hours.en}</em></p>
+      </section>
+    )}
+
+    <section class="info-block">
+      <h2>Geschichte / History</h2>
+      <p><strong>{site.history_60w.de}</strong></p>
+      <p><em>{site.history_60w.en}</em></p>
+    </section>
+
+    <section class="info-block">
+      <h2>Hinsehen / Look For</h2>
+      <p>{site.look_for.de}<br /><em>{site.look_for.en}</em></p>
+    </section>
+
+    <section class="info-block">
+      <h2>Foto-Tipp / Photo Tip</h2>
+      <p>{site.photo_tip.de}<br /><em>{site.photo_tip.en}</em></p>
+    </section>
+
+    <aside class="riddle-block" aria-label="Rätsel für Spieler">
+      <h2>🎲 Spielst du? / Playing?</h2>
+      <details>
+        <summary>Rätsel anzeigen / Show riddle</summary>
+        {site.riddle && (
+          <div class="riddle-content">
+            <blockquote>
+              <p><strong>{site.riddle.de}</strong></p>
+              <p><em>{site.riddle.en}</em></p>
+            </blockquote>
+            {site.hint && (
+              <details class="hint">
+                <summary>💡 Hinweis / Hint</summary>
+                <p>{site.hint.de}<br /><em>{site.hint.en}</em></p>
+              </details>
+            )}
+          </div>
+        )}
+      </details>
+    </aside>
+
+    <aside class="claim-block" id="claim-ui" aria-label="Fundort markieren" data-slug={site.slug} data-question-de={site.question.de} data-question-en={site.question.en} data-answers={JSON.stringify(site.answers)} data-requires-claimed={JSON.stringify(site.requires_claimed || [])}>
+      <div class="claim-status" id="claim-status">
+        <p class="claim-not-claimed">🫱 Noch nicht erkundet / Not yet explored</p>
+        <p class="claim-claimed" hidden>✅ Erkundet / Explored</p>
+      </div>
+      <div class="claim-form" id="claim-form" hidden>
+        <h3>Vor Ort beantworten / Answer in place</h3>
+        <p class="claim-question" id="claim-question"></p>
+        <div class="claim-input-row">
+          <input type="text" id="claim-answer" class="claim-input" autocomplete="off" placeholder="Deine Antwort / Your answer" />
+          <button type="button" id="claim-submit" class="claim-btn">Prüfen / Check</button>
+        </div>
+        <p class="claim-feedback" id="claim-feedback" aria-live="polite"></p>
+        <details class="claim-honor">
+          <summary>🌿 Nur hier gewesen / Just honor tap</summary>
+          <p class="honor-note">Keine Frage beantworten? Ein Klick genügt – der Besuch zählt trotzdem.<br /><em>Don't want to answer? One click – your visit still counts.</em></p>
+          <button type="button" id="claim-honor" class="claim-btn claim-btn-secondary">Hier gewesen / Was here</button>
+        </details>
+      </div>
+    </aside>
+  </div>
+  </article>
+
+  <footer class="page-footer">
+    <a href="/">← Zurück zur Übersicht</a>
+  </footer>
+</BaseLayout>
+
+<script>
+import { isClaimed, claimSite, checkAnswer, normalizeAnswer } from '../../lib/game.js';
+
+const slug = document.getElementById('claim-ui')?.dataset.slug;
+if (slug) {
+  const statusEl = document.getElementById('claim-status');
+  const notClaimedEl = statusEl.querySelector('.claim-not-claimed');
+  const claimedEl = statusEl.querySelector('.claim-claimed');
+  const formEl = document.getElementById('claim-form');
+  const questionEl = document.getElementById('claim-question');
+  const answerInput = document.getElementById('claim-answer');
+  const submitBtn = document.getElementById('claim-submit');
+  const feedbackEl = document.getElementById('claim-feedback');
+  const honorBtn = document.getElementById('claim-honor');
+
+  const data = document.getElementById('claim-ui').dataset;
+  const answers = JSON.parse(data.answers);
+  const lang = document.documentElement.lang;
+
+  function updateUI() {
+    if (isClaimed(slug)) {
+      notClaimedEl.hidden = true;
+      claimedEl.hidden = false;
+      formEl.hidden = true;
+    } else {
+      notClaimedEl.hidden = false;
+      claimedEl.hidden = true;
+      formEl.hidden = false;
+      questionEl.textContent = lang === 'de' ? data.questionDe : data.questionEn;
+    }
+  }
+
+  function handleSubmit() {
+    const answer = answerInput.value.trim();
+    if (!answer) return;
+    if (checkAnswer(answer, answers)) {
+      claimSite(slug, 'question');
+      feedbackEl.textContent = lang === 'de' ? '✓ Richtig! Erkundet.' : '✓ Correct! Explored.';
+      feedbackEl.className = 'claim-feedback claim-feedback-ok';
+      updateUI();
+    } else {
+      const cleaned = normalizeAnswer(answer);
+      feedbackEl.textContent = lang === 'de'
+        ? `✗ Nicht ganz. Versuch es noch einmal. (Du schriebst: "${cleaned}")`
+        : `✗ Not quite. Try again. (You wrote: "${cleaned}")`;
+      feedbackEl.className = 'claim-feedback claim-feedback-err';
+    }
+  }
+
+  submitBtn.addEventListener('click', handleSubmit);
+  answerInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') handleSubmit();
+  });
+
+  honorBtn.addEventListener('click', () => {
+    claimSite(slug, 'honor');
+    feedbackEl.textContent = lang === 'de' ? '✓ Als besucht markiert.' : '✓ Marked as visited.';
+    feedbackEl.className = 'claim-feedback claim-feedback-ok';
+    updateUI();
+  });
+
+  updateUI();
+}
+
+// Legendary gating
+const lockEl = document.getElementById('legendary-lock');
+const contentEl = document.getElementById('legendary-content');
+if (lockEl && contentEl) {
+  const reqSlugs = document.getElementById('claim-ui')?.dataset.requiresClaimed;
+  if (reqSlugs) {
+    const required = JSON.parse(reqSlugs);
+    const allClaimed = required.every(s => isClaimed(s));
+    if (allClaimed) {
+      lockEl.hidden = true;
+      contentEl.classList.remove('legendary-gated');
+    }
+  }
+}
+</script>
+
+<style>
+  .breadcrumb {
+    padding: 1rem 0 0.5rem;
+    font-size: 0.85rem;
+  }
+  .site-page {
+    padding-bottom: 2rem;
+  }
+  .site-header {
+    margin-bottom: 1.5rem;
+  }
+  .tier-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-mono);
+  }
+  .tier-gold { background: var(--amber); color: var(--paper); }
+  .tier-silver { background: #b0b0a8; color: var(--paper); }
+  .tier-bronze { background: #c49a6a; color: var(--paper); }
+  .tier-legendary { background: var(--wax-red); color: var(--paper); }
+  .site-name-en {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .meta-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-size: 0.85rem;
+  }
+  .meta-item {
+    display: flex;
+    gap: 0.3rem;
+  }
+  .meta-item dt {
+    color: var(--text-muted);
+  }
+  .meta-item code {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    background: var(--paper-dark);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+  }
+  .info-block {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+  .info-block h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .info-block p { font-size: 0.9rem; }
+  .riddle-block {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--paper-dark);
+    border-radius: var(--radius);
+    border: 2px solid var(--amber);
+  }
+  .riddle-block h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .riddle-block summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.25rem 0;
+  }
+  .riddle-block summary:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  .riddle-content {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+  .riddle-content blockquote {
+    padding: 0.5rem 1rem;
+    border-left: 3px solid var(--amber);
+    margin-bottom: 0.75rem;
+  }
+  .hint {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+  }
+  .hint summary {
+    cursor: pointer;
+    color: var(--verdigris);
+    font-weight: 500;
+  }
+  .legendary-lock {
+    padding: 1rem;
+    background: #3d1412;
+    color: var(--paper);
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+    border: 2px solid var(--wax-red);
+  }
+  .legendary-lock p { margin: 0.25rem 0; }
+  .legendary-req { font-size: 0.8rem; opacity: 0.8; }
+  .legendary-gated { filter: blur(6px) grayscale(0.6); pointer-events: none; user-select: none; transition: filter 0.5s; }
+  .legendary-gated.legendary-unlocked { filter: none; pointer-events: auto; user-select: auto; }
+  .claim-block {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 2px solid var(--verdigris);
+  }
+  .claim-status {
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .claim-claimed { color: var(--verdigris); }
+  .claim-form h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .claim-question {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+    background: var(--paper);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-display);
+  }
+  .claim-input-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .claim-input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--paper);
+    font-family: var(--font-body);
+  }
+  .claim-input:focus {
+    outline: none;
+    border-color: var(--wax-red);
+    box-shadow: 0 0 0 3px rgba(140,43,39,0.15);
+  }
+  .claim-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--wax-red);
+    color: var(--paper);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .claim-btn:hover { opacity: 0.9; }
+  .claim-btn:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .claim-btn-secondary {
+    background: var(--verdigris);
+    margin-top: 0.5rem;
+  }
+  .claim-feedback {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    min-height: 1.3em;
+  }
+  .claim-feedback-ok { color: var(--verdigris); font-weight: 600; }
+  .claim-feedback-err { color: var(--wax-red); }
+  .claim-honor {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+  }
+  .claim-honor summary {
+    cursor: pointer;
+    color: var(--text-muted);
+  }
+  .honor-note {
+    margin: 0.5rem 0;
+    font-size: 0.85rem;
+  }
+  .page-footer {
+    padding: 1rem 0 2rem;
+    font-size: 0.85rem;
+  }
+</style>

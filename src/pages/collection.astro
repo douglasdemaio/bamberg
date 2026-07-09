@@ -1,0 +1,346 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import sites from '../../sites.json';
+
+const categories = [
+  { id: 'seven-hills', label: { de: 'Sieben Hügel', en: 'Seven Hills' }, icon: '⛰' },
+  { id: 'stone-and-power', label: { de: 'Stein und Macht', en: 'Stone & Power' }, icon: '🏛' },
+  { id: 'water-and-bridges', label: { de: 'Wasser und Brücken', en: 'Water & Bridges' }, icon: '🌉' },
+  { id: 'beer', label: { de: 'Bier', en: 'Beer' }, icon: '🍺' },
+  { id: 'gardens-guilds-trades', label: { de: 'Gärtnerstadt', en: 'Gardens' }, icon: '🌿' },
+  { id: 'ghosts-curiosities-archive', label: { de: 'Kurioses', en: 'Curiosities' }, icon: '🔍' },
+];
+---
+
+<BaseLayout title="Meine Sammlung – Bamberg Quest" description="Deine erkundeten Sehenswürdigkeiten in Bamberg.">
+  <header class="page-header">
+    <h1>Meine Karte / My Map</h1>
+    <nav class="nav-links">
+      <a href="/">← Übersicht / Overview</a>
+      <a href="/trails">Routen / Trails</a>
+      <a href="/passport">Bierpass / Beer Passport</a>
+      <a href="/party">🎉 Party</a>
+      <a href="/plan">Planen / Plan</a>
+    </nav>
+    <div class="progress-bar" id="progress-bar" data-total={sites.length}>
+      <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+    </div>
+    <p class="progress-text">
+      <span id="claim-collection-count">0</span> / {sites.length} 
+      <span id="progress-label" class="progress-label">erkundet / explored</span>
+    </p>
+  </header>
+
+  <main>
+    <section class="map-tiles" id="map-tiles" aria-label="Kartenkacheln / Map tiles">
+      {sites.map(site => {
+        const cat = categories.find(c => c.id === site.category);
+        return (
+          <div class="map-tile" id={`tile-${site.slug}`} data-slug={site.slug} data-category={site.category} data-name-de={site.name.de} data-name-en={site.name.en}>
+            <a href={`/site/${site.slug}`} class="tile-link">
+              <div class="tile-seal" id={`tile-seal-${site.slug}`}>🫱</div>
+              <div class="tile-content">
+                <span class="tile-name">{site.name.de.split(' ').slice(0, 2).join(' ')}</span>
+                <span class="tile-icon">{cat?.icon || '📍'}</span>
+              </div>
+            </a>
+          </div>
+        );
+      })}
+    </section>
+
+    <section class="claimed-list" id="claimed-list" aria-label="Erkundete Orte / Explored sites">
+      <h2>Erkundet / Explored</h2>
+      <ul class="claimed-items" id="claimed-items"></ul>
+      <p class="empty-state" id="empty-state">Noch keine Orte erkundet. <a href="/">Beginne hier →</a></p>
+    </section>
+
+    <section class="export-section" aria-label="Code export / import">
+      <h2>🔐 Code exportieren / Export Code</h2>
+      <details>
+        <summary>Code erstellen / Generate code</summary>
+        <p class="export-desc">Erzeuge einen teilbaren Code, der alle deine Erkundungen enthält.<br /><em>Generate a shareable code containing all your claims.</em></p>
+        <button type="button" id="export-btn" class="claim-btn">📋 Code generieren / Generate</button>
+        <div class="export-result" id="export-result" hidden>
+          <p class="export-label">Dein Code / Your code:</p>
+          <textarea id="export-code" class="export-textarea" readonly rows="3"></textarea>
+          <button type="button" id="copy-btn" class="claim-btn claim-btn-secondary">📋 Kopieren / Copy</button>
+          <p class="export-feedback" id="export-feedback"></p>
+        </div>
+      </details>
+      <details>
+        <summary>Code importieren / Import code</summary>
+        <p class="export-desc">Setze einen Code ein, um fremde Erkundungen zu übernehmen.<br /><em>Paste a code to import someone else's claims.</em></p>
+        <textarea id="import-code" class="export-textarea" rows="3" placeholder="Füge Code hier ein / Paste code here"></textarea>
+        <button type="button" id="import-btn" class="claim-btn">📥 Importieren / Import</button>
+        <p class="export-feedback" id="import-feedback"></p>
+      </details>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+import { getClaimedSlugs, getClaimCount, isClaimed, claimSite } from '../lib/game.js';
+
+function updateCollection() {
+  const claimedSlugs = getClaimedSlugs();
+  const count = claimedSlugs.length;
+  const total = parseInt(document.getElementById('progress-bar')?.dataset?.total || '0', 10);
+
+  document.getElementById('claim-collection-count').textContent = count;
+
+  const fill = document.getElementById('progress-fill');
+  if (fill && total > 0) {
+    fill.style.width = `${Math.round(count / total * 100)}%`;
+  }
+
+  const progressLabel = document.getElementById('progress-label');
+  if (progressLabel && count === total) {
+    progressLabel.textContent = '🎉 Vollständig! / Complete!';
+  }
+
+  // Update tiles
+  claimedSlugs.forEach(slug => {
+    const tile = document.getElementById(`tile-${slug}`);
+    const seal = document.getElementById(`tile-seal-${slug}`);
+    if (tile) tile.classList.add('tile-claimed');
+    if (seal) seal.textContent = '✅';
+  });
+
+  // Update claimed list
+  const listEl = document.getElementById('claimed-items');
+  const emptyEl = document.getElementById('empty-state');
+  if (!listEl) return;
+
+  if (count === 0) {
+    if (emptyEl) emptyEl.hidden = false;
+    return;
+  }
+  if (emptyEl) emptyEl.hidden = true;
+
+  claimedSlugs.forEach(slug => {
+    const tile = document.getElementById(`tile-${slug}`);
+    if (!tile) return;
+    const nameDe = tile.dataset.nameDe || slug;
+    const nameEn = tile.dataset.nameEn || slug;
+    const li = document.createElement('li');
+    li.className = 'claimed-item';
+    li.innerHTML = `<a href="/site/${slug}"><span class="claimed-mark">✅</span> <span class="claimed-name-de">${nameDe}</span> <span class="claimed-name-en">${nameEn}</span></a>`;
+    listEl.appendChild(li);
+  });
+}
+
+// Export / Import
+const exportBtn = document.getElementById('export-btn');
+const exportResult = document.getElementById('export-result');
+const exportCode = document.getElementById('export-code');
+const copyBtn = document.getElementById('copy-btn');
+const importBtn = document.getElementById('import-btn');
+const importCode = document.getElementById('import-code');
+
+if (exportBtn && exportResult) {
+  exportBtn.addEventListener('click', () => {
+    const data = { v: 1, claims: getClaimedSlugs(), t: Date.now() };
+    const json = JSON.stringify(data);
+    const code = btoa(unescape(encodeURIComponent(json)));
+    exportCode.value = code;
+    exportResult.hidden = false;
+  });
+}
+
+if (copyBtn && exportCode) {
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(exportCode.value);
+      document.getElementById('export-feedback').textContent = '✓ Kopiert / Copied!';
+    } catch {
+      exportCode.select();
+      document.execCommand('copy');
+      document.getElementById('export-feedback').textContent = '✓ Kopiert / Copied!';
+    }
+  });
+}
+
+if (importBtn && importCode) {
+  importBtn.addEventListener('click', () => {
+    const raw = importCode.value.trim();
+    if (!raw) {
+      document.getElementById('import-feedback').textContent = '✗ Bitte Code einfügen / Please paste a code';
+      return;
+    }
+    try {
+      const json = decodeURIComponent(escape(atob(raw)));
+      const data = JSON.parse(json);
+      if (!data.v || !Array.isArray(data.claims)) {
+        throw new Error('Invalid format');
+      }
+      let imported = 0;
+      data.claims.forEach(slug => {
+        if (!isClaimed(slug)) {
+          claimSite(slug, 'import');
+          imported++;
+        }
+      });
+      document.getElementById('import-feedback').textContent = `✓ ${imported} Orte importiert / sites imported`;
+      if (imported > 0) updateCollection();
+    } catch {
+      document.getElementById('import-feedback').textContent = '✗ Ungültiger Code / Invalid code';
+    }
+  });
+}
+
+if (document.getElementById('claim-collection-count')) {
+  updateCollection();
+}
+</script>
+
+<style>
+  .page-header {
+    padding: 2rem 0 1rem;
+    border-bottom: 2px solid var(--verdigris);
+    margin-bottom: 1.5rem;
+  }
+  .page-header h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .progress-bar {
+    height: 8px;
+    background: var(--sandstone);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.35rem;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--verdigris);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .progress-fill { transition: none; }
+  }
+  .progress-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .progress-label {
+    font-weight: 400;
+    color: var(--verdigris);
+  }
+  .map-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .map-tile {
+    aspect-ratio: 1;
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .map-tile:hover { border-color: var(--wax-red); }
+  .tile-claimed {
+    border-color: var(--verdigris);
+    background: #e8f0ec;
+  }
+  .tile-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-decoration: none;
+    color: var(--text);
+    padding: 0.5rem;
+  }
+  .tile-seal {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .tile-content {
+    text-align: center;
+  }
+  .tile-name {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .tile-icon {
+    display: block;
+    font-size: 1rem;
+    margin-top: 0.15rem;
+  }
+  .claimed-list h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  .claimed-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .claimed-item a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+  }
+  .claimed-item a:hover { border-color: var(--verdigris); }
+  .claimed-mark { font-size: 1rem; }
+  .claimed-name-de { font-weight: 600; }
+  .claimed-name-en {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  .empty-state {
+    padding: 1rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .export-section {
+    margin-top: 2rem;
+    padding: 1.5rem 1rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 2px solid var(--amber);
+  }
+  .export-section h2 { font-size: 1rem; margin-bottom: 0.75rem; }
+  .export-section summary { cursor: pointer; font-weight: 600; padding: 0.25rem 0; }
+  .export-desc { font-size: 0.85rem; margin-bottom: 0.75rem; }
+  .export-result { margin-top: 0.75rem; }
+  .export-label { font-weight: 600; font-size: 0.85rem; margin-bottom: 0.25rem; }
+  .export-textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--paper);
+    resize: vertical;
+    margin-bottom: 0.5rem;
+  }
+  .export-feedback {
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+    min-height: 1.3em;
+    color: var(--verdigris);
+  }
+</style>

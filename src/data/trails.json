@@ -1,0 +1,92 @@
+[
+  {
+    "id": "two-hour-crown",
+    "name": { "de": "Die Zwei-Stunden-Krone", "en": "The Two-Hour Crown" },
+    "icon": "👑",
+    "distance_km": 2.0,
+    "elevation_m": 50,
+    "duration": "1.5–2 h",
+    "pace": "gemütlich",
+    "step_free": false,
+    "description": {
+      "de": "Die kürzeste Runde: Dom, Altes Rathaus, Klein Venedig, Untere Brücke. Inklusive des berühmtesten Fotomotivs der Stadt.",
+      "en": "The shortest circuit: Cathedral, Old Town Hall, Little Venice, Lower Bridge. Includes the city's most famous photo spot."
+    },
+    "sites": ["bamberger-dom", "altes-rathaus", "klein-venedig", "untere-bruecke"]
+  },
+  {
+    "id": "nine-breweries",
+    "name": { "de": "Neun Brauereien", "en": "Nine Breweries" },
+    "icon": "🍺",
+    "distance_km": 6.0,
+    "elevation_m": 80,
+    "duration": "4–6 h (mit Einkehr)",
+    "pace": "Bierkeller-Pace",
+    "step_free": false,
+    "description": {
+      "de": "Alle neun Brauerei-Gaststätten in einer Runde. Etwa 6 km, aber mit Pausen ein halber Tag.",
+      "en": "All nine brewpub taprooms in one loop. About 6 km, but with stops it's a half-day."
+    },
+    "sites": ["schlenkerla", "ambraeusianum", "klosterbraeu", "spezial", "faessla", "kaiserdom", "keesmann", "mahrs-braeu", "greifenklau"]
+  },
+  {
+    "id": "hill-walker",
+    "name": { "de": "Der Hügelwanderer", "en": "The Hill Walker" },
+    "icon": "⛰",
+    "distance_km": 6.0,
+    "elevation_m": 420,
+    "duration": "4–5 h",
+    "pace": "sportlich",
+    "step_free": false,
+    "description": {
+      "de": "Alle sieben Hügel der Stadt plus die Altenburg. 420 Höhenmeter – die ultimative Fitness-Runde Bambergs.",
+      "en": "All seven hills of the city plus Altenburg castle. 420 m elevation – Bamberg's ultimate fitness circuit."
+    },
+    "sites": ["bamberger-dom", "obere-pfarre", "st-stephan", "kloster-st-michael", "st-jakob", "abtsberg", "altenburg"]
+  },
+  {
+    "id": "gardeners-round",
+    "name": { "de": "Die Gärtner-Runde", "en": "The Gardener's Round" },
+    "icon": "🌿",
+    "distance_km": 3.0,
+    "elevation_m": 10,
+    "duration": "1.5–2 h",
+    "pace": "flach und ruhig",
+    "step_free": true,
+    "description": {
+      "de": "Durch die Gärtnerstadt – flach, Schritt-frei und fast immer sonnig. Start am Museum, dann durch die Sandstraße zu den Feldern.",
+      "en": "Through the Gardeners' Quarter – flat, step-free, and almost always sunny. Start at the museum, walk through Sand Street to the fields."
+    },
+    "sites": ["gaertner-museum", "sandstrasse"]
+  },
+  {
+    "id": "night-warden",
+    "name": { "de": "Nachtwächter", "en": "Night Warden" },
+    "icon": "🌙",
+    "distance_km": 2.5,
+    "elevation_m": 40,
+    "duration": "1.5 h (nach Sonnenuntergang)",
+    "pace": "abendlich",
+    "step_free": false,
+    "description": {
+      "de": "Stationen, die zwischen Sonnenuntergang und 1 Uhr morgens besucht werden können. Maxplatz, Dom, dann runter zu den Brücken und Bier.",
+      "en": "Stops that can be visited between sunset and 1am. Maxplatz, Cathedral, then down to the bridges and beer."
+    },
+    "sites": ["maxplatz", "bamberger-dom", "neue-residenz", "altes-rathaus", "untere-bruecke", "klein-venedig", "schlenkerla"]
+  },
+  {
+    "id": "cartographers-cipher",
+    "name": { "de": "Die Chiffre des Kartographen", "en": "The Cartographer's Cipher" },
+    "icon": "🗺",
+    "distance_km": 5.0,
+    "elevation_m": 200,
+    "duration": "3–4 h",
+    "pace": "rätselnd",
+    "step_free": false,
+    "description": {
+      "de": "Alle Gold-Rätsel in einer Kette. Dom, Abtsberg, Altenburg – jedes Rätsel verweist auf das nächste.",
+      "en": "All Gold tier riddles in a chain. Cathedral, Abtsberg, Altenburg – each riddle points to the next."
+    },
+    "sites": ["bamberger-dom", "abtsberg", "altenburg"]
+  }
+]

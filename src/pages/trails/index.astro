@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import trails from '../../data/trails.json';
+import sites from '../../../sites.json';
+---
+
+<BaseLayout title="Routen – Bamberg Quest" description="Kuratierte Spaziergänge durch Bamberg.">
+  <nav class="breadcrumb"><a href="/">← Übersicht</a></nav>
+  <header class="page-header">
+    <h1>🗺 Routen / Trails</h1>
+    <p class="subtitle">Kuratierte Spaziergänge durch Bamberg. Entfernung, Höhenmeter und Zeit sind ehrlich geschätzt.</p>
+  </header>
+
+  <main>
+    <div class="trail-list">
+      {trails.map(trail => {
+        const siteCount = trail.sites.filter(slug => sites.some(s => s.slug === slug)).length;
+        const missing = trail.sites.length - siteCount;
+        return (
+          <a href={`/trails/${trail.id}`} class="trail-card">
+            <span class="trail-icon">{trail.icon}</span>
+            <div class="trail-info">
+              <h2>{trail.name.de} <span class="trail-en">{trail.name.en}</span></h2>
+              <p class="trail-description">{trail.description.de}</p>
+              <div class="trail-meta">
+                <span>🚶 {trail.distance_km} km</span>
+                <span>⛰ {trail.elevation_m} m</span>
+                <span>⏱ {trail.duration}</span>
+                <span>{trail.step_free ? '♿ Schritt-frei' : ''}</span>
+                <span class="trail-count">{siteCount}/{trail.sites.length} Stationen</span>
+                {missing > 0 && <span class="trail-missing">(noch {missing} fehlen)</span>}
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </main>
+
+  <footer class="page-footer"><a href="/">← Übersicht</a></footer>
+</BaseLayout>
+
+<style>
+  .breadcrumb { padding: 1rem 0; font-size: 0.85rem; }
+  .page-header h1 { font-size: 1.5rem; }
+  .subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .trail-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+  .trail-card {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s;
+  }
+  .trail-card:hover { border-color: var(--wax-red); }
+  .trail-icon { font-size: 1.5rem; }
+  .trail-info { flex: 1; }
+  .trail-info h2 { font-size: 1rem; margin-bottom: 0.25rem; }
+  .trail-en { font-weight: 400; font-size: 0.8rem; color: var(--text-muted); }
+  .trail-description { font-size: 0.85rem; margin-bottom: 0.35rem; }
+  .trail-meta { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; font-size: 0.75rem; color: var(--text-muted); }
+  .trail-missing { color: var(--amber); font-style: italic; }
+  .page-footer { padding: 2rem 0; font-size: 0.85rem; }
+</style>

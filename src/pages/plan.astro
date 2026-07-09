@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Besuch planen – Bamberg Quest" description="Praktische Tipps für deinen Besuch in Bamberg: Anreise, Parken, Öffnungszeiten.">
+  <nav class="breadcrumb" aria-label="Brotkrümelnavigation">
+    <a href="/">← Alle Sehenswürdigkeiten</a>
+  </nav>
+
+  <article>
+    <h1>Besuch planen / Plan Your Visit</h1>
+
+    <section class="info-block">
+      <h2>Anreise / Getting Here</h2>
+      <p>Bamberg liegt an der ICE-Strecke München–Berlin. Vom Hauptbahnhof sind es 15 Minuten zu Fuß in die Altstadt. Parken: Bitte die Altstadt meiden – die Parkhäuser am Bahnhof (P1–P4) sind günstiger und gut angebunden.</p>
+      <p><em>Bamberg is on the ICE Munich–Berlin line. It's a 15-minute walk from the main station to the old town. Parking: avoid driving into the old town — use the station car parks (P1–P4).</em></p>
+    </section>
+
+    <section class="info-block">
+      <h2>Bergstadt &amp; Inselstadt / Hill Town &amp; Island Town</h2>
+      <p>Bamberg teilt sich in zwei Hälften: die Bergstadt (Domberg, Kaulberg) auf dem linken Regnitz-Ufer und die Inselstadt zwischen den Flussarmen. Die Gärtnerstadt liegt im Norden. Alles ist fußläufig, aber die Hügel haben es in sich – 340 Höhenmeter für die volle Runde.</p>
+      <p><em>Bamberg has two halves: the Hill Town (Domberg, Kaulberg) on the left Regnitz bank and the Island Town between the river arms. The Gardeners' Quarter is to the north. Everything is walkable, but the hills are real — 340 m of elevation for the full circuit.</em></p>
+    </section>
+
+    <section class="info-block">
+      <h2>Bamberg Card</h2>
+      <p>Die Bamberg Card lohnt sich bei 3+ Museen: freier Eintritt in alle städtischen Museen und Ermäßigungen in vielen Partnerhäusern. Erhältlich im Zentrum Welterbe.</p>
+      <p><em>The Bamberg Card pays off at 3+ museums: free entry to all city museums and discounts at partner venues. Available at the World Heritage Centre.</em></p>
+    </section>
+
+    <section class="info-block">
+      <h2>Leitungswasser / Tap Water</h2>
+      <p>Bamberger Leitungswasser ist trinkbar und von bester Qualität. In Restaurants kann ein Glas Wasser kostenlos bestellt werden – frag einfach nach einem &quot;Leitungswasser&quot;.</p>
+      <p><em>Bamberg's tap water is drinkable and excellent quality. You can order a free glass of tap water in restaurants — just ask for "Leitungswasser."</em></p>
+    </section>
+
+    <section class="info-block">
+      <h2>Öffnungszeiten / Opening Hours</h2>
+      <p>Bamberger Museen haben oft montags geschlossen. Viele Kirchen sind tagsüber geöffnet. Brauereien haben flexible Öffnungszeiten – am besten vorher auf der jeweiligen Website prüfen.</p>
+      <p><em>Bamberg museums are often closed on Mondays. Many churches are open during the day. Breweries have flexible hours — check their websites before visiting.</em></p>
+    </section>
+  </article>
+
+  <footer class="page-footer">
+    <a href="/">← Zurück zur Übersicht</a>
+  </footer>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    padding: 1rem 0;
+    font-size: 0.85rem;
+  }
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+  .info-block {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+  .info-block h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .info-block p { font-size: 0.9rem; }
+  .page-footer {
+    padding: 2rem 0;
+  }
+</style>
