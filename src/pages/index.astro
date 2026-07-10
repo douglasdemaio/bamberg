@@ -162,15 +162,15 @@ function updateProgress() {
   if (hintEl) {
     const lang = document.documentElement.lang || 'de';
     if (count === 0) {
-      hintEl.textContent = lang === 'de' ? 'Neu hier? Starte mit dem Dom oder dem Alten Rathaus.' : 'New here? Try the cathedral or the old town hall.';
+      hintEl.textContent = window.__bqt('index.progress_hint_empty', lang);
       hintEl.hidden = false;
     } else if (count === total && total > 0) {
-      hintEl.textContent = '🏅 ' + (lang === 'de' ? 'Alle Orte erkundet!' : 'All sites explored!');
+      hintEl.textContent = window.__bqt('index.progress_hint_complete', lang);
       hintEl.hidden = false;
     } else {
       const nextUnclaimed = sites.find(s => !slugs.has(s.slug));
       if (nextUnclaimed) {
-        hintEl.innerHTML = (lang === 'de' ? 'Nächster Vorschlag: ' : 'Next up: ') + `<a href="/site/${nextUnclaimed.slug}">${nextUnclaimed.name.de}</a>`;
+        hintEl.innerHTML = window.__bqt('index.progress_hint_next', lang) + `<a href="/site/${nextUnclaimed.slug}">${nextUnclaimed.name.de}</a>`;
         hintEl.hidden = false;
       }
     }

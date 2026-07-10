@@ -52,7 +52,7 @@ const tierClass = site.tier;
     {site.hours && (
       <section class="info-block">
         <h2><span data-i18n="site.hours_title">Öffnungszeiten</span></h2>
-        <p class="lang-de">{site.hours.de}</p>
+        <p class="lang-de" data-i18n-content data-i18n-content-de={site.hours.de} data-i18n-content-en={site.hours.en}>{site.hours.de}</p>
         <p class="lang-en">{site.hours.en}</p>
         <p class="disclaimer" data-i18n="plan.hours_disclaimer">Die hier angegebenen Öffnungszeiten sind nicht offiziell und können sich jederzeit ändern. Bitte informiere dich vor deinem Besuch auf der offiziellen Website des jeweiligen Ortes.</p>
       </section>
@@ -60,19 +60,19 @@ const tierClass = site.tier;
 
     <section class="info-block history-block">
       <h2><span data-i18n="site.history_title">Geschichte</span></h2>
-      <p class="history-para lang-de"><strong>{site.history_60w.de}</strong></p>
+      <p class="history-para lang-de" data-i18n-content data-i18n-content-de={'<strong>' + site.history_60w.de + '</strong>'} data-i18n-content-en={'<strong>' + site.history_60w.en + '</strong>'}><strong>{site.history_60w.de}</strong></p>
       <p class="history-para lang-en"><strong>{site.history_60w.en}</strong></p>
     </section>
 
     <section class="info-block">
       <h2><span data-i18n="site.look_title">Hinsehen</span></h2>
-      <p class="lang-de">{site.look_for.de}</p>
+      <p class="lang-de" data-i18n-content data-i18n-content-de={site.look_for.de} data-i18n-content-en={site.look_for.en}>{site.look_for.de}</p>
       <p class="lang-en">{site.look_for.en}</p>
     </section>
 
     <section class="info-block">
       <h2><span data-i18n="site.photo_title">Foto-Tipp</span></h2>
-      <p class="lang-de">{site.photo_tip.de}</p>
+      <p class="lang-de" data-i18n-content data-i18n-content-de={site.photo_tip.de} data-i18n-content-en={site.photo_tip.en}>{site.photo_tip.de}</p>
       <p class="lang-en">{site.photo_tip.en}</p>
     </section>
 
@@ -83,13 +83,13 @@ const tierClass = site.tier;
         {site.riddle && (
           <div class="riddle-content">
             <blockquote>
-              <p class="lang-de"><strong>{site.riddle.de}</strong></p>
+              <p class="lang-de" data-i18n-content data-i18n-content-de={'<strong>' + site.riddle.de + '</strong>'} data-i18n-content-en={'<strong>' + site.riddle.en + '</strong>'}><strong>{site.riddle.de}</strong></p>
               <p class="lang-en"><strong>{site.riddle.en}</strong></p>
             </blockquote>
             {site.hint && (
               <details class="hint">
                 <summary><span data-i18n="site.hint">💡 Hinweis</span></summary>
-                <p class="lang-de">{site.hint.de}</p>
+                <p class="lang-de" data-i18n-content data-i18n-content-de={site.hint.de} data-i18n-content-en={site.hint.en}>{site.hint.de}</p>
                 <p class="lang-en">{site.hint.en}</p>
               </details>
             )}
@@ -98,7 +98,8 @@ const tierClass = site.tier;
       </details>
     </aside>
 
-    <aside class="claim-block" id="claim-ui" aria-label="Fundort markieren" data-slug={site.slug} data-question-de={site.question.de} data-question-en={site.question.en} data-answers={JSON.stringify(site.answers)} data-requires-claimed={JSON.stringify(site.requires_claimed || [])}>
+    <aside class="claim-block" id="claim-ui" aria-label="Fundort markieren" data-slug={site.slug} data-answers={JSON.stringify(site.answers)} data-requires-claimed={JSON.stringify(site.requires_claimed || [])}>
+      <div class="claim-question-data" hidden data-i18n-content data-i18n-content-de={site.question.de} data-i18n-content-en={site.question.en}>{site.question.de}</div>
       <div class="claim-status" id="claim-status">
         <p class="claim-not-claimed"><span data-i18n="site.not_explored">🫱 Noch nicht erkundet</span></p>
         <p class="claim-claimed" hidden><span data-i18n="site.explored">✅ Erkundet</span></p>
@@ -141,9 +142,17 @@ if (slug) {
   const feedbackEl = document.getElementById('claim-feedback');
   const honorBtn = document.getElementById('claim-honor');
 
-  const data = document.getElementById('claim-ui').dataset;
-  const answers = JSON.parse(data.answers);
-  const lang = document.documentElement.lang;
+  const answers = JSON.parse(document.getElementById('claim-ui').dataset.answers);
+  const questionDataEl = document.querySelector('.claim-question-data');
+
+  function t(key, lang) {
+    var dict = window.__bqTranslations;
+    if (!dict) return key;
+    var val = dict[lang] && dict[lang][key];
+    if (!val && lang !== 'en') val = dict.en && dict.en[key];
+    if (!val && lang !== 'de') val = dict.de && dict.de[key];
+    return val || key;
+  }
 
   function updateUI() {
     if (isClaimed(slug)) {
@@ -154,7 +163,7 @@ if (slug) {
       notClaimedEl.hidden = false;
       claimedEl.hidden = true;
       formEl.hidden = false;
-      questionEl.textContent = lang === 'de' ? data.questionDe : data.questionEn;
+      questionEl.textContent = questionDataEl ? questionDataEl.textContent : '';
     }
   }
 
@@ -163,14 +172,12 @@ if (slug) {
     if (!answer) return;
     if (checkAnswer(answer, answers)) {
       claimSite(slug, 'question');
-      feedbackEl.textContent = lang === 'de' ? '✓ Richtig! Erkundet.' : '✓ Correct! Explored.';
+      feedbackEl.textContent = t('site.correct', document.documentElement.lang);
       feedbackEl.className = 'claim-feedback claim-feedback-ok';
       updateUI();
     } else {
       const cleaned = normalizeAnswer(answer);
-      feedbackEl.textContent = lang === 'de'
-        ? `✗ Nicht ganz. Versuch es noch einmal. (Du schriebst: "${cleaned}")`
-        : `✗ Not quite. Try again. (You wrote: "${cleaned}")`;
+      feedbackEl.textContent = t('site.wrong', document.documentElement.lang).replace('{answer}', cleaned);
       feedbackEl.className = 'claim-feedback claim-feedback-err';
     }
   }
@@ -182,7 +189,7 @@ if (slug) {
 
   honorBtn.addEventListener('click', () => {
     claimSite(slug, 'honor');
-    feedbackEl.textContent = lang === 'de' ? '✓ Als besucht markiert.' : '✓ Marked as visited.';
+    feedbackEl.textContent = t('site.marked', document.documentElement.lang);
     feedbackEl.className = 'claim-feedback claim-feedback-ok';
     updateUI();
   });

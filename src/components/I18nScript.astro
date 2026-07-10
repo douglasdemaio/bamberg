@@ -78,6 +78,14 @@ function applyTranslations(lang) {
     el.setAttribute('title', t(el.getAttribute('data-i18n-title'), lang));
   });
 
+  document.querySelectorAll('[data-i18n-content]').forEach(function (el) {
+    var lang = curLang;
+    var content = el.getAttribute('data-i18n-content-' + lang);
+    if (!content) content = el.getAttribute('data-i18n-content-en');
+    if (!content) content = el.getAttribute('data-i18n-content-de');
+    if (content) el.innerHTML = content;
+  });
+
   var skipLink = document.getElementById('skip-link');
   if (skipLink) skipLink.textContent = t('site.skip_link', lang);
 
@@ -87,6 +95,8 @@ function applyTranslations(lang) {
     themeToggle.setAttribute('title', t('site.theme_toggle', lang));
   }
 }
+
+window.__bqt = t;
 
 var curLang = 'de';
 try { curLang = localStorage.getItem('bq-lang') || 'de'; } catch (_) {}

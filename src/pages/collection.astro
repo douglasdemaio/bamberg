@@ -97,7 +97,7 @@ function updateCollection() {
   const progressLabel = document.getElementById('progress-label');
   const lang = document.documentElement.lang || 'de';
   if (progressLabel && count === total) {
-    progressLabel.textContent = '🎉 ' + (lang === 'de' ? 'Vollständig!' : 'Complete!');
+    progressLabel.textContent = window.__bqt('collection.complete', lang);
   }
 
   // Update tiles
@@ -153,11 +153,11 @@ if (copyBtn && exportCode) {
   copyBtn.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(exportCode.value);
-      document.getElementById('export-feedback').textContent = '✓ ' + (document.documentElement.lang === 'de' ? 'Kopiert!' : 'Copied!');
+      document.getElementById('export-feedback').textContent = window.__bqt('collection.copied', document.documentElement.lang);
     } catch {
       exportCode.select();
       document.execCommand('copy');
-      document.getElementById('export-feedback').textContent = '✓ ' + (document.documentElement.lang === 'de' ? 'Kopiert!' : 'Copied!');
+      document.getElementById('export-feedback').textContent = window.__bqt('collection.copied', document.documentElement.lang);
     }
   });
 }
@@ -167,7 +167,7 @@ if (importBtn && importCode) {
     const lang = document.documentElement.lang || 'de';
     const raw = importCode.value.trim();
     if (!raw) {
-      document.getElementById('import-feedback').textContent = lang === 'de' ? '✗ Bitte Code einfügen' : '✗ Please paste a code';
+      document.getElementById('import-feedback').textContent = window.__bqt('collection.paste_error', lang);
       return;
     }
     try {
@@ -183,11 +183,10 @@ if (importBtn && importCode) {
           imported++;
         }
       });
-      const msg = lang === 'de' ? `✓ ${imported} Orte importiert` : `✓ ${imported} sites imported`;
-      document.getElementById('import-feedback').textContent = msg;
+      document.getElementById('import-feedback').textContent = window.__bqt('collection.import_success', lang).replace('{count}', imported);
       if (imported > 0) updateCollection();
     } catch {
-      document.getElementById('import-feedback').textContent = lang === 'de' ? '✗ Ungültiger Code' : '✗ Invalid code';
+      document.getElementById('import-feedback').textContent = window.__bqt('collection.import_error', lang);
     }
   });
 }

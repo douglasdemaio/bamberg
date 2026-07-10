@@ -63,9 +63,9 @@ document.getElementById('party-code-btn')?.addEventListener('click', () => {
   if (code === 'bamberg-quest-2026') {
     localStorage.setItem('bamberg_party_unlocked', 'true');
     checkParty();
-    document.getElementById('party-feedback').textContent = lang === 'de' ? '✓ Entsperrt!' : '✓ Unlocked!';
+    document.getElementById('party-feedback').textContent = window.__bqt('party.unlocked_feedback', lang);
   } else {
-    document.getElementById('party-feedback').textContent = lang === 'de' ? '✗ Falscher Code' : '✗ Wrong code';
+    document.getElementById('party-feedback').textContent = window.__bqt('party.wrong_feedback', lang);
   }
 });
 

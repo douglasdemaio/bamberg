@@ -85,7 +85,7 @@ const kellers = beerSites.filter(s => s.subcategory === 'keller');
                 {site.is_rauchbier && <span class="stamp-tag rauch">Rauch</span>}
                 {site.malts_own && <span class="stamp-tag malt">Eigenmalz</span>}
               </div>
-              <div class="stamp-lore lang-de">{site.house_lore?.de || ''}</div>
+              <div class="stamp-lore lang-de" data-i18n-content data-i18n-content-de={site.house_lore?.de || ''} data-i18n-content-en={site.house_lore?.en || ''}>{site.house_lore?.de || ''}</div>
               <div class="stamp-lore lang-en">{site.house_lore?.en || ''}</div>
             </div>
           </div>
@@ -117,7 +117,7 @@ const kellers = beerSites.filter(s => s.subcategory === 'keller');
                 <span class="stamp-style">{site.beer_style}</span>
                 {site.is_rauchbier && <span class="stamp-tag rauch">Rauch</span>}
               </div>
-              <div class="stamp-lore lang-de">{site.house_lore?.de || ''}</div>
+              <div class="stamp-lore lang-de" data-i18n-content data-i18n-content-de={site.house_lore?.de || ''} data-i18n-content-en={site.house_lore?.en || ''}>{site.house_lore?.de || ''}</div>
               <div class="stamp-lore lang-en">{site.house_lore?.en || ''}</div>
             </div>
           </div>
@@ -185,11 +185,11 @@ function setupCodeword(slug) {
     const value = input?.value?.trim().toLowerCase() || '';
     if (value === codeword) {
       claimSite(slug, 'codeword');
-      if (feedback) feedback.textContent = lang === 'de' ? '✓ Erkundet!' : '✓ Explored!';
+      if (feedback) feedback.textContent = window.__bqt('passport.codeword_correct', lang);
       updateStamp(slug);
       updateBadges();
     } else {
-      if (feedback) feedback.textContent = lang === 'de' ? '✗ Falsch. Frag an der Theke.' : '✗ Wrong. Ask at the bar.';
+      if (feedback) feedback.textContent = window.__bqt('passport.codeword_wrong', lang);
     }
   });
 
@@ -214,8 +214,8 @@ function updateBadges() {
   const claimedKellers = kellerSlugs.filter(s => isClaimed(s)).length;
 
   if (badgeNineCount) badgeNineCount.textContent = `${claimedTaprooms}/9 Taprooms`;
-  if (badgeKellerCount) badgeKellerCount.textContent = `${claimedKellers}/3 ${lang === 'de' ? 'Bierkeller' : 'Cellars'}`;
-  if (badgeAllCount) badgeAllCount.textContent = `${claimedTaprooms + claimedKellers}/12 ${lang === 'de' ? 'Alle' : 'All'}`;
+  if (badgeKellerCount) badgeKellerCount.textContent = `${claimedKellers}/3 ${window.__bqt('passport.beer_cellars', lang)}`;
+  if (badgeAllCount) badgeAllCount.textContent = `${claimedTaprooms + claimedKellers}/12 ${window.__bqt('passport.all_label', lang)}`;
 
   if (badgeNine) badgeNine.classList.toggle('badge-complete', claimedTaprooms === 9);
   if (badgeKeller) badgeKeller.classList.toggle('badge-complete', claimedKellers === 3);
