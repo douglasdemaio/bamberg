@@ -6,7 +6,7 @@
   "nav.party": "🎉 Fiesta",
   "nav.plan": "Planificar",
   "nav.overview": "Resumen",
-  "nav.all_sights": "← Todos los sitios",
+  "nav.all_sights": "← Todos los lugares",
   "nav.all_trails": "← Todas las rutas",
   "nav.back_collection": "← A la colección",
 
@@ -21,7 +21,7 @@
   "index.intro_plan": "planificar tu visita",
   "index.progress_title": "Tu progreso",
   "index.progress_sites_explored": "lugares explorados",
-  "index.progress_hint_empty": "¿Nuevo? Prueba la catedral o el ayuntamiento antiguo.",
+  "index.progress_hint_empty": "¿Nuevo por aquí? Empieza por la catedral o el antiguo ayuntamiento.",
   "index.progress_hint_complete": "🏅 ¡Todos los lugares explorados!",
   "index.progress_hint_next": "Siguiente sugerencia",
 
@@ -90,7 +90,7 @@
   "collection.import_btn": "📥 Importar",
   "collection.copied": "✓ ¡Copiado!",
   "collection.paste_error": "✗ Pega un código",
-  "collection.import_success": "✓ {count} sitios importados",
+  "collection.import_success": "✓ {count} lugares importados",
   "collection.import_error": "✗ Código inválido",
   "collection.code_generated": "Código generado",
   "collection.map_title": "Fichas de mapa",
@@ -117,7 +117,7 @@
   "plan.water_text": "El agua del grifo de Bamberg es potable y de excelente calidad. Puedes pedir un vaso de agua gratis en los restaurantes.",
   "plan.hours_title": "Horarios de apertura",
   "plan.hours_text": "Los museos de Bamberg suelen cerrar los lunes. Muchas iglesias están abiertas durante el día. Las cervecerías tienen horarios flexibles.",
-  "plan.hours_disclaimer": "The hours listed here are not official and may change at any time. Please check the official website of each location before your visit.",
+  "plan.hours_disclaimer": "Los horarios indicados aquí no son oficiales y pueden cambiar en cualquier momento. Por favor, consulta la página web oficial de cada lugar antes de tu visita.",
   "plan.back": "← Volver al resumen",
 
   "site.category": "Categoría",
