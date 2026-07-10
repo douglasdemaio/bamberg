@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
+  <title>Besuch planen – Bamberg Quest</title>
+  <meta name="description" content="Praktische Tipps für deinen Besuch in Bamberg: Anreise, Parken, Öffnungszeiten." />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('bq-theme');
+        var mode = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = mode;
+      } catch (_) { document.documentElement.dataset.theme = 'light'; }
+      try {
+        var lang = localStorage.getItem('bq-lang') || 'de';
+        document.documentElement.lang = lang;
+      } catch (_) {}
+    })();
+  </script>
+  <style>
+    .breadcrumb { padding: 1rem 0; font-size: 0.85rem; }
+    h1 { margin-bottom: 1.5rem; }
+    .info-block { margin-bottom: 1rem; padding: 1rem; background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); }
+    .info-block h2 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .info-block p { font-size: 0.9rem; }
+    .disclaimer { font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+    .page-footer { padding: 2rem 0; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
+  <div class="container">
+    <div class="topbar">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="cs">🇨🇿 Čeština</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="sv">🇸🇪 Svenska</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="hi">🇮🇳 हिन्दी</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="ru">🇷🇺 Русский</option>
+      </select>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
+        <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
+        <span class="toggle-icon-dark" aria-hidden="true">☾</span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+      </button>
+    </div>
+    <div id="content">
+      <nav class="breadcrumb" aria-label="Brotkrümelnavigation">
+        <a href="/index.html">← <span data-i18n="nav.all_sights">Alle Sehenswürdigkeiten</span></a>
+      </nav>
+      <article>
+        <h1><span data-i18n="plan.title">Besuch planen</span></h1>
+        <section class="info-block">
+          <h2 data-i18n="plan.arrival_title">Anreise</h2>
+          <p data-i18n="plan.arrival_text">Bamberg liegt an der ICE-Strecke München–Berlin. Vom Hauptbahnhof sind es 15 Minuten zu Fuß in die Altstadt. Parken: Bitte die Altstadt meiden – die Parkhäuser am Bahnhof (P1–P4) sind günstiger und gut angebunden.</p>
+        </section>
+        <section class="info-block">
+          <h2 data-i18n="plan.areas_title">Bergstadt &amp; Inselstadt</h2>
+          <p data-i18n="plan.areas_text">Bamberg teilt sich in zwei Hälften: die Bergstadt (Domberg, Kaulberg) auf dem linken Regnitz-Ufer und die Inselstadt zwischen den Flussarmen. Die Gärtnerstadt liegt im Norden. Alles ist fußläufig, aber die Hügel haben es in sich – 340 Höhenmeter für die volle Runde.</p>
+        </section>
+        <section class="info-block">
+          <h2 data-i18n="plan.card_title">Bamberg Card</h2>
+          <p data-i18n="plan.card_text">Die Bamberg Card lohnt sich bei 3+ Museen: freier Eintritt in alle städtischen Museen und Ermäßigungen in vielen Partnerhäusern. Erhältlich im Zentrum Welterbe.</p>
+        </section>
+        <section class="info-block">
+          <h2 data-i18n="plan.water_title">Leitungswasser</h2>
+          <p data-i18n="plan.water_text">Bamberger Leitungswasser ist trinkbar und von bester Qualität. In Restaurants kann ein Glas Wasser kostenlos bestellt werden – frag einfach nach einem "Leitungswasser".</p>
+        </section>
+        <section class="info-block">
+          <h2 data-i18n="plan.hours_title">Öffnungszeiten</h2>
+          <p data-i18n="plan.hours_text">Bamberger Museen haben oft montags geschlossen. Viele Kirchen sind tagsüber geöffnet. Brauereien haben flexible Öffnungszeiten – am besten vorher auf der jeweiligen Website prüfen.</p>
+          <p class="disclaimer" data-i18n="plan.hours_disclaimer">Die hier angegebenen Öffnungszeiten sind nicht offiziell und können sich jederzeit ändern. Bitte informiere dich vor deinem Besuch auf der offiziellen Website des jeweiligen Ortes.</p>
+        </section>
+      </article>
+      <footer class="page-footer">
+        <a href="/index.html"><span data-i18n="plan.back">← Zurück zur Übersicht</span></a>
+      </footer>
+    </div>
+  </div>
+  <script src="/js/game.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/shared.js"></script>
+</body>
+</html>

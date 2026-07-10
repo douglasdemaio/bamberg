@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
+  <title>Party – Bamberg Quest</title>
+  <meta name="description" content="Feiere deine Erkundung von Bamberg." />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('bq-theme');
+        var mode = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = mode;
+      } catch (_) { document.documentElement.dataset.theme = 'light'; }
+      try {
+        var lang = localStorage.getItem('bq-lang') || 'de';
+        document.documentElement.lang = lang;
+      } catch (_) {}
+    })();
+  </script>
+  <style>
+    .breadcrumb { padding: 1rem 0; font-size: 0.85rem; }
+    .party-page { display: flex; flex-direction: column; align-items: center; padding: 2rem 0; min-height: 60vh; justify-content: center; }
+    .party-header h1 { font-size: 2rem; text-align: center; }
+    .party-content { text-align: center; padding: 2rem; background: var(--card-bg); border-radius: var(--radius); border: 2px solid var(--amber); max-width: 400px; width: 100%; }
+    .party-badge { font-size: 4rem; margin-bottom: 1rem; }
+    .party-fireworks { font-size: 2rem; margin: 1rem 0; letter-spacing: 0.5em; }
+    .party-code-entry { display: flex; gap: 0.5rem; margin-top: 1rem; justify-content: center; }
+    .party-code-entry input { max-width: 200px; padding: 0.5rem 0.75rem; font-size: 0.95rem; border: 2px solid var(--border); border-radius: var(--radius); background: var(--paper); font-family: var(--font-body); }
+    .party-code-entry input:focus { outline: none; border-color: var(--wax-red); box-shadow: 0 0 0 3px rgba(140,43,39,0.15); }
+    .claim-btn { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600; background: var(--wax-red); color: var(--paper); border: none; border-radius: var(--radius); cursor: pointer; white-space: nowrap; }
+    .claim-btn:hover { opacity: 0.9; }
+    .party-feedback { font-size: 0.85rem; margin-top: 0.5rem; min-height: 1.3em; color: var(--verdigris); }
+    .party-link { display: inline-block; margin-top: 1rem; font-size: 0.9rem; }
+    .page-footer { padding: 2rem 0; font-size: 0.85rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
+  <div class="container">
+    <div class="topbar">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="cs">🇨🇿 Čeština</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="sv">🇸🇪 Svenska</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="hi">🇮🇳 हिन्दी</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="ru">🇷🇺 Русский</option>
+      </select>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
+        <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
+        <span class="toggle-icon-dark" aria-hidden="true">☾</span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+      </button>
+    </div>
+    <div id="content">
+      <nav class="breadcrumb"><a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a></nav>
+      <div id="party-data" hidden></div>
+      <article class="party-page">
+        <header class="party-header"><h1>🎉 <span data-i18n="party.title">Party!</span></h1></header>
+        <section id="party-unlocked" class="party-content" hidden>
+          <div class="party-badge">🏆</div>
+          <h2 data-i18n="party.congrats_title">Glückwunsch!</h2>
+          <p data-i18n="party.congrats_text">Du hast ganz Bamberg erkundet. Genieße deinen wohlverdienten Ruhm.</p>
+          <div class="party-fireworks">✨🎆🎇✨</div>
+          <a href="/collection.html" class="party-link"><span data-i18n="nav.back_collection">← Zur Sammlung</span></a>
+        </section>
+        <section id="party-locked" class="party-content">
+          <div class="party-badge">🔒</div>
+          <h2 data-i18n="party.locked_title">Noch nicht ganz</h2>
+          <p data-i18n="party.locked_text">Erkunde alle Orte oder gib einen Party-Code ein.</p>
+          <div class="party-code-entry">
+            <input type="text" id="party-code-input" class="claim-input" data-i18n-placeholder="party.code_placeholder" placeholder="Party-Code" autocomplete="off" />
+            <button type="button" id="party-code-btn" class="claim-btn"><span data-i18n="party.unlock_btn">Entsperren</span></button>
+          </div>
+          <p class="party-feedback" id="party-feedback"></p>
+        </section>
+      </article>
+      <footer class="page-footer"><a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a></footer>
+    </div>
+  </div>
+  <script src="/js/game.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/shared.js"></script>
+  <script>
+  function checkParty() {
+    var claimed = getClaimedSlugs().length;
+    var unlocked = localStorage.getItem('bamberg_party_unlocked');
+    var lockedEl = document.getElementById('party-locked');
+    var unlockedEl = document.getElementById('party-unlocked');
+
+    if (unlocked === 'true' || claimed >= parseInt(document.getElementById('party-data').dataset.total || '0', 10)) {
+      if (claimed >= parseInt(document.getElementById('party-data').dataset.total || '0', 10)) localStorage.setItem('bamberg_party_unlocked', 'true');
+      lockedEl.hidden = true;
+      unlockedEl.hidden = false;
+    } else {
+      lockedEl.hidden = false;
+      unlockedEl.hidden = true;
+    }
+  }
+
+  document.getElementById('party-code-btn')?.addEventListener('click', function() {
+    var lang = document.documentElement.lang || 'de';
+    var code = document.getElementById('party-code-input').value.trim().toLowerCase();
+    if (code === 'bamberg-quest-2026') {
+      localStorage.setItem('bamberg_party_unlocked', 'true');
+      checkParty();
+      document.getElementById('party-feedback').textContent = window.__bqt('party.unlocked_feedback', lang);
+    } else {
+      document.getElementById('party-feedback').textContent = window.__bqt('party.wrong_feedback', lang);
+    }
+  });
+
+  document.getElementById('party-code-input')?.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') document.getElementById('party-code-btn')?.click();
+  });
+
+  fetch('/data/sites.json')
+    .then(function(r) { return r.json(); })
+    .then(function(sites) {
+      document.getElementById('party-data').dataset.total = sites.length;
+      checkParty();
+    });
+  </script>
+</body>
+</html>

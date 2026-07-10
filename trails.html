@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
+  <title>Routen – Bamberg Quest</title>
+  <meta name="description" content="Kuratierte Spaziergänge durch Bamberg." />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('bq-theme');
+        var mode = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = mode;
+      } catch (_) { document.documentElement.dataset.theme = 'light'; }
+      try {
+        var lang = localStorage.getItem('bq-lang') || 'de';
+        document.documentElement.lang = lang;
+      } catch (_) {}
+    })();
+  </script>
+  <style>
+    .breadcrumb { padding: 1rem 0; font-size: 0.85rem; }
+    .page-header h1 { font-size: 1.5rem; }
+    .subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .trail-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+    .trail-card { display: flex; gap: 0.75rem; padding: 1rem; background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: border-color 0.15s; }
+    .trail-card:hover { border-color: var(--wax-red); }
+    .trail-icon { font-size: 1.5rem; }
+    .trail-info { flex: 1; }
+    .trail-info h2 { font-size: 1rem; margin-bottom: 0.25rem; }
+    .trail-en { font-weight: 400; font-size: 0.8rem; color: var(--text-muted); }
+    .trail-description { font-size: 0.85rem; margin-bottom: 0.35rem; }
+    .trail-meta { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; font-size: 0.75rem; color: var(--text-muted); }
+    .trail-missing { color: var(--amber); font-style: italic; }
+    .page-footer { padding: 2rem 0; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
+  <div class="container">
+    <div class="topbar">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="cs">🇨🇿 Čeština</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="sv">🇸🇪 Svenska</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="hi">🇮🇳 हिन्दी</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="ru">🇷🇺 Русский</option>
+      </select>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
+        <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
+        <span class="toggle-icon-dark" aria-hidden="true">☾</span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+      </button>
+    </div>
+    <div id="content">
+      <nav class="breadcrumb"><a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a></nav>
+      <header class="page-header">
+        <h1>🗺 <span data-i18n="trails.title">Routen</span></h1>
+        <p class="subtitle" data-i18n="trails.subtitle">Kuratierte Spaziergänge durch Bamberg. Entfernung, Höhenmeter und Zeit sind ehrlich geschätzt.</p>
+      </header>
+      <main>
+        <div class="trail-list" id="trail-list"></div>
+      </main>
+      <footer class="page-footer"><a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a></footer>
+    </div>
+  </div>
+  <script src="/js/game.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/shared.js"></script>
+  <script>
+  function renderTrails(sites) {
+    fetch('/data/trails.json')
+      .then(function(r) { return r.json(); })
+      .then(function(trails) {
+        var list = document.getElementById('trail-list');
+        trails.forEach(function(trail) {
+          var siteCount = trail.sites.filter(function(slug) { return sites.some(function(s) { return s.slug === slug; }); }).length;
+          var missing = trail.sites.length - siteCount;
+          var card = document.createElement('a');
+          card.href = '/trail.html?slug=' + trail.id;
+          card.className = 'trail-card';
+          var descDe = (trail.description && trail.description.de) || '';
+          var descEn = (trail.description && trail.description.en) || '';
+          card.innerHTML =
+            '<span class="trail-icon">' + (trail.icon || '') + '</span>' +
+            '<div class="trail-info">' +
+              '<h2>' + (trail.name.de || '') + ' <span class="trail-en">' + (trail.name.en || '') + '</span></h2>' +
+              '<p class="trail-description lang-de">' + descDe + '</p>' +
+              '<p class="trail-description lang-en">' + descEn + '</p>' +
+              '<div class="trail-meta">' +
+                '<span>🚶 ' + (trail.distance_km || '') + ' km</span>' +
+                '<span>⛰ ' + (trail.elevation_m || '') + ' m</span>' +
+                '<span>⏱ ' + (trail.duration || '') + '</span>' +
+                (trail.step_free ? '<span>♿ <span data-i18n="trails.step_free">Schritt-frei</span></span>' : '') +
+                '<span class="trail-count"><span data-i18n="trails.stops">Stationen</span>: ' + siteCount + '/' + trail.sites.length + '</span>' +
+                (missing > 0 ? '<span class="trail-missing">(noch ' + missing + ' fehlen)</span>' : '') +
+              '</div>' +
+            '</div>';
+          list.appendChild(card);
+        });
+        if (typeof window.__applyBqTranslations === 'function') {
+          window.__applyBqTranslations(document.documentElement.lang || 'de');
+        }
+      });
+  }
+
+  fetch('/data/sites.json')
+    .then(function(r) { return r.json(); })
+    .then(renderTrails);
+  </script>
+</body>
+</html>

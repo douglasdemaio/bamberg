@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
+  <title>Meine Sammlung – Bamberg Quest</title>
+  <meta name="description" content="Deine erkundeten Sehenswürdigkeiten in Bamberg." />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('bq-theme');
+        var mode = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = mode;
+      } catch (_) { document.documentElement.dataset.theme = 'light'; }
+      try {
+        var lang = localStorage.getItem('bq-lang') || 'de';
+        document.documentElement.lang = lang;
+      } catch (_) {}
+    })();
+  </script>
+  <style>
+    .page-header { padding: 2rem 0 1rem; border-bottom: 2px solid var(--verdigris); margin-bottom: 1.5rem; }
+    .page-header h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; font-size: 1.05rem; margin-bottom: 1rem; }
+    .nav-links a { font-weight: 600; }
+    .progress-bar { height: 8px; background: var(--sandstone); border-radius: 4px; overflow: hidden; margin-bottom: 0.35rem; }
+    .progress-fill { height: 100%; background: var(--verdigris); border-radius: 4px; transition: width 0.3s ease; }
+    @media (prefers-reduced-motion: reduce) { .progress-fill { transition: none; } }
+    .progress-text { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
+    .progress-label { font-weight: 400; color: var(--verdigris); }
+    .map-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 0.5rem; margin-bottom: 2rem; }
+    .map-tile { aspect-ratio: 1; background: var(--card-bg); border: 2px solid var(--border); border-radius: var(--radius); transition: all 0.2s; position: relative; overflow: hidden; }
+    .map-tile:hover { border-color: var(--wax-red); }
+    .tile-claimed { border-color: var(--verdigris); background: #e8f0ec; }
+    .tile-link { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-decoration: none; color: var(--text); padding: 0.5rem; }
+    .tile-seal { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    .tile-content { text-align: center; }
+    .tile-name { display: block; font-size: 0.7rem; font-weight: 600; line-height: 1.2; }
+    .tile-icon { display: block; font-size: 1rem; margin-top: 0.15rem; }
+    .claimed-list h2 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+    .claimed-items { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .claimed-item a { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: 0.9rem; }
+    .claimed-item a:hover { border-color: var(--verdigris); }
+    .claimed-mark { font-size: 1rem; }
+    .claimed-name-de { font-weight: 600; }
+    .claimed-name-en { font-size: 0.8rem; color: var(--text-muted); }
+    .empty-state { padding: 1rem; color: var(--text-muted); font-style: italic; }
+    .export-section { margin-top: 2rem; padding: 1.5rem 1rem; background: var(--card-bg); border-radius: var(--radius); border: 2px solid var(--amber); }
+    .export-section h2 { font-size: 1rem; margin-bottom: 0.75rem; }
+    .export-section summary { cursor: pointer; font-weight: 600; padding: 0.25rem 0; }
+    .export-desc { font-size: 0.85rem; margin-bottom: 0.75rem; }
+    .export-result { margin-top: 0.75rem; }
+    .export-label { font-weight: 600; font-size: 0.85rem; margin-bottom: 0.25rem; }
+    .export-textarea { width: 100%; padding: 0.5rem; font-family: var(--font-mono); font-size: 0.75rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--paper); resize: vertical; margin-bottom: 0.5rem; }
+    .export-feedback { font-size: 0.85rem; margin-top: 0.35rem; min-height: 1.3em; color: var(--verdigris); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
+  <div class="container">
+    <div class="topbar">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="cs">🇨🇿 Čeština</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="sv">🇸🇪 Svenska</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="hi">🇮🇳 हिन्दी</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="ru">🇷🇺 Русский</option>
+      </select>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
+        <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
+        <span class="toggle-icon-dark" aria-hidden="true">☾</span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+      </button>
+    </div>
+    <div id="content">
+      <header class="page-header">
+        <h1><span data-i18n="collection.title">Meine Karte</span></h1>
+        <nav class="nav-links">
+          <a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a>
+          <a href="/trails.html"><span data-i18n="nav.trails">Routen</span></a>
+          <a href="/passport.html"><span data-i18n="nav.beerpass">Bierpass</span></a>
+          <a href="/party.html">🎉 <span data-i18n="nav.party">Party</span></a>
+          <a href="/plan.html"><span data-i18n="nav.plan">Planen</span></a>
+        </nav>
+        <div class="progress-bar" id="progress-bar">
+          <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+        </div>
+        <p class="progress-text">
+          <span id="claim-collection-count">0</span> / <span id="total-sites">0</span>
+          <span id="progress-label" class="progress-label" data-i18n="collection.explored">erkundet</span>
+        </p>
+      </header>
+      <main>
+        <div id="map-tiles-container"></div>
+        <section class="claimed-list" id="claimed-list" aria-label="Erkundete Orte">
+          <h2><span data-i18n="collection.explored">Erkundet</span></h2>
+          <ul class="claimed-items" id="claimed-items"></ul>
+          <p class="empty-state" id="empty-state"><span data-i18n="collection.empty">Noch keine Orte erkundet.</span> <a href="/index.html"><span data-i18n="collection.empty_link">Beginne hier →</span></a></p>
+        </section>
+        <section class="export-section" aria-label="Code export / import">
+          <h2><span data-i18n="collection.export_title">🔐 Code exportieren</span></h2>
+          <details>
+            <summary><span data-i18n="collection.export_summary">Code erstellen</span></summary>
+            <p class="export-desc"><span data-i18n="collection.export_desc">Erzeuge einen teilbaren Code, der alle deine Erkundungen enthält.</span></p>
+            <button type="button" id="export-btn" class="claim-btn" style="padding:0.5rem 1rem;font-size:0.9rem;font-weight:600;background:var(--wax-red);color:var(--paper);border:none;border-radius:var(--radius);cursor:pointer"><span data-i18n="collection.export_btn">📋 Generieren</span></button>
+            <div class="export-result" id="export-result" hidden>
+              <p class="export-label"><span data-i18n="collection.export_your_code">Dein Code:</span></p>
+              <textarea id="export-code" class="export-textarea" readonly rows="3"></textarea>
+              <button type="button" id="copy-btn" class="claim-btn claim-btn-secondary" style="padding:0.5rem 1rem;font-size:0.9rem;font-weight:600;background:var(--verdigris);color:var(--paper);border:none;border-radius:var(--radius);cursor:pointer;margin-top:0.5rem"><span data-i18n="collection.export_copy">📋 Kopieren</span></button>
+              <p class="export-feedback" id="export-feedback"></p>
+            </div>
+          </details>
+          <details>
+            <summary><span data-i18n="collection.import_summary">Code importieren</span></summary>
+            <p class="export-desc"><span data-i18n="collection.import_desc">Setze einen Code ein, um fremde Erkundungen zu übernehmen.</span></p>
+            <textarea id="import-code" class="export-textarea" rows="3" data-i18n-placeholder="collection.import_placeholder" placeholder="Füge Code hier ein"></textarea>
+            <button type="button" id="import-btn" class="claim-btn" style="padding:0.5rem 1rem;font-size:0.9rem;font-weight:600;background:var(--wax-red);color:var(--paper);border:none;border-radius:var(--radius);cursor:pointer"><span data-i18n="collection.import_btn">📥 Importieren</span></button>
+            <p class="export-feedback" id="import-feedback"></p>
+          </details>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="/js/game.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/shared.js"></script>
+  <script>
+  var categories = [
+    { id: 'seven-hills', icon: '⛰' },
+    { id: 'stone-and-power', icon: '🏛' },
+    { id: 'water-and-bridges', icon: '🌉' },
+    { id: 'beer', icon: '🍺' },
+    { id: 'gardens-guilds-trades', icon: '🌿' },
+    { id: 'ghosts-curiosities-archive', icon: '🔍' },
+  ];
+
+  function renderSites(sites) {
+    var total = document.getElementById('total-sites');
+    if (total) total.textContent = sites.length;
+
+    var container = document.getElementById('map-tiles-container');
+    if (!container) return;
+
+    var tilesDiv = document.createElement('div');
+    tilesDiv.className = 'map-tiles';
+    tilesDiv.id = 'map-tiles';
+    tilesDiv.setAttribute('aria-label', 'Kartenkacheln / Map tiles');
+
+    sites.forEach(function(site) {
+      var cat = null;
+      for (var i = 0; i < categories.length; i++) {
+        if (categories[i].id === site.category) { cat = categories[i]; break; }
+      }
+      var tile = document.createElement('div');
+      tile.className = 'map-tile';
+      tile.id = 'tile-' + site.slug;
+      tile.setAttribute('data-slug', site.slug);
+      tile.setAttribute('data-category', site.category);
+      tile.setAttribute('data-name-de', site.name.de);
+      tile.setAttribute('data-name-en', site.name.en);
+      tile.innerHTML = '<a href="/site.html?slug=' + site.slug + '" class="tile-link">' +
+        '<div class="tile-seal" id="tile-seal-' + site.slug + '">🫱</div>' +
+        '<div class="tile-content">' +
+          '<span class="tile-name">' + site.name.de.split(' ').slice(0, 2).join(' ') + '</span>' +
+          '<span class="tile-icon">' + (cat ? cat.icon : '📍') + '</span>' +
+        '</div></a>';
+      tilesDiv.appendChild(tile);
+    });
+
+    container.appendChild(tilesDiv);
+    updateCollection();
+  }
+
+  function updateCollection() {
+    var claimedSlugs = getClaimedSlugs();
+    var count = claimedSlugs.length;
+    var totalEl = document.getElementById('total-sites');
+    var total = totalEl ? parseInt(totalEl.textContent, 10) : 0;
+
+    var countEl = document.getElementById('claim-collection-count');
+    if (countEl) countEl.textContent = count;
+
+    var fill = document.getElementById('progress-fill');
+    if (fill && total > 0) {
+      fill.style.width = Math.round(count / total * 100) + '%';
+    }
+
+    var progressLabel = document.getElementById('progress-label');
+    var lang = document.documentElement.lang || 'de';
+    if (progressLabel && count === total) {
+      progressLabel.textContent = window.__bqt('collection.complete', lang);
+    }
+
+    claimedSlugs.forEach(function(slug) {
+      var tile = document.getElementById('tile-' + slug);
+      var seal = document.getElementById('tile-seal-' + slug);
+      if (tile) tile.classList.add('tile-claimed');
+      if (seal) seal.textContent = '✅';
+    });
+
+    var listEl = document.getElementById('claimed-items');
+    var emptyEl = document.getElementById('empty-state');
+    if (!listEl) return;
+
+    if (count === 0) {
+      if (emptyEl) emptyEl.hidden = false;
+      return;
+    }
+    if (emptyEl) emptyEl.hidden = true;
+
+    claimedSlugs.forEach(function(slug) {
+      var tile = document.getElementById('tile-' + slug);
+      if (!tile) return;
+      var nameDe = tile.dataset.nameDe || slug;
+      var nameEn = tile.dataset.nameEn || slug;
+      var li = document.createElement('li');
+      li.className = 'claimed-item';
+      li.innerHTML = '<a href="/site.html?slug=' + slug + '"><span class="claimed-mark">✅</span> <span class="claimed-name-de">' + nameDe + '</span> <span class="claimed-name-en">' + nameEn + '</span></a>';
+      listEl.appendChild(li);
+    });
+  }
+
+  // Export / Import
+  document.getElementById('export-btn')?.addEventListener('click', function() {
+    var data = { v: 1, claims: getClaimedSlugs(), t: Date.now() };
+    var json = JSON.stringify(data);
+    var code = btoa(unescape(encodeURIComponent(json)));
+    document.getElementById('export-code').value = code;
+    document.getElementById('export-result').hidden = false;
+  });
+
+  document.getElementById('copy-btn')?.addEventListener('click', function() {
+    var code = document.getElementById('export-code');
+    try {
+      navigator.clipboard.writeText(code.value);
+    } catch (e) {
+      code.select();
+      document.execCommand('copy');
+    }
+    document.getElementById('export-feedback').textContent = window.__bqt('collection.copied', document.documentElement.lang);
+  });
+
+  document.getElementById('import-btn')?.addEventListener('click', function() {
+    var lang = document.documentElement.lang || 'de';
+    var raw = document.getElementById('import-code').value.trim();
+    if (!raw) {
+      document.getElementById('import-feedback').textContent = window.__bqt('collection.paste_error', lang);
+      return;
+    }
+    try {
+      var json = decodeURIComponent(escape(atob(raw)));
+      var data = JSON.parse(json);
+      if (!data.v || !Array.isArray(data.claims)) throw new Error('Invalid format');
+      var imported = 0;
+      data.claims.forEach(function(slug) {
+        if (!isClaimed(slug)) { claimSite(slug, 'import'); imported++; }
+      });
+      document.getElementById('import-feedback').textContent = window.__bqt('collection.import_success', lang).replace('{count}', imported);
+      if (imported > 0) updateCollection();
+    } catch (e) {
+      document.getElementById('import-feedback').textContent = window.__bqt('collection.import_error', lang);
+    }
+  });
+
+  fetch('/data/sites.json')
+    .then(function(r) { return r.json(); })
+    .then(renderSites);
+  </script>
+</body>
+</html>

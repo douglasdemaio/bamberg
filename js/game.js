@@ -1,11 +1,10 @@
-const CLAIMS_KEY = 'bamberg-quest-claims';
-const EXPORT_KEY = 'bamberg-quest-export';
+var CLAIMS_KEY = 'bamberg-quest-claims';
 
 function loadClaims() {
   try {
-    const raw = localStorage.getItem(CLAIMS_KEY);
+    var raw = localStorage.getItem(CLAIMS_KEY);
     return raw ? JSON.parse(raw) : {};
-  } catch {
+  } catch (e) {
     return {};
   }
 }
@@ -14,40 +13,41 @@ function saveClaims(claims) {
   localStorage.setItem(CLAIMS_KEY, JSON.stringify(claims));
 }
 
-export function getClaim(slug) {
-  const claims = loadClaims();
+function getClaim(slug) {
+  var claims = loadClaims();
   return claims[slug] || null;
 }
 
-export function isClaimed(slug) {
+function isClaimed(slug) {
   return !!getClaim(slug);
 }
 
-export function claimSite(slug, method = 'question') {
-  const claims = loadClaims();
+function claimSite(slug, method) {
+  if (method === undefined) method = 'question';
+  var claims = loadClaims();
   if (claims[slug]) return false;
   claims[slug] = {
     claimed: true,
-    method,
-    timestamp: new Date().toISOString(),
+    method: method,
+    timestamp: new Date().toISOString()
   };
   saveClaims(claims);
   return true;
 }
 
-export function getAllClaims() {
+function getAllClaims() {
   return loadClaims();
 }
 
-export function getClaimedSlugs() {
+function getClaimedSlugs() {
   return Object.keys(loadClaims());
 }
 
-export function getClaimCount() {
+function getClaimCount() {
   return getClaimedSlugs().length;
 }
 
-export function normalizeAnswer(input) {
+function normalizeAnswer(input) {
   return input
     .toLowerCase()
     .replace(/[ß]/g, 'ss')
@@ -59,7 +59,9 @@ export function normalizeAnswer(input) {
     .trim();
 }
 
-export function checkAnswer(input, validAnswers) {
-  const normalized = normalizeAnswer(input);
-  return validAnswers.some(a => normalizeAnswer(a) === normalized);
+function checkAnswer(input, validAnswers) {
+  var normalized = normalizeAnswer(input);
+  return validAnswers.some(function(a) {
+    return normalizeAnswer(a) === normalized;
+  });
 }

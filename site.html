@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
+  <title>Bamberg Quest</title>
+  <meta name="description" content="Besuche eine Sehenswürdigkeit in Bamberg." />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('bq-theme');
+        var mode = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = mode;
+      } catch (_) { document.documentElement.dataset.theme = 'light'; }
+      try {
+        var lang = localStorage.getItem('bq-lang') || 'de';
+        document.documentElement.lang = lang;
+      } catch (_) {}
+    })();
+  </script>
+  <style>
+    .breadcrumb { padding: 1rem 0 0.5rem; font-size: 0.85rem; }
+    .site-page { padding-bottom: 2rem; }
+    .site-header { margin-bottom: 1.5rem; }
+    .tier-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.25rem 0.7rem; border-radius: 999px; margin-bottom: 0.75rem; font-family: var(--font-mono); box-shadow: var(--shadow-inset); border: 1px solid rgba(0,0,0,0.12); }
+    .tier-gold { background: linear-gradient(135deg, #d9a852, #b57821); color: #fff; }
+    .tier-silver { background: linear-gradient(135deg, #c0bfb6, #8f8e85); color: #fff; }
+    .tier-bronze { background: linear-gradient(135deg, #c99a6a, #91663a); color: #fff; }
+    .tier-legendary { background: linear-gradient(135deg, #a63431, var(--wax-red)); color: #fff; }
+    .site-name-en { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .meta-list { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-size: 0.85rem; }
+    .meta-item { display: flex; gap: 0.3rem; }
+    .meta-item dt { color: var(--text-muted); }
+    .meta-item code { font-family: var(--font-mono); font-size: 0.75rem; background: var(--paper-dark); padding: 0.1rem 0.3rem; border-radius: 3px; }
+    .info-block { margin-bottom: 1.5rem; padding: 1rem 1.1rem; background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+    .info-block h2 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .info-block p { font-size: 0.9rem; }
+    .disclaimer { font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+    .history-para::first-letter { font-family: var(--font-display); font-size: 2.4rem; line-height: 0.85; float: left; padding: 0.25rem 0.4rem 0 0; color: var(--wax-red); font-weight: 700; }
+    .riddle-block { margin-top: 2rem; padding: 1rem; background: var(--paper-dark); border-radius: var(--radius); border: 2px solid var(--amber); }
+    .riddle-block h2 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .riddle-block summary { cursor: pointer; font-weight: 600; padding: 0.25rem 0; }
+    .riddle-block summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 2px; }
+    .riddle-content { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+    .riddle-content blockquote { padding: 0.5rem 1rem; border-left: 3px solid var(--amber); margin-bottom: 0.75rem; }
+    .hint { margin-top: 0.5rem; font-size: 0.85rem; }
+    .hint summary { cursor: pointer; color: var(--verdigris); font-weight: 500; }
+    .legendary-lock { padding: 1rem; background: #3d1412; color: var(--paper); border-radius: var(--radius); margin-bottom: 1rem; border: 2px solid var(--wax-red); }
+    .legendary-lock p { margin: 0.25rem 0; }
+    .legendary-req { font-size: 0.8rem; opacity: 0.8; }
+    .legendary-gated { filter: blur(6px) grayscale(0.6); pointer-events: none; user-select: none; transition: filter 0.5s; }
+    .claim-block { margin-top: 1.5rem; padding: 1rem; background: var(--card-bg); border-radius: var(--radius); border: 2px solid var(--verdigris); }
+    .claim-status { margin-bottom: 0.75rem; font-weight: 600; font-size: 0.95rem; }
+    .claim-claimed { color: var(--verdigris); }
+    .claim-form h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .claim-question { font-size: 0.95rem; padding: 0.5rem; background: var(--paper); border-radius: 4px; margin-bottom: 0.5rem; font-family: var(--font-display); }
+    .claim-input-row { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .claim-input { flex: 1; padding: 0.5rem 0.75rem; font-size: 0.95rem; border: 2px solid var(--border); border-radius: var(--radius); background: var(--paper); font-family: var(--font-body); }
+    .claim-input:focus { outline: none; border-color: var(--wax-red); box-shadow: 0 0 0 3px rgba(140,43,39,0.15); }
+    .claim-btn { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600; background: var(--wax-red); color: var(--paper); border: none; border-radius: var(--radius); cursor: pointer; white-space: nowrap; }
+    .claim-btn:hover { opacity: 0.9; }
+    .claim-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .claim-btn-secondary { background: var(--verdigris); margin-top: 0.5rem; }
+    .claim-feedback { font-size: 0.85rem; margin-top: 0.25rem; min-height: 1.3em; }
+    .claim-feedback-ok { color: var(--verdigris); font-weight: 600; }
+    .claim-feedback-err { color: var(--wax-red); }
+    .claim-honor { margin-top: 1rem; font-size: 0.85rem; }
+    .claim-honor summary { cursor: pointer; color: var(--text-muted); }
+    .honor-note { margin: 0.5rem 0; font-size: 0.85rem; }
+    .page-footer { padding: 1rem 0 2rem; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
+  <div class="container">
+    <div class="topbar">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="cs">🇨🇿 Čeština</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="sv">🇸🇪 Svenska</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="hi">🇮🇳 हिन्दी</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="ru">🇷🇺 Русский</option>
+      </select>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
+        <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
+        <span class="toggle-icon-dark" aria-hidden="true">☾</span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+      </button>
+    </div>
+    <div id="content">
+      <div id="site-root"></div>
+    </div>
+  </div>
+  <script src="/js/game.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/shared.js"></script>
+  <script>
+  var tierLabel = { bronze: 'Name sichtbar', silver: 'Rätsel', gold: 'Rätsel, verschlüsselt', legendary: 'Legendär' };
+
+  function renderSite(site) {
+    var root = document.getElementById('site-root');
+    if (!site) {
+      root.innerHTML = '<p>Sehenswürdigkeit nicht gefunden. <a href="/index.html">Zurück zur Übersicht</a></p>';
+      return;
+    }
+
+    document.title = site.name.de + ' – Bamberg Quest';
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.content = 'Besuche ' + site.name.de + ' in Bamberg. Öffnungszeiten, Geschichte, Anfahrt.';
+
+    var tierClass = site.tier || 'bronze';
+    var tierI18nKey = 'tier.' + (site.tier || 'bronze');
+
+    var html = '<nav class="breadcrumb" aria-label="Brotkrümelnavigation">' +
+      '<a href="/index.html"><span data-i18n="site.back">← Zurück zur Übersicht</span></a></nav>';
+
+    html += '<article class="site-page">';
+    html += '<header class="site-header">';
+    html += '<span class="tier-badge tier-' + tierClass + '" data-tier="' + (site.tier || 'bronze') + '"><span data-i18n="' + tierI18nKey + '">' + (tierLabel[site.tier] || '') + '</span></span>';
+    html += '<h1>' + site.name.de + '</h1>';
+    html += '<p class="site-name-en">' + site.name.en + '</p>';
+
+    if (site.requires_claimed && site.requires_claimed.length > 0) {
+      html += '<div class="legendary-lock" id="legendary-lock">' +
+        '<p>🔒 <strong><span data-i18n="site.legendary">Legendär</span></strong></p>' +
+        '<p class="legendary-req" data-i18n="site.legendary_requires" data-i18n-params=\'{"sites":"' + site.requires_claimed.join(', ') + '"}\'>Erfordert: ' + site.requires_claimed.join(', ') + '</p>' +
+      '</div>';
+    }
+
+    html += '<dl class="meta-list">' +
+      '<div class="meta-item"><dt><span data-i18n="site.category">Kategorie</span></dt><dd>' + site.category + '</dd></div>' +
+      '<div class="meta-item"><dt><span data-i18n="site.coordinates">Koordinaten</span></dt><dd><code>' + (site.coords ? site.coords[0].toFixed(4) : '') + ', ' + (site.coords ? site.coords[1].toFixed(4) : '') + '</code></dd></div>' +
+      '<div class="meta-item"><dt><span data-i18n="site.accessible">Barrierefrei</span></dt><dd>' + (site.accessible ? '<span data-i18n="site.accessible_yes">Ja</span>' : '<span data-i18n="site.accessible_limited">Eingeschränkt</span>') + '</dd></div>' +
+    '</dl>';
+    html += '</header>';
+
+    var legendaryClass = site.requires_claimed && site.requires_claimed.length > 0 ? 'legendary-gated' : '';
+    html += '<div id="legendary-content" class="' + legendaryClass + '">';
+
+    if (site.hours) {
+      html += '<section class="info-block">' +
+        '<h2><span data-i18n="site.hours_title">Öffnungszeiten</span></h2>' +
+        '<p class="lang-de" data-i18n-content data-i18n-content-de="' + (site.hours.de || '').replace(/"/g, '&quot;') + '" data-i18n-content-en="' + (site.hours.en || '').replace(/"/g, '&quot;') + '">' + (site.hours.de || '') + '</p>' +
+        '<p class="lang-en">' + (site.hours.en || '') + '</p>' +
+        '<p class="disclaimer" data-i18n="plan.hours_disclaimer">Die hier angegebenen Öffnungszeiten sind nicht offiziell und können sich jederzeit ändern. Bitte informiere dich vor deinem Besuch auf der offiziellen Website des jeweiligen Ortes.</p>' +
+      '</section>';
+    }
+
+    html += '<section class="info-block history-block">' +
+      '<h2><span data-i18n="site.history_title">Geschichte</span></h2>' +
+      '<p class="history-para lang-de" data-i18n-content data-i18n-content-de="<strong>' + (site.history_60w?.de || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</strong>" data-i18n-content-en="<strong>' + (site.history_60w?.en || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</strong>"><strong>' + (site.history_60w?.de || '') + '</strong></p>' +
+      '<p class="history-para lang-en"><strong>' + (site.history_60w?.en || '') + '</strong></p>' +
+    '</section>';
+
+    html += '<section class="info-block">' +
+      '<h2><span data-i18n="site.look_title">Hinsehen</span></h2>' +
+      '<p class="lang-de" data-i18n-content data-i18n-content-de="' + (site.look_for?.de || '').replace(/"/g, '&quot;') + '" data-i18n-content-en="' + (site.look_for?.en || '').replace(/"/g, '&quot;') + '">' + (site.look_for?.de || '') + '</p>' +
+      '<p class="lang-en">' + (site.look_for?.en || '') + '</p>' +
+    '</section>';
+
+    html += '<section class="info-block">' +
+      '<h2><span data-i18n="site.photo_title">Foto-Tipp</span></h2>' +
+      '<p class="lang-de" data-i18n-content data-i18n-content-de="' + (site.photo_tip?.de || '').replace(/"/g, '&quot;') + '" data-i18n-content-en="' + (site.photo_tip?.en || '').replace(/"/g, '&quot;') + '">' + (site.photo_tip?.de || '') + '</p>' +
+      '<p class="lang-en">' + (site.photo_tip?.en || '') + '</p>' +
+    '</section>';
+
+    html += '<aside class="riddle-block" aria-label="Rätsel für Spieler">' +
+      '<h2><span data-i18n="site.playing_title">🎲 Spielst du?</span></h2>' +
+      '<details>' +
+        '<summary><span data-i18n="site.show_riddle">Rätsel anzeigen</span></summary>';
+    if (site.riddle) {
+      html += '<div class="riddle-content">' +
+        '<blockquote>' +
+          '<p class="lang-de" data-i18n-content data-i18n-content-de="<strong>' + (site.riddle.de || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</strong>" data-i18n-content-en="<strong>' + (site.riddle.en || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</strong>"><strong>' + (site.riddle.de || '') + '</strong></p>' +
+          '<p class="lang-en"><strong>' + (site.riddle.en || '') + '</strong></p>' +
+        '</blockquote>';
+      if (site.hint) {
+        html += '<details class="hint">' +
+          '<summary><span data-i18n="site.hint">💡 Hinweis</span></summary>' +
+          '<p class="lang-de" data-i18n-content data-i18n-content-de="' + (site.hint.de || '').replace(/"/g, '&quot;') + '" data-i18n-content-en="' + (site.hint.en || '').replace(/"/g, '&quot;') + '">' + (site.hint.de || '') + '</p>' +
+          '<p class="lang-en">' + (site.hint.en || '') + '</p>' +
+        '</details>';
+      }
+      html += '</div>';
+    }
+    html += '</details></aside>';
+
+    html += '<aside class="claim-block" id="claim-ui" aria-label="Fundort markieren" data-slug="' + site.slug + '">' +
+      '<div id="claim-question-data" hidden>' + (site.question?.de || '') + '</div>' +
+      '<div class="claim-status" id="claim-status">' +
+        '<p class="claim-not-claimed"><span data-i18n="site.not_explored">🫱 Noch nicht erkundet</span></p>' +
+        '<p class="claim-claimed" hidden><span data-i18n="site.explored">✅ Erkundet</span></p>' +
+      '</div>' +
+      '<div class="claim-form" id="claim-form" hidden>' +
+        '<h3><span data-i18n="site.answer_title">Vor Ort beantworten</span></h3>' +
+        '<p class="claim-question" id="claim-question"></p>' +
+        '<div class="claim-input-row">' +
+          '<input type="text" id="claim-answer" class="claim-input" data-i18n-placeholder="site.answer_placeholder" placeholder="Deine Antwort" autocomplete="off" />' +
+          '<button type="button" id="claim-submit" class="claim-btn"><span data-i18n="site.check_btn">Prüfen</span></button>' +
+        '</div>' +
+        '<p class="claim-feedback" id="claim-feedback" aria-live="polite"></p>' +
+        '<details class="claim-honor">' +
+          '<summary><span data-i18n="site.honor_title">🌿 Nur hier gewesen</span></summary>' +
+          '<p class="honor-note"><span data-i18n="site.honor_text">Keine Frage beantworten? Ein Klick genügt – der Besuch zählt trotzdem.</span></p>' +
+          '<button type="button" id="claim-honor" class="claim-btn claim-btn-secondary"><span data-i18n="site.honor_btn">Hier gewesen</span></button>' +
+        '</details>' +
+      '</div>' +
+    '</aside>';
+
+    html += '</div></article>';
+    html += '<footer class="page-footer"><a href="/index.html"><span data-i18n="site.back">← Zurück zur Übersicht</span></a></footer>';
+
+    root.innerHTML = html;
+
+    // Set up claim UI
+    var slug = site.slug;
+    var answers = site.answers || [];
+
+    var statusEl = document.getElementById('claim-status');
+    var notClaimedEl = statusEl?.querySelector('.claim-not-claimed');
+    var claimedEl = statusEl?.querySelector('.claim-claimed');
+    var formEl = document.getElementById('claim-form');
+    var questionEl = document.getElementById('claim-question');
+    var answerInput = document.getElementById('claim-answer');
+    var submitBtn = document.getElementById('claim-submit');
+    var feedbackEl = document.getElementById('claim-feedback');
+    var honorBtn = document.getElementById('claim-honor');
+    var questionDataEl = document.getElementById('claim-question-data');
+
+    function updateUI() {
+      if (isClaimed(slug)) {
+        if (notClaimedEl) notClaimedEl.hidden = true;
+        if (claimedEl) claimedEl.hidden = false;
+        if (formEl) formEl.hidden = true;
+      } else {
+        if (notClaimedEl) notClaimedEl.hidden = false;
+        if (claimedEl) claimedEl.hidden = true;
+        if (formEl) formEl.hidden = false;
+        if (questionEl && questionDataEl) questionEl.textContent = questionDataEl.textContent;
+      }
+    }
+
+    function handleSubmit() {
+      if (!answerInput || !feedbackEl) return;
+      var answer = answerInput.value.trim();
+      if (!answer) return;
+      if (checkAnswer(answer, answers)) {
+        claimSite(slug, 'question');
+        feedbackEl.textContent = window.__bqt('site.correct', document.documentElement.lang);
+        feedbackEl.className = 'claim-feedback claim-feedback-ok';
+        updateUI();
+      } else {
+        var cleaned = normalizeAnswer(answer);
+        feedbackEl.textContent = window.__bqt('site.wrong', document.documentElement.lang).replace('{answer}', cleaned);
+        feedbackEl.className = 'claim-feedback claim-feedback-err';
+      }
+    }
+
+    if (submitBtn) submitBtn.addEventListener('click', handleSubmit);
+    if (answerInput) {
+      answerInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') handleSubmit();
+      });
+    }
+
+    if (honorBtn) {
+      honorBtn.addEventListener('click', function() {
+        claimSite(slug, 'honor');
+        if (feedbackEl) {
+          feedbackEl.textContent = window.__bqt('site.marked', document.documentElement.lang);
+          feedbackEl.className = 'claim-feedback claim-feedback-ok';
+        }
+        updateUI();
+      });
+    }
+
+    updateUI();
+
+    // Legendary gating
+    var lockEl = document.getElementById('legendary-lock');
+    var contentEl = document.getElementById('legendary-content');
+    if (lockEl && contentEl && site.requires_claimed && site.requires_claimed.length > 0) {
+      var allClaimed = site.requires_claimed.every(function(s) { return isClaimed(s); });
+      if (allClaimed) {
+        lockEl.hidden = true;
+        contentEl.classList.remove('legendary-gated');
+      }
+    }
+
+    // Apply i18n
+    if (typeof window.__applyBqTranslations === 'function') {
+      window.__applyBqTranslations(document.documentElement.lang || 'de');
+    }
+  }
+
+  function getQueryParam(name) {
+    var params = new URLSearchParams(window.location.search);
+    return params.get(name);
+  }
+
+  var slug = getQueryParam('slug');
+  if (slug) {
+    fetch('/data/sites.json')
+      .then(function(r) { return r.json(); })
+      .then(function(sites) {
+        var site = null;
+        for (var i = 0; i < sites.length; i++) {
+          if (sites[i].slug === slug) { site = sites[i]; break; }
+        }
+        renderSite(site);
+      });
+  } else {
+    document.getElementById('site-root').innerHTML = '<p>Keine Sehenswürdigkeit ausgewählt. <a href="/index.html">Zurück zur Übersicht</a></p>';
+  }
+  </script>
+</body>
+</html>

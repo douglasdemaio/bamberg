@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
+  <title>Bamberg Quest – Entdecke die Stadt</title>
+  <meta name="description" content="Ein selbstgeführter Entdeckungsspaziergang durch Bamberg – Guidebook und Schatzsuche in einem." />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('bq-theme');
+        var mode = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = mode;
+      } catch (_) {
+        document.documentElement.dataset.theme = 'light';
+      }
+      try {
+        var lang = localStorage.getItem('bq-lang') || 'de';
+        document.documentElement.lang = lang;
+      } catch (_) {}
+    })();
+  </script>
+  <style>
+    .site-header {
+      padding: 1rem 0 1.25rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 0.9rem;
+    }
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      flex: 0 0 auto;
+      background: radial-gradient(circle at 30% 30%, #a63431, var(--wax-red) 55%, #6a1e1a 100%);
+      color: var(--paper);
+      border-radius: 50%;
+      box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -3px 6px rgba(0,0,0,0.25);
+      position: relative;
+    }
+    .brand-mark::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255, 235, 200, 0.35);
+      pointer-events: none;
+    }
+    .brand-seal {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    }
+    .brand-text { min-width: 0; }
+    .site-title {
+      font-size: 1.85rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.1rem;
+    }
+    .site-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1rem;
+      font-size: 1.05rem;
+    }
+    .nav-links a { text-decoration: none; padding: 0.15rem 0; border-bottom: 1px solid transparent; font-weight: 600; }
+    .nav-links a:hover { border-bottom-color: var(--wax-red); }
+    .nav-links a[aria-current='page'] {
+      color: var(--text);
+      border-bottom-color: var(--verdigris);
+    }
+    .intro { margin-bottom: 1.75rem; font-size: 0.95rem; }
+    .intro-lead { font-family: var(--font-display); font-size: 1.05rem; line-height: 1.55; }
+    .dropcap {
+      float: left;
+      font-family: var(--font-display);
+      font-size: 3rem;
+      line-height: 0.85;
+      padding: 0.25rem 0.55rem 0 0;
+      color: var(--wax-red);
+      font-weight: 700;
+    }
+    .progress-panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .progress-summary {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.9rem;
+    }
+    .progress-ring {
+      position: relative;
+      flex: 0 0 auto;
+      width: 72px;
+      height: 72px;
+    }
+    .ring { transform: rotate(-90deg); }
+    .ring-track {
+      fill: none;
+      stroke: var(--border);
+      stroke-width: 6;
+    }
+    .ring-fill {
+      fill: none;
+      stroke: var(--verdigris);
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-dasharray: 170;
+      stroke-dashoffset: 170;
+      transition: stroke-dashoffset 0.6s ease;
+    }
+    .ring-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .ring-label small { font-size: 0.6rem; margin-left: 1px; color: var(--text-muted); }
+    .progress-text { min-width: 0; }
+    .progress-title { font-size: 1.05rem; margin-bottom: 0.15rem; }
+    .progress-count {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .progress-count span[id='claim-count'] {
+      color: var(--verdigris);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .progress-count-en { margin-left: 0.35rem; font-size: 0.85rem; }
+    .seal-glyph { margin-right: 0.25rem; }
+    .progress-hint {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+      padding: 0.35rem 0 0;
+    }
+    .progress-hint a { font-weight: 600; }
+    .cat-progress-list {
+      list-style: none;
+      display: grid;
+      gap: 0.4rem;
+      border-top: 1px dashed var(--border);
+      padding-top: 0.8rem;
+    }
+    .cat-progress {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+    .cat-progress-icon { font-size: 1rem; }
+    .cat-progress-name { color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cat-progress-pips {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      padding-top: 2px;
+    }
+    .cat-progress-count {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .pip {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      border: 1px solid var(--border-strong);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .pip[data-tier='gold'] { border-color: var(--amber); }
+    .pip[data-tier='silver'] { border-color: #9a998f; }
+    .pip[data-tier='bronze'] { border-color: #a17e50; }
+    .pip[data-tier='legendary'] { border-color: var(--wax-red); }
+    .pip.pip-on {
+      background: var(--verdigris);
+      border-color: var(--verdigris);
+      transform: scale(1.15);
+    }
+    .pip.pip-on[data-tier='gold'] { background: var(--amber); border-color: var(--amber); }
+    .pip.pip-on[data-tier='legendary'] { background: var(--wax-red); border-color: var(--wax-red); }
+    @media (min-width: 500px) {
+      .cat-progress {
+        grid-template-columns: auto 12ch 1fr auto;
+      }
+      .cat-progress-pips { grid-column: auto; }
+    }
+    .category-section { margin-bottom: 1.75rem; }
+    .category-heading {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .category-icon { font-size: 1.1rem; }
+    .site-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .site-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s, opacity 0.15s, background 0.15s;
+    }
+    .site-card:hover {
+      border-color: var(--wax-red);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      background: var(--card-bg-hover);
+    }
+    .site-card-claimed {
+      border-color: var(--verdigris);
+      opacity: 0.9;
+    }
+    .site-card-claimed .site-name::after {
+      content: ' \2713';
+      color: var(--verdigris);
+      font-weight: 700;
+    }
+    .site-link {
+      display: grid;
+      grid-template-columns: auto auto 1fr;
+      gap: 0.35rem 0.75rem;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: var(--text);
+      align-items: baseline;
+    }
+    .seal-icon {
+      grid-row: span 2;
+      align-self: center;
+      font-size: 1.15rem;
+    }
+    .site-tier {
+      grid-row: span 2;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      align-self: center;
+      font-family: var(--font-mono);
+      border: 1px solid transparent;
+      box-shadow: var(--shadow-inset);
+    }
+    .tier-gold { background: linear-gradient(135deg, #d9a852, #b57821); color: #fff; border-color: rgba(0,0,0,0.15); }
+    .tier-silver { background: linear-gradient(135deg, #c0bfb6, #8f8e85); color: #fff; border-color: rgba(0,0,0,0.15); }
+    .tier-bronze { background: linear-gradient(135deg, #c99a6a, #91663a); color: #fff; border-color: rgba(0,0,0,0.15); }
+    .tier-legendary { background: linear-gradient(135deg, #a63431, var(--wax-red)); color: #fff; border-color: rgba(0,0,0,0.15); }
+    .site-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      font-family: var(--font-display);
+    }
+    .site-name-en {
+      grid-column: 3;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .site-footer {
+      margin-top: 3rem;
+      padding: 1.5rem 0 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .site-footer p { margin-bottom: 0.3rem; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
+  <div class="container">
+    <div class="topbar">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="cs">🇨🇿 Čeština</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="sv">🇸🇪 Svenska</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="hi">🇮🇳 हिन्दी</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="ru">🇷🇺 Русский</option>
+      </select>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
+        <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
+        <span class="toggle-icon-dark" aria-hidden="true">☾</span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+      </button>
+    </div>
+    <div id="content">
+      <header class="site-header">
+        <div class="header-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <span class="brand-seal">B</span>
+          </span>
+          <div class="brand-text">
+            <h1 class="site-title">Bamberg Quest</h1>
+            <p class="site-subtitle"><span data-i18n="site.subtitle">Guidebook &amp; Schatzsuche</span></p>
+          </div>
+        </div>
+        <nav class="nav-links" aria-label="Seitennavigation">
+          <a href="/index.html" aria-current="page"><span data-i18n="nav.map">Karte</span></a>
+          <a href="/trails.html"><span data-i18n="nav.trails">Routen</span></a>
+          <a href="/passport.html"><span data-i18n="nav.beerpass">Bierpass</span></a>
+          <a href="/collection.html"><span data-i18n="nav.collection">Sammlung</span></a>
+          <a href="/party.html">🎉 <span data-i18n="nav.party">Party</span></a>
+          <a href="/plan.html"><span data-i18n="nav.plan">Planen</span></a>
+        </nav>
+      </header>
+      <main id="main-content">
+        <section class="intro" aria-labelledby="intro-heading">
+          <p class="intro-lead"><span class="dropcap">W</span><span data-i18n="index.intro">Willkommen in Bamberg, UNESCO-Welterbe auf sieben Hügeln. Ob Guidebook oder Schatzsuche – hier findest du alle Sehenswürdigkeiten.</span></p>
+        </section>
+        <div id="index-root"></div>
+      </main>
+      <footer class="site-footer">
+        <p data-i18n="index.footer">Ein Spaziergang durch Bamberg. Keine App, kein Account, kein Standort-Tracking. Deine Fortschritte bleiben auf deinem Gerät.</p>
+      </footer>
+    </div>
+  </div>
+  <script src="/js/game.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/shared.js"></script>
+  <script>
+  var RING_CIRCUM = 2 * Math.PI * 27;
+  var categories = [
+    { id: 'seven-hills', i18nKey: 'index.cat_seven_hills', icon: '⛰' },
+    { id: 'stone-and-power', i18nKey: 'index.cat_stone_and_power', icon: '🏛' },
+    { id: 'water-and-bridges', i18nKey: 'index.cat_water_and_bridges', icon: '🌉' },
+    { id: 'beer', i18nKey: 'index.cat_beer', icon: '🍺' },
+    { id: 'gardens-guilds-trades', i18nKey: 'index.cat_gardens_guilds_trades', icon: '🌿' },
+    { id: 'ghosts-curiosities-archive', i18nKey: 'index.cat_ghosts_curiosities_archive', icon: '🔍' },
+    { id: 'a', i18nKey: 'index.cat_a', icon: '⛪' },
+    { id: 'b', i18nKey: 'index.cat_b', icon: '🏛' },
+    { id: 'c', i18nKey: 'index.cat_c', icon: '💧' },
+    { id: 'e', i18nKey: 'index.cat_e', icon: '🛤' },
+    { id: 'f', i18nKey: 'index.cat_f', icon: '🎭' },
+  ];
+  var tierLabel = { bronze: 'Bronze', silver: 'Silber', gold: 'Gold', legendary: 'Legende' };
+
+  function renderIndex(sites) {
+    var total = sites.length;
+    var perCategory = categories
+      .map(function(cat) { return Object.assign({}, cat, { sites: sites.filter(function(s) { return s.category === cat.id; }) }); })
+      .filter(function(cat) { return cat.sites.length > 0; });
+
+    var root = document.getElementById('index-root');
+    if (!root) return;
+
+    // Progress panel
+    var panel = document.createElement('section');
+    panel.className = 'progress-panel';
+    panel.id = 'progress-panel';
+    panel.setAttribute('aria-labelledby', 'progress-heading');
+    panel.innerHTML =
+      '<div class="progress-summary">' +
+        '<div class="progress-ring" role="img" aria-label="Fortschritt / Progress" id="progress-ring-wrap">' +
+          '<svg class="ring" viewBox="0 0 64 64" width="72" height="72" aria-hidden="true">' +
+            '<circle class="ring-track" cx="32" cy="32" r="27" />' +
+            '<circle class="ring-fill" cx="32" cy="32" r="27" id="ring-fill" />' +
+          '</svg>' +
+          '<span class="ring-label"><span id="progress-pct-num">0</span><small>%</small></span>' +
+        '</div>' +
+        '<div class="progress-text">' +
+          '<h2 id="progress-heading" class="progress-title"><span data-i18n="index.progress_title">Dein Fortschritt</span></h2>' +
+          '<p class="progress-count"><span class="seal-glyph" aria-hidden="true">🫱</span><span id="claim-count">0</span> von ' + total + ' <span class="progress-count-en" data-i18n="index.progress_sites_explored">Orte erkundet</span></p>' +
+          '<p class="progress-hint" id="progress-hint" hidden></p>' +
+        '</div>' +
+      '</div>' +
+      '<ul class="cat-progress-list">' +
+        perCategory.map(function(cat) {
+          return '<li class="cat-progress" data-cat="' + cat.id + '">' +
+            '<span class="cat-progress-icon" aria-hidden="true">' + cat.icon + '</span>' +
+            '<span class="cat-progress-name" data-i18n="' + cat.i18nKey + '">' + cat.id + '</span>' +
+            '<span class="cat-progress-pips" data-cat-pips="' + cat.id + '">' +
+              cat.sites.map(function(s) {
+                return '<span class="pip" data-pip-slug="' + s.slug + '" data-tier="' + s.tier + '" title="' + s.name.de + '" aria-hidden="true"></span>';
+              }).join('') +
+            '</span>' +
+            '<span class="cat-progress-count" data-cat-count="' + cat.id + '">0/' + cat.sites.length + '</span>' +
+          '</li>';
+        }).join('') +
+      '</ul>';
+
+    var sectionsHtml = perCategory.map(function(cat) {
+      return '<section class="category-section" id="cat-' + cat.id + '">' +
+        '<h2 class="category-heading"><span class="category-icon" aria-hidden="true">' + cat.icon + '</span><span class="category-name" data-i18n="' + cat.i18nKey + '">' + cat.id + '</span></h2>' +
+        '<ul class="site-list">' +
+          cat.sites.map(function(site) {
+            return '<li class="site-card" data-slug="' + site.slug + '" id="card-' + site.slug + '" data-tier="' + site.tier + '">' +
+              '<a href="/site.html?slug=' + site.slug + '" class="site-link">' +
+                '<span class="seal-icon" id="seal-' + site.slug + '" aria-hidden="true">🫱</span>' +
+                '<span class="site-tier tier-' + site.tier + '">' + tierLabel[site.tier] + '</span>' +
+                '<span class="site-name">' + site.name.de + '</span>' +
+                '<span class="site-name-en">' + site.name.en + '</span>' +
+              '</a>' +
+            '</li>';
+          }).join('') +
+        '</ul>' +
+      '</section>';
+    }).join('');
+
+    root.appendChild(panel);
+    var main = document.getElementById('main-content');
+    var tempDiv = document.createElement('div');
+    tempDiv.innerHTML = sectionsHtml;
+    while (tempDiv.firstChild) {
+      main.appendChild(tempDiv.firstChild);
+    }
+
+    updateProgress(sites);
+  }
+
+  function updateProgress(sites) {
+    var slugs = new Set(getClaimedSlugs());
+    var count = slugs.size;
+    var total = sites.length;
+
+    var countEl = document.getElementById('claim-count');
+    var pctNumEl = document.getElementById('progress-pct-num');
+    var ringEl = document.getElementById('ring-fill');
+    var hintEl = document.getElementById('progress-hint');
+
+    if (countEl) countEl.textContent = String(count);
+    var pct = total > 0 ? Math.round((count / total) * 100) : 0;
+    if (pctNumEl) pctNumEl.textContent = String(pct);
+    if (ringEl) {
+      ringEl.style.strokeDasharray = '' + RING_CIRCUM;
+      ringEl.style.strokeDashoffset = '' + RING_CIRCUM * (1 - count / Math.max(total, 1));
+    }
+
+    slugs.forEach(function(slug) {
+      var card = document.getElementById('card-' + slug);
+      var seal = document.getElementById('seal-' + slug);
+      if (card) card.classList.add('site-card-claimed');
+      if (seal) seal.textContent = '✅';
+    });
+
+    document.querySelectorAll('.pip').forEach(function(pip) {
+      var slug = pip.getAttribute('data-pip-slug');
+      if (slug && slugs.has(slug)) pip.classList.add('pip-on');
+    });
+
+    var cats = new Map();
+    for (var i = 0; i < sites.length; i++) {
+      var s = sites[i];
+      if (!cats.has(s.category)) cats.set(s.category, { total: 0, done: 0 });
+      var c = cats.get(s.category);
+      c.total += 1;
+      if (slugs.has(s.slug)) c.done += 1;
+    }
+    cats.forEach(function(v, k) {
+      var el = document.querySelector('[data-cat-count="' + k + '"]');
+      if (el) el.textContent = v.done + '/' + v.total;
+    });
+
+    if (hintEl) {
+      var lang = document.documentElement.lang || 'de';
+      if (count === 0) {
+        hintEl.textContent = window.__bqt('index.progress_hint_empty', lang);
+        hintEl.hidden = false;
+      } else if (count === total && total > 0) {
+        hintEl.textContent = window.__bqt('index.progress_hint_complete', lang);
+        hintEl.hidden = false;
+      } else {
+        var nextUnclaimed = null;
+        for (var i = 0; i < sites.length; i++) {
+          if (!slugs.has(sites[i].slug)) { nextUnclaimed = sites[i]; break; }
+        }
+        if (nextUnclaimed) {
+          hintEl.innerHTML = window.__bqt('index.progress_hint_next', lang) + '<a href="/site.html?slug=' + nextUnclaimed.slug + '">' + nextUnclaimed.name.de + '</a>';
+          hintEl.hidden = false;
+        }
+      }
+    }
+  }
+
+  fetch('/data/sites.json')
+    .then(function(r) { return r.json(); })
+    .then(renderIndex);
+  </script>
+</body>
+</html>

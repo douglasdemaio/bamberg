@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "./node_modules/.bin/astro dev",
+      "command": "python3 -m http.server 8080",
       "name": "Development server",
       "request": "launch",
       "type": "node-terminal"

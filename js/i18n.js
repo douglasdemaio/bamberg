@@ -1,32 +1,11 @@
----
-import de from '../i18n/de.json';
-import en from '../i18n/en.json';
-import fr from '../i18n/fr.json';
-import it from '../i18n/it.json';
-import es from '../i18n/es.json';
-import nl from '../i18n/nl.json';
-import cs from '../i18n/cs.json';
-import pt from '../i18n/pt.json';
-import sv from '../i18n/sv.json';
-import zh from '../i18n/zh.json';
-import hi from '../i18n/hi.json';
-import ja from '../i18n/ja.json';
-import tr from '../i18n/tr.json';
-import ru from '../i18n/ru.json';
-
-const dict = { de, en, fr, it, es, nl, cs, pt, sv, zh, hi, ja, tr, ru };
-const json = JSON.stringify(dict);
----
-
-<pre id="i18n-json" hidden>{json}</pre>
-<script is:inline>
 (function() {
-var el = document.getElementById('i18n-json');
-window.__bqTranslations = JSON.parse(el.textContent);
+var allPromise = fetch('/i18n/all.json').then(function(r) { return r.json(); });
+var curLang = 'de';
+try { curLang = localStorage.getItem('bq-lang') || 'de'; } catch (e) {}
 
 function t(key, lang) {
+  if (!window.__bqTranslations) return key;
   var dict = window.__bqTranslations;
-  if (!dict) return key;
   var val = dict[lang] && dict[lang][key];
   if (!val && lang !== 'en') val = dict.en && dict.en[key];
   if (!val && lang !== 'de') val = dict.de && dict.de[key];
@@ -34,7 +13,7 @@ function t(key, lang) {
 }
 
 function applyTranslations(lang) {
-  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
     var key = el.getAttribute('data-i18n');
     if (!key) return;
     var pStr = el.getAttribute('data-i18n-params');
@@ -45,12 +24,12 @@ function applyTranslations(lang) {
         for (var k in params) {
           text = text.replace('{' + k + '}', params[k]);
         }
-      } catch (_) {}
+      } catch (e) {}
     }
     el.textContent = text;
   });
 
-  document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
     var key = el.getAttribute('data-i18n-html');
     if (!key) return;
     var pStr = el.getAttribute('data-i18n-params');
@@ -61,25 +40,24 @@ function applyTranslations(lang) {
         for (var k in params) {
           text = text.replace('{' + k + '}', params[k]);
         }
-      } catch (_) {}
+      } catch (e) {}
     }
     el.innerHTML = text;
   });
 
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
     el.placeholder = t(el.getAttribute('data-i18n-placeholder'), lang);
   });
 
-  document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+  document.querySelectorAll('[data-i18n-aria]').forEach(function(el) {
     el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria'), lang));
   });
 
-  document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+  document.querySelectorAll('[data-i18n-title]').forEach(function(el) {
     el.setAttribute('title', t(el.getAttribute('data-i18n-title'), lang));
   });
 
-  document.querySelectorAll('[data-i18n-content]').forEach(function (el) {
-    var lang = curLang;
+  document.querySelectorAll('[data-i18n-content]').forEach(function(el) {
     var content = el.getAttribute('data-i18n-content-' + lang);
     if (!content) content = el.getAttribute('data-i18n-content-en');
     if (!content) content = el.getAttribute('data-i18n-content-de');
@@ -97,9 +75,10 @@ function applyTranslations(lang) {
 }
 
 window.__bqt = t;
+window.__applyBqTranslations = applyTranslations;
 
-var curLang = 'de';
-try { curLang = localStorage.getItem('bq-lang') || 'de'; } catch (_) {}
-applyTranslations(curLang);
+allPromise.then(function(data) {
+  window.__bqTranslations = data;
+  applyTranslations(curLang);
+});
 })();
-</script>
