@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
-  <title>Nicht gefunden – Bamberg Quest</title>
+  <title data-i18n="error.meta_title">Nicht gefunden – Bamberg Quest</title>
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -28,7 +28,7 @@
   <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
   <div class="container">
     <div class="topbar">
-      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language" data-i18n-aria="site.language_label">
         <option value="de">🇩🇪 Deutsch</option>
         <option value="en">🇬🇧 English</option>
         <option value="fr">🇫🇷 Français</option>
@@ -47,13 +47,13 @@
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
         <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
         <span class="toggle-icon-dark" aria-hidden="true">☾</span>
-        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true" data-i18n="site.theme_light">Hell</span><span class="toggle-icon-dark" aria-hidden="true" data-i18n="site.theme_dark">Dunkel</span></span>
       </button>
     </div>
     <div id="content" style="text-align:center;padding:4rem 0;">
       <h1>404</h1>
-      <p>Seite nicht gefunden.</p>
-      <p><a href="/index.html">Zur Startseite</a></p>
+      <p data-i18n="error.not_found_msg">Seite nicht gefunden.</p>
+      <p><a href="/index.html" data-i18n="error.home_link">Zur Startseite</a></p>
     </div>
   </div>
   <script src="/js/game.js"></script>

@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
-  <title>Routen – Bamberg Quest</title>
-  <meta name="description" content="Kuratierte Spaziergänge durch Bamberg." />
+  <title data-i18n="trails.meta_title">Routen – Bamberg Quest</title>
+  <meta name="description" content="Kuratierte Spaziergänge durch Bamberg." data-i18n-meta="trails.meta_description" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -45,7 +45,7 @@
   <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
   <div class="container">
     <div class="topbar">
-      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language" data-i18n-aria="site.language_label">
         <option value="de">🇩🇪 Deutsch</option>
         <option value="en">🇬🇧 English</option>
         <option value="fr">🇫🇷 Français</option>
@@ -64,11 +64,11 @@
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
         <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
         <span class="toggle-icon-dark" aria-hidden="true">☾</span>
-        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true" data-i18n="site.theme_light">Hell</span><span class="toggle-icon-dark" aria-hidden="true" data-i18n="site.theme_dark">Dunkel</span></span>
       </button>
     </div>
     <div id="content">
-      <nav class="breadcrumb"><a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a></nav>
+      <nav class="breadcrumb" aria-label="Brotkrümelnavigation" data-i18n-aria="site.breadcrumb_aria"><a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a></nav>
       <header class="page-header">
         <h1>🗺 <span data-i18n="trails.title">Routen</span></h1>
         <p class="subtitle" data-i18n="trails.subtitle">Kuratierte Spaziergänge durch Bamberg. Entfernung, Höhenmeter und Zeit sind ehrlich geschätzt.</p>
@@ -83,45 +83,65 @@
   <script src="/js/i18n.js"></script>
   <script src="/js/shared.js"></script>
   <script>
+  var loadedTrailsSites = null;
+  var loadedTrails = null;
+
   function renderTrails(sites) {
+    var lang = document.documentElement.lang || 'de';
+    var pickLang = window.__bqPickLang || function(o){ return (o && (o[lang] || o.en || o.de)) || ''; };
+
     fetch('/data/trails.json')
       .then(function(r) { return r.json(); })
       .then(function(trails) {
-        var list = document.getElementById('trail-list');
-        trails.forEach(function(trail) {
-          var siteCount = trail.sites.filter(function(slug) { return sites.some(function(s) { return s.slug === slug; }); }).length;
-          var missing = trail.sites.length - siteCount;
-          var card = document.createElement('a');
-          card.href = '/trail.html?slug=' + trail.id;
-          card.className = 'trail-card';
-          var descDe = (trail.description && trail.description.de) || '';
-          var descEn = (trail.description && trail.description.en) || '';
-          card.innerHTML =
-            '<span class="trail-icon">' + (trail.icon || '') + '</span>' +
-            '<div class="trail-info">' +
-              '<h2>' + (trail.name.de || '') + ' <span class="trail-en">' + (trail.name.en || '') + '</span></h2>' +
-              '<p class="trail-description lang-de">' + descDe + '</p>' +
-              '<p class="trail-description lang-en">' + descEn + '</p>' +
-              '<div class="trail-meta">' +
-                '<span>🚶 ' + (trail.distance_km || '') + ' km</span>' +
-                '<span>⛰ ' + (trail.elevation_m || '') + ' m</span>' +
-                '<span>⏱ ' + (trail.duration || '') + '</span>' +
-                (trail.step_free ? '<span>♿ <span data-i18n="trails.step_free">Schritt-frei</span></span>' : '') +
-                '<span class="trail-count"><span data-i18n="trails.stops">Stationen</span>: ' + siteCount + '/' + trail.sites.length + '</span>' +
-                (missing > 0 ? '<span class="trail-missing">(noch ' + missing + ' fehlen)</span>' : '') +
-              '</div>' +
-            '</div>';
-          list.appendChild(card);
-        });
-        if (typeof window.__applyBqTranslations === 'function') {
-          window.__applyBqTranslations(document.documentElement.lang || 'de');
-        }
+        loadedTrails = trails;
+        buildTrailList(sites, trails, lang, pickLang);
       });
+  }
+
+  function buildTrailList(sites, trails, lang, pickLang) {
+    var list = document.getElementById('trail-list');
+    if (!list) return;
+    list.innerHTML = '';
+    trails.forEach(function(trail) {
+      var siteCount = trail.sites.filter(function(slug) { return sites.some(function(s) { return s.slug === slug; }); }).length;
+      var missing = trail.sites.length - siteCount;
+      var localName = pickLang(trail.name || {}, lang);
+      var localDesc = pickLang(trail.description || {}, lang);
+      var card = document.createElement('a');
+      card.href = '/trail.html?slug=' + trail.id;
+      card.className = 'trail-card';
+      card.innerHTML =
+        '<span class="trail-icon">' + (trail.icon || '') + '</span>' +
+        '<div class="trail-info">' +
+          '<h2>' + localName + '</h2>' +
+          '<p class="trail-description">' + localDesc + '</p>' +
+          '<div class="trail-meta">' +
+            '<span>🚶 ' + (trail.distance_km || '') + ' km</span>' +
+            '<span>⛰ ' + (trail.elevation_m || '') + ' m</span>' +
+            '<span>⏱ ' + (trail.duration || '') + '</span>' +
+            (trail.step_free ? '<span>♿ <span data-i18n="trails.step_free">Schritt-frei</span></span>' : '') +
+            '<span class="trail-count"><span data-i18n="trails.stops">Stationen</span>: ' + siteCount + '/' + trail.sites.length + '</span>' +
+            (missing > 0 ? '<span class="trail-missing" data-i18n="trails.missing" data-i18n-params=\'{"count":"' + missing + '"}\'>(noch ' + missing + ' fehlen)</span>' : '') +
+          '</div>' +
+        '</div>';
+      list.appendChild(card);
+    });
+    if (typeof window.__applyBqTranslations === 'function') {
+      window.__applyBqTranslations(lang);
+    }
   }
 
   fetch('/data/sites.json')
     .then(function(r) { return r.json(); })
-    .then(renderTrails);
+    .then(function(sites) { loadedTrailsSites = sites; renderTrails(sites); });
+
+  document.addEventListener('bq:translations-loaded', function() {
+    if (loadedTrailsSites && loadedTrails) {
+      var lang = document.documentElement.lang || 'de';
+      var pickLang = window.__bqPickLang || function(o){ return (o && (o[lang] || o.en || o.de)) || ''; };
+      buildTrailList(loadedTrailsSites, loadedTrails, lang, pickLang);
+    }
+  });
   </script>
 </body>
 </html>

@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
-  <title>Meine Sammlung – Bamberg Quest</title>
-  <meta name="description" content="Deine erkundeten Sehenswürdigkeiten in Bamberg." />
+  <title data-i18n="collection.meta_title">Meine Sammlung – Bamberg Quest</title>
+  <meta name="description" content="Deine erkundeten Sehenswürdigkeiten in Bamberg." data-i18n-meta="collection.meta_description" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -65,7 +65,7 @@
   <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
   <div class="container">
     <div class="topbar">
-      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language" data-i18n-aria="site.language_label">
         <option value="de">🇩🇪 Deutsch</option>
         <option value="en">🇬🇧 English</option>
         <option value="fr">🇫🇷 Français</option>
@@ -84,13 +84,13 @@
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
         <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
         <span class="toggle-icon-dark" aria-hidden="true">☾</span>
-        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true" data-i18n="site.theme_light">Hell</span><span class="toggle-icon-dark" aria-hidden="true" data-i18n="site.theme_dark">Dunkel</span></span>
       </button>
     </div>
     <div id="content">
       <header class="page-header">
         <h1><span data-i18n="collection.title">Meine Karte</span></h1>
-        <nav class="nav-links">
+        <nav class="nav-links" aria-label="Seitennavigation" data-i18n-aria="site.nav_aria">
           <a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a>
           <a href="/trails.html"><span data-i18n="nav.trails">Routen</span></a>
           <a href="/passport.html"><span data-i18n="nav.beerpass">Bierpass</span></a>
@@ -107,12 +107,12 @@
       </header>
       <main>
         <div id="map-tiles-container"></div>
-        <section class="claimed-list" id="claimed-list" aria-label="Erkundete Orte">
+        <section class="claimed-list" id="claimed-list" aria-label="Erkundete Orte" data-i18n-aria="collection.claimed_list_aria">
           <h2><span data-i18n="collection.explored">Erkundet</span></h2>
           <ul class="claimed-items" id="claimed-items"></ul>
           <p class="empty-state" id="empty-state"><span data-i18n="collection.empty">Noch keine Orte erkundet.</span> <a href="/index.html"><span data-i18n="collection.empty_link">Beginne hier →</span></a></p>
         </section>
-        <section class="export-section" aria-label="Code export / import">
+        <section class="export-section" aria-label="Code export / import" data-i18n-aria="collection.export_section_aria">
           <h2><span data-i18n="collection.export_title">🔐 Code exportieren</span></h2>
           <details>
             <summary><span data-i18n="collection.export_summary">Code erstellen</span></summary>
@@ -148,6 +148,7 @@
     { id: 'gardens-guilds-trades', icon: '🌿' },
     { id: 'ghosts-curiosities-archive', icon: '🔍' },
   ];
+  var sitesBySlug = {};
 
   function renderSites(sites) {
     var total = document.getElementById('total-sites');
@@ -156,33 +157,43 @@
     var container = document.getElementById('map-tiles-container');
     if (!container) return;
 
+    var uiLang = document.documentElement.lang || 'de';
+    var pickLang = window.__bqPickLang || function(o){ return (o && (o[uiLang] || o.en || o.de)) || ''; };
+
     var tilesDiv = document.createElement('div');
     tilesDiv.className = 'map-tiles';
     tilesDiv.id = 'map-tiles';
-    tilesDiv.setAttribute('aria-label', 'Kartenkacheln / Map tiles');
+    tilesDiv.setAttribute('aria-label', 'Kartenkacheln');
+    tilesDiv.setAttribute('data-i18n-aria', 'collection.map_tiles_aria');
 
+    sitesBySlug = {};
     sites.forEach(function(site) {
+      sitesBySlug[site.slug] = site;
       var cat = null;
       for (var i = 0; i < categories.length; i++) {
         if (categories[i].id === site.category) { cat = categories[i]; break; }
       }
+      var localName = pickLang(site.name, uiLang);
       var tile = document.createElement('div');
       tile.className = 'map-tile';
       tile.id = 'tile-' + site.slug;
       tile.setAttribute('data-slug', site.slug);
       tile.setAttribute('data-category', site.category);
-      tile.setAttribute('data-name-de', site.name.de);
-      tile.setAttribute('data-name-en', site.name.en);
+      // Truncate to first ~18 chars for compact tile display, regardless of language
+      var shortName = localName.length > 18 ? localName.slice(0, 17) + '…' : localName;
       tile.innerHTML = '<a href="/site.html?slug=' + site.slug + '" class="tile-link">' +
         '<div class="tile-seal" id="tile-seal-' + site.slug + '">🫱</div>' +
         '<div class="tile-content">' +
-          '<span class="tile-name">' + site.name.de.split(' ').slice(0, 2).join(' ') + '</span>' +
+          '<span class="tile-name">' + shortName + '</span>' +
           '<span class="tile-icon">' + (cat ? cat.icon : '📍') + '</span>' +
         '</div></a>';
       tilesDiv.appendChild(tile);
     });
 
     container.appendChild(tilesDiv);
+    if (window.__applyBqTranslations) {
+      window.__applyBqTranslations(uiLang);
+    }
     updateCollection();
   }
 
@@ -223,17 +234,26 @@
     }
     if (emptyEl) emptyEl.hidden = true;
 
+    var pl = window.__bqPickLang || function(o){ return (o && (o[lang] || o.en || o.de)) || ''; };
     claimedSlugs.forEach(function(slug) {
-      var tile = document.getElementById('tile-' + slug);
-      if (!tile) return;
-      var nameDe = tile.dataset.nameDe || slug;
-      var nameEn = tile.dataset.nameEn || slug;
+      var site = sitesBySlug[slug];
+      var localName = site ? pl(site.name, lang) : slug;
       var li = document.createElement('li');
       li.className = 'claimed-item';
-      li.innerHTML = '<a href="/site.html?slug=' + slug + '"><span class="claimed-mark">✅</span> <span class="claimed-name-de">' + nameDe + '</span> <span class="claimed-name-en">' + nameEn + '</span></a>';
+      li.innerHTML = '<a href="/site.html?slug=' + slug + '"><span class="claimed-mark">✅</span> <span class="claimed-name">' + localName + '</span></a>';
       listEl.appendChild(li);
     });
   }
+
+  document.addEventListener('bq:translations-loaded', function() {
+    // Re-render tiles and claimed list in the new language
+    var container = document.getElementById('map-tiles-container');
+    var listEl = document.getElementById('claimed-items');
+    if (container) container.innerHTML = '';
+    if (listEl) listEl.innerHTML = '';
+    var sitesArr = Object.keys(sitesBySlug).map(function(k){ return sitesBySlug[k]; });
+    if (sitesArr.length) renderSites(sitesArr);
+  });
 
   // Export / Import
   document.getElementById('export-btn')?.addEventListener('click', function() {

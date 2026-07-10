@@ -12,6 +12,15 @@ function t(key, lang) {
   return val || key;
 }
 
+function pickLang(obj, lang) {
+  if (!obj || typeof obj !== 'object') return obj || '';
+  if (obj[lang]) return obj[lang];
+  if (obj.en) return obj.en;
+  if (obj.de) return obj.de;
+  for (var k in obj) { if (obj[k]) return obj[k]; }
+  return '';
+}
+
 function applyTranslations(lang) {
   document.querySelectorAll('[data-i18n]').forEach(function(el) {
     var key = el.getAttribute('data-i18n');
@@ -57,6 +66,10 @@ function applyTranslations(lang) {
     el.setAttribute('title', t(el.getAttribute('data-i18n-title'), lang));
   });
 
+  document.querySelectorAll('[data-i18n-meta]').forEach(function(el) {
+    el.setAttribute('content', t(el.getAttribute('data-i18n-meta'), lang));
+  });
+
   document.querySelectorAll('[data-i18n-content]').forEach(function(el) {
     var content = el.getAttribute('data-i18n-content-' + lang);
     if (!content) content = el.getAttribute('data-i18n-content-en');
@@ -75,10 +88,15 @@ function applyTranslations(lang) {
 }
 
 window.__bqt = t;
+window.__bqPickLang = pickLang;
 window.__applyBqTranslations = applyTranslations;
+window.__bqLang = curLang;
 
 allPromise.then(function(data) {
   window.__bqTranslations = data;
   applyTranslations(curLang);
+  try {
+    document.dispatchEvent(new CustomEvent('bq:translations-loaded', { detail: { lang: curLang } }));
+  } catch (e) {}
 });
 })();

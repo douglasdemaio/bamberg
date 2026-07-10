@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
-  <title>Bamberg Quest – Entdecke die Stadt</title>
-  <meta name="description" content="Ein selbstgeführter Entdeckungsspaziergang durch Bamberg – Guidebook und Schatzsuche in einem." />
+  <title data-i18n="index.meta_title">Bamberg Quest – Entdecke die Stadt</title>
+  <meta name="description" content="Ein selbstgeführter Entdeckungsspaziergang durch Bamberg – Guidebook und Schatzsuche in einem." data-i18n-meta="index.meta_description" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -318,7 +318,7 @@
   <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
   <div class="container">
     <div class="topbar">
-      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language" data-i18n-aria="site.language_label">
         <option value="de">🇩🇪 Deutsch</option>
         <option value="en">🇬🇧 English</option>
         <option value="fr">🇫🇷 Français</option>
@@ -337,7 +337,7 @@
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
         <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
         <span class="toggle-icon-dark" aria-hidden="true">☾</span>
-        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true" data-i18n="site.theme_light">Hell</span><span class="toggle-icon-dark" aria-hidden="true" data-i18n="site.theme_dark">Dunkel</span></span>
       </button>
     </div>
     <div id="content">
@@ -351,7 +351,7 @@
             <p class="site-subtitle"><span data-i18n="site.subtitle">Guidebook &amp; Schatzsuche</span></p>
           </div>
         </div>
-        <nav class="nav-links" aria-label="Seitennavigation">
+        <nav class="nav-links" aria-label="Seitennavigation" data-i18n-aria="site.nav_aria">
           <a href="/index.html" aria-current="page"><span data-i18n="nav.map">Karte</span></a>
           <a href="/trails.html"><span data-i18n="nav.trails">Routen</span></a>
           <a href="/passport.html"><span data-i18n="nav.beerpass">Bierpass</span></a>
@@ -389,7 +389,8 @@
     { id: 'e', i18nKey: 'index.cat_e', icon: '🛤' },
     { id: 'f', i18nKey: 'index.cat_f', icon: '🎭' },
   ];
-  var tierLabel = { bronze: 'Bronze', silver: 'Silber', gold: 'Gold', legendary: 'Legende' };
+  var pickLang = window.__bqPickLang || function(o){ return (o && (o[document.documentElement.lang] || o.en || o.de)) || ''; };
+  var uiLang = document.documentElement.lang || 'de';
 
   function renderIndex(sites) {
     var total = sites.length;
@@ -407,7 +408,7 @@
     panel.setAttribute('aria-labelledby', 'progress-heading');
     panel.innerHTML =
       '<div class="progress-summary">' +
-        '<div class="progress-ring" role="img" aria-label="Fortschritt / Progress" id="progress-ring-wrap">' +
+        '<div class="progress-ring" role="img" aria-label="Fortschritt" data-i18n-aria="index.progress_ring_aria" id="progress-ring-wrap">' +
           '<svg class="ring" viewBox="0 0 64 64" width="72" height="72" aria-hidden="true">' +
             '<circle class="ring-track" cx="32" cy="32" r="27" />' +
             '<circle class="ring-fill" cx="32" cy="32" r="27" id="ring-fill" />' +
@@ -416,7 +417,7 @@
         '</div>' +
         '<div class="progress-text">' +
           '<h2 id="progress-heading" class="progress-title"><span data-i18n="index.progress_title">Dein Fortschritt</span></h2>' +
-          '<p class="progress-count"><span class="seal-glyph" aria-hidden="true">🫱</span><span id="claim-count">0</span> von ' + total + ' <span class="progress-count-en" data-i18n="index.progress_sites_explored">Orte erkundet</span></p>' +
+          '<p class="progress-count" id="progress-count-line" data-total="' + total + '"><span class="seal-glyph" aria-hidden="true">🫱</span> <span id="progress-count-text">0 von ' + total + ' Orte erkundet</span></p>' +
           '<p class="progress-hint" id="progress-hint" hidden></p>' +
         '</div>' +
       '</div>' +
@@ -427,7 +428,7 @@
             '<span class="cat-progress-name" data-i18n="' + cat.i18nKey + '">' + cat.id + '</span>' +
             '<span class="cat-progress-pips" data-cat-pips="' + cat.id + '">' +
               cat.sites.map(function(s) {
-                return '<span class="pip" data-pip-slug="' + s.slug + '" data-tier="' + s.tier + '" title="' + s.name.de + '" aria-hidden="true"></span>';
+                return '<span class="pip" data-pip-slug="' + s.slug + '" data-tier="' + s.tier + '" title="' + pickLang(s.name, uiLang) + '" aria-hidden="true"></span>';
               }).join('') +
             '</span>' +
             '<span class="cat-progress-count" data-cat-count="' + cat.id + '">0/' + cat.sites.length + '</span>' +
@@ -443,9 +444,8 @@
             return '<li class="site-card" data-slug="' + site.slug + '" id="card-' + site.slug + '" data-tier="' + site.tier + '">' +
               '<a href="/site.html?slug=' + site.slug + '" class="site-link">' +
                 '<span class="seal-icon" id="seal-' + site.slug + '" aria-hidden="true">🫱</span>' +
-                '<span class="site-tier tier-' + site.tier + '">' + tierLabel[site.tier] + '</span>' +
-                '<span class="site-name">' + site.name.de + '</span>' +
-                '<span class="site-name-en">' + site.name.en + '</span>' +
+                '<span class="site-tier tier-' + site.tier + '" data-i18n="tier_short.' + site.tier + '">' + site.tier + '</span>' +
+                '<span class="site-name">' + pickLang(site.name, uiLang) + '</span>' +
               '</a>' +
             '</li>';
           }).join('') +
@@ -461,6 +461,12 @@
       main.appendChild(tempDiv.firstChild);
     }
 
+    if (window.__applyBqTranslations) {
+      // Re-apply translations now that JS-rendered content is in the DOM
+      var l = document.documentElement.lang || 'de';
+      window.__applyBqTranslations(l);
+    }
+
     updateProgress(sites);
   }
 
@@ -468,13 +474,17 @@
     var slugs = new Set(getClaimedSlugs());
     var count = slugs.size;
     var total = sites.length;
+    var lang = document.documentElement.lang || 'de';
 
-    var countEl = document.getElementById('claim-count');
+    var countTextEl = document.getElementById('progress-count-text');
     var pctNumEl = document.getElementById('progress-pct-num');
     var ringEl = document.getElementById('ring-fill');
     var hintEl = document.getElementById('progress-hint');
 
-    if (countEl) countEl.textContent = String(count);
+    if (countTextEl) {
+      var tpl = window.__bqt ? window.__bqt('index.progress_count_template', lang) : '{count} of {total} sites explored';
+      countTextEl.textContent = tpl.replace('{count}', String(count)).replace('{total}', String(total));
+    }
     var pct = total > 0 ? Math.round((count / total) * 100) : 0;
     if (pctNumEl) pctNumEl.textContent = String(pct);
     if (ringEl) {
@@ -508,7 +518,7 @@
     });
 
     if (hintEl) {
-      var lang = document.documentElement.lang || 'de';
+      var pl = window.__bqPickLang || function(o){ return (o && (o[lang] || o.en || o.de)) || ''; };
       if (count === 0) {
         hintEl.textContent = window.__bqt('index.progress_hint_empty', lang);
         hintEl.hidden = false;
@@ -521,16 +531,21 @@
           if (!slugs.has(sites[i].slug)) { nextUnclaimed = sites[i]; break; }
         }
         if (nextUnclaimed) {
-          hintEl.innerHTML = window.__bqt('index.progress_hint_next', lang) + '<a href="/site.html?slug=' + nextUnclaimed.slug + '">' + nextUnclaimed.name.de + '</a>';
+          hintEl.innerHTML = window.__bqt('index.progress_hint_next', lang) + ' <a href="/site.html?slug=' + nextUnclaimed.slug + '">' + pl(nextUnclaimed.name, lang) + '</a>';
           hintEl.hidden = false;
         }
       }
     }
   }
 
+  var loadedSites = null;
   fetch('/data/sites.json')
     .then(function(r) { return r.json(); })
-    .then(renderIndex);
+    .then(function(sites) { loadedSites = sites; renderIndex(sites); });
+
+  document.addEventListener('bq:translations-loaded', function() {
+    if (loadedSites) updateProgress(loadedSites);
+  });
   </script>
 </body>
 </html>

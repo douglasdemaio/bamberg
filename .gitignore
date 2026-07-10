@@ -13,3 +13,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Claude Code local (user-specific) settings — keep project skills committed
+.claude/settings.local.json

@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
   <title>Bamberg Quest</title>
-  <meta name="description" content="Besuche eine Sehenswürdigkeit in Bamberg." />
+  <meta name="description" content="Besuche eine Sehenswürdigkeit in Bamberg." data-i18n-meta="site_detail.meta_description_template" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -80,7 +80,7 @@
   <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
   <div class="container">
     <div class="topbar">
-      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language" data-i18n-aria="site.language_label">
         <option value="de">🇩🇪 Deutsch</option>
         <option value="en">🇬🇧 English</option>
         <option value="fr">🇫🇷 Français</option>
@@ -99,7 +99,7 @@
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
         <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
         <span class="toggle-icon-dark" aria-hidden="true">☾</span>
-        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true" data-i18n="site.theme_light">Hell</span><span class="toggle-icon-dark" aria-hidden="true" data-i18n="site.theme_dark">Dunkel</span></span>
       </button>
     </div>
     <div id="content">
@@ -110,30 +110,42 @@
   <script src="/js/i18n.js"></script>
   <script src="/js/shared.js"></script>
   <script>
-  var tierLabel = { bronze: 'Name sichtbar', silver: 'Rätsel', gold: 'Rätsel, verschlüsselt', legendary: 'Legendär' };
+  function categoryI18nKey(catId) {
+    if (!catId) return '';
+    return 'index.cat_' + String(catId).replace(/-/g, '_');
+  }
 
   function renderSite(site) {
     var root = document.getElementById('site-root');
+    var lang = document.documentElement.lang || 'de';
+    var pickLang = window.__bqPickLang || function(o){ return (o && (o[lang] || o.en || o.de)) || ''; };
+    var t = window.__bqt || function(k){ return k; };
+
     if (!site) {
-      root.innerHTML = '<p>Sehenswürdigkeit nicht gefunden. <a href="/index.html">Zurück zur Übersicht</a></p>';
+      root.innerHTML = '<p>' + t('site_detail.not_found', lang) + ' <a href="/index.html" data-i18n="site.back">← Zurück zur Übersicht</a></p>';
+      if (typeof window.__applyBqTranslations === 'function') window.__applyBqTranslations(lang);
       return;
     }
 
-    document.title = site.name.de + ' – Bamberg Quest';
+    var localName = pickLang(site.name, lang);
+    document.title = localName + ' – Bamberg Quest';
     var metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.content = 'Besuche ' + site.name.de + ' in Bamberg. Öffnungszeiten, Geschichte, Anfahrt.';
+    if (metaDesc) {
+      var tpl = t('site_detail.meta_description_template', lang);
+      metaDesc.content = tpl.replace('{name}', localName);
+    }
 
     var tierClass = site.tier || 'bronze';
     var tierI18nKey = 'tier.' + (site.tier || 'bronze');
+    var catKey = categoryI18nKey(site.category);
 
-    var html = '<nav class="breadcrumb" aria-label="Brotkrümelnavigation">' +
+    var html = '<nav class="breadcrumb" aria-label="Brotkrümelnavigation" data-i18n-aria="site.breadcrumb_aria">' +
       '<a href="/index.html"><span data-i18n="site.back">← Zurück zur Übersicht</span></a></nav>';
 
     html += '<article class="site-page">';
     html += '<header class="site-header">';
-    html += '<span class="tier-badge tier-' + tierClass + '" data-tier="' + (site.tier || 'bronze') + '"><span data-i18n="' + tierI18nKey + '">' + (tierLabel[site.tier] || '') + '</span></span>';
-    html += '<h1>' + site.name.de + '</h1>';
-    html += '<p class="site-name-en">' + site.name.en + '</p>';
+    html += '<span class="tier-badge tier-' + tierClass + '" data-tier="' + (site.tier || 'bronze') + '"><span data-i18n="' + tierI18nKey + '">' + tierI18nKey + '</span></span>';
+    html += '<h1>' + localName + '</h1>';
 
     if (site.requires_claimed && site.requires_claimed.length > 0) {
       html += '<div class="legendary-lock" id="legendary-lock">' +
@@ -143,7 +155,7 @@
     }
 
     html += '<dl class="meta-list">' +
-      '<div class="meta-item"><dt><span data-i18n="site.category">Kategorie</span></dt><dd>' + site.category + '</dd></div>' +
+      '<div class="meta-item"><dt><span data-i18n="site.category">Kategorie</span></dt><dd><span data-i18n="' + catKey + '">' + site.category + '</span></dd></div>' +
       '<div class="meta-item"><dt><span data-i18n="site.coordinates">Koordinaten</span></dt><dd><code>' + (site.coords ? site.coords[0].toFixed(4) : '') + ', ' + (site.coords ? site.coords[1].toFixed(4) : '') + '</code></dd></div>' +
       '<div class="meta-item"><dt><span data-i18n="site.accessible">Barrierefrei</span></dt><dd>' + (site.accessible ? '<span data-i18n="site.accessible_yes">Ja</span>' : '<span data-i18n="site.accessible_limited">Eingeschränkt</span>') + '</dd></div>' +
     '</dl>';
@@ -155,53 +167,53 @@
     if (site.hours) {
       html += '<section class="info-block">' +
         '<h2><span data-i18n="site.hours_title">Öffnungszeiten</span></h2>' +
-        '<p class="lang-de" data-i18n-content data-i18n-content-de="' + (site.hours.de || '').replace(/"/g, '&quot;') + '" data-i18n-content-en="' + (site.hours.en || '').replace(/"/g, '&quot;') + '">' + (site.hours.de || '') + '</p>' +
-        '<p class="lang-en">' + (site.hours.en || '') + '</p>' +
+        '<p>' + pickLang(site.hours, lang) + '</p>' +
         '<p class="disclaimer" data-i18n="plan.hours_disclaimer">Die hier angegebenen Öffnungszeiten sind nicht offiziell und können sich jederzeit ändern. Bitte informiere dich vor deinem Besuch auf der offiziellen Website des jeweiligen Ortes.</p>' +
       '</section>';
     }
 
-    html += '<section class="info-block history-block">' +
-      '<h2><span data-i18n="site.history_title">Geschichte</span></h2>' +
-      '<p class="history-para lang-de" data-i18n-content data-i18n-content-de="<strong>' + (site.history_60w?.de || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</strong>" data-i18n-content-en="<strong>' + (site.history_60w?.en || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</strong>"><strong>' + (site.history_60w?.de || '') + '</strong></p>' +
-      '<p class="history-para lang-en"><strong>' + (site.history_60w?.en || '') + '</strong></p>' +
-    '</section>';
+    if (site.history_60w) {
+      html += '<section class="info-block history-block">' +
+        '<h2><span data-i18n="site.history_title">Geschichte</span></h2>' +
+        '<p class="history-para"><strong>' + pickLang(site.history_60w, lang) + '</strong></p>' +
+      '</section>';
+    }
 
-    html += '<section class="info-block">' +
-      '<h2><span data-i18n="site.look_title">Hinsehen</span></h2>' +
-      '<p class="lang-de" data-i18n-content data-i18n-content-de="' + (site.look_for?.de || '').replace(/"/g, '&quot;') + '" data-i18n-content-en="' + (site.look_for?.en || '').replace(/"/g, '&quot;') + '">' + (site.look_for?.de || '') + '</p>' +
-      '<p class="lang-en">' + (site.look_for?.en || '') + '</p>' +
-    '</section>';
+    if (site.look_for) {
+      html += '<section class="info-block">' +
+        '<h2><span data-i18n="site.look_title">Hinsehen</span></h2>' +
+        '<p>' + pickLang(site.look_for, lang) + '</p>' +
+      '</section>';
+    }
 
-    html += '<section class="info-block">' +
-      '<h2><span data-i18n="site.photo_title">Foto-Tipp</span></h2>' +
-      '<p class="lang-de" data-i18n-content data-i18n-content-de="' + (site.photo_tip?.de || '').replace(/"/g, '&quot;') + '" data-i18n-content-en="' + (site.photo_tip?.en || '').replace(/"/g, '&quot;') + '">' + (site.photo_tip?.de || '') + '</p>' +
-      '<p class="lang-en">' + (site.photo_tip?.en || '') + '</p>' +
-    '</section>';
+    if (site.photo_tip) {
+      html += '<section class="info-block">' +
+        '<h2><span data-i18n="site.photo_title">Foto-Tipp</span></h2>' +
+        '<p>' + pickLang(site.photo_tip, lang) + '</p>' +
+      '</section>';
+    }
 
-    html += '<aside class="riddle-block" aria-label="Rätsel für Spieler">' +
+    html += '<aside class="riddle-block" aria-label="Rätsel für Spieler" data-i18n-aria="site_detail.riddle_aria">' +
       '<h2><span data-i18n="site.playing_title">🎲 Spielst du?</span></h2>' +
       '<details>' +
         '<summary><span data-i18n="site.show_riddle">Rätsel anzeigen</span></summary>';
     if (site.riddle) {
       html += '<div class="riddle-content">' +
         '<blockquote>' +
-          '<p class="lang-de" data-i18n-content data-i18n-content-de="<strong>' + (site.riddle.de || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</strong>" data-i18n-content-en="<strong>' + (site.riddle.en || '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</strong>"><strong>' + (site.riddle.de || '') + '</strong></p>' +
-          '<p class="lang-en"><strong>' + (site.riddle.en || '') + '</strong></p>' +
+          '<p><strong>' + pickLang(site.riddle, lang) + '</strong></p>' +
         '</blockquote>';
       if (site.hint) {
         html += '<details class="hint">' +
           '<summary><span data-i18n="site.hint">💡 Hinweis</span></summary>' +
-          '<p class="lang-de" data-i18n-content data-i18n-content-de="' + (site.hint.de || '').replace(/"/g, '&quot;') + '" data-i18n-content-en="' + (site.hint.en || '').replace(/"/g, '&quot;') + '">' + (site.hint.de || '') + '</p>' +
-          '<p class="lang-en">' + (site.hint.en || '') + '</p>' +
+          '<p>' + pickLang(site.hint, lang) + '</p>' +
         '</details>';
       }
       html += '</div>';
     }
     html += '</details></aside>';
 
-    html += '<aside class="claim-block" id="claim-ui" aria-label="Fundort markieren" data-slug="' + site.slug + '">' +
-      '<div id="claim-question-data" hidden>' + (site.question?.de || '') + '</div>' +
+    html += '<aside class="claim-block" id="claim-ui" aria-label="Fundort markieren" data-i18n-aria="site_detail.claim_aria" data-slug="' + site.slug + '">' +
+      '<div id="claim-question-data" hidden>' + pickLang(site.question || {}, lang) + '</div>' +
       '<div class="claim-status" id="claim-status">' +
         '<p class="claim-not-claimed"><span data-i18n="site.not_explored">🫱 Noch nicht erkundet</span></p>' +
         '<p class="claim-claimed" hidden><span data-i18n="site.explored">✅ Erkundet</span></p>' +
@@ -314,6 +326,17 @@
   }
 
   var slug = getQueryParam('slug');
+  var loadedSite = null;
+  var sitesLoaded = false;
+
+  function renderNoneSelected() {
+    var lang = document.documentElement.lang || 'de';
+    var t = window.__bqt || function(k){ return k; };
+    document.getElementById('site-root').innerHTML =
+      '<p>' + t('site_detail.none_selected', lang) + ' <a href="/index.html" data-i18n="site.back">← Zurück zur Übersicht</a></p>';
+    if (typeof window.__applyBqTranslations === 'function') window.__applyBqTranslations(lang);
+  }
+
   if (slug) {
     fetch('/data/sites.json')
       .then(function(r) { return r.json(); })
@@ -322,11 +345,21 @@
         for (var i = 0; i < sites.length; i++) {
           if (sites[i].slug === slug) { site = sites[i]; break; }
         }
+        loadedSite = site;
+        sitesLoaded = true;
         renderSite(site);
       });
   } else {
-    document.getElementById('site-root').innerHTML = '<p>Keine Sehenswürdigkeit ausgewählt. <a href="/index.html">Zurück zur Übersicht</a></p>';
+    renderNoneSelected();
   }
+
+  // When translations arrive after sites.json (or vice-versa), re-render in the
+  // now-current language. If sites.json hasn't loaded yet, its .then() will
+  // render in the right language once it does.
+  document.addEventListener('bq:translations-loaded', function() {
+    if (!slug) { renderNoneSelected(); return; }
+    if (sitesLoaded) renderSite(loadedSite);
+  });
   </script>
 </body>
 </html>

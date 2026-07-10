@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
-  <title>Party – Bamberg Quest</title>
-  <meta name="description" content="Feiere deine Erkundung von Bamberg." />
+  <title data-i18n="party.meta_title">Party – Bamberg Quest</title>
+  <meta name="description" content="Feiere deine Erkundung von Bamberg." data-i18n-meta="party.meta_description" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -45,7 +45,7 @@
   <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
   <div class="container">
     <div class="topbar">
-      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language" data-i18n-aria="site.language_label">
         <option value="de">🇩🇪 Deutsch</option>
         <option value="en">🇬🇧 English</option>
         <option value="fr">🇫🇷 Français</option>
@@ -64,11 +64,11 @@
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
         <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
         <span class="toggle-icon-dark" aria-hidden="true">☾</span>
-        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true" data-i18n="site.theme_light">Hell</span><span class="toggle-icon-dark" aria-hidden="true" data-i18n="site.theme_dark">Dunkel</span></span>
       </button>
     </div>
     <div id="content">
-      <nav class="breadcrumb"><a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a></nav>
+      <nav class="breadcrumb" aria-label="Brotkrümelnavigation" data-i18n-aria="site.breadcrumb_aria"><a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a></nav>
       <div id="party-data" hidden></div>
       <article class="party-page">
         <header class="party-header"><h1>🎉 <span data-i18n="party.title">Party!</span></h1></header>

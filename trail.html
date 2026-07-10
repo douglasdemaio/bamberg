@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
-  <title>Route – Bamberg Quest</title>
-  <meta name="description" content="Kuratierter Spaziergang durch Bamberg." />
+  <title data-i18n="trail_detail.title_fallback">Route – Bamberg Quest</title>
+  <meta name="description" content="Kuratierter Spaziergang durch Bamberg." data-i18n-meta="trail_detail.meta_description_fallback" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -54,7 +54,7 @@
   <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
   <div class="container">
     <div class="topbar">
-      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language" data-i18n-aria="site.language_label">
         <option value="de">🇩🇪 Deutsch</option>
         <option value="en">🇬🇧 English</option>
         <option value="fr">🇫🇷 Français</option>
@@ -73,7 +73,7 @@
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
         <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
         <span class="toggle-icon-dark" aria-hidden="true">☾</span>
-        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true" data-i18n="site.theme_light">Hell</span><span class="toggle-icon-dark" aria-hidden="true" data-i18n="site.theme_dark">Dunkel</span></span>
       </button>
     </div>
     <div id="content">
@@ -90,11 +90,18 @@
   }
 
   var slug = getQueryParam('slug');
+  var loadedTrail = null;
+  var loadedSites = null;
 
   function renderTrail(trail, sites) {
     var root = document.getElementById('trail-root');
+    var lang = document.documentElement.lang || 'de';
+    var pickLang = window.__bqPickLang || function(o){ return (o && (o[lang] || o.en || o.de)) || ''; };
+    var t = window.__bqt || function(k){ return k; };
+
     if (!trail) {
-      root.innerHTML = '<p>Route nicht gefunden. <a href="/trails.html">Alle Routen</a></p>';
+      root.innerHTML = '<p>' + t('trail_detail.not_found', lang) + ' <a href="/trails.html" data-i18n="nav.all_trails">← Alle Routen</a></p>';
+      if (typeof window.__applyBqTranslations === 'function') window.__applyBqTranslations(lang);
       return;
     }
 
@@ -106,19 +113,18 @@
     }).filter(Boolean);
 
     var allAvailable = trailSites.length === trail.sites.length;
-    var missingSlugs = trail.sites.filter(function(trailSlug) {
-      return !sites.some(function(s) { return s.slug === trailSlug; });
-    });
 
-    document.title = (trail.name?.de || 'Route') + ' – Bamberg Quest';
+    var localTrailName = pickLang(trail.name || {}, lang);
+    var localTrailDesc = pickLang(trail.description || {}, lang);
+    var titleSuffix = ' – Bamberg Quest';
+    document.title = (localTrailName || t('trail_detail.title_fallback', lang)) + titleSuffix;
     var metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.content = trail.description?.de || '';
+    if (metaDesc) metaDesc.content = localTrailDesc || t('trail_detail.meta_description_fallback', lang);
 
-    var html = '<nav class="breadcrumb"><a href="/trails.html">← <span data-i18n="nav.all_trails">Alle Routen</span></a> <a href="/index.html"><span data-i18n="nav.overview">Übersicht</span></a></nav>';
+    var html = '<nav class="breadcrumb" aria-label="Brotkrümelnavigation" data-i18n-aria="site.breadcrumb_aria"><a href="/trails.html">← <span data-i18n="nav.all_trails">Alle Routen</span></a> <a href="/index.html"><span data-i18n="nav.overview">Übersicht</span></a></nav>';
     html += '<article>';
     html += '<header class="trail-header">';
-    html += '<h1>' + (trail.icon || '') + ' ' + (trail.name?.de || '') + '</h1>';
-    html += '<p class="trail-subtitle">' + (trail.name?.en || '') + '</p>';
+    html += '<h1>' + (trail.icon || '') + ' ' + localTrailName + '</h1>';
     html += '<div class="trail-stats">' +
       '<div class="stat"><span class="stat-value">' + (trail.distance_km || '') + ' km</span><span class="stat-label" data-i18n="trail_route">Strecke</span></div>' +
       '<div class="stat"><span class="stat-value">' + (trail.elevation_m || '') + ' m</span><span class="stat-label" data-i18n="trail_climb">Aufstieg</span></div>' +
@@ -126,30 +132,29 @@
       '<div class="stat"><span class="stat-value">' + (trail.pace || '') + '</span><span class="stat-label" data-i18n="trail_pace">Tempo</span></div>' +
       (trail.step_free ? '<div class="stat"><span class="stat-value">♿</span><span class="stat-label" data-i18n="trail_step_free">Schritt-frei</span></div>' : '') +
     '</div>';
-    html += '<p class="trail-description lang-de">' + (trail.description?.de || '') + '</p>';
-    html += '<p class="trail-description lang-en">' + (trail.description?.en || '') + '</p>';
+    html += '<p class="trail-description">' + localTrailDesc + '</p>';
     html += '</header>';
 
     html += '<section class="trail-sites">';
     html += '<h2><span data-i18n="trail_subtitle">Stationen</span></h2>';
 
     if (!allAvailable) {
-      html += '<div class="trail-notice">⚠️ <span data-i18n="trail_missing_stops">' + (trail.sites.length - trailSites.length) + ' Stationen fehlen noch im Guidebook.</span></div>';
+      var missing = trail.sites.length - trailSites.length;
+      html += '<div class="trail-notice">⚠️ <span data-i18n="trail_missing_stops" data-i18n-params=\'{"count":"' + missing + '"}\'>' + missing + ' Stationen fehlen noch im Guidebook.</span></div>';
     }
 
     html += '<ol class="stop-list" id="stop-list">';
-    trail.sites.forEach(function(slug, i) {
+    trail.sites.forEach(function(stopSlug, i) {
       var site = null;
       for (var j = 0; j < sites.length; j++) {
-        if (sites[j].slug === slug) { site = sites[j]; break; }
+        if (sites[j].slug === stopSlug) { site = sites[j]; break; }
       }
       if (!site) return;
-      html += '<li class="stop-item" id="stop-' + slug + '" data-slug="' + slug + '">' +
+      html += '<li class="stop-item" id="stop-' + stopSlug + '" data-slug="' + stopSlug + '">' +
         '<span class="stop-num">' + (i + 1) + '</span>' +
         '<div class="stop-info">' +
-          '<a href="/site.html?slug=' + slug + '" class="stop-name">' + site.name.de + '</a>' +
-          '<span class="stop-en">' + site.name.en + '</span>' +
-          '<span class="stop-tier tier-' + site.tier + '">' + site.tier + '</span>' +
+          '<a href="/site.html?slug=' + stopSlug + '" class="stop-name">' + pickLang(site.name, lang) + '</a>' +
+          '<span class="stop-tier tier-' + site.tier + '" data-i18n="tier_short.' + site.tier + '">' + site.tier + '</span>' +
         '</div>' +
       '</li>';
     });
@@ -166,9 +171,8 @@
       if (stop && isClaimed(slug)) stop.classList.add('stop-claimed');
     });
 
-    // Apply i18n
     if (typeof window.__applyBqTranslations === 'function') {
-      window.__applyBqTranslations(document.documentElement.lang || 'de');
+      window.__applyBqTranslations(lang);
     }
   }
 
@@ -183,11 +187,25 @@
       for (var i = 0; i < trails.length; i++) {
         if (trails[i].id === slug) { trail = trails[i]; break; }
       }
+      loadedTrail = trail;
+      loadedSites = sites;
       renderTrail(trail, sites);
     });
   } else {
-    document.getElementById('trail-root').innerHTML = '<p>Keine Route ausgewählt. <a href="/trails.html">Alle Routen</a></p>';
+    var lang = document.documentElement.lang || 'de';
+    var tt = window.__bqt || function(k){ return k; };
+    document.getElementById('trail-root').innerHTML = '<p>' + tt('trail_detail.none_selected', lang) + ' <a href="/trails.html" data-i18n="nav.all_trails">← Alle Routen</a></p>';
+    if (typeof window.__applyBqTranslations === 'function') window.__applyBqTranslations(lang);
   }
+
+  document.addEventListener('bq:translations-loaded', function() {
+    if (loadedSites) renderTrail(loadedTrail, loadedSites);
+    else if (!slug) {
+      var lang = document.documentElement.lang || 'de';
+      document.getElementById('trail-root').innerHTML = '<p>' + window.__bqt('trail_detail.none_selected', lang) + ' <a href="/trails.html" data-i18n="nav.all_trails">← Alle Routen</a></p>';
+      window.__applyBqTranslations(lang);
+    }
+  });
   </script>
 </body>
 </html>

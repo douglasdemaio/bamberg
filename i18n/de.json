@@ -152,5 +152,55 @@
   "tier.bronze": "Bronze – Name sichtbar",
   "tier.silver": "Silber – Rätsel",
   "tier.gold": "Gold – Rätsel, verschlüsselt",
-  "tier.legendary": "Legendär"
+  "tier.legendary": "Legendär",
+
+  "tier_short.bronze": "Bronze",
+  "tier_short.silver": "Silber",
+  "tier_short.gold": "Gold",
+  "tier_short.legendary": "Legende",
+
+  "site.language_label": "Sprache",
+  "site.nav_aria": "Seitennavigation",
+  "site.breadcrumb_aria": "Brotkrümelnavigation",
+
+  "index.meta_title": "Bamberg Quest – Entdecke die Stadt",
+  "index.meta_description": "Ein selbstgeführter Entdeckungsspaziergang durch Bamberg – Guidebook und Schatzsuche in einem.",
+  "index.progress_ring_aria": "Fortschritt",
+  "index.progress_count_template": "{count} von {total} Orte erkundet",
+
+  "collection.meta_title": "Meine Sammlung – Bamberg Quest",
+  "collection.meta_description": "Deine erkundeten Sehenswürdigkeiten in Bamberg.",
+  "collection.claimed_list_aria": "Erkundete Orte",
+  "collection.export_section_aria": "Code-Export und -Import",
+  "collection.map_tiles_aria": "Kartenkacheln",
+
+  "passport.meta_title": "Bierpass – Bamberg Quest",
+  "passport.meta_description": "Dein Bierpass für die Brauereien Bambergs.",
+  "passport.nine_breweries": "Neun Brauereien",
+  "passport.tag_smoke": "Rauch",
+  "passport.tag_own_malt": "Eigenmalz",
+
+  "party.meta_title": "Party – Bamberg Quest",
+  "party.meta_description": "Feiere deine Erkundung von Bamberg.",
+
+  "plan.meta_title": "Besuch planen – Bamberg Quest",
+  "plan.meta_description": "Praktische Tipps für deinen Besuch in Bamberg: Anreise, Parken, Öffnungszeiten.",
+
+  "trails.meta_title": "Routen – Bamberg Quest",
+  "trails.meta_description": "Kuratierte Spaziergänge durch Bamberg.",
+
+  "trail_detail.meta_description_fallback": "Kuratierter Spaziergang durch Bamberg.",
+  "trail_detail.title_fallback": "Route",
+  "trail_detail.not_found": "Route nicht gefunden.",
+  "trail_detail.none_selected": "Keine Route ausgewählt.",
+
+  "site_detail.meta_description_template": "Besuche {name} in Bamberg. Öffnungszeiten, Geschichte, Anfahrt.",
+  "site_detail.not_found": "Sehenswürdigkeit nicht gefunden.",
+  "site_detail.none_selected": "Keine Sehenswürdigkeit ausgewählt.",
+  "site_detail.riddle_aria": "Rätsel für Spieler",
+  "site_detail.claim_aria": "Fundort markieren",
+
+  "error.meta_title": "Nicht gefunden – Bamberg Quest",
+  "error.not_found_msg": "Seite nicht gefunden.",
+  "error.home_link": "Zur Startseite"
 }

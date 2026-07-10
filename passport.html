@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
-  <title>Bierpass – Bamberg Quest</title>
-  <meta name="description" content="Dein Bierpass für die Brauereien Bambergs." />
+  <title data-i18n="passport.meta_title">Bierpass – Bamberg Quest</title>
+  <meta name="description" content="Dein Bierpass für die Brauereien Bambergs." data-i18n-meta="passport.meta_description" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="icon" href="/favicon.ico" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -79,7 +79,7 @@
   <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
   <div class="container">
     <div class="topbar">
-      <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language" data-i18n-aria="site.language_label">
         <option value="de">🇩🇪 Deutsch</option>
         <option value="en">🇬🇧 English</option>
         <option value="fr">🇫🇷 Français</option>
@@ -98,7 +98,7 @@
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
         <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
         <span class="toggle-icon-dark" aria-hidden="true">☾</span>
-        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true">Hell</span><span class="toggle-icon-dark" aria-hidden="true">Dunkel</span></span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true" data-i18n="site.theme_light">Hell</span><span class="toggle-icon-dark" aria-hidden="true" data-i18n="site.theme_dark">Dunkel</span></span>
       </button>
     </div>
     <div id="content">
@@ -130,7 +130,7 @@
             <div class="badge" id="badge-nine">
               <div class="badge-icon">🏅</div>
               <div class="badge-info">
-                <strong>Nine Breweries</strong>
+                <strong data-i18n="passport.nine_breweries">Neun Brauereien</strong>
                 <span class="badge-count" id="badge-nine-count">0/9 <span data-i18n="passport.taprooms">Brauereien</span></span>
               </div>
             </div>
@@ -162,6 +162,7 @@
   <script>
   function initPassport() {
     var lang = document.documentElement.lang || 'de';
+    var pickLang = window.__bqPickLang || function(o){ return (o && (o[lang] || o.en || o.de)) || ''; };
 
     // Age gate
     var ageCheck = document.getElementById('age-check');
@@ -228,7 +229,7 @@
       var claimedKellers = 0;
       taproomSlugs.forEach(function(s) { if (isClaimed(s)) claimedTaprooms++; });
       kellerSlugs.forEach(function(s) { if (isClaimed(s)) claimedKellers++; });
-      if (badgeNineCount) badgeNineCount.textContent = claimedTaprooms + '/9 Taprooms';
+      if (badgeNineCount) badgeNineCount.textContent = claimedTaprooms + '/9 ' + window.__bqt('passport.taprooms', lang);
       if (badgeKellerCount) badgeKellerCount.textContent = claimedKellers + '/3 ' + window.__bqt('passport.beer_cellars', lang);
       if (badgeAllCount) badgeAllCount.textContent = (claimedTaprooms + claimedKellers) + '/12 ' + window.__bqt('passport.all_label', lang);
       if (badgeNine) badgeNine.classList.toggle('badge-complete', claimedTaprooms === 9);
@@ -261,12 +262,13 @@
         var kellers = beerSites.filter(function(s) { return s.subcategory === 'keller'; });
         var root = document.getElementById('passport-root');
 
-        var taproomHtml = '<section class="stamps-section"><h2><span data-i18n="passport.taprooms">Brauereien</span> <span class="section-en">(Taprooms)</span></h2><div class="stamp-grid" id="taproom-stamps">';
-        taprooms.forEach(function(site) {
-          taproomHtml += '<div class="stamp-card" id="stamp-' + site.slug + '" data-slug="' + site.slug + '" data-codeword="' + (site.codeword || '') + '" data-name-de="' + site.name.de + '" data-name-en="' + site.name.en + '" data-style="' + (site.beer_style || '') + '" data-rauch="' + (site.is_rauchbier || false) + '" data-malt="' + (site.malts_own || false) + '">' +
+        function stampCardHtml(site) {
+          var localName = pickLang(site.name, lang);
+          var localLore = pickLang(site.house_lore || {}, lang);
+          return '<div class="stamp-card" id="stamp-' + site.slug + '" data-slug="' + site.slug + '" data-codeword="' + (site.codeword || '') + '" data-style="' + (site.beer_style || '') + '" data-rauch="' + (site.is_rauchbier || false) + '" data-malt="' + (site.malts_own || false) + '">' +
             '<div class="stamp-unclaimed" id="stamp-unclaimed-' + site.slug + '">' +
               '<div class="stamp-seal">🫱</div>' +
-              '<div class="stamp-name">' + site.name.de + '</div>' +
+              '<div class="stamp-name">' + localName + '</div>' +
               '<div class="stamp-method"><button class="codeword-btn" id="codeword-btn-' + site.slug + '">🔑 <span data-i18n="passport.codeword_btn">Code-Wort</span></button></div>' +
               '<div class="codeword-input-wrap" id="codeword-input-' + site.slug + '" hidden>' +
                 '<input type="text" class="codeword-input" id="codeword-value-' + site.slug + '" data-i18n-placeholder="passport.codeword_placeholder" placeholder="Code-Wort" autocomplete="off" />' +
@@ -276,42 +278,22 @@
             '</div>' +
             '<div class="stamp-claimed" id="stamp-claimed-' + site.slug + '" hidden>' +
               '<div class="stamp-ink">✅</div>' +
-              '<div class="stamp-name">' + site.name.de + '</div>' +
+              '<div class="stamp-name">' + localName + '</div>' +
               '<div class="stamp-details"><span class="stamp-style">' + (site.beer_style || '') + '</span>' +
-                (site.is_rauchbier ? '<span class="stamp-tag rauch">Rauch</span>' : '') +
-                (site.malts_own ? '<span class="stamp-tag malt">Eigenmalz</span>' : '') +
+                (site.is_rauchbier ? '<span class="stamp-tag rauch" data-i18n="passport.tag_smoke">Rauch</span>' : '') +
+                (site.malts_own ? '<span class="stamp-tag malt" data-i18n="passport.tag_own_malt">Eigenmalz</span>' : '') +
               '</div>' +
-              '<div class="stamp-lore lang-de" data-i18n-content data-i18n-content-de="' + (site.house_lore?.de || '') + '" data-i18n-content-en="' + (site.house_lore?.en || '') + '">' + (site.house_lore?.de || '') + '</div>' +
-              '<div class="stamp-lore lang-en">' + (site.house_lore?.en || '') + '</div>' +
+              '<div class="stamp-lore">' + localLore + '</div>' +
             '</div>' +
           '</div>';
-        });
+        }
+
+        var taproomHtml = '<section class="stamps-section"><h2><span data-i18n="passport.taprooms">Brauereien</span></h2><div class="stamp-grid" id="taproom-stamps">';
+        taprooms.forEach(function(site) { taproomHtml += stampCardHtml(site); });
         taproomHtml += '</div></section>';
 
         var kellerHtml = '<section class="stamps-section"><h2><span data-i18n="passport.beer_cellars">Bierkeller</span></h2><div class="stamp-grid" id="keller-stamps">';
-        kellers.forEach(function(site) {
-          kellerHtml += '<div class="stamp-card" id="stamp-' + site.slug + '" data-slug="' + site.slug + '" data-codeword="' + (site.codeword || '') + '" data-name-de="' + site.name.de + '" data-name-en="' + site.name.en + '" data-style="' + (site.beer_style || '') + '" data-rauch="' + (site.is_rauchbier || false) + '" data-malt="' + (site.malts_own || false) + '">' +
-            '<div class="stamp-unclaimed" id="stamp-unclaimed-' + site.slug + '">' +
-              '<div class="stamp-seal">🫱</div>' +
-              '<div class="stamp-name">' + site.name.de + '</div>' +
-              '<div class="stamp-method"><button class="codeword-btn" id="codeword-btn-' + site.slug + '">🔑 <span data-i18n="passport.codeword_btn">Code-Wort</span></button></div>' +
-              '<div class="codeword-input-wrap" id="codeword-input-' + site.slug + '" hidden>' +
-                '<input type="text" class="codeword-input" id="codeword-value-' + site.slug + '" data-i18n-placeholder="passport.codeword_placeholder" placeholder="Code-Wort" autocomplete="off" />' +
-                '<button class="codeword-submit" id="codeword-submit-' + site.slug + '"><span data-i18n="passport.codeword_check">Prüfen</span></button>' +
-                '<span class="codeword-feedback" id="codeword-feedback-' + site.slug + '"></span>' +
-              '</div>' +
-            '</div>' +
-            '<div class="stamp-claimed" id="stamp-claimed-' + site.slug + '" hidden>' +
-              '<div class="stamp-ink">✅</div>' +
-              '<div class="stamp-name">' + site.name.de + '</div>' +
-              '<div class="stamp-details"><span class="stamp-style">' + (site.beer_style || '') + '</span>' +
-                (site.is_rauchbier ? '<span class="stamp-tag rauch">Rauch</span>' : '') +
-              '</div>' +
-              '<div class="stamp-lore lang-de" data-i18n-content data-i18n-content-de="' + (site.house_lore?.de || '') + '" data-i18n-content-en="' + (site.house_lore?.en || '') + '">' + (site.house_lore?.de || '') + '</div>' +
-              '<div class="stamp-lore lang-en">' + (site.house_lore?.en || '') + '</div>' +
-            '</div>' +
-          '</div>';
-        });
+        kellers.forEach(function(site) { kellerHtml += stampCardHtml(site); });
         kellerHtml += '</div></section>';
 
         root.innerHTML = taproomHtml + kellerHtml;
@@ -326,6 +308,12 @@
           window.__applyBqTranslations(document.documentElement.lang || 'de');
         }
       });
+
+    // Re-run badge label lookup once translations arrive (handles the race
+    // where sites.json loads before all.json)
+    document.addEventListener('bq:translations-loaded', function() {
+      updateBadges();
+    });
   }
 
   initPassport();
