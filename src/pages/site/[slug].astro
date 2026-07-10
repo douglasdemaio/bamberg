@@ -10,45 +10,39 @@ export async function getStaticPaths() {
 }
 
 const { site } = Astro.props;
-const tierLabel = {
-  bronze: 'Bronze – Name sichtbar / Name visible',
-  silver: 'Silber – Rätsel / Riddle',
-  gold: 'Gold – Rätsel, verschlüsselt / Cipher riddle',
-  legendary: 'Legendär / Legendary',
-};
 const tierClass = site.tier;
 ---
 
 <BaseLayout title={`${site.name.de} – Bamberg Quest`} description={`Besuche ${site.name.de} in Bamberg. Öffnungszeiten, Geschichte, Anfahrt.`}>
   <nav class="breadcrumb" aria-label="Brotkrümelnavigation">
-    <a href="/">← Alle Sehenswürdigkeiten</a>
+    <a href="/"><span data-i18n="site.back">← Zurück zur Übersicht</span></a>
   </nav>
 
   <article class="site-page">
     <header class="site-header">
       <span class={`tier-badge tier-${tierClass}`} data-tier={site.tier}>
-        {tierLabel[site.tier]}
+        <span data-i18n={`tier.${site.tier}`}>{site.tier === 'bronze' ? 'Name sichtbar' : site.tier === 'silver' ? 'Rätsel' : site.tier === 'gold' ? 'Rätsel, verschlüsselt' : 'Legendär'}</span>
       </span>
       <h1>{site.name.de}</h1>
       <p class="site-name-en">{site.name.en}</p>
       {site.requires_claimed && site.requires_claimed.length > 0 && (
         <div class="legendary-lock" id="legendary-lock">
-          <p>🔒 <strong>Legendär / Legendary</strong></p>
-          <p class="legendary-req">Erfordert: {site.requires_claimed.join(', ')}</p>
+          <p>🔒 <strong><span data-i18n="site.legendary">Legendär</span></strong></p>
+          <p class="legendary-req" data-i18n="site.legendary_requires" data-i18n-params={JSON.stringify({sites: site.requires_claimed.join(', ')})}>Erfordert: {site.requires_claimed.join(', ')}</p>
         </div>
       )}
       <dl class="meta-list">
         <div class="meta-item">
-          <dt>Kategorie</dt>
+          <dt><span data-i18n="site.category">Kategorie</span></dt>
           <dd>{site.category}</dd>
         </div>
         <div class="meta-item">
-          <dt>Koordinaten</dt>
+          <dt><span data-i18n="site.coordinates">Koordinaten</span></dt>
           <dd><code>{site.coords[0].toFixed(4)}, {site.coords[1].toFixed(4)}</code></dd>
         </div>
         <div class="meta-item">
-          <dt>Barrierefrei</dt>
-          <dd>{site.accessible ? 'Ja / Yes' : 'Eingeschränkt / Limited'}</dd>
+          <dt><span data-i18n="site.accessible">Barrierefrei</span></dt>
+          <dd>{site.accessible ? <span data-i18n="site.accessible_yes">Ja</span> : <span data-i18n="site.accessible_limited">Eingeschränkt</span>}</dd>
         </div>
       </dl>
     </header>
@@ -57,41 +51,40 @@ const tierClass = site.tier;
 
     {site.hours && (
       <section class="info-block">
-        <h2>Öffnungszeiten / Opening Hours</h2>
-        <p>{site.hours.de}<br /><em>{site.hours.en}</em></p>
+        <h2><span data-i18n="site.hours_title">Öffnungszeiten</span></h2>
+        <p>{site.hours.de}</p>
+        <p class="disclaimer" data-i18n="plan.hours_disclaimer">Die hier angegebenen Öffnungszeiten sind nicht offiziell und können sich jederzeit ändern. Bitte informiere dich vor deinem Besuch auf der offiziellen Website des jeweiligen Ortes.</p>
       </section>
     )}
 
     <section class="info-block history-block">
-      <h2>Geschichte / History</h2>
+      <h2><span data-i18n="site.history_title">Geschichte</span></h2>
       <p class="history-de"><strong>{site.history_60w.de}</strong></p>
-      <p><em>{site.history_60w.en}</em></p>
     </section>
 
     <section class="info-block">
-      <h2>Hinsehen / Look For</h2>
-      <p>{site.look_for.de}<br /><em>{site.look_for.en}</em></p>
+      <h2><span data-i18n="site.look_title">Hinsehen</span></h2>
+      <p>{site.look_for.de}</p>
     </section>
 
     <section class="info-block">
-      <h2>Foto-Tipp / Photo Tip</h2>
-      <p>{site.photo_tip.de}<br /><em>{site.photo_tip.en}</em></p>
+      <h2><span data-i18n="site.photo_title">Foto-Tipp</span></h2>
+      <p>{site.photo_tip.de}</p>
     </section>
 
     <aside class="riddle-block" aria-label="Rätsel für Spieler">
-      <h2>🎲 Spielst du? / Playing?</h2>
+      <h2><span data-i18n="site.playing_title">🎲 Spielst du?</span></h2>
       <details>
-        <summary>Rätsel anzeigen / Show riddle</summary>
+        <summary><span data-i18n="site.show_riddle">Rätsel anzeigen</span></summary>
         {site.riddle && (
           <div class="riddle-content">
             <blockquote>
               <p><strong>{site.riddle.de}</strong></p>
-              <p><em>{site.riddle.en}</em></p>
             </blockquote>
             {site.hint && (
               <details class="hint">
-                <summary>💡 Hinweis / Hint</summary>
-                <p>{site.hint.de}<br /><em>{site.hint.en}</em></p>
+                <summary><span data-i18n="site.hint">💡 Hinweis</span></summary>
+                <p>{site.hint.de}</p>
               </details>
             )}
           </div>
@@ -101,21 +94,21 @@ const tierClass = site.tier;
 
     <aside class="claim-block" id="claim-ui" aria-label="Fundort markieren" data-slug={site.slug} data-question-de={site.question.de} data-question-en={site.question.en} data-answers={JSON.stringify(site.answers)} data-requires-claimed={JSON.stringify(site.requires_claimed || [])}>
       <div class="claim-status" id="claim-status">
-        <p class="claim-not-claimed">🫱 Noch nicht erkundet / Not yet explored</p>
-        <p class="claim-claimed" hidden>✅ Erkundet / Explored</p>
+        <p class="claim-not-claimed"><span data-i18n="site.not_explored">🫱 Noch nicht erkundet</span></p>
+        <p class="claim-claimed" hidden><span data-i18n="site.explored">✅ Erkundet</span></p>
       </div>
       <div class="claim-form" id="claim-form" hidden>
-        <h3>Vor Ort beantworten / Answer in place</h3>
+        <h3><span data-i18n="site.answer_title">Vor Ort beantworten</span></h3>
         <p class="claim-question" id="claim-question"></p>
         <div class="claim-input-row">
-          <input type="text" id="claim-answer" class="claim-input" autocomplete="off" placeholder="Deine Antwort / Your answer" />
-          <button type="button" id="claim-submit" class="claim-btn">Prüfen / Check</button>
+          <input type="text" id="claim-answer" class="claim-input" data-i18n-placeholder="site.answer_placeholder" placeholder="Deine Antwort" autocomplete="off" />
+          <button type="button" id="claim-submit" class="claim-btn"><span data-i18n="site.check_btn">Prüfen</span></button>
         </div>
         <p class="claim-feedback" id="claim-feedback" aria-live="polite"></p>
         <details class="claim-honor">
-          <summary>🌿 Nur hier gewesen / Just honor tap</summary>
-          <p class="honor-note">Keine Frage beantworten? Ein Klick genügt – der Besuch zählt trotzdem.<br /><em>Don't want to answer? One click – your visit still counts.</em></p>
-          <button type="button" id="claim-honor" class="claim-btn claim-btn-secondary">Hier gewesen / Was here</button>
+          <summary><span data-i18n="site.honor_title">🌿 Nur hier gewesen</span></summary>
+          <p class="honor-note"><span data-i18n="site.honor_text">Keine Frage beantworten? Ein Klick genügt – der Besuch zählt trotzdem.</span></p>
+          <button type="button" id="claim-honor" class="claim-btn claim-btn-secondary"><span data-i18n="site.honor_btn">Hier gewesen</span></button>
         </details>
       </div>
     </aside>
@@ -123,7 +116,7 @@ const tierClass = site.tier;
   </article>
 
   <footer class="page-footer">
-    <a href="/">← Zurück zur Übersicht</a>
+    <a href="/"><span data-i18n="site.back">← Zurück zur Übersicht</span></a>
   </footer>
 </BaseLayout>
 
@@ -273,6 +266,14 @@ if (lockEl && contentEl) {
     margin-bottom: 0.5rem;
   }
   .info-block p { font-size: 0.9rem; }
+  .disclaimer {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
   .history-block .history-de::first-letter {
     font-family: var(--font-display);
     font-size: 2.4rem;

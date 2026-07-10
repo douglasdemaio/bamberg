@@ -3,17 +3,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import sites from '../../sites.json';
 
 const categories = [
-  { id: 'seven-hills', label: { de: 'Die Sieben Hügel', en: 'The Seven Hills' }, icon: '⛰' },
-  { id: 'stone-and-power', label: { de: 'Stein und Macht', en: 'Stone & Power' }, icon: '🏛' },
-  { id: 'water-and-bridges', label: { de: 'Wasser und Brücken', en: 'Water & Bridges' }, icon: '🌉' },
-  { id: 'beer', label: { de: 'Bier', en: 'Beer' }, icon: '🍺' },
-  { id: 'gardens-guilds-trades', label: { de: 'Gärtnerstadt', en: 'Gardens, Guilds & Trades' }, icon: '🌿' },
-  { id: 'ghosts-curiosities-archive', label: { de: 'Geister, Kuriositäten & Archiv', en: 'Ghosts, Curiosities & Archive' }, icon: '🔍' },
-  { id: 'a', label: { de: 'Kirchen & Burgen', en: 'Churches & Castles' }, icon: '⛪' },
-  { id: 'b', label: { de: 'Bürgerliches Bamberg', en: 'Civic Bamberg' }, icon: '🏛' },
-  { id: 'c', label: { de: 'Am Wasser', en: 'By the Water' }, icon: '💧' },
-  { id: 'e', label: { de: 'Straßen & Plätze', en: 'Streets & Squares' }, icon: '🛤' },
-  { id: 'f', label: { de: 'Museen & Bühnen', en: 'Museums & Stages' }, icon: '🎭' },
+  { id: 'seven-hills', i18nKey: 'index.cat_seven_hills', icon: '⛰' },
+  { id: 'stone-and-power', i18nKey: 'index.cat_stone_and_power', icon: '🏛' },
+  { id: 'water-and-bridges', i18nKey: 'index.cat_water_and_bridges', icon: '🌉' },
+  { id: 'beer', i18nKey: 'index.cat_beer', icon: '🍺' },
+  { id: 'gardens-guilds-trades', i18nKey: 'index.cat_gardens_guilds_trades', icon: '🌿' },
+  { id: 'ghosts-curiosities-archive', i18nKey: 'index.cat_ghosts_curiosities_archive', icon: '🔍' },
+  { id: 'a', i18nKey: 'index.cat_a', icon: '⛪' },
+  { id: 'b', i18nKey: 'index.cat_b', icon: '🏛' },
+  { id: 'c', i18nKey: 'index.cat_c', icon: '💧' },
+  { id: 'e', i18nKey: 'index.cat_e', icon: '🛤' },
+  { id: 'f', i18nKey: 'index.cat_f', icon: '🎭' },
 ];
 const tierLabel = { bronze: 'Bronze', silver: 'Silber', gold: 'Gold', legendary: 'Legende' };
 
@@ -31,23 +31,22 @@ const perCategory = categories
       </span>
       <div class="brand-text">
         <h1 class="site-title">Bamberg Quest</h1>
-        <p class="site-subtitle">Guidebook &amp; Schatzsuche · <em>Guidebook &amp; Treasure Hunt</em></p>
+        <p class="site-subtitle"><span data-i18n="site.subtitle">Guidebook &amp; Schatzsuche</span></p>
       </div>
     </div>
-    <nav class="nav-links" aria-label="Seitenavigation">
-      <a href="/" aria-current="page">Karte / Map</a>
-      <a href="/trails">Routen / Trails</a>
-      <a href="/passport">Bierpass / Beer</a>
-      <a href="/collection">Sammlung</a>
-      <a href="/party">🎉 Party</a>
-      <a href="/plan">Planen / Plan</a>
+    <nav class="nav-links" aria-label="Seitennavigation">
+      <a href="/" aria-current="page"><span data-i18n="nav.map">Karte</span></a>
+      <a href="/trails"><span data-i18n="nav.trails">Routen</span></a>
+      <a href="/passport"><span data-i18n="nav.beerpass">Bierpass</span></a>
+      <a href="/collection"><span data-i18n="nav.collection">Sammlung</span></a>
+      <a href="/party">🎉 <span data-i18n="nav.party">Party</span></a>
+      <a href="/plan"><span data-i18n="nav.plan">Planen</span></a>
     </nav>
   </header>
 
   <main>
     <section class="intro" aria-labelledby="intro-heading">
-      <p class="intro-lead"><span class="dropcap">W</span>illkommen in Bamberg, UNESCO-Welterbe auf sieben Hügeln. Ob Guidebook oder Schatzsuche – hier findest du alle Sehenswürdigkeiten.</p>
-      <p class="lang-switch"><em>Welcome to Bamberg. Browse the sites below — or <a href="/plan">start planning your visit</a>.</em></p>
+      <p class="intro-lead"><span class="dropcap">W</span><span data-i18n="index.intro">Willkommen in Bamberg, UNESCO-Welterbe auf sieben Hügeln. Ob Guidebook oder Schatzsuche – hier findest du alle Sehenswürdigkeiten.</span></p>
     </section>
 
     <section class="progress-panel" id="progress-panel" data-total={total} aria-labelledby="progress-heading">
@@ -60,11 +59,11 @@ const perCategory = categories
           <span class="ring-label"><span id="progress-pct-num">0</span><small>%</small></span>
         </div>
         <div class="progress-text">
-          <h2 id="progress-heading" class="progress-title">Dein Fortschritt <span class="progress-en"><em>Your progress</em></span></h2>
+          <h2 id="progress-heading" class="progress-title"><span data-i18n="index.progress_title">Dein Fortschritt</span></h2>
           <p class="progress-count">
             <span class="seal-glyph" aria-hidden="true">🫱</span>
             <span id="claim-count">0</span> von <span id="total-count">{total}</span>
-            <span class="progress-count-en"><em>sites explored</em></span>
+            <span class="progress-count-en" data-i18n="index.progress_sites_explored">Orte erkundet</span>
           </p>
           <p class="progress-hint" id="progress-hint" hidden></p>
         </div>
@@ -73,7 +72,7 @@ const perCategory = categories
         {perCategory.map(cat => (
           <li class="cat-progress" data-cat={cat.id}>
             <span class="cat-progress-icon" aria-hidden="true">{cat.icon}</span>
-            <span class="cat-progress-name">{cat.label.de}</span>
+            <span class="cat-progress-name" data-i18n={cat.i18nKey}>{cat.label?.de || cat.id}</span>
             <span class="cat-progress-pips" data-cat-pips={cat.id}>
               {cat.sites.map(s => (
                 <span class="pip" data-pip-slug={s.slug} data-tier={s.tier} title={s.name.de} aria-hidden="true"></span>
@@ -89,8 +88,7 @@ const perCategory = categories
       <section class="category-section" id={`cat-${cat.id}`}>
         <h2 class="category-heading">
           <span class="category-icon" aria-hidden="true">{cat.icon}</span>
-          <span class="category-name">{cat.label.de}</span>
-          <span class="category-en">{cat.label.en}</span>
+          <span class="category-name" data-i18n={cat.i18nKey}>{cat.label?.de || cat.id}</span>
         </h2>
         <ul class="site-list">
           {cat.sites.map(site => (
@@ -109,8 +107,7 @@ const perCategory = categories
   </main>
 
   <footer class="site-footer">
-    <p>Ein Spaziergang durch Bamberg. Keine App, kein Account, kein Standort-Tracking. Deine Fortschritte bleiben auf deinem Gerät.</p>
-    <p><em>A walk through Bamberg. No app, no account, no location tracking. Your progress stays on your device.</em></p>
+    <p data-i18n="index.footer">Ein Spaziergang durch Bamberg. Keine App, kein Account, kein Standort-Tracking. Deine Fortschritte bleiben auf deinem Gerät.</p>
   </footer>
 </BaseLayout>
 
@@ -163,16 +160,17 @@ function updateProgress() {
   });
 
   if (hintEl) {
+    const lang = document.documentElement.lang || 'de';
     if (count === 0) {
-      hintEl.textContent = 'Neu hier? Starte mit dem Dom oder dem Alten Rathaus. / New here? Try the cathedral or the old town hall.';
+      hintEl.textContent = lang === 'de' ? 'Neu hier? Starte mit dem Dom oder dem Alten Rathaus.' : 'New here? Try the cathedral or the old town hall.';
       hintEl.hidden = false;
     } else if (count === total && total > 0) {
-      hintEl.textContent = '🏅 Alle Orte erkundet! / All sites explored!';
+      hintEl.textContent = '🏅 ' + (lang === 'de' ? 'Alle Orte erkundet!' : 'All sites explored!');
       hintEl.hidden = false;
     } else {
       const nextUnclaimed = sites.find(s => !slugs.has(s.slug));
       if (nextUnclaimed) {
-        hintEl.innerHTML = `Nächster Vorschlag / Next up: <a href="/site/${nextUnclaimed.slug}">${nextUnclaimed.name.de}</a>`;
+        hintEl.innerHTML = (lang === 'de' ? 'Nächster Vorschlag: ' : 'Next up: ') + `<a href="/site/${nextUnclaimed.slug}">${nextUnclaimed.name.de}</a>`;
         hintEl.hidden = false;
       }
     }
@@ -232,7 +230,7 @@ if (typeof window !== 'undefined') updateProgress();
     margin-bottom: 0.1rem;
   }
   .site-subtitle {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: var(--text-muted);
     margin-bottom: 0;
   }
@@ -240,9 +238,9 @@ if (typeof window !== 'undefined') updateProgress();
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem 1rem;
-    font-size: 0.9rem;
+    font-size: 1.05rem;
   }
-  .nav-links a { text-decoration: none; padding: 0.15rem 0; border-bottom: 1px solid transparent; }
+  .nav-links a { text-decoration: none; padding: 0.15rem 0; border-bottom: 1px solid transparent; font-weight: 600; }
   .nav-links a:hover { border-bottom-color: var(--wax-red); }
   .nav-links a[aria-current='page'] {
     color: var(--text);
@@ -260,7 +258,6 @@ if (typeof window !== 'undefined') updateProgress();
     color: var(--wax-red);
     font-weight: 700;
   }
-  .lang-switch { font-size: 0.85rem; }
 
   .progress-panel {
     background: var(--card-bg);
@@ -312,7 +309,6 @@ if (typeof window !== 'undefined') updateProgress();
   .ring-label small { font-size: 0.6rem; margin-left: 1px; color: var(--text-muted); }
   .progress-text { min-width: 0; }
   .progress-title { font-size: 1.05rem; margin-bottom: 0.15rem; }
-  .progress-en { font-family: var(--font-body); font-weight: 400; font-size: 0.8rem; color: var(--text-muted); }
   .progress-count {
     font-size: 0.9rem;
     color: var(--text-muted);
@@ -323,7 +319,7 @@ if (typeof window !== 'undefined') updateProgress();
     font-weight: 700;
     font-size: 1rem;
   }
-  .progress-count-en { margin-left: 0.35rem; font-size: 0.8rem; }
+  .progress-count-en { margin-left: 0.35rem; font-size: 0.85rem; }
   .seal-glyph { margin-right: 0.25rem; }
   .progress-hint {
     font-size: 0.85rem;
@@ -400,12 +396,6 @@ if (typeof window !== 'undefined') updateProgress();
     border-bottom: 1px solid var(--border);
   }
   .category-icon { font-size: 1.1rem; }
-  .category-en {
-    font-weight: 400;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    font-family: var(--font-body);
-  }
   .site-list {
     list-style: none;
     display: flex;

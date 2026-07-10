@@ -17,27 +17,27 @@ const missingSlugs = trail.sites.filter(slug => !sites.some(s => s.slug === slug
 ---
 
 <BaseLayout title={`${trail.name.de} – Bamberg Quest`} description={trail.description.de}>
-  <nav class="breadcrumb"><a href="/trails">← Alle Routen</a> <a href="/">Übersicht</a></nav>
+  <nav class="breadcrumb"><a href="/trails">← <span data-i18n="nav.all_trails">Alle Routen</span></a> <a href="/"><span data-i18n="nav.overview">Übersicht</span></a></nav>
 
   <article>
     <header class="trail-header">
       <h1>{trail.icon} {trail.name.de}</h1>
       <p class="trail-subtitle">{trail.name.en}</p>
       <div class="trail-stats">
-        <div class="stat"><span class="stat-value">{trail.distance_km} km</span><span class="stat-label">Strecke</span></div>
-        <div class="stat"><span class="stat-value">{trail.elevation_m} m</span><span class="stat-label">Aufstieg</span></div>
-        <div class="stat"><span class="stat-value">{trail.duration}</span><span class="stat-label">Dauer</span></div>
-        <div class="stat"><span class="stat-value">{trail.pace}</span><span class="stat-label">Tempo</span></div>
-        {trail.step_free && <div class="stat"><span class="stat-value">♿</span><span class="stat-label">Schritt-frei</span></div>}
+        <div class="stat"><span class="stat-value">{trail.distance_km} km</span><span class="stat-label" data-i18n="trail_route">Strecke</span></div>
+        <div class="stat"><span class="stat-value">{trail.elevation_m} m</span><span class="stat-label" data-i18n="trail_climb">Aufstieg</span></div>
+        <div class="stat"><span class="stat-value">{trail.duration}</span><span class="stat-label" data-i18n="trail_duration">Dauer</span></div>
+        <div class="stat"><span class="stat-value">{trail.pace}</span><span class="stat-label" data-i18n="trail_pace">Tempo</span></div>
+        {trail.step_free && <div class="stat"><span class="stat-value">♿</span><span class="stat-label" data-i18n="trail_step_free">Schritt-frei</span></div>}
       </div>
-      <p class="trail-description">{trail.description.de}<br /><em>{trail.description.en}</em></p>
+      <p class="trail-description">{trail.description.de}</p>
     </header>
 
     <section class="trail-sites">
-      <h2>Stationen / Stops</h2>
+      <h2><span data-i18n="trail_subtitle">Stationen</span></h2>
       {!allAvailable && (
         <div class="trail-notice">
-          ⚠️ {trail.sites.length - trailSites.length} Stationen fehlen noch im Guidebook.
+          ⚠️ <span data-i18n="trail_missing_stops" data-i18n-params={JSON.stringify({count: trail.sites.length - trailSites.length})}>{trail.sites.length - trailSites.length} Stationen fehlen noch im Guidebook.</span>
           {missingSlugs.length > 0 && <span>Fehlende Slugs: {missingSlugs.join(', ')}</span>}
         </div>
       )}
@@ -60,7 +60,7 @@ const missingSlugs = trail.sites.filter(slug => !sites.some(s => s.slug === slug
     </section>
   </article>
 
-  <footer class="page-footer"><a href="/trails">← Alle Routen</a></footer>
+  <footer class="page-footer"><a href="/trails">← <span data-i18n="nav.all_trails">Alle Routen</span></a></footer>
 </BaseLayout>
 
 <script>

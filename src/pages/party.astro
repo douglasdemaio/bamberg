@@ -4,38 +4,36 @@ import sites from '../../sites.json';
 ---
 
 <BaseLayout title="Party – Bamberg Quest" description="Feiere deine Erkundung von Bamberg.">
-  <nav class="breadcrumb"><a href="/">← Übersicht</a></nav>
+  <nav class="breadcrumb"><a href="/">← <span data-i18n="nav.overview">Übersicht</span></a></nav>
 
   <span id="party-data" data-total={sites.length} hidden></span>
 
   <article class="party-page">
     <header class="party-header">
-      <h1>🎉 Party!</h1>
+      <h1>🎉 <span data-i18n="party.title">Party!</span></h1>
     </header>
 
     <section id="party-unlocked" class="party-content" hidden>
       <div class="party-badge">🏆</div>
-      <h2>Glückwunsch! / Congratulations!</h2>
-      <p>Du hast ganz Bamberg erkundet. Genieße deinen wohlverdienten Ruhm.</p>
-      <p><em>You've explored all of Bamberg. Enjoy your well-earned glory.</em></p>
+      <h2 data-i18n="party.congrats_title">Glückwunsch!</h2>
+      <p data-i18n="party.congrats_text">Du hast ganz Bamberg erkundet. Genieße deinen wohlverdienten Ruhm.</p>
       <div class="party-fireworks">✨🎆🎇✨</div>
-      <a href="/collection" class="party-link">← Zur Sammlung</a>
+      <a href="/collection" class="party-link"><span data-i18n="nav.back_collection">← Zur Sammlung</span></a>
     </section>
 
     <section id="party-locked" class="party-content">
       <div class="party-badge">🔒</div>
-      <h2>Noch nicht ganz / Not yet</h2>
-      <p>Erkunde alle Orte oder gib einen Party-Code ein.</p>
-      <p><em>Explore all sites or enter a party code.</em></p>
+      <h2 data-i18n="party.locked_title">Noch nicht ganz</h2>
+      <p data-i18n="party.locked_text">Erkunde alle Orte oder gib einen Party-Code ein.</p>
       <div class="party-code-entry">
-        <input type="text" id="party-code-input" class="claim-input" placeholder="Party-Code" autocomplete="off" />
-        <button type="button" id="party-code-btn" class="claim-btn">Entsperren / Unlock</button>
+        <input type="text" id="party-code-input" class="claim-input" data-i18n-placeholder="party.code_placeholder" placeholder="Party-Code" autocomplete="off" />
+        <button type="button" id="party-code-btn" class="claim-btn"><span data-i18n="party.unlock_btn">Entsperren</span></button>
       </div>
       <p class="party-feedback" id="party-feedback"></p>
     </section>
   </article>
 
-  <footer class="page-footer"><a href="/">← Übersicht</a></footer>
+  <footer class="page-footer"><a href="/">← <span data-i18n="nav.overview">Übersicht</span></a></footer>
 </BaseLayout>
 
 <script>
@@ -60,13 +58,14 @@ function checkParty() {
 }
 
 document.getElementById('party-code-btn')?.addEventListener('click', () => {
+  const lang = document.documentElement.lang || 'de';
   const code = document.getElementById('party-code-input').value.trim().toLowerCase();
   if (code === 'bamberg-quest-2026') {
     localStorage.setItem('bamberg_party_unlocked', 'true');
     checkParty();
-    document.getElementById('party-feedback').textContent = '✓ Entsperrt! / Unlocked!';
+    document.getElementById('party-feedback').textContent = lang === 'de' ? '✓ Entsperrt!' : '✓ Unlocked!';
   } else {
-    document.getElementById('party-feedback').textContent = '✗ Falscher Code / Wrong code';
+    document.getElementById('party-feedback').textContent = lang === 'de' ? '✗ Falscher Code' : '✗ Wrong code';
   }
 });
 

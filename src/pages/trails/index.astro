@@ -5,10 +5,10 @@ import sites from '../../../sites.json';
 ---
 
 <BaseLayout title="Routen – Bamberg Quest" description="Kuratierte Spaziergänge durch Bamberg.">
-  <nav class="breadcrumb"><a href="/">← Übersicht</a></nav>
+  <nav class="breadcrumb"><a href="/">← <span data-i18n="nav.overview">Übersicht</span></a></nav>
   <header class="page-header">
-    <h1>🗺 Routen / Trails</h1>
-    <p class="subtitle">Kuratierte Spaziergänge durch Bamberg. Entfernung, Höhenmeter und Zeit sind ehrlich geschätzt.</p>
+    <h1>🗺 <span data-i18n="trails.title">Routen</span></h1>
+    <p class="subtitle" data-i18n="trails.subtitle">Kuratierte Spaziergänge durch Bamberg. Entfernung, Höhenmeter und Zeit sind ehrlich geschätzt.</p>
   </header>
 
   <main>
@@ -26,9 +26,9 @@ import sites from '../../../sites.json';
                 <span>🚶 {trail.distance_km} km</span>
                 <span>⛰ {trail.elevation_m} m</span>
                 <span>⏱ {trail.duration}</span>
-                <span>{trail.step_free ? '♿ Schritt-frei' : ''}</span>
-                <span class="trail-count">{siteCount}/{trail.sites.length} Stationen</span>
-                {missing > 0 && <span class="trail-missing">(noch {missing} fehlen)</span>}
+                {trail.step_free && <span>♿ <span data-i18n="trails.step_free">Schritt-frei</span></span>}
+                <span class="trail-count"><span data-i18n="trails.stops">Stationen</span>: {siteCount}/{trail.sites.length}</span>
+                {missing > 0 && <span class="trail-missing" data-i18n="trails.missing" data-i18n-params={JSON.stringify({count: missing})}>{(missing > 0) ? `(noch ${missing} fehlen)` : ''}</span>}
               </div>
             </div>
           </a>
@@ -37,7 +37,7 @@ import sites from '../../../sites.json';
     </div>
   </main>
 
-  <footer class="page-footer"><a href="/">← Übersicht</a></footer>
+  <footer class="page-footer"><a href="/">← <span data-i18n="nav.overview">Übersicht</span></a></footer>
 </BaseLayout>
 
 <style>

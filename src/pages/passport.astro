@@ -11,58 +11,57 @@ const kellers = beerSites.filter(s => s.subcategory === 'keller');
   <header class="page-header">
     <div class="header-row">
       <div>
-        <h1>🍺 Bierpass / Beer Passport</h1>
-        <p class="subtitle">Sammle Stempel in allen neun Brauereien und drei Bierkellern</p>
+        <h1>🍺 <span data-i18n="passport.title">Bierpass</span></h1>
+        <p class="subtitle" data-i18n="passport.subtitle">Sammle Stempel in allen neun Brauereien und drei Bierkellern</p>
       </div>
       <div class="header-actions">
         <label class="toggle-label">
           <input type="checkbox" id="alcohol-toggle" />
-          <span class="toggle-text">🍇 Ohne Alkohol spielen / <em>Play without alcohol</em></span>
+          <span class="toggle-text"><span data-i18n="passport.alcohol_free">🍇 Ohne Alkohol spielen</span></span>
         </label>
       </div>
     </div>
     <div class="age-gate" id="age-gate">
       <label class="age-check">
         <input type="checkbox" id="age-check" />
-        <span>Ich bin 16 oder älter / <em>I am 16 or older</em></span>
+        <span data-i18n="passport.age_check">Ich bin 16 oder älter</span>
       </label>
     </div>
     <p class="optional-note" id="optional-note">
-      🍺 Bier ist optional. Jeder Ort kann auch ohne Alkohol erkundet werden – mit einem Softdrink oder von außen.
-      <br /><em>Beer is optional. Every site can be completed with a soft drink or from outside the building.</em>
+      <span data-i18n="passport.beer_optional">🍺 Bier ist optional. Jeder Ort kann auch ohne Alkohol erkundet werden – mit einem Softdrink oder von außen.</span>
     </p>
   </header>
 
   <main>
     <section class="badges-section">
-      <h2>Abzeichen / Badges</h2>
+      <h2><span data-i18n="passport.badges_title">Abzeichen</span></h2>
       <div class="badges-grid">
         <div class="badge" id="badge-nine">
           <div class="badge-icon">🏅</div>
           <div class="badge-info">
             <strong>Nine Breweries</strong>
-            <span class="badge-count" id="badge-nine-count">0/9 Taprooms</span>
+            <span class="badge-count" id="badge-nine-count">0/9 <span data-i18n="passport.taprooms">Brauereien</span></span>
           </div>
         </div>
         <div class="badge" id="badge-keller">
           <div class="badge-icon">🏅</div>
           <div class="badge-info">
-            <strong>Keller-König / Cellar King</strong>
-            <span class="badge-count" id="badge-keller-count">0/3 Keller</span>
+            <strong data-i18n="passport.cellar_king">Keller-König</strong>
+            <span class="badge-count" id="badge-keller-count">0/3 <span data-i18n="passport.beer_cellars">Bierkeller</span></span>
           </div>
         </div>
         <div class="badge" id="badge-all">
           <div class="badge-icon">🏆</div>
           <div class="badge-info">
-            <strong>Bier-Meister / Beer Master</strong>
-            <span class="badge-count" id="badge-all-count">0/12 Alle</span>
+            <strong data-i18n="passport.beer_master">Bier-Meister</strong>
+            <span class="badge-count" id="badge-all-count">0/12 <span data-i18n="passport.all_label">Alle</span></span>
           </div>
         </div>
       </div>
     </section>
 
     <section class="stamps-section">
-      <h2>Brauereien / Breweries <span class="section-en">(Taprooms)</span></h2>
+      <h2><span data-i18n="passport.taprooms">Brauereien</span> <span class="section-en">(Taprooms)</span></h2>
       <div class="stamp-grid" id="taproom-stamps">
         {taprooms.map(site => (
           <div class="stamp-card" id={`stamp-${site.slug}`} data-slug={site.slug} data-codeword={site.codeword} data-name-de={site.name.de} data-name-en={site.name.en} data-style={site.beer_style} data-rauch={site.is_rauchbier} data-malt={site.malts_own}>
@@ -70,11 +69,11 @@ const kellers = beerSites.filter(s => s.subcategory === 'keller');
               <div class="stamp-seal">🫱</div>
               <div class="stamp-name">{site.name.de}</div>
               <div class="stamp-method">
-                <button class="codeword-btn" id={`codeword-btn-${site.slug}`}>🔑 Code-Wort / <em>Code word</em></button>
+                <button class="codeword-btn" id={`codeword-btn-${site.slug}`}>🔑 <span data-i18n="passport.codeword_btn">Code-Wort</span></button>
               </div>
               <div class="codeword-input-wrap" id={`codeword-input-${site.slug}`} hidden>
-                <input type="text" class="codeword-input" id={`codeword-value-${site.slug}`} placeholder="Code-Wort" autocomplete="off" />
-                <button class="codeword-submit" id={`codeword-submit-${site.slug}`}>Prüfen</button>
+                <input type="text" class="codeword-input" id={`codeword-value-${site.slug}`} data-i18n-placeholder="passport.codeword_placeholder" placeholder="Code-Wort" autocomplete="off" />
+                <button class="codeword-submit" id={`codeword-submit-${site.slug}`}><span data-i18n="passport.codeword_check">Prüfen</span></button>
                 <span class="codeword-feedback" id={`codeword-feedback-${site.slug}`}></span>
               </div>
             </div>
@@ -94,7 +93,7 @@ const kellers = beerSites.filter(s => s.subcategory === 'keller');
     </section>
 
     <section class="stamps-section">
-      <h2>Bierkeller / Beer Cellars</h2>
+      <h2><span data-i18n="passport.beer_cellars">Bierkeller</span></h2>
       <div class="stamp-grid" id="keller-stamps">
         {kellers.map(site => (
           <div class="stamp-card" id={`stamp-${site.slug}`} data-slug={site.slug} data-codeword={site.codeword} data-name-de={site.name.de} data-name-en={site.name.en} data-style={site.beer_style} data-rauch={site.is_rauchbier} data-malt={site.malts_own}>
@@ -102,11 +101,11 @@ const kellers = beerSites.filter(s => s.subcategory === 'keller');
               <div class="stamp-seal">🫱</div>
               <div class="stamp-name">{site.name.de}</div>
               <div class="stamp-method">
-                <button class="codeword-btn" id={`codeword-btn-${site.slug}`}>🔑 Code-Wort / <em>Code word</em></button>
+                <button class="codeword-btn" id={`codeword-btn-${site.slug}`}>🔑 <span data-i18n="passport.codeword_btn">Code-Wort</span></button>
               </div>
               <div class="codeword-input-wrap" id={`codeword-input-${site.slug}`} hidden>
-                <input type="text" class="codeword-input" id={`codeword-value-${site.slug}`} placeholder="Code-Wort" autocomplete="off" />
-                <button class="codeword-submit" id={`codeword-submit-${site.slug}`}>Prüfen</button>
+                <input type="text" class="codeword-input" id={`codeword-value-${site.slug}`} data-i18n-placeholder="passport.codeword_placeholder" placeholder="Code-Wort" autocomplete="off" />
+                <button class="codeword-submit" id={`codeword-submit-${site.slug}`}><span data-i18n="passport.codeword_check">Prüfen</span></button>
                 <span class="codeword-feedback" id={`codeword-feedback-${site.slug}`}></span>
               </div>
             </div>
@@ -125,13 +124,12 @@ const kellers = beerSites.filter(s => s.subcategory === 'keller');
     </section>
 
     <p class="alcohol-mode-note" id="alcohol-mode-note" hidden>
-      🍇 Der Bierpass zeigt Brauereigeschichte statt Bier. Jeder Ort kann ohne Alkohol erkundet werden.
-      <br /><em>The passport shows brewing heritage instead of beer. Every site can be explored without alcohol.</em>
+      <span data-i18n="passport.alcohol_mode_note">🍇 Der Bierpass zeigt Brauereigeschichte statt Bier. Jeder Ort kann ohne Alkohol erkundet werden.</span>
     </p>
   </main>
 
   <footer class="page-footer">
-    <a href="/">← Übersicht / Overview</a>
+    <a href="/"><span data-i18n="passport.back">← Übersicht</span></a>
   </footer>
 </BaseLayout>
 
@@ -214,8 +212,8 @@ function updateBadges() {
   const claimedKellers = kellerSlugs.filter(s => isClaimed(s)).length;
 
   if (badgeNineCount) badgeNineCount.textContent = `${claimedTaprooms}/9 Taprooms`;
-  if (badgeKellerCount) badgeKellerCount.textContent = `${claimedKellers}/3 Keller`;
-  if (badgeAllCount) badgeAllCount.textContent = `${claimedTaprooms + claimedKellers}/12 Alle`;
+  if (badgeKellerCount) badgeKellerCount.textContent = `${claimedKellers}/3 ${lang === 'de' ? 'Bierkeller' : 'Cellars'}`;
+  if (badgeAllCount) badgeAllCount.textContent = `${claimedTaprooms + claimedKellers}/12 ${lang === 'de' ? 'Alle' : 'All'}`;
 
   if (badgeNine) badgeNine.classList.toggle('badge-complete', claimedTaprooms === 9);
   if (badgeKeller) badgeKeller.classList.toggle('badge-complete', claimedKellers === 3);
@@ -231,7 +229,7 @@ alcoholToggle?.addEventListener('change', () => {
   if (alcoholNote) alcoholNote.hidden = !isActive;
 });
 
-// Age gate - hide content until age confirmed
+// Age gate
 if (ageGate) {
   const content = document.querySelector('main');
   if (content) content.style.opacity = '0.3';
@@ -248,7 +246,6 @@ if (ageGate) {
 
 // Init
 if (typeof document !== 'undefined') {
-  // Setup codeword buttons
   document.querySelectorAll('[data-slug]').forEach(el => {
     setupCodeword(el.dataset.slug);
   });

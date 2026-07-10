@@ -1,0 +1,94 @@
+---
+import de from '../i18n/de.json';
+import en from '../i18n/en.json';
+import fr from '../i18n/fr.json';
+import it from '../i18n/it.json';
+import es from '../i18n/es.json';
+import nl from '../i18n/nl.json';
+import cs from '../i18n/cs.json';
+import pt from '../i18n/pt.json';
+import sv from '../i18n/sv.json';
+import zh from '../i18n/zh.json';
+import hi from '../i18n/hi.json';
+import ja from '../i18n/ja.json';
+import tr from '../i18n/tr.json';
+import ru from '../i18n/ru.json';
+
+const dict = { de, en, fr, it, es, nl, cs, pt, sv, zh, hi, ja, tr, ru };
+const json = JSON.stringify(dict);
+---
+
+<pre id="i18n-json" hidden>{json}</pre>
+<script is:inline>
+(function() {
+var el = document.getElementById('i18n-json');
+window.__bqTranslations = JSON.parse(el.textContent);
+
+function t(key, lang) {
+  var dict = window.__bqTranslations;
+  if (!dict) return key;
+  var val = dict[lang] && dict[lang][key];
+  if (!val && lang !== 'de') val = dict.de && dict.de[key];
+  return val || key;
+}
+
+function applyTranslations(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    var key = el.getAttribute('data-i18n');
+    if (!key) return;
+    var pStr = el.getAttribute('data-i18n-params');
+    var text = t(key, lang);
+    if (pStr) {
+      try {
+        var params = JSON.parse(pStr);
+        for (var k in params) {
+          text = text.replace('{' + k + '}', params[k]);
+        }
+      } catch (_) {}
+    }
+    el.textContent = text;
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+    var key = el.getAttribute('data-i18n-html');
+    if (!key) return;
+    var pStr = el.getAttribute('data-i18n-params');
+    var text = t(key, lang);
+    if (pStr) {
+      try {
+        var params = JSON.parse(pStr);
+        for (var k in params) {
+          text = text.replace('{' + k + '}', params[k]);
+        }
+      } catch (_) {}
+    }
+    el.innerHTML = text;
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+    el.placeholder = t(el.getAttribute('data-i18n-placeholder'), lang);
+  });
+
+  document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+    el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria'), lang));
+  });
+
+  document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+    el.setAttribute('title', t(el.getAttribute('data-i18n-title'), lang));
+  });
+
+  var skipLink = document.getElementById('skip-link');
+  if (skipLink) skipLink.textContent = t('site.skip_link', lang);
+
+  var themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.setAttribute('aria-label', t('site.theme_toggle', lang));
+    themeToggle.setAttribute('title', t('site.theme_toggle', lang));
+  }
+}
+
+var curLang = 'de';
+try { curLang = localStorage.getItem('bq-lang') || 'de'; } catch (_) {}
+applyTranslations(curLang);
+})();
+</script>

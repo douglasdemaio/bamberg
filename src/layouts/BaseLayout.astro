@@ -1,4 +1,6 @@
 ---
+import I18nScript from '../components/I18nScript.astro';
+
 interface Props {
   title: string;
   description?: string;
@@ -25,6 +27,10 @@ const { title, description } = Astro.props;
         } catch (_) {
           document.documentElement.dataset.theme = 'light';
         }
+        try {
+          var lang = localStorage.getItem('bq-lang') || 'de';
+          document.documentElement.lang = lang;
+        } catch (_) {}
       })();
     </script>
     <style>
@@ -148,6 +154,7 @@ const { title, description } = Astro.props;
         z-index: 20;
         display: flex;
         justify-content: flex-end;
+        gap: 0.5rem;
         padding: 0.5rem 0;
         background: linear-gradient(to bottom, var(--bg) 70%, transparent);
         backdrop-filter: saturate(1.1) blur(4px);
@@ -177,6 +184,30 @@ const { title, description } = Astro.props;
       html[data-theme='dark'] .theme-toggle .toggle-icon-light { display: none; }
       html[data-theme='dark'] .theme-toggle .toggle-icon-dark { display: inline; }
 
+      .lang-select {
+        appearance: none;
+        border: 1px solid var(--border-strong);
+        background: var(--card-bg);
+        color: var(--text);
+        font: inherit;
+        font-size: 0.85rem;
+        padding: 0.35rem 1.6rem 0.35rem 0.7rem;
+        border-radius: 999px;
+        cursor: pointer;
+        box-shadow: var(--shadow-sm);
+        transition: background 0.15s, border-color 0.15s;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6' fill='none' stroke='%235c5a54' stroke-width='1.5'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.6rem center;
+        background-size: 10px 6px;
+        min-width: 100px;
+      }
+      .lang-select:hover { background-color: var(--card-bg-hover); border-color: var(--wax-red); }
+      .lang-select:focus-visible {
+        outline: 3px solid var(--focus);
+        outline-offset: 2px;
+      }
+
       @media (prefers-reduced-motion: reduce) {
         *,*::before,*::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
       }
@@ -187,9 +218,25 @@ const { title, description } = Astro.props;
     </style>
   </head>
   <body>
-    <a class="skip-link" href="#content">Zum Inhalt springen / Skip to content</a>
+    <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
     <div class="container">
       <div class="topbar">
+        <select class="lang-select" id="lang-select" aria-label="Sprache / Language">
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="it">🇮🇹 Italiano</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="nl">🇳🇱 Nederlands</option>
+          <option value="cs">🇨🇿 Čeština</option>
+          <option value="pt">🇵🇹 Português</option>
+          <option value="sv">🇸🇪 Svenska</option>
+          <option value="zh">🇨🇳 中文</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="ja">🇯🇵 日本語</option>
+          <option value="tr">🇹🇷 Türkçe</option>
+          <option value="ru">🇷🇺 Русский</option>
+        </select>
         <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
           <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
           <span class="toggle-icon-dark" aria-hidden="true">☾</span>
@@ -200,6 +247,7 @@ const { title, description } = Astro.props;
         <slot />
       </div>
     </div>
+    <I18nScript />
     <script is:inline>
       (function () {
         var btn = document.getElementById('theme-toggle');
@@ -208,6 +256,21 @@ const { title, description } = Astro.props;
           var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
           document.documentElement.dataset.theme = next;
           try { localStorage.setItem('bq-theme', next); } catch (_) {}
+        });
+      })();
+    </script>
+    <script is:inline>
+      (function () {
+        var sel = document.getElementById('lang-select');
+        if (!sel) return;
+        var saved = 'de';
+        try { saved = localStorage.getItem('bq-lang') || 'de'; } catch (_) {}
+        sel.value = saved;
+        sel.addEventListener('change', function () {
+          var lang = sel.value;
+          document.documentElement.lang = lang;
+          try { localStorage.setItem('bq-lang', lang); } catch (_) {}
+          window.location.reload();
         });
       })();
     </script>
