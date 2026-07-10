@@ -98,13 +98,13 @@
   "party.back": "← Genel Bakış",
   "plan.title": "Ziyaretinizi planlayın",
   "plan.arrival_title": "Buraya Ulaşım",
-  "plan.arrival_text": "Bamberg ICE Münih-Berlin hattı üzerindedir. Ana istasyondan eski şehre 15 dakika yürüme mesafesindedir. Park: eski şehirden kaçının – istasyon otoparklarını (P1–P4) kullanın.",
-  "plan.areas_title": "Tepe Şehri & Ada Şehri",
-  "plan.areas_text": "Bamberg ikiye ayrılır: Regnitz'in sol kıyısındaki tepe şehri (Domberg, Kaulberg) ve nehir kolları arasındaki ada şehri. Bahçıvanlar Bölgesi kuzeydedir. Her şey yürünebilir, ancak tepeler gerçektir – tam tur için 340 m tırmanış.",
-  "plan.card_title": "Bamberg Card",
-  "plan.card_text": "Bamberg Card 3+ müzede avantajlıdır: tüm şehir müzelerine ücretsiz giriş ve ortak mekanlarda indirim. Dünya Mirası Merkezi'nde mevcuttur.",
+  "plan.arrival_text": "Bamberg, ICE Münih–Berlin hattı üzerindedir. Ana istasyondan eski şehre 15 dakika yürüme mesafesindedir. Park: eski şehre araçla girmeyin. En iyi seçenek P+R Bahnhof/Brennerstraße'dir; giriş yollarında ayrıca P+R Heinrichsdamm ve P+R Kronacher Straße vardır.",
+  "plan.areas_title": "Bergstadt ve Inselstadt",
+  "plan.areas_text": "Bamberg iki yakadan oluşur: Regnitz'in sol kıyısındaki Bergstadt (tepe şehri — Domberg, Kaulberg) ve iki nehir kolu arasındaki Inselstadt (ada şehri). Gärtnerstadt (bahçıvanlar mahallesi) doğu ile kuzeydoğu tarafında yer alır — Mittelstraße, Heiliggrabstraße, Siechenstraße. Her yer yürüme mesafesindedir; ama tepeler ciddidir — tam tur için 340 m tırmanış.",
+  "plan.card_title": "BAMBERGcard",
+  "plan.card_text": "BAMBERGcard 3 günlük bir bilettir: „Faszination Welterbe“ şehir turu, birçok müze ve koleksiyona giriş, ayrıca Bamberg ve çevredeki Bamberger Land bölgesinde otobüs ile trende serbest ulaşım. Daha uygun fiyatlı BAMBERGcärdla aynı içeriktedir; yalnızca ulaşımı kapsamaz. Online olarak, Geyerswörthstraße 5 adresindeki Tourist-Information'dan ve birçok otelden alınabilir. Fiyatlar: BAMBERGcärdla 16 €, BAMBERGcard 22 € (Temmuz 2026 itibarıyla). Bazı müzeler pazartesi veya çarşamba günleri kapalıdır; kış aylarında kart sahipleri için de erişim sınırlıdır.",
   "plan.water_title": "Musluk Suyu",
-  "plan.water_text": "Bamberg'in musluk suyu içilebilir ve mükemmel kalitededir. Restoranlarda ücretsiz bir bardak su isteyebilirsiniz.",
+  "plan.water_text": "Bamberg musluk suyu içilebilir ve mükemmel kalitededir — yol boyunca şişenizi doldurun. Ancak restoranların ücretsiz musluk suyu (Leitungswasser) verme zorunluluğu yoktur; çoğu kez reddedilir ya da ücretlendirilir. Kararsız kaldığınızda maden suyu isteyin.",
   "plan.hours_title": "Çalışma Saatleri",
   "plan.hours_text": "Bamberg müzeleri genellikle pazartesi günleri kapalıdır. Birçok kilise gündüz açıktır. Bira fabrikalarının esnek çalışma saatleri vardır.",
   "plan.hours_disclaimer": "Burada belirtilen çalışma saatleri resmi değildir ve her an değişebilir. Ziyaretinizden önce lütfen her mekânın resmi web sitesini kontrol edin.",
@@ -177,5 +177,7 @@
   "site_detail.claim_aria": "Mark as visited",
   "error.meta_title": "Not Found – Bamberg Quest",
   "error.not_found_msg": "Page not found.",
-  "error.home_link": "Go to homepage"
+  "error.home_link": "Go to homepage",
+  "passport.kaiserdom_warning": "⚠️ Kaiserdom, eski şehirde değil Gaustadt semtindedir — merkezden yürüyerek ulaşılamaz.",
+  "passport.footnote": "Bunlar Bamberger Brauereien e.V.'nin listelediği dokuz klasik özel bira fabrikasıdır: Ambräusianum, Fässla, Greifenklau, Kaiserdom, Keesmann, Klosterbräu, Mahrs Bräu, Schlenkerla, Spezial. Başka sayımlar da mevcuttur."
 }

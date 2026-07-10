@@ -98,13 +98,13 @@
   "party.back": "← Overzicht",
   "plan.title": "Bezoek plannen",
   "plan.arrival_title": "Aankomst",
-  "plan.arrival_text": "Bamberg ligt aan de ICE-lijn München–Berlijn. Vanaf het hoofdstation is het 15 minuten lopen naar de oude stad. Parkeren: vermijd de oude stad – gebruik de parkeergarages bij het station (P1–P4).",
-  "plan.areas_title": "Heuvelstad & Eilandstad",
-  "plan.areas_text": "Bamberg is verdeeld in twee helften: de heuvelstad (Domberg, Kaulberg) op de linkeroever van de Regnitz en de eilandstad tussen de rivierarmen. De tuinierswijk ligt in het noorden. Alles is te voet te doen, maar de heuvels zijn pittig – 340 hoogtemeters voor de volledige ronde.",
-  "plan.card_title": "Bamberg Card",
-  "plan.card_text": "De Bamberg Card is voordelig bij 3+ musea: gratis toegang tot alle stadsmusea en kortingen. Verkrijgbaar bij het Werelderfgoedcentrum.",
+  "plan.arrival_text": "Bamberg ligt aan de ICE-lijn München–Berlijn. Vanaf het hoofdstation is het 15 minuten lopen naar de oude stad. Parkeren: vermijd de oude stad. Het beste is P+R Bahnhof/Brennerstraße; langs de invalswegen zijn P+R Heinrichsdamm en P+R Kronacher Straße alternatieven.",
+  "plan.areas_title": "Bergstadt & Inselstadt",
+  "plan.areas_text": "Bamberg bestaat uit twee helften: de Bergstadt (de heuvelstad — Domberg, Kaulberg) op de linkeroever van de Regnitz, en de Inselstadt (de eilandstad) tussen de twee riviertakken. De Gärtnerstadt (de tuinierswijk) ligt in het oosten en noordoosten — Mittelstraße, Heiliggrabstraße, Siechenstraße. Alles is te belopen, maar de heuvels zijn pittig — 340 hoogtemeters voor de volledige ronde.",
+  "plan.card_title": "BAMBERGcard",
+  "plan.card_text": "De BAMBERGcard is een 3-dagenticket: de stadswandeling „Faszination Welterbe“, toegang tot meerdere musea en collecties, en vrij reizen met bus en trein in Bamberg en het omliggende Bamberger Land. De goedkopere BAMBERGcärdla is hetzelfde, maar zonder het openbaar vervoer. Te koop online, bij de Tourist-Information in de Geyerswörthstraße 5 en bij veel hotels. Prijzen: BAMBERGcärdla € 16, BAMBERGcard € 22 (stand: juli 2026). Sommige musea zijn maandags of woensdags gesloten en in de wintermaanden is de toegang ook voor kaarthouders beperkt.",
   "plan.water_title": "Kraanwater",
-  "plan.water_text": "Bambergs kraanwater is drinkbaar en van uitstekende kwaliteit. Je kunt gratis een glas water bestellen in restaurants.",
+  "plan.water_text": "Het kraanwater in Bamberg is drinkbaar en van uitstekende kwaliteit — vul onderweg je fles bij. In restaurants heb je echter geen recht op gratis kraanwater (Leitungswasser); vaak wordt het geweigerd of aangerekend. Bestel bij twijfel een mineraalwater.",
   "plan.hours_title": "Openingstijden",
   "plan.hours_text": "Bambergse musea zijn vaak op maandag gesloten. Veel kerken zijn overdag open. Brouwerijen hebben flexibele openingstijden.",
   "plan.hours_disclaimer": "De hier vermelde openingstijden zijn niet officieel en kunnen op elk moment wijzigen. Raadpleeg vóór je bezoek de officiële website van de betreffende locatie.",
@@ -177,5 +177,7 @@
   "site_detail.claim_aria": "Mark as visited",
   "error.meta_title": "Not Found – Bamberg Quest",
   "error.not_found_msg": "Page not found.",
-  "error.home_link": "Go to homepage"
+  "error.home_link": "Go to homepage",
+  "passport.kaiserdom_warning": "⚠️ Kaiserdom ligt in de wijk Gaustadt, niet in de oude stad — niet te voet bereikbaar vanuit het centrum.",
+  "passport.footnote": "Dit zijn de negen klassieke particuliere brouwerijen volgens Bamberger Brauereien e.V.: Ambräusianum, Fässla, Greifenklau, Kaiserdom, Keesmann, Klosterbräu, Mahrs Bräu, Schlenkerla, Spezial. Andere tellingen bestaan."
 }

@@ -98,13 +98,13 @@
   "party.back": "← Översikt",
   "plan.title": "Planera ditt besök",
   "plan.arrival_title": "Ta sig hit",
-  "plan.arrival_text": "Bamberg ligger på ICE-linjen München–Berlin. Från centralstationen är det 15 minuters promenad till gamla stan. Parkering: undvik gamla stan – använd parkeringshusen vid stationen (P1–P4).",
-  "plan.areas_title": "Kullstaden & Östaden",
-  "plan.areas_text": "Bamberg är uppdelat i två halvor: kullstaden (Domberg, Kaulberg) på Regnitz vänstra strand och östaden mellan flodarmarna. Trädgårdsmästarkvarteret ligger i norr. Allt är gångbart, men kullarna är på riktigt – 340 m stigning för hela rundan.",
-  "plan.card_title": "Bamberg Card",
-  "plan.card_text": "Bamberg Card lönar sig vid 3+ museer: fri entré till alla stadsmuseer och rabatter. Finns på Världsarvscentret.",
+  "plan.arrival_text": "Bamberg ligger vid ICE-linjen München–Berlin. Från centralstationen är det 15 minuters promenad till gamla stan. Parkering: undvik gamla stan. Bäst är P+R Bahnhof/Brennerstraße; längs infartsvägarna finns även P+R Heinrichsdamm och P+R Kronacher Straße.",
+  "plan.areas_title": "Bergstadt & Inselstadt",
+  "plan.areas_text": "Bamberg är delat i två halvor: Bergstadt (staden på kullarna — Domberg, Kaulberg) på Regnitz vänstra strand, och Inselstadt (östaden) mellan flodarmarna. Gärtnerstadt (trädgårdsmästarkvarteret) ligger öster och nordöster om centrum — Mittelstraße, Heiliggrabstraße, Siechenstraße. Allt är gångbart, men kullarna märks — 340 höjdmeter för hela varvet.",
+  "plan.card_title": "BAMBERGcard",
+  "plan.card_text": "BAMBERGcard är en 3-dagarsbiljett: stadsvandringen „Faszination Welterbe“, inträde till flera museer och samlingar samt fria resor med buss och tåg i Bamberg och omgivande Bamberger Land. Billigare BAMBERGcärdla är samma sak, men utan resorna. Köps online, på Tourist-Information vid Geyerswörthstraße 5 och på många hotell. Priser: BAMBERGcärdla 16 €, BAMBERGcard 22 € (per juli 2026). Vissa museer stänger på måndagar eller onsdagar, och under vintermånaderna är tillgången begränsad även för korthållare.",
   "plan.water_title": "Kranvatten",
-  "plan.water_text": "Bambergs kranvatten är drickbart och av utmärkt kvalitet. På restauranger kan du beställa ett gratis glas vatten – be helt enkelt om \"Leitungswasser\".",
+  "plan.water_text": "Bambergs kranvatten är drickbart och av utmärkt kvalitet — fyll på flaskan under vandringen. Restauranger är dock inte skyldiga att servera gratis kranvatten (Leitungswasser); ofta nekar de eller tar betalt. Vid tveksamhet, beställ ett mineralvatten.",
   "plan.hours_title": "Öppettider",
   "plan.hours_text": "Bambergs museer är ofta stängda på måndagar. Många kyrkor är öppna dagtid. Bryggerier har flexibla öppettider – kolla webbplatsen i förväg.",
   "plan.hours_disclaimer": "Öppettiderna som anges här är inte officiella och kan ändras när som helst. Kontrollera den officiella webbplatsen för varje plats före ditt besök.",
@@ -177,5 +177,7 @@
   "site_detail.claim_aria": "Mark as visited",
   "error.meta_title": "Not Found – Bamberg Quest",
   "error.not_found_msg": "Page not found.",
-  "error.home_link": "Go to homepage"
+  "error.home_link": "Go to homepage",
+  "passport.kaiserdom_warning": "⚠️ Bryggeriet Kaiserdom ligger i stadsdelen Gaustadt, inte i gamla stan — inte gångavstånd från centrum.",
+  "passport.footnote": "Det här är de nio klassiska privatbryggerierna enligt Bamberger Brauereien e.V.: Ambräusianum, Fässla, Greifenklau, Kaiserdom, Keesmann, Klosterbräu, Mahrs Bräu, Schlenkerla, Spezial. Andra räkningar förekommer."
 }

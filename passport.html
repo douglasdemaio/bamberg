@@ -70,6 +70,8 @@
     .stamp-tag.rauch { background: var(--amber); color: var(--paper); }
     .stamp-tag.malt { background: var(--verdigris); color: var(--paper); }
     .stamp-lore { font-size: 0.75rem; color: var(--text-muted); font-style: italic; line-height: 1.3; }
+    .stamp-warning { font-size: 0.75rem; color: var(--wax-red); font-weight: 600; line-height: 1.3; margin-top: 0.35rem; }
+    .passport-footnote { margin-top: 1.5rem; padding: 0.75rem 1rem; background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
     .alcohol-mode-note { margin-top: 1rem; padding: 0.75rem 1rem; background: #e8f0e8; border-radius: var(--radius); border: 1px solid var(--verdigris); font-size: 0.85rem; color: var(--verdigris); }
     .page-footer { padding: 2rem 0; font-size: 0.85rem; }
     @media (prefers-reduced-motion: reduce) { .stamp-card, .badge { transition: none; } }
@@ -160,6 +162,7 @@
           </div>
         </section>
         <div id="passport-root"></div>
+        <p class="passport-footnote" data-i18n="passport.footnote">Dies sind die neun klassischen Privatbrauereien nach Bamberger Brauereien e.V.: Ambräusianum, Fässla, Greifenklau, Kaiserdom, Keesmann, Klosterbräu, Mahrs Bräu, Schlenkerla, Spezial. Andere Zählungen sind im Umlauf.</p>
         <p class="alcohol-mode-note" id="alcohol-mode-note" hidden><span data-i18n="passport.alcohol_mode_note">🍇 Der Bierpass zeigt Brauereigeschichte statt Bier. Jeder Ort kann ohne Alkohol erkundet werden.</span></p>
       </main>
       <footer class="page-footer"><a href="/index.html"><span data-i18n="passport.back">← Übersicht</span></a></footer>
@@ -274,6 +277,9 @@
         function stampCardHtml(site) {
           var localName = pickLang(site.name, lang);
           var localLore = pickLang(site.house_lore || {}, lang);
+          var warning = site.slug === 'kaiserdom'
+            ? '<div class="stamp-warning" data-i18n="passport.kaiserdom_warning">⚠️ Kaiserdom liegt im Stadtteil Gaustadt, nicht in der Altstadt – von der Innenstadt aus nicht zu Fuß erreichbar.</div>'
+            : '';
           return '<div class="stamp-card" id="stamp-' + site.slug + '" data-slug="' + site.slug + '" data-codeword="' + (site.codeword || '') + '" data-style="' + (site.beer_style || '') + '" data-rauch="' + (site.is_rauchbier || false) + '" data-malt="' + (site.malts_own || false) + '">' +
             '<div class="stamp-unclaimed" id="stamp-unclaimed-' + site.slug + '">' +
               '<div class="stamp-seal">🫱</div>' +
@@ -284,6 +290,7 @@
                 '<button class="codeword-submit" id="codeword-submit-' + site.slug + '"><span data-i18n="passport.codeword_check">Prüfen</span></button>' +
                 '<span class="codeword-feedback" id="codeword-feedback-' + site.slug + '"></span>' +
               '</div>' +
+              warning +
             '</div>' +
             '<div class="stamp-claimed" id="stamp-claimed-' + site.slug + '" hidden>' +
               '<div class="stamp-ink">✅</div>' +
@@ -293,6 +300,7 @@
                 (site.malts_own ? '<span class="stamp-tag malt" data-i18n="passport.tag_own_malt">Eigenmalz</span>' : '') +
               '</div>' +
               '<div class="stamp-lore">' + localLore + '</div>' +
+              warning +
             '</div>' +
           '</div>';
         }

@@ -98,13 +98,13 @@
   "party.back": "← Panoramica",
   "plan.title": "Pianifica la visita",
   "plan.arrival_title": "Come arrivare",
-  "plan.arrival_text": "Bamberg si trova sulla linea ICE Monaco–Berlino. Dalla stazione principale sono 15 minuti a piedi al centro storico. Parcheggio: evita il centro storico – i parcheggi coperti alla stazione (P1–P4) sono più convenienti e ben collegati.",
-  "plan.areas_title": "Città delle Colline & Città dell'Isola",
-  "plan.areas_text": "Bamberg si divide in due metà: la città delle colline (Domberg, Kaulberg) sulla riva sinistra della Regnitz e la città dell'isola tra i bracci del fiume. Il quartiere dei giardinieri è a nord. Tutto è raggiungibile a piedi, ma le colline sono reali – 340 m di dislivello per il giro completo.",
-  "plan.card_title": "Bamberg Card",
-  "plan.card_text": "La Bamberg Card conviene con 3+ musei: ingresso gratuito a tutti i musei comunali e sconti presso molti partner. Disponibile al Centro del Patrimonio Mondiale.",
+  "plan.arrival_text": "Bamberg si trova sulla linea ICE Monaco–Berlino. Dalla stazione principale sono 15 minuti a piedi al centro storico. Parcheggio: evita il centro storico. Meglio usare il P+R Bahnhof/Brennerstraße; lungo le strade di accesso ci sono anche il P+R Heinrichsdamm e il P+R Kronacher Straße.",
+  "plan.areas_title": "Bergstadt & Inselstadt",
+  "plan.areas_text": "Bamberg si divide in due metà: la Bergstadt (la città sui colli — Domberg, Kaulberg) sulla riva sinistra della Regnitz, e la Inselstadt (la città sull'isola) tra i due bracci del fiume. La Gärtnerstadt (il quartiere degli ortolani) si estende a est e a nord-est — Mittelstraße, Heiliggrabstraße, Siechenstraße. Tutto è raggiungibile a piedi, ma le colline si fanno sentire: 340 m di dislivello per il giro completo.",
+  "plan.card_title": "BAMBERGcard",
+  "plan.card_text": "La BAMBERGcard è un biglietto valido 3 giorni: la visita guidata della città „Faszination Welterbe“, l'ingresso in vari musei e collezioni, e la libera circolazione su bus e treno a Bamberg e nel circostante Bamberger Land. La BAMBERGcärdla, più economica, è identica ma senza il trasporto. Si acquista online, alla Tourist-Information in Geyerswörthstraße 5 e in molti hotel. Prezzi: BAMBERGcärdla 16 €, BAMBERGcard 22 € (dato aggiornato a luglio 2026). Alcuni musei chiudono il lunedì o il mercoledì e nei mesi invernali l'accesso è limitato anche per chi ha la carta.",
   "plan.water_title": "Acqua del rubinetto",
-  "plan.water_text": "L'acqua del rubinetto di Bamberg è potabile e di ottima qualità. Puoi ordinare un bicchiere d'acqua gratis nei ristoranti – basta chiedere un \"Leitungswasser\".",
+  "plan.water_text": "L'acqua del rubinetto di Bamberg è potabile e di ottima qualità — riempi la borraccia lungo il cammino. I ristoranti però non sono obbligati a servire acqua del rubinetto (Leitungswasser) gratis: spesso la rifiutano o la fanno pagare. Nel dubbio ordina un'acqua minerale.",
   "plan.hours_title": "Orari di apertura",
   "plan.hours_text": "I musei di Bamberg sono spesso chiusi il lunedì. Molte chiese sono aperte durante il giorno. I birrifici hanno orari flessibili – meglio verificare in anticipo sul rispettivo sito web.",
   "plan.hours_disclaimer": "Gli orari qui indicati non sono ufficiali e possono cambiare in qualsiasi momento. Prima della visita, consulta il sito ufficiale di ciascun luogo.",
@@ -177,5 +177,7 @@
   "site_detail.claim_aria": "Mark as visited",
   "error.meta_title": "Not Found – Bamberg Quest",
   "error.not_found_msg": "Page not found.",
-  "error.home_link": "Go to homepage"
+  "error.home_link": "Go to homepage",
+  "passport.kaiserdom_warning": "⚠️ Il Kaiserdom si trova nel quartiere di Gaustadt, non nel centro storico — non raggiungibile a piedi dal centro.",
+  "passport.footnote": "Sono i nove birrifici privati storici elencati da Bamberger Brauereien e.V.: Ambräusianum, Fässla, Greifenklau, Kaiserdom, Keesmann, Klosterbräu, Mahrs Bräu, Schlenkerla, Spezial. Altri conteggi circolano."
 }

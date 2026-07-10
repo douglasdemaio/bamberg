@@ -98,13 +98,13 @@
   "party.back": "← 概要",
   "plan.title": "訪問を計画",
   "plan.arrival_title": "アクセス",
-  "plan.arrival_text": "バンベルクはICEのミュンヘン—ベルリン線上にあります。中央駅から旧市街までは徒歩15分です。駐車：旧市街への乗り入れは避け、駅前の駐車場（P1〜P4）をご利用ください。",
-  "plan.areas_title": "丘の街と島の街",
-  "plan.areas_text": "バンベルクは二つのエリアに分かれています。レグニッツ川左岸の丘の街（ドムベルク、カウルベルク）と、川の支流に挟まれた島の街です。庭師地区は北部にあります。すべて徒歩圏内ですが、丘はなかなか侮れません—全周回で340mの標高差があります。",
-  "plan.card_title": "バンベルクカード",
-  "plan.card_text": "バンベルクカードは3つ以上の博物館でお得です：すべての市立博物館に無料入場でき、提携施設で割引があります。世界遺産センターで入手できます。",
+  "plan.arrival_text": "バンベルクはICEのミュンヘン—ベルリン線上にあります。中央駅から旧市街までは徒歩15分です。駐車：旧市街への乗り入れは避けてください。おすすめは P+R Bahnhof/Brennerstraße です。市内へ向かう幹線沿いには P+R Heinrichsdamm と P+R Kronacher Straße もあります。",
+  "plan.areas_title": "Bergstadt と Inselstadt",
+  "plan.areas_text": "バンベルクは二つのエリアに分かれています。レグニッツ川左岸の Bergstadt（丘の街 — ドムベルク、カウルベルク）と、川の二つの支流に挟まれた Inselstadt（島の街）です。Gärtnerstadt（庭師地区）はその東から北東側（Mittelstraße、Heiliggrabstraße、Siechenstraße）に広がります。すべて徒歩圏内ですが、丘はなかなか侮れません — 全周回で340mの高低差があります。",
+  "plan.card_title": "BAMBERGcard",
+  "plan.card_text": "BAMBERGcard は3日間有効のチケットです。市内ガイドツアー「Faszination Welterbe」、複数の博物館・コレクションへの入場、そしてバンベルクと周辺の Bamberger Land 圏内でのバス・鉄道の乗り放題が含まれます。少し安い BAMBERGcärdla は同内容ですが、公共交通は含まれません。オンラインのほか、ゲイアースヴェルトシュトラーセ5番地の Tourist-Information、多くのホテルで購入できます。料金：BAMBERGcärdla 16 €、BAMBERGcard 22 €（2026年7月時点）。一部の博物館は月曜または水曜が休館で、冬期はカード保有者でも入場が制限される場合があります。",
   "plan.water_title": "水道水",
-  "plan.water_text": "バンベルクの水道水は飲用可能で、品質も優れています。レストランでは「Leitungswasser（水道水）」と頼めば、グラス一杯を無料で提供してもらえます。",
+  "plan.water_text": "バンベルクの水道水は飲用可能で、品質も申し分ありません — 歩きながらボトルに補充しましょう。ただしレストランには水道水（Leitungswasser）を無料で出す義務はなく、断られたり有料になることも多いです。迷ったらミネラルウォーターを注文してください。",
   "plan.hours_title": "営業時間",
   "plan.hours_text": "バンベルクの博物館は月曜日が休みのことが多いです。多くの教会は日中開いています。醸造所の営業時間は流動的ですので、事前に各施設のウェブサイトでご確認いただくのがおすすめです。",
   "plan.hours_disclaimer": "ここに記載されている営業時間は公式のものではなく、予告なく変更される場合があります。訪問前に必ず各施設の公式ウェブサイトでご確認ください。",
@@ -177,5 +177,7 @@
   "site_detail.claim_aria": "Mark as visited",
   "error.meta_title": "Not Found – Bamberg Quest",
   "error.not_found_msg": "Page not found.",
-  "error.home_link": "Go to homepage"
+  "error.home_link": "Go to homepage",
+  "passport.kaiserdom_warning": "⚠️ Kaiserdom はガウシュタット地区にあり、旧市街の中ではありません — 中心部から徒歩では行けません。",
+  "passport.footnote": "以下は Bamberger Brauereien e.V.（バンベルク醸造家協会）が挙げる9つの伝統的な民間醸造所です：Ambräusianum、Fässla、Greifenklau、Kaiserdom、Keesmann、Klosterbräu、Mahrs Bräu、Schlenkerla、Spezial。数え方によっては別の数字も使われます。"
 }

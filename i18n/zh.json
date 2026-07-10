@@ -98,13 +98,13 @@
   "party.back": "← 概览",
   "plan.title": "计划你的参观",
   "plan.arrival_title": "如何到达",
-  "plan.arrival_text": "班贝格位于ICE慕尼黑-柏林线上。从主火车站步行15分钟即可到达老城区。停车：请避开老城区——使用火车站停车场（P1-P4）更便宜且交通便利。",
-  "plan.areas_title": "山城与岛城",
-  "plan.areas_text": "班贝格分为两半：雷格尼茨河左岸的山城（大教堂山、考尔山），以及两条河道之间的岛城。园艺区位于北部。一切均可步行到达，但山丘可不轻松——完整环线需爬升340米。",
-  "plan.card_title": "班贝格卡",
-  "plan.card_text": "班贝格卡在参观3个以上博物馆时划算：免费进入所有市立博物馆并在合作场馆享受折扣。可在世界遗产中心获取。",
+  "plan.arrival_text": "班贝格位于ICE慕尼黑-柏林线上。从主火车站步行15分钟即可到达老城区。停车：请避开老城区。建议使用 P+R Bahnhof/Brennerstraße；沿进城主干道，还可选择 P+R Heinrichsdamm 和 P+R Kronacher Straße。",
+  "plan.areas_title": "Bergstadt 与 Inselstadt",
+  "plan.areas_text": "班贝格分为两半：位于雷格尼茨河左岸的 Bergstadt（山城 —— 大教堂山、Kaulberg），以及位于两条河道之间的 Inselstadt（岛城）。Gärtnerstadt（园艺工人街区）位于其东至东北方向 —— Mittelstraße、Heiliggrabstraße、Siechenstraße。一切均可步行到达，但山丘可不轻松 —— 完整环线需爬升340米。",
+  "plan.card_title": "BAMBERGcard",
+  "plan.card_text": "BAMBERGcard 是一张3日票：包含城市导览「Faszination Welterbe」、多家博物馆与收藏馆的入场，以及在班贝格及周边 Bamberger Land 地区免费乘坐巴士与火车。更便宜的 BAMBERGcärdla 内容相同，但不含公共交通。可在网上、位于 Geyerswörthstraße 5 的旅游信息中心（Tourist-Information）及众多酒店购买。价格：BAMBERGcärdla 16 €，BAMBERGcard 22 €（截至2026年7月）。部分博物馆逢周一或周三闭馆，冬季月份即使持卡也仅能有限进入。",
   "plan.water_title": "自来水",
-  "plan.water_text": "班贝格的自来水可放心饮用，水质极佳。你可以在餐厅免费索取一杯自来水——直接说\"Leitungswasser\"即可。",
+  "plan.water_text": "班贝格的自来水可放心饮用，水质极佳 —— 途中可为水壶续水。不过餐厅并无义务提供免费自来水（Leitungswasser），常会婉拒或收费。如有疑虑，点一瓶矿泉水即可。",
   "plan.hours_title": "开放时间",
   "plan.hours_text": "班贝格的博物馆通常在周一闭馆。许多教堂白天开放。啤酒厂的营业时间较为灵活——最好提前在各自的官网上查询。",
   "plan.hours_disclaimer": "此处列出的开放时间并非官方数据，可能随时变动。参观前请查阅相关地点的官方网站。",
@@ -177,5 +177,7 @@
   "site_detail.claim_aria": "Mark as visited",
   "error.meta_title": "Not Found – Bamberg Quest",
   "error.not_found_msg": "Page not found.",
-  "error.home_link": "Go to homepage"
+  "error.home_link": "Go to homepage",
+  "passport.kaiserdom_warning": "⚠️ Kaiserdom 位于 Gaustadt 区，并不在老城区 —— 从市中心无法步行到达。",
+  "passport.footnote": "这是 Bamberger Brauereien e.V.（班贝格酿酒协会）列出的九家传统私营啤酒厂：Ambräusianum、Fässla、Greifenklau、Kaiserdom、Keesmann、Klosterbräu、Mahrs Bräu、Schlenkerla、Spezial。其他统计口径亦存在。"
 }

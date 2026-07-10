@@ -9,24 +9,19 @@
   "nav.all_sights": "← Alle Sehenswürdigkeiten",
   "nav.all_trails": "← Alle Routen",
   "nav.back_collection": "← Zur Sammlung",
-
   "site.title": "Bamberg Quest",
   "site.subtitle": "Guidebook & Schatzsuche",
   "site.skip_link": "Zum Inhalt springen",
-
   "site.theme_toggle": "Farbmodus wechseln",
   "site.theme_light": "Hell",
   "site.theme_dark": "Dunkel",
-
   "index.intro": "Willkommen in Bamberg, UNESCO-Welterbe auf sieben Hügeln. Ob Guidebook oder Schatzsuche – hier findest du alle Sehenswürdigkeiten.",
   "index.intro_plan": "Besuch planen",
-
   "index.progress_title": "Dein Fortschritt",
   "index.progress_sites_explored": "Orte erkundet",
   "index.progress_hint_empty": "Neu hier? Starte mit dem Dom oder dem Alten Rathaus.",
   "index.progress_hint_complete": "🏅 Alle Orte erkundet!",
   "index.progress_hint_next": "Nächster Vorschlag",
-
   "index.cat_seven_hills": "Die Sieben Hügel",
   "index.cat_stone_and_power": "Stein und Macht",
   "index.cat_water_and_bridges": "Wasser und Brücken",
@@ -38,15 +33,12 @@
   "index.cat_c": "Am Wasser",
   "index.cat_e": "Straßen & Plätze",
   "index.cat_f": "Museen & Bühnen",
-
   "index.footer": "Ein Spaziergang durch Bamberg. Keine App, kein Account, kein Standort-Tracking. Deine Fortschritte bleiben auf deinem Gerät.",
-
   "trails.title": "Routen",
   "trails.subtitle": "Kuratierte Spaziergänge durch Bamberg. Entfernung, Höhenmeter und Zeit sind ehrlich geschätzt.",
   "trails.stops": "Stationen",
   "trails.missing": "(noch {count} fehlen)",
   "trails.step_free": "♿ Schritt-frei",
-
   "trail_subtitle": "Stationen",
   "trail_route": "Strecke",
   "trail_climb": "Aufstieg",
@@ -54,7 +46,6 @@
   "trail_pace": "Tempo",
   "trail_step_free": "Schritt-frei",
   "trail_missing_stops": "{count} Stationen fehlen noch im Guidebook.",
-
   "passport.title": "Bierpass",
   "passport.subtitle": "Sammle Stempel in allen neun Brauereien und drei Bierkellern",
   "passport.alcohol_free": "🍇 Ohne Alkohol spielen",
@@ -74,7 +65,6 @@
   "passport.alcohol_mode_note": "🍇 Der Bierpass zeigt Brauereigeschichte statt Bier. Jeder Ort kann ohne Alkohol erkundet werden.",
   "passport.back": "← Übersicht",
   "passport.all_label": "Alle",
-
   "collection.title": "Meine Karte",
   "collection.explored": "Erkundet",
   "collection.complete": "🎉 Vollständig!",
@@ -96,7 +86,6 @@
   "collection.import_error": "✗ Ungültiger Code",
   "collection.code_generated": "Code generiert",
   "collection.map_title": "Kartenkacheln",
-
   "party.title": "Party!",
   "party.congrats_title": "Glückwunsch!",
   "party.congrats_text": "Du hast ganz Bamberg erkundet. Genieße deinen wohlverdienten Ruhm.",
@@ -107,21 +96,19 @@
   "party.unlocked_feedback": "✓ Entsperrt!",
   "party.wrong_feedback": "✗ Falscher Code",
   "party.back": "← Übersicht",
-
   "plan.title": "Besuch planen",
   "plan.arrival_title": "Anreise",
-  "plan.arrival_text": "Bamberg liegt an der ICE-Strecke München–Berlin. Vom Hauptbahnhof sind es 15 Minuten zu Fuß in die Altstadt. Parken: Bitte die Altstadt meiden – die Parkhäuser am Bahnhof (P1–P4) sind günstiger und gut angebunden.",
+  "plan.arrival_text": "Bamberg liegt an der ICE-Strecke München–Berlin. Vom Hauptbahnhof sind es 15 Minuten zu Fuß in die Altstadt. Parken: Bitte die Altstadt meiden. Am besten das P+R Bahnhof/Brennerstraße nutzen; auf den Einfahrtsstraßen bieten sich zusätzlich P+R Heinrichsdamm und P+R Kronacher Straße an.",
   "plan.areas_title": "Bergstadt & Inselstadt",
-  "plan.areas_text": "Bamberg teilt sich in zwei Hälften: die Bergstadt (Domberg, Kaulberg) auf dem linken Regnitz-Ufer und die Inselstadt zwischen den Flussarmen. Die Gärtnerstadt liegt im Norden. Alles ist fußläufig, aber die Hügel haben es in sich – 340 Höhenmeter für die volle Runde.",
-  "plan.card_title": "Bamberg Card",
-  "plan.card_text": "Die Bamberg Card lohnt sich bei 3+ Museen: freier Eintritt in alle städtischen Museen und Ermäßigungen in vielen Partnerhäusern. Erhältlich im Zentrum Welterbe.",
+  "plan.areas_text": "Bamberg teilt sich in zwei Hälften: die Bergstadt (Domberg, Kaulberg) auf dem linken Regnitz-Ufer und die Inselstadt zwischen den Flussarmen. Die Gärtnerstadt liegt östlich bis nordöstlich davon (Mittelstraße, Heiliggrabstraße, Siechenstraße). Alles ist fußläufig, aber die Hügel haben es in sich – 340 Höhenmeter für die volle Runde.",
+  "plan.card_title": "BAMBERGcard",
+  "plan.card_text": "Die BAMBERGcard ist ein 3-Tages-Ticket: die Stadtführung „Faszination Welterbe“, Eintritt in mehrere Museen und Sammlungen sowie freie Fahrt mit Bus und Bahn in Bamberg und im Bamberger Land. Die günstigere BAMBERGcärdla gibt es ohne den Nahverkehr. Erhältlich online, in der Tourist-Information, Geyerswörthstraße 5, sowie in vielen Hotels. Preise: BAMBERGcärdla 16 €, BAMBERGcard 22 € (Stand: Juli 2026). Einige Museen sind montags oder mittwochs sowie in den Wintermonaten geschlossen; für Karteninhaber gilt dann nur eingeschränkter Zugang.",
   "plan.water_title": "Leitungswasser",
-  "plan.water_text": "Bamberger Leitungswasser ist trinkbar und von bester Qualität. In Restaurants kann ein Glas Wasser kostenlos bestellt werden – frag einfach nach einem \"Leitungswasser\".",
+  "plan.water_text": "Bamberger Leitungswasser ist trinkbar und von bester Qualität – fülle unterwegs deine Flasche auf. In Restaurants gibt es allerdings keinen Anspruch auf gratis Leitungswasser; oft wird es abgelehnt oder berechnet. Bestelle im Zweifel ein Mineralwasser.",
   "plan.hours_title": "Öffnungszeiten",
   "plan.hours_text": "Bamberger Museen haben oft montags geschlossen. Viele Kirchen sind tagsüber geöffnet. Brauereien haben flexible Öffnungszeiten – am besten vorher auf der jeweiligen Website prüfen.",
   "plan.hours_disclaimer": "Die hier angegebenen Öffnungszeiten sind nicht offiziell und können sich jederzeit ändern. Bitte informiere dich vor deinem Besuch auf der offiziellen Website des jeweiligen Ortes.",
   "plan.back": "← Zurück zur Übersicht",
-
   "site.category": "Kategorie",
   "site.coordinates": "Koordinaten",
   "site.accessible": "Barrierefrei",
@@ -148,58 +135,48 @@
   "site.back": "← Zurück zur Übersicht",
   "site.legendary": "🔒 Legendär",
   "site.legendary_requires": "Erfordert: {sites}",
-
   "tier.bronze": "Bronze – Name sichtbar",
   "tier.silver": "Silber – Rätsel",
   "tier.gold": "Gold – Rätsel, verschlüsselt",
   "tier.legendary": "Legendär",
-
   "tier_short.bronze": "Bronze",
   "tier_short.silver": "Silber",
   "tier_short.gold": "Gold",
   "tier_short.legendary": "Legende",
-
   "site.language_label": "Sprache",
   "site.nav_aria": "Seitennavigation",
   "site.breadcrumb_aria": "Brotkrümelnavigation",
-
   "index.meta_title": "Bamberg Quest – Entdecke die Stadt",
   "index.meta_description": "Ein selbstgeführter Entdeckungsspaziergang durch Bamberg – Guidebook und Schatzsuche in einem.",
   "index.progress_ring_aria": "Fortschritt",
   "index.progress_count_template": "{count} von {total} Orte erkundet",
-
   "collection.meta_title": "Meine Sammlung – Bamberg Quest",
   "collection.meta_description": "Deine erkundeten Sehenswürdigkeiten in Bamberg.",
   "collection.claimed_list_aria": "Erkundete Orte",
   "collection.export_section_aria": "Code-Export und -Import",
   "collection.map_tiles_aria": "Kartenkacheln",
-
   "passport.meta_title": "Bierpass – Bamberg Quest",
   "passport.meta_description": "Dein Bierpass für die Brauereien Bambergs.",
   "passport.nine_breweries": "Neun Brauereien",
   "passport.tag_smoke": "Rauch",
   "passport.tag_own_malt": "Eigenmalz",
-
+  "passport.kaiserdom_warning": "⚠️ Kaiserdom liegt im Stadtteil Gaustadt, nicht in der Altstadt – von der Innenstadt aus nicht zu Fuß erreichbar.",
+  "passport.footnote": "Dies sind die neun klassischen Privatbrauereien nach Bamberger Brauereien e.V.: Ambräusianum, Fässla, Greifenklau, Kaiserdom, Keesmann, Klosterbräu, Mahrs Bräu, Schlenkerla, Spezial. Andere Zählungen sind im Umlauf.",
   "party.meta_title": "Party – Bamberg Quest",
   "party.meta_description": "Feiere deine Erkundung von Bamberg.",
-
   "plan.meta_title": "Besuch planen – Bamberg Quest",
   "plan.meta_description": "Praktische Tipps für deinen Besuch in Bamberg: Anreise, Parken, Öffnungszeiten.",
-
   "trails.meta_title": "Routen – Bamberg Quest",
   "trails.meta_description": "Kuratierte Spaziergänge durch Bamberg.",
-
   "trail_detail.meta_description_fallback": "Kuratierter Spaziergang durch Bamberg.",
   "trail_detail.title_fallback": "Route",
   "trail_detail.not_found": "Route nicht gefunden.",
   "trail_detail.none_selected": "Keine Route ausgewählt.",
-
   "site_detail.meta_description_template": "Besuche {name} in Bamberg. Öffnungszeiten, Geschichte, Anfahrt.",
   "site_detail.not_found": "Sehenswürdigkeit nicht gefunden.",
   "site_detail.none_selected": "Keine Sehenswürdigkeit ausgewählt.",
   "site_detail.riddle_aria": "Rätsel für Spieler",
   "site_detail.claim_aria": "Fundort markieren",
-
   "error.meta_title": "Nicht gefunden – Bamberg Quest",
   "error.not_found_msg": "Seite nicht gefunden.",
   "error.home_link": "Zur Startseite"

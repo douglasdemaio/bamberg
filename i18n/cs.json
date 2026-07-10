@@ -98,13 +98,13 @@
   "party.back": "← Přehled",
   "plan.title": "Naplánovat návštěvu",
   "plan.arrival_title": "Jak se sem dostat",
-  "plan.arrival_text": "Bamberg leží na trase ICE Mnichov–Berlín. Z hlavního nádraží je to 15 minut pěšky do starého města. Parkování: vyhni se starému městu – využij parkoviště u nádraží (P1–P4).",
-  "plan.areas_title": "Město na pahorcích a ostrovní město",
-  "plan.areas_text": "Bamberg se dělí na dvě poloviny: město na pahorcích (Domberg, Kaulberg) na levém břehu Regnitz a ostrovní město mezi rameny řeky. Zahradnická čtvrť je na severu. Vše je dostupné pěšky, ale kopce jsou skutečné – 340 m převýšení na celý okruh.",
-  "plan.card_title": "Bamberg Card",
-  "plan.card_text": "Bamberg Card se vyplatí při 3+ muzeích: volný vstup do všech městských muzeí a slevy. K dostání v Centru světového dědictví.",
+  "plan.arrival_text": "Bamberg leží na trase ICE Mnichov–Berlín. Z hlavního nádraží je to 15 minut pěšky do starého města. Parkování: vyhni se starému městu. Nejlepší je P+R Bahnhof/Brennerstraße; na příjezdových silnicích jsou k dispozici také P+R Heinrichsdamm a P+R Kronacher Straße.",
+  "plan.areas_title": "Bergstadt & Inselstadt",
+  "plan.areas_text": "Bamberg se dělí na dvě poloviny: Bergstadt (město na kopcích — Domberg, Kaulberg) na levém břehu Regnitz a Inselstadt (ostrovní město) mezi rameny řeky. Gärtnerstadt (čtvrť zahradníků) leží východně až severovýchodně — Mittelstraße, Heiliggrabstraße, Siechenstraße. Vše je dostupné pěšky, ale kopce jsou znát — 340 m převýšení pro celý okruh.",
+  "plan.card_title": "BAMBERGcard",
+  "plan.card_text": "BAMBERGcard je třídenní jízdenka: prohlídka města „Faszination Welterbe“, vstup do několika muzeí a sbírek a volná jízda autobusem i vlakem v Bambergu a okolním regionu Bamberger Land. Levnější BAMBERGcärdla je totéž, ale bez dopravy. K dostání online, v Tourist-Information na adrese Geyerswörthstraße 5 a v řadě hotelů. Ceny: BAMBERGcärdla 16 €, BAMBERGcard 22 € (stav: červenec 2026). Některá muzea jsou zavřená v pondělí nebo ve středu a v zimních měsících mají držitelé karty jen omezený přístup.",
   "plan.water_title": "Voda z kohoutku",
-  "plan.water_text": "Bamberská voda z kohoutku je pitná a vynikající kvality. V restauracích si můžeš objednat sklenici vody zdarma – stačí požádat o „Leitungswasser“.",
+  "plan.water_text": "Bamberská voda z kohoutku je pitná a vynikající kvality — cestou si doplňuj lahev. V restauracích ovšem nemáš nárok na vodu z kohoutku (Leitungswasser) zdarma; často ji odmítnou nebo naúčtují. V takovém případě si raději objednej minerálku.",
   "plan.hours_title": "Otevírací doba",
   "plan.hours_text": "Bamberská muzea jsou často v pondělí zavřená. Mnoho kostelů je otevřeno přes den. Pivovary mají flexibilní otevírací dobu.",
   "plan.hours_disclaimer": "Zde uvedené otevírací doby nejsou oficiální a mohou se kdykoli změnit. Před návštěvou si prosím ověř informace na oficiálních stránkách daného místa.",
@@ -177,5 +177,7 @@
   "site_detail.claim_aria": "Mark as visited",
   "error.meta_title": "Not Found – Bamberg Quest",
   "error.not_found_msg": "Page not found.",
-  "error.home_link": "Go to homepage"
+  "error.home_link": "Go to homepage",
+  "passport.kaiserdom_warning": "⚠️ Pivovar Kaiserdom se nachází v městské části Gaustadt, ne ve starém městě — z centra pěšky nedosažitelný.",
+  "passport.footnote": "Toto je devět klasických soukromých pivovarů podle Bamberger Brauereien e.V.: Ambräusianum, Fässla, Greifenklau, Kaiserdom, Keesmann, Klosterbräu, Mahrs Bräu, Schlenkerla, Spezial. Existují i jiné počty."
 }

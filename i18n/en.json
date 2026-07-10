@@ -9,24 +9,19 @@
   "nav.all_sights": "← All Sights",
   "nav.all_trails": "← All Trails",
   "nav.back_collection": "← To Collection",
-
   "site.title": "Bamberg Quest",
   "site.subtitle": "Guidebook & Treasure Hunt",
   "site.skip_link": "Skip to content",
-
   "site.theme_toggle": "Toggle color mode",
   "site.theme_light": "Light",
   "site.theme_dark": "Dark",
-
   "index.intro": "Welcome to Bamberg, UNESCO World Heritage on seven hills. Whether guidebook or treasure hunt – here you'll find all the sights.",
   "index.intro_plan": "start planning your visit",
-
   "index.progress_title": "Your progress",
   "index.progress_sites_explored": "sites explored",
   "index.progress_hint_empty": "New here? Try the cathedral or the old town hall.",
   "index.progress_hint_complete": "🏅 All sites explored!",
   "index.progress_hint_next": "Next up",
-
   "index.cat_seven_hills": "The Seven Hills",
   "index.cat_stone_and_power": "Stone & Power",
   "index.cat_water_and_bridges": "Water & Bridges",
@@ -38,15 +33,12 @@
   "index.cat_c": "By the Water",
   "index.cat_e": "Streets & Squares",
   "index.cat_f": "Museums & Stages",
-
   "index.footer": "A walk through Bamberg. No app, no account, no location tracking. Your progress stays on your device.",
-
   "trails.title": "Trails",
   "trails.subtitle": "Curated walks through Bamberg. Distance, elevation, and time are honestly estimated.",
   "trails.stops": "stops",
   "trails.missing": "({count} missing)",
   "trails.step_free": "♿ Step-free",
-
   "trail_subtitle": "Stops",
   "trail_route": "Distance",
   "trail_climb": "Climb",
@@ -54,7 +46,6 @@
   "trail_pace": "Pace",
   "trail_step_free": "Step-free",
   "trail_missing_stops": "{count} stops are still missing from the guidebook.",
-
   "passport.title": "Beer Passport",
   "passport.subtitle": "Collect stamps at all nine breweries and three beer cellars",
   "passport.alcohol_free": "🍇 Play without alcohol",
@@ -74,7 +65,6 @@
   "passport.alcohol_mode_note": "🍇 The passport shows brewing heritage instead of beer. Every site can be explored without alcohol.",
   "passport.back": "← Overview",
   "passport.all_label": "All",
-
   "collection.title": "My Map",
   "collection.explored": "Explored",
   "collection.complete": "🎉 Complete!",
@@ -96,7 +86,6 @@
   "collection.import_error": "✗ Invalid code",
   "collection.code_generated": "Code generated",
   "collection.map_title": "Map tiles",
-
   "party.title": "Party!",
   "party.congrats_title": "Congratulations!",
   "party.congrats_text": "You've explored all of Bamberg. Enjoy your well-earned glory.",
@@ -107,21 +96,19 @@
   "party.unlocked_feedback": "✓ Unlocked!",
   "party.wrong_feedback": "✗ Wrong code",
   "party.back": "← Overview",
-
   "plan.title": "Plan Your Visit",
   "plan.arrival_title": "Getting Here",
-  "plan.arrival_text": "Bamberg is on the ICE Munich–Berlin line. It's a 15-minute walk from the main station to the old town. Parking: avoid driving into the old town — use the station car parks (P1–P4).",
-  "plan.areas_title": "Hill Town & Island Town",
-  "plan.areas_text": "Bamberg has two halves: the Hill Town (Domberg, Kaulberg) on the left Regnitz bank and the Island Town between the river arms. The Gardeners' Quarter is to the north. Everything is walkable, but the hills are real — 340 m of elevation for the full circuit.",
-  "plan.card_title": "Bamberg Card",
-  "plan.card_text": "The Bamberg Card pays off at 3+ museums: free entry to all city museums and discounts at partner venues. Available at the World Heritage Centre.",
+  "plan.arrival_text": "Bamberg is on the ICE Munich–Berlin line. It's a 15-minute walk from the main station to the old town. Parking: don't drive into the old town. The best option is P+R Bahnhof/Brennerstraße; on the approach roads, P+R Heinrichsdamm and P+R Kronacher Straße are alternatives.",
+  "plan.areas_title": "Bergstadt & Inselstadt",
+  "plan.areas_text": "Bamberg has two halves: the Bergstadt (the hill town — Domberg, Kaulberg) on the left bank of the Regnitz, and the Inselstadt (the island town) between the river's two arms. The Gärtnerstadt (the gardeners' quarter) lies to the east and north-east — Mittelstraße, Heiliggrabstraße, Siechenstraße. Everything is walkable, but the hills are real — 340 m of climbing for the full loop.",
+  "plan.card_title": "BAMBERGcard",
+  "plan.card_text": "The BAMBERGcard is a 3-day ticket: the guided city tour \"Faszination Welterbe,\" entry to several museums and collections, and free travel on bus and rail in Bamberg and the surrounding Bamberger Land. The cheaper BAMBERGcärdla is the same but without the transport. Buy it online, at the Tourist-Information at Geyerswörthstraße 5, or at many hotels. Prices: BAMBERGcärdla €16, BAMBERGcard €22 (as of July 2026). Some museums close on Mondays or Wednesdays, and access during the winter months is limited even for cardholders.",
   "plan.water_title": "Tap Water",
-  "plan.water_text": "Bamberg's tap water is drinkable and excellent quality. You can order a free glass of tap water in restaurants — just ask for \"Leitungswasser.\"",
+  "plan.water_text": "Bamberg's tap water is safe and excellent — refill your bottle as you walk. Restaurants, though, are under no obligation to serve free tap water (Leitungswasser); many will decline or add a charge. If in doubt, order a mineral water.",
   "plan.hours_title": "Opening Hours",
   "plan.hours_text": "Bamberg museums are often closed on Mondays. Many churches are open during the day. Breweries have flexible hours — check their websites before visiting.",
   "plan.hours_disclaimer": "The hours listed here are not official and may change at any time. Please check the official website of each location before your visit.",
   "plan.back": "← Back to Overview",
-
   "site.category": "Category",
   "site.coordinates": "Coordinates",
   "site.accessible": "Accessible",
@@ -148,58 +135,48 @@
   "site.back": "← Back to Overview",
   "site.legendary": "🔒 Legendary",
   "site.legendary_requires": "Requires: {sites}",
-
   "tier.bronze": "Bronze – Name visible",
   "tier.silver": "Silver – Riddle",
   "tier.gold": "Gold – Cipher riddle",
   "tier.legendary": "Legendary",
-
   "tier_short.bronze": "Bronze",
   "tier_short.silver": "Silver",
   "tier_short.gold": "Gold",
   "tier_short.legendary": "Legendary",
-
   "site.language_label": "Language",
   "site.nav_aria": "Site navigation",
   "site.breadcrumb_aria": "Breadcrumb navigation",
-
   "index.meta_title": "Bamberg Quest – Discover the City",
   "index.meta_description": "A self-guided discovery walk through Bamberg – guidebook and treasure hunt in one.",
   "index.progress_ring_aria": "Progress",
   "index.progress_count_template": "{count} of {total} sites explored",
-
   "collection.meta_title": "My Collection – Bamberg Quest",
   "collection.meta_description": "Your explored sights in Bamberg.",
   "collection.claimed_list_aria": "Explored sites",
   "collection.export_section_aria": "Code export and import",
   "collection.map_tiles_aria": "Map tiles",
-
   "passport.meta_title": "Beer Passport – Bamberg Quest",
   "passport.meta_description": "Your beer passport for Bamberg's breweries.",
   "passport.nine_breweries": "Nine Breweries",
   "passport.tag_smoke": "Smoke",
   "passport.tag_own_malt": "Own Malt",
-
+  "passport.kaiserdom_warning": "⚠️ Kaiserdom is in the Gaustadt district, not the old town — it's not walkable from the centre.",
+  "passport.footnote": "These are the nine classic private breweries listed by Bamberger Brauereien e.V.: Ambräusianum, Fässla, Greifenklau, Kaiserdom, Keesmann, Klosterbräu, Mahrs Bräu, Schlenkerla, Spezial. Other counts exist.",
   "party.meta_title": "Party – Bamberg Quest",
   "party.meta_description": "Celebrate your exploration of Bamberg.",
-
   "plan.meta_title": "Plan Your Visit – Bamberg Quest",
   "plan.meta_description": "Practical tips for your visit to Bamberg: arrival, parking, opening hours.",
-
   "trails.meta_title": "Trails – Bamberg Quest",
   "trails.meta_description": "Curated walks through Bamberg.",
-
   "trail_detail.meta_description_fallback": "Curated walk through Bamberg.",
   "trail_detail.title_fallback": "Trail",
   "trail_detail.not_found": "Trail not found.",
   "trail_detail.none_selected": "No trail selected.",
-
   "site_detail.meta_description_template": "Visit {name} in Bamberg. Opening hours, history, directions.",
   "site_detail.not_found": "Site not found.",
   "site_detail.none_selected": "No site selected.",
   "site_detail.riddle_aria": "Riddle for players",
   "site_detail.claim_aria": "Mark as visited",
-
   "error.meta_title": "Not Found – Bamberg Quest",
   "error.not_found_msg": "Page not found.",
   "error.home_link": "Go to homepage"
