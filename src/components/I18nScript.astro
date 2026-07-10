@@ -28,6 +28,7 @@ function t(key, lang) {
   var dict = window.__bqTranslations;
   if (!dict) return key;
   var val = dict[lang] && dict[lang][key];
+  if (!val && lang !== 'en') val = dict.en && dict.en[key];
   if (!val && lang !== 'de') val = dict.de && dict.de[key];
   return val || key;
 }

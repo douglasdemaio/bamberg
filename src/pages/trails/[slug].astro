@@ -30,7 +30,8 @@ const missingSlugs = trail.sites.filter(slug => !sites.some(s => s.slug === slug
         <div class="stat"><span class="stat-value">{trail.pace}</span><span class="stat-label" data-i18n="trail_pace">Tempo</span></div>
         {trail.step_free && <div class="stat"><span class="stat-value">♿</span><span class="stat-label" data-i18n="trail_step_free">Schritt-frei</span></div>}
       </div>
-      <p class="trail-description">{trail.description.de}</p>
+      <p class="trail-description lang-de">{trail.description.de}</p>
+      <p class="trail-description lang-en">{trail.description.en}</p>
     </header>
 
     <section class="trail-sites">
