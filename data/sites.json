@@ -444,8 +444,8 @@
     "subcategory": "gaertnerstadt",
     "tier": "silver",
     "coords": [
-      49.9008,
-      10.8978
+      49.8994,
+      10.8928
     ],
     "riddle": {
       "de": "Versteckt in der Gärtnerstadt, wo noch heute Gemüse wächst, wo einst die Häcker ihre Weinberge pflegten. Ein Haus aus dem Jahr 1767 verrät, wie die Stadt wirklich ernährt wurde.",
@@ -498,8 +498,8 @@
     "subcategory": "visitor-centre",
     "tier": "bronze",
     "coords": [
-      49.891,
-      10.8883
+      49.8905,
+      10.8875
     ],
     "riddle": {
       "de": "Hier beginnt jede Reise. Was macht eine Stadt zur Weltkultur? Finde den Schlüssel – und das Modell der ganzen Stadt aus der Vogelperspektive.",
@@ -1113,8 +1113,8 @@
     "subcategory": "keller",
     "tier": "silver",
     "coords": [
-      49.8885,
-      10.877
+      49.884,
+      10.8868
     ],
     "riddle": {
       "de": "Auf dem Stephansberg, versteckt hinter Bäumen. Wildrosen ranken um den Eingang. Seit über 100 Jahren ein Sommertreff.",
@@ -1237,8 +1237,8 @@
     "subcategory": "churches",
     "tier": "silver",
     "coords": [
-      49.8883,
-      10.8878
+      49.8884,
+      10.8862
     ],
     "riddle": {
       "de": "Ich stehe hoch auf einem Hügel, mein Turm ist schlank und schaut weit. In mir findet Orgelmusik statt, die durch die Säulen hallt.",
@@ -1271,64 +1271,6 @@
     "hours": {
       "de": "Täglich 9–18 Uhr",
       "en": "Daily 9am–6pm"
-    },
-    "accessible": true,
-    "requires_claimed": [],
-    "is_solemn": false,
-    "verified": false,
-    "photo": null,
-    "photo_credit": null,
-    "beer_style": null,
-    "is_rauchbier": false,
-    "malts_own": false,
-    "house_lore": null,
-    "codeword": null
-  },
-  {
-    "id": "a7",
-    "slug": "st-jakob",
-    "name": {
-      "de": "St. Jakob",
-      "en": "St. James's Church"
-    },
-    "category": "a",
-    "subcategory": "churches",
-    "tier": "silver",
-    "coords": [
-      49.8942,
-      10.8898
-    ],
-    "riddle": {
-      "de": "Am Jakobsberg bin ich zu Haus, einst Pilgerherberge am weiten Weg nach Spanien. Mein Grundriss ist streng und klar, romanisch und alt.",
-      "en": "I make my home on Jakobsberg, once a pilgrim hostel on the long road to Spain. My floorplan is strict and clear, Romanesque and old."
-    },
-    "hint": {
-      "de": "Nördlicher Hügel, nah am Bahnhof.",
-      "en": "Northern hill, near the train station."
-    },
-    "question": {
-      "de": "Wie viele Säulen trägt das Mittelschiff von St. Jakob?",
-      "en": "How many columns support the nave of St. James's?"
-    },
-    "answers": [
-      "8",
-      "acht"
-    ],
-    "history_60w": {
-      "de": "St. Jakob wurde 1071 von Bischof Hermann I. als Kollegiatstift gegründet; der Kirchenbau begann 1073 und wurde 1109 unter Bischof Otto vollendet. Der romanische Bau ist die einzige nahezu vollständig romanische Kirche Bambergs. Nach der Säkularisation 1803 wurde das Stift aufgelöst; die Marianische Sodalität bewahrte die Kirche 1805 vor dem Abbruch.",
-      "en": "St. James's was founded in 1071 by Bishop Hermann I as a collegiate foundation (Kollegiatstift); construction began in 1073 and was completed in 1109 under Bishop Otto. This is the only almost entirely Romanesque church in Bamberg. The collegiate foundation was dissolved after secularization in 1803; the Marian Sodality saved the church from demolition in 1805."
-    },
-    "look_for": {
-      "de": "Die schlichte romanische Apsis und die mächtigen Säulen.",
-      "en": "The plain Romanesque apse and the massive columns."
-    },
-    "photo_tip": {
-      "de": "Mittelschiff nach Osten, Säulenreihe.",
-      "en": "Nave looking east, the row of columns."
-    },
-    "hours": {
-      "de": "Täglich 9–17 Uhr",
-      "en": "Daily 9am–5pm"
     },
     "accessible": true,
     "requires_claimed": [],
@@ -1585,8 +1527,8 @@
     "subcategory": "buildings",
     "tier": "silver",
     "coords": [
-      49.8923,
-      10.8863
+      49.8892,
+      10.8861
     ],
     "riddle": {
       "de": "Prunkvoll und protzig, so nannten es die Nachbarn. Ein aufstrebender Hofbeamter baute mich, den die Adligen verachteten. Heute bestaunen mich alle.",
@@ -1759,8 +1701,8 @@
     "subcategory": "waterfront",
     "tier": "silver",
     "coords": [
-      49.8916,
-      10.888
+      49.8926,
+      10.8865
     ],
     "riddle": {
       "de": "Hier lud man einst die Schiffe aus, der hölzerne Kran ragte über die Regnitz. Heute sitzen die Menschen am Wasser und genießen die Sonne.",
@@ -1992,8 +1934,8 @@
     "subcategory": "hidden",
     "tier": "legendary",
     "coords": [
-      49.8921,
-      10.8887
+      49.8881,
+      10.8886
     ],
     "riddle": {
       "de": "Hinter dem Brunnen, im Schatten des großen Hauses, streckt sich ein einsames Beinchen aus Stein. Niemand beachtet es, nur wer die Augen offen hält.",
