@@ -32,6 +32,14 @@
     .info-block p { font-size: 0.9rem; }
     .disclaimer { font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
     .page-footer { padding: 2rem 0; }
+    .donate-block { border-color: var(--amber); }
+    .donate-address { display: flex; gap: 0.5rem; align-items: center; margin: 0.75rem 0 0.5rem; }
+    .donate-address code { flex: 1; font-family: var(--font-mono); font-size: 0.78rem; padding: 0.5rem 0.65rem; background: var(--paper-dark); border: 1px solid var(--border); border-radius: var(--radius); overflow-wrap: anywhere; word-break: break-all; }
+    .donate-copy-btn { flex-shrink: 0; padding: 0.45rem 0.75rem; font-size: 0.8rem; font-weight: 600; background: var(--amber); color: #fff; border: none; border-radius: var(--radius); cursor: pointer; font-family: var(--font-body); }
+    .donate-copy-btn:hover { opacity: 0.9; }
+    .donate-copy-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .donate-copy-feedback { font-size: 0.75rem; color: var(--verdigris); min-height: 1em; margin-bottom: 0.25rem; }
+    .donate-meta { font-size: 0.8rem; color: var(--text-muted); }
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y3GH8HZRT"></script>
@@ -96,6 +104,16 @@
           <p data-i18n="plan.hours_text">Bamberger Museen haben oft montags geschlossen. Viele Kirchen sind tagsüber geöffnet. Brauereien haben flexible Öffnungszeiten – am besten vorher auf der jeweiligen Website prüfen.</p>
           <p class="disclaimer" data-i18n="plan.hours_disclaimer">Die hier angegebenen Öffnungszeiten sind nicht offiziell und können sich jederzeit ändern. Bitte informiere dich vor deinem Besuch auf der offiziellen Website des jeweiligen Ortes.</p>
         </section>
+        <section class="info-block donate-block" aria-labelledby="donate-heading">
+          <h2 id="donate-heading" data-i18n="plan.donate_title">💛 Diese Seite unterstützen</h2>
+          <p data-i18n="plan.donate_text">Wenn dir diese Seite gefällt, freut sich der Autor über eine kleine Spende von 0,50 USDC oder 0,50 EURC auf der Solana-Blockchain. Als Dank sende ich dir gerne einen „Happy Little Coin“ an deine Wallet zurück – kleine Anerkennung, große Freude.</p>
+          <div class="donate-address">
+            <code id="donate-addr">9iBQEn9yMbKVhJKEpMpPByS6pjydPmQDGaznMaCvGkzD</code>
+            <button type="button" id="donate-copy" class="donate-copy-btn"><span data-i18n="plan.donate_copy">📋 Kopieren</span></button>
+          </div>
+          <p class="donate-copy-feedback" id="donate-copy-feedback" aria-live="polite"></p>
+          <p class="donate-meta" data-i18n="plan.donate_meta">Solana-Wallet-Adresse · USDC oder EURC · optional & freiwillig</p>
+        </section>
       </article>
       <footer class="page-footer">
         <a href="/index.html"><span data-i18n="plan.back">← Zurück zur Übersicht</span></a>
@@ -105,5 +123,43 @@
   <script src="/js/game.js"></script>
   <script src="/js/i18n.js"></script>
   <script src="/js/shared.js"></script>
+  <script>
+  (function() {
+    var btn = document.getElementById('donate-copy');
+    var addrEl = document.getElementById('donate-addr');
+    var feedback = document.getElementById('donate-copy-feedback');
+    if (!btn || !addrEl) return;
+    var feedbackTimer = null;
+    function showFeedback(key, fallback) {
+      if (!feedback) return;
+      var lang = document.documentElement.lang || 'de';
+      feedback.textContent = window.__bqt ? window.__bqt(key, lang) : fallback;
+      if (feedbackTimer) clearTimeout(feedbackTimer);
+      feedbackTimer = setTimeout(function() { feedback.textContent = ''; }, 2500);
+    }
+    btn.addEventListener('click', function() {
+      var addr = addrEl.textContent.trim();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(addr).then(
+          function() { showFeedback('plan.donate_copied', '✓ Kopiert!'); },
+          function() { showFeedback('plan.donate_copy_error', '✗ Konnte nicht kopieren'); }
+        );
+      } else {
+        try {
+          var range = document.createRange();
+          range.selectNodeContents(addrEl);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          document.execCommand('copy');
+          sel.removeAllRanges();
+          showFeedback('plan.donate_copied', '✓ Kopiert!');
+        } catch (e) {
+          showFeedback('plan.donate_copy_error', '✗ Konnte nicht kopieren');
+        }
+      }
+    });
+  })();
+  </script>
 </body>
 </html>

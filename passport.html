@@ -75,6 +75,60 @@
     .alcohol-mode-note { margin-top: 1rem; padding: 0.75rem 1rem; background: #e8f0e8; border-radius: var(--radius); border: 1px solid var(--verdigris); font-size: 0.85rem; color: var(--verdigris); }
     .page-footer { padding: 2rem 0; font-size: 0.85rem; }
     @media (prefers-reduced-motion: reduce) { .stamp-card, .badge { transition: none; } }
+
+    .diploma-section { margin: 2rem 0; }
+    .diploma-teaser { padding: 1rem 1.15rem; background: var(--card-bg); border: 2px dashed var(--border-strong); border-radius: var(--radius); font-size: 0.9rem; color: var(--text-muted); text-align: center; }
+    .diploma-teaser strong { color: var(--text); }
+    .diploma-controls { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; align-items: center; }
+    .diploma-name-input { flex: 1; min-width: 200px; padding: 0.5rem 0.75rem; font-size: 1rem; border: 2px solid var(--border); border-radius: var(--radius); background: var(--paper); font-family: var(--font-display); }
+    .diploma-name-input:focus { outline: none; border-color: var(--amber); box-shadow: 0 0 0 3px rgba(201, 138, 43, 0.2); }
+    .diploma-print-btn { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600; background: var(--amber); color: #fff; border: none; border-radius: var(--radius); cursor: pointer; font-family: var(--font-body); }
+    .diploma-print-btn:hover { opacity: 0.9; }
+    .diploma-print-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+    .diploma {
+      position: relative;
+      padding: 2.5rem 2rem;
+      background: linear-gradient(135deg, #fbf6e8 0%, #f5edd0 100%);
+      color: #2a1e0f;
+      border: 8px double #8a6a1c;
+      box-shadow: var(--shadow-md), inset 0 0 0 2px #d9b96b, inset 0 0 0 3px #8a6a1c;
+      border-radius: 6px;
+      text-align: center;
+      font-family: var(--font-display);
+      line-height: 1.5;
+    }
+    .diploma::before, .diploma::after {
+      content: '';
+      position: absolute;
+      width: 42px;
+      height: 42px;
+      border: 2px solid #8a6a1c;
+      opacity: 0.55;
+    }
+    .diploma::before { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+    .diploma::after { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+    .diploma-seal { font-size: 3rem; line-height: 1; margin-bottom: 0.5rem; }
+    .diploma-eyebrow { font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: #6b5316; margin-bottom: 0.5rem; }
+    .diploma-title { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 0.15rem; color: #2a1e0f; }
+    .diploma-subtitle { font-size: 1rem; font-style: italic; color: #6b5316; margin-bottom: 1.5rem; }
+    .diploma-body { font-size: 1rem; margin-bottom: 0.75rem; }
+    .diploma-name { display: block; font-size: 1.6rem; font-weight: 700; margin: 0.5rem auto 0.75rem; padding-bottom: 0.35rem; border-bottom: 1.5px solid #8a6a1c; max-width: 22ch; min-height: 1.4em; color: #2a1e0f; }
+    .diploma-name-placeholder { color: #a08a4a; font-style: italic; }
+    .diploma-citation { font-size: 0.95rem; margin: 0.75rem 0 1.25rem; padding: 0 0.5rem; }
+    .diploma-breweries { font-family: var(--font-body); font-size: 0.75rem; color: #6b5316; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
+    .diploma-footer { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; font-family: var(--font-body); font-size: 0.8rem; color: #4a3a1a; flex-wrap: wrap; }
+    .diploma-footer-item { text-align: center; flex: 1; min-width: 130px; }
+    .diploma-footer-label { display: block; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #6b5316; margin-top: 0.2rem; border-top: 1px solid #8a6a1c; padding-top: 0.2rem; }
+    .diploma-footer-value { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; }
+
+    @media print {
+      body { background: #fff; }
+      body * { visibility: hidden; }
+      .diploma, .diploma * { visibility: visible; }
+      .diploma { position: absolute; top: 0; left: 0; right: 0; margin: 0.5in; box-shadow: none; }
+      .diploma-name-placeholder { display: none; }
+    }
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y3GH8HZRT"></script>
@@ -161,6 +215,41 @@
             </div>
           </div>
         </section>
+        <section class="diploma-section" aria-labelledby="diploma-heading">
+          <h2 id="diploma-heading" style="font-size: 1.1rem; margin-bottom: 0.75rem;"><span data-i18n="passport.diploma_title">🎓 Bamberger Bierdiplom</span></h2>
+          <div id="diploma-teaser" class="diploma-teaser">
+            <span data-i18n-html="passport.diploma_teaser">Erkunde alle neun Brauereien, um dein <strong>Bamberger Bierdiplom</strong> freizuschalten.</span>
+          </div>
+          <div id="diploma-container" hidden>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;" data-i18n="passport.diploma_intro">Alle neun Brauereien geschafft. Trag deinen Namen ein und drucke oder speichere dein Diplom.</p>
+            <div class="diploma-controls">
+              <input type="text" id="diploma-name" class="diploma-name-input" data-i18n-placeholder="passport.diploma_name_placeholder" placeholder="Dein Name" maxlength="60" autocomplete="name" />
+              <button type="button" id="diploma-print" class="diploma-print-btn"><span data-i18n="passport.diploma_print">🖨 Drucken / Speichern</span></button>
+            </div>
+            <div class="diploma" id="diploma-cert" role="img" aria-labelledby="diploma-heading">
+              <div class="diploma-seal" aria-hidden="true">🍺</div>
+              <div class="diploma-eyebrow" data-i18n="passport.diploma_eyebrow">Urkunde · Certificate</div>
+              <div class="diploma-title" data-i18n="passport.diploma_cert_title">Bamberger Bierdiplom</div>
+              <div class="diploma-subtitle" data-i18n="passport.diploma_cert_subtitle">Bamberg Beer Diploma</div>
+              <div class="diploma-body" data-i18n="passport.diploma_awarded_to">Hiermit wird bestätigt, dass</div>
+              <div class="diploma-name" id="diploma-cert-name">
+                <span class="diploma-name-placeholder" data-i18n="passport.diploma_name_placeholder">Dein Name</span>
+              </div>
+              <div class="diploma-citation" data-i18n="passport.diploma_citation">alle neun klassischen Privatbrauereien Bambergs besucht und den heiligen Bierpfad vollendet hat.</div>
+              <div class="diploma-breweries">Ambräusianum · Fässla · Greifenklau · Kaiserdom · Keesmann · Klosterbräu · Mahrs Bräu · Schlenkerla · Spezial</div>
+              <div class="diploma-footer">
+                <div class="diploma-footer-item">
+                  <span class="diploma-footer-value" id="diploma-cert-date">—</span>
+                  <span class="diploma-footer-label" data-i18n="passport.diploma_date_label">Verliehen am</span>
+                </div>
+                <div class="diploma-footer-item">
+                  <span class="diploma-footer-value">Bamberg Quest</span>
+                  <span class="diploma-footer-label" data-i18n="passport.diploma_issuer_label">Ausgestellt von</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <div id="passport-root"></div>
         <p class="passport-footnote" data-i18n="passport.footnote">Dies sind die neun klassischen Privatbrauereien nach Bamberger Brauereien e.V.: Ambräusianum, Fässla, Greifenklau, Kaiserdom, Keesmann, Klosterbräu, Mahrs Bräu, Schlenkerla, Spezial. Andere Zählungen sind im Umlauf.</p>
         <p class="alcohol-mode-note" id="alcohol-mode-note" hidden><span data-i18n="passport.alcohol_mode_note">🍇 Der Bierpass zeigt Brauereigeschichte statt Bier. Jeder Ort kann ohne Alkohol erkundet werden.</span></p>
@@ -234,12 +323,14 @@
       });
     }
 
+    var TAPROOM_SLUGS = ['schlenkerla', 'spezial', 'faessla', 'klosterbraeu', 'keesmann', 'mahrs-braeu', 'kaiserdom', 'greifenklau', 'ambraeusianum'];
+    var DIPLOMA_NAME_KEY = 'bamberg-beer-diploma-name';
+
     function updateBadges() {
-      var taproomSlugs = ['schlenkerla', 'spezial', 'faessla', 'klosterbraeu', 'keesmann', 'mahrs-braeu', 'kaiserdom', 'greifenklau', 'ambraeusianum'];
       var kellerSlugs = ['spezial-keller', 'wilde-rose-keller', 'greifenklau-keller'];
       var claimedTaprooms = 0;
       var claimedKellers = 0;
-      taproomSlugs.forEach(function(s) { if (isClaimed(s)) claimedTaprooms++; });
+      TAPROOM_SLUGS.forEach(function(s) { if (isClaimed(s)) claimedTaprooms++; });
       kellerSlugs.forEach(function(s) { if (isClaimed(s)) claimedKellers++; });
       if (badgeNineCount) badgeNineCount.textContent = claimedTaprooms + '/9 ' + window.__bqt('passport.taprooms', lang);
       if (badgeKellerCount) badgeKellerCount.textContent = claimedKellers + '/3 ' + window.__bqt('passport.beer_cellars', lang);
@@ -247,7 +338,71 @@
       if (badgeNine) badgeNine.classList.toggle('badge-complete', claimedTaprooms === 9);
       if (badgeKeller) badgeKeller.classList.toggle('badge-complete', claimedKellers === 3);
       if (badgeAll) badgeAll.classList.toggle('badge-complete', claimedTaprooms + claimedKellers === 12);
+      updateDiploma(claimedTaprooms);
     }
+
+    function formatDiplomaDate(iso, uiLang) {
+      try {
+        var d = new Date(iso);
+        if (isNaN(d.getTime())) return '';
+        return d.toLocaleDateString(uiLang, { year: 'numeric', month: 'long', day: 'numeric' });
+      } catch (_) { return ''; }
+    }
+
+    function computeAchievementDate() {
+      var latest = 0;
+      var latestIso = '';
+      TAPROOM_SLUGS.forEach(function(slug) {
+        var c = getClaim(slug);
+        if (!c || !c.timestamp) return;
+        var t = new Date(c.timestamp).getTime();
+        if (isFinite(t) && t > latest) { latest = t; latestIso = c.timestamp; }
+      });
+      return latestIso;
+    }
+
+    function updateDiploma(claimedTaprooms) {
+      var teaser = document.getElementById('diploma-teaser');
+      var container = document.getElementById('diploma-container');
+      var complete = claimedTaprooms === 9;
+      if (teaser) teaser.hidden = complete;
+      if (container) container.hidden = !complete;
+      if (!complete) return;
+
+      var nameInput = document.getElementById('diploma-name');
+      var certName = document.getElementById('diploma-cert-name');
+      var certDate = document.getElementById('diploma-cert-date');
+
+      var storedName = '';
+      try { storedName = localStorage.getItem(DIPLOMA_NAME_KEY) || ''; } catch (_) {}
+      if (nameInput && !nameInput.value && storedName) nameInput.value = storedName;
+      renderDiplomaName(nameInput ? nameInput.value : storedName);
+
+      var iso = computeAchievementDate();
+      if (certDate) certDate.textContent = iso ? formatDiplomaDate(iso, lang) : '—';
+    }
+
+    function renderDiplomaName(name) {
+      var certName = document.getElementById('diploma-cert-name');
+      if (!certName) return;
+      var trimmed = (name || '').trim();
+      if (trimmed) {
+        certName.textContent = trimmed;
+      } else {
+        var placeholder = window.__bqt ? window.__bqt('passport.diploma_name_placeholder', lang) : 'Your name';
+        certName.innerHTML = '<span class="diploma-name-placeholder">' + placeholder + '</span>';
+      }
+    }
+
+    document.getElementById('diploma-name')?.addEventListener('input', function(e) {
+      var v = e.target.value;
+      try { localStorage.setItem(DIPLOMA_NAME_KEY, v); } catch (_) {}
+      renderDiplomaName(v);
+    });
+
+    document.getElementById('diploma-print')?.addEventListener('click', function() {
+      window.print();
+    });
 
     alcoholToggle?.addEventListener('change', function() {
       var isActive = alcoholToggle.checked;
