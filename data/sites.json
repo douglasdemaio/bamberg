@@ -554,8 +554,8 @@
     "subcategory": "taproom",
     "tier": "silver",
     "coords": [
-      49.8908,
-      10.8985
+      49.8969,
+      10.8928
     ],
     "riddle": {
       "de": "Seit 1536 wird hier Rauchmalz selbst gemacht. Zwei Schornsteine ragen über der Königstraße. Der zweite Rauchbier-Gipfel Bambergs.",
@@ -616,8 +616,8 @@
     "subcategory": "taproom",
     "tier": "silver",
     "coords": [
-      49.8911,
-      10.8982
+      49.8972,
+      10.8927
     ],
     "riddle": {
       "de": "Ein Fässchen ist mein Zeichen. An der Königstraße findest du mich, fünf Minuten vom Bahnhof. Gold fließt hier aus dem Hahn.",
@@ -926,8 +926,8 @@
     "subcategory": "taproom",
     "tier": "silver",
     "coords": [
-      49.8905,
-      10.8764
+      49.8837,
+      10.8821
     ],
     "riddle": {
       "de": "Am Laurenziplatz, unter der Altenburg. Seit 1719 fließt hier das Bier. Ein Greif wacht über dem Eingang.",
@@ -1050,8 +1050,8 @@
     "subcategory": "keller",
     "tier": "silver",
     "coords": [
-      49.8945,
-      10.8775
+      49.8847,
+      10.8875
     ],
     "riddle": {
       "de": "Auf dem Keller sitzt man, nicht in ihm. Über den Dächern, mit Blick auf den Dom. Das Rauchbier schmeckt hier noch einmal anders.",
@@ -1175,8 +1175,8 @@
     "subcategory": "keller",
     "tier": "silver",
     "coords": [
-      49.89,
-      10.875
+      49.8837,
+      10.8821
     ],
     "riddle": {
       "de": "Unter der Altenburg, im Grünen versteckt. Der Geheimtipp unter den Kellern – hier sitzt man mit Einheimischen, ohne Touristen.",
@@ -1285,6 +1285,64 @@
     "codeword": null
   },
   {
+    "id": "a7",
+    "slug": "st-jakob",
+    "name": {
+      "de": "St. Jakob",
+      "en": "St. James's Church"
+    },
+    "category": "a",
+    "subcategory": "churches",
+    "tier": "silver",
+    "coords": [
+      49.891,
+      10.8772
+    ],
+    "riddle": {
+      "de": "Am Jakobsberg bin ich zu Haus, einst Pilgerherberge am weiten Weg nach Spanien. Mein Grundriss ist streng und klar, romanisch und alt.",
+      "en": "I make my home on Jakobsberg, once a pilgrim hostel on the long road to Spain. My floorplan is strict and clear, Romanesque and old."
+    },
+    "hint": {
+      "de": "Nördlicher Hügel, nah am Bahnhof.",
+      "en": "Northern hill, near the train station."
+    },
+    "question": {
+      "de": "Wie viele Säulen trägt das Mittelschiff von St. Jakob?",
+      "en": "How many columns support the nave of St. James's?"
+    },
+    "answers": [
+      "8",
+      "acht"
+    ],
+    "history_60w": {
+      "de": "St. Jakob wurde 1071 von Bischof Hermann I. als Kollegiatstift gegründet; der Kirchenbau begann 1073 und wurde 1109 unter Bischof Otto vollendet. Der romanische Bau ist die einzige nahezu vollständig romanische Kirche Bambergs. Nach der Säkularisation 1803 wurde das Stift aufgelöst; die Marianische Sodalität bewahrte die Kirche 1805 vor dem Abbruch.",
+      "en": "St. James's was founded in 1071 by Bishop Hermann I as a collegiate foundation (Kollegiatstift); construction began in 1073 and was completed in 1109 under Bishop Otto. This is the only almost entirely Romanesque church in Bamberg. The collegiate foundation was dissolved after secularization in 1803; the Marian Sodality saved the church from demolition in 1805."
+    },
+    "look_for": {
+      "de": "Die schlichte romanische Apsis und die mächtigen Säulen.",
+      "en": "The plain Romanesque apse and the massive columns."
+    },
+    "photo_tip": {
+      "de": "Mittelschiff nach Osten, Säulenreihe.",
+      "en": "Nave looking east, the row of columns."
+    },
+    "hours": {
+      "de": "Täglich 9–17 Uhr",
+      "en": "Daily 9am–5pm"
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
     "id": "a8",
     "slug": "altenburg",
     "name": {
@@ -1296,7 +1354,7 @@
     "tier": "gold",
     "coords": [
       49.8805,
-      10.8699
+      10.8688
     ],
     "riddle": {
       "de": "Der höchste der sieben Hügel trägt mich. Ich bin eine alte Festung, heute laden Biergarten und Turm zum Verweilen. Von oben siehst du ganz Bamberg zu deinen Füßen.",
@@ -1411,8 +1469,8 @@
     "subcategory": "gardens",
     "tier": "bronze",
     "coords": [
-      49.8913,
-      10.8842
+      49.892,
+      10.8819
     ],
     "riddle": {
       "de": "Hinter den Mauern der Macht blühe ich in tausend Farben. Der Duft steigt zum Himmel, die Blicke schweifen über Bamberg.",
@@ -1876,8 +1934,8 @@
     "subcategory": "theatres",
     "tier": "silver",
     "coords": [
-      49.8937,
-      10.8866
+      49.8905,
+      10.8919
     ],
     "riddle": {
       "de": "Nach einem Dichter und Komponisten bin ich benannt, der in dieser Stadt lebte. Hier tanzen die Puppen und die Geister der Fantasie über die Bühne.",
