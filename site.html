@@ -163,9 +163,25 @@
       '</div>';
     }
 
+    var coordsCell = '';
+    if (site.coords) {
+      var lat = site.coords[0];
+      var lng = site.coords[1];
+      var qName = encodeURIComponent(localName);
+      var gmapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + lat + ',' + lng;
+      var amapsUrl = 'https://maps.apple.com/?ll=' + lat + ',' + lng + '&q=' + qName;
+      var osmUrl = 'https://www.openstreetmap.org/?mlat=' + lat + '&mlon=' + lng + '#map=18/' + lat + '/' + lng;
+      coordsCell = '<code>' + lat.toFixed(4) + ', ' + lng.toFixed(4) + '</code>' +
+        '<span class="map-links">' +
+          '<a href="' + gmapsUrl + '" target="_blank" rel="noopener">Google Maps</a>' +
+          '<a href="' + amapsUrl + '" target="_blank" rel="noopener">Apple Maps</a>' +
+          '<a href="' + osmUrl + '" target="_blank" rel="noopener">OpenStreetMap</a>' +
+        '</span>';
+    }
+
     html += '<dl class="meta-list">' +
       '<div class="meta-item"><dt><span data-i18n="site.category">Kategorie</span></dt><dd><span data-i18n="' + catKey + '">' + site.category + '</span></dd></div>' +
-      '<div class="meta-item"><dt><span data-i18n="site.coordinates">Koordinaten</span></dt><dd><code>' + (site.coords ? site.coords[0].toFixed(4) : '') + ', ' + (site.coords ? site.coords[1].toFixed(4) : '') + '</code></dd></div>' +
+      '<div class="meta-item"><dt><span data-i18n="site.coordinates">Koordinaten</span></dt><dd>' + coordsCell + '</dd></div>' +
       '<div class="meta-item"><dt><span data-i18n="site.accessible">Barrierefrei</span></dt><dd>' + (site.accessible ? '<span data-i18n="site.accessible_yes">Ja</span>' : '<span data-i18n="site.accessible_limited">Eingeschränkt</span>') + '</dd></div>' +
     '</dl>';
     html += '</header>';

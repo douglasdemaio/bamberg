@@ -172,6 +172,22 @@ html[data-theme='dark'] .theme-toggle .toggle-icon-dark { display: inline; }
   outline-offset: 2px;
 }
 
+.map-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-left: 0.6rem;
+  font-size: 0.9em;
+}
+.map-links a { text-decoration: none; }
+.map-links a + a { position: relative; padding-left: 0.6rem; }
+.map-links a + a::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
