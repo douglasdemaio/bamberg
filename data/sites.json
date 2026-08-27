@@ -2041,5 +2041,64 @@
     "malts_own": false,
     "house_lore": null,
     "codeword": null
+  },
+  {
+    "id": "b10",
+    "slug": "widerstand-denkmal",
+    "name": {
+      "de": "Drei Dankmale des Widerstands",
+      "en": "Three Resistance Memorials"
+    },
+    "category": "stone-and-power",
+    "subcategory": "memorials",
+    "tier": "silver",
+    "coords": [
+      49.8911,
+      10.892062
+    ],
+    "riddle": {
+      "de": "Drei Gesichter aus Bronze starren mich an, jeder auf einem Stahlsockel. Ihr Blick geht nicht zum Fluss, sondern in die Geschichte. Wer waren sie?",
+      "en": "Three bronze faces stare at me, each on a steel pedestal. Their gaze does not face the river, but history. Who were they?"
+    },
+    "hint": {
+      "de": "Am östlichen Regnitzufer, nahe der Ludwigbrücke und dem Unigelände.",
+      "en": "On the eastern bank of the Regnitz, near the Ludwig Bridge and the university area."
+    },
+    "question": {
+      "de": "Wie viele Büsten stehen an diesem Dankmal?",
+      "en": "How many busts stand at this memorial?"
+    },
+    "answers": [
+      "3",
+      "drei",
+      "three"
+    ],
+    "history_60w": {
+      "de": "Drei Bronzbüsten auf Cortenstahl-Steles gedenken Bamberger Widerstandskämpfer: Willy Aron (sozialistisch, 1933 in Dachau ermordet), Claus Schenk Graf Stauffenberg (moralisch, 1944 in Berlin erschossen) und Hans Wölfel (christlich, 1944 in Brandenburg enthauptet). Tafeln und Zitate am Boden erinnern an ihre Überzeugungen.",
+      "en": "Three bronze busts on corten-steel steles commemorate Bamberg resistance fighters: Willy Aron (socialist, murdered at Dachau 1933), Claus Schenk Graf Stauffenberg (moral conviction, shot in Berlin 1944) and Hans Wölfel (Christian, beheaded at Brandenburg 1944). Ground plaques and quotations recall their convictions."
+    },
+    "look_for": {
+      "de": "Jede Büste hat eine Inschriftplatte mit Name, Lebensdaten und Art des Widerstands. Am Boden liegen gerahmte Zitate.",
+      "en": "Each bust has an inscription plate with name, dates, and type of resistance. Framed quotations lie at the base."
+    },
+    "photo_tip": {
+      "de": "Alle drei Büsten im Weitwinkel erfassen, am besten bei streifendem Licht.",
+      "en": "Capture all three busts wide-angle, ideally in raking light."
+    },
+    "hours": {
+      "de": "Immer zugänglich (Freiluft-Denkmal)",
+      "en": "Always accessible (open-air memorial)"
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": true,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
   }
 ]
