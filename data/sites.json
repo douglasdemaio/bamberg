@@ -2100,5 +2100,596 @@
     "malts_own": false,
     "house_lore": null,
     "codeword": null
+  },
+  {
+    "id": "b11",
+    "slug": "malerstele-im-malerviertel",
+    "name": {
+      "de": "Malerstele im Malerviertel",
+      "en": "Painter's Stele in the Painters' Quarter"
+    },
+    "category": "b",
+    "tier": "bronze",
+    "coords": [
+      49.8987,
+      10.9153
+    ],
+    "riddle": {
+      "de": "Vier Seiten, vier Gesichter, vier Namen im Stein. Geh um mich herum und finde die Stadt mit den vielen Türmen. Wer steht unter der Silhouette?",
+      "en": "Four sides, four faces, four names in stone. Walk around me and find the city with its many towers. Who stands beneath the silhouette?"
+    },
+    "hint": {
+      "de": "Katzheimerstraße / Treustraße – Kreuzung im Malerviertel, Bamberg-Ost",
+      "en": "Katzheimerstraße / Treustraße – intersection in the Painters' Quarter, Bamberg-East"
+    },
+    "question": {
+      "de": "Geh um die Stele. Vier Namen, vier Seiten. Welcher Name steht unter der Seite mit der Stadtansicht und dem Dom?",
+      "en": "Walk around the stele. Four names, four sides. Which name stands beneath the side showing the city view with the cathedral?"
+    },
+    "answers": [
+      "katzheimer",
+      "Katzheimer",
+      "KATZHEIMER"
+    ],
+    "history_60w": {
+      "de": "Eine rund drei Meter hohe Sandstele mit Flachreliefs auf allen vier Seiten steht am Kreuzungspunkt der Straßen im Malerviertel. Die Namen KATZHEIMER, SCHEUBEL, TREU und MATTENHEIMER sind in den Sockel eingemeißelt. Als in den frühen 1980er Jahren die Straßen des Neubaugebiets nach Bamberger Malern benannt wurden, komprimierte diese Entscheidung rund 400 Jahre Bamberger Kunstgeschichte in einen Wohnblock. Wolfgang Katzheimer (um 1450–1508) malte die früheste erhaltene Stadtansicht Bambergs, den Apostelabschied von 1483. Johann Joseph Scheubel d. J. (1733–1801) porträtierte 1780 den Fürstbischof Franz Ludwig von Erthal. Die Familie Treu wirkte im 18. Jahrhundert als Hofmaler. Carl Mattenheimer (1791–1853) schuf Biedermeier-Porträts. Die Originale der hier angedeuteten Werke hängen im Historischen Museum am Domplatz.",
+      "en": "A sandstone stele roughly three metres tall, with low reliefs on all four sides, stands at the intersection of streets in the Malerviertel. The names KATZHEIMER, SCHEUBEL, TREU and MATTENHEIMER are carved into the base. When the streets of this1980s housing estate were named after Bamberg painters, that decision compressed roughly 400 years of Bamberg art history into one residential block. Wolfgang Katzheimer (c. 1450–1508) painted the earliest surviving view of Bamberg, the Apostelabschied of 1483. Johann Joseph Scheubel the Younger (1733–1801) portrayed Prince-Bishop Franz Ludwig von Erthal in 1780. The Treu family served as court painters in the 18th century. Carl Mattenheimer (1791–1853) created Biedermeier portraits. The originals of what the stele alludes to hang in the Historical Museum at Cathedral Square."
+    },
+    "look_for": {
+      "de": "Die vier Flachreliefs: Katzhemers Stadtansicht mit Dom und Türmen, Treu als Maler mit Palette, Scheubel mit Schriftrolle, Mattenheimer im Profil.",
+      "en": "The four low reliefs: Katzheimer's cityscape with cathedral and towers, Treu as painter with palette, Scheubel with scroll, Mattenheimer in profile."
+    },
+    "photo_tip": {
+      "de": "Die Katzheimer-Seite mit der Dom-Silhouette am besten bei streifendem Licht fotografieren. Die Eingravierten Namen unten sind manchmal schwer lesbar.",
+      "en": "Best photographed in raking light: the Katzheimer side with the cathedral silhouette. The carved names at the base can be hard to read."
+    },
+    "hours": null,
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "d13",
+    "slug": "hainpark",
+    "name": {
+      "de": "Hainpark",
+      "en": "Hain Park"
+    },
+    "category": "gardens-guilds-trades",
+    "subcategory": "parks",
+    "tier": "bronze",
+    "coords": [
+      49.8719,
+      10.9046
+    ],
+    "riddle": {
+      "de": "Zwei Könige gaben mir meinen Namen: Theresia und Ludwig. Der Bürger schuf mich, der Gärtner pflegt mich. Ein Stein erinnert an den Mann, der das Wappen Bambergs schützte.",
+      "en": "Two queens gave me my name: Theresia and Ludwig. The citizens created me, the gardener tends me. A stone recalls the man who protected Bamberg's coat of arms."
+    },
+    "hint": {
+      "de": "Südlicher Rand der Insel, am Übergang zur Buger Flur",
+      "en": "Southern edge of the island, where it meets the Buger fields"
+    },
+    "question": {
+      "de": "Auf dem Hügel im Hainpark steht ein Denkmal. Für welchen bayerischen König wurde es errichtet?",
+      "en": "A monument stands on the hill in Hain Park. For which Bavarian king was it erected?"
+    },
+    "answers": [
+      "Ludwig",
+      "Ludwig I",
+      "Ludwig I.",
+      "König Ludwig",
+      "Ludwig der Erste"
+    ],
+    "history_60w": {
+      "de": "1803 legte der Bürgerverein auf Initiative des Botanikers Ignaz Finsterwalder den Theresienhain als englischen Landschaftsgarten an. 1820 folgte der Luisenhain, 1887 das Königsdenkmal für Ludwig I. Der 14 Hektar große Park mit seinen 4.000 Rosen, dem Teich und alten Baumbestand ist seit 1973 Bayerischer Gartendenkmal und seit 2001 EU-Schutzgebiet. Er verbindet den Hain mit der Regnitz und dem Botanischen Garten.",
+      "en": "In 1803 the citizens' association laid out the Theresienhain as an English landscape garden, on the initiative of botanist Ignaz Finsterwalder. In 1820 came the Luisenhain, in 1887 the royal monument to Ludwig I. The14-hectare park with its 4,000 roses, pond and old trees has been a Bavarian garden monument since 1973 and an EU protected area since 2001. It connects the Hain with the Regnitz and the Botanical Garden."
+    },
+    "look_for": {
+      "de": "Das Königsdenkmal auf dem Hügel und der Blick über die Rosen zum Wasser.",
+      "en": "The royal monument on the hill and the view across the roses toward the water."
+    },
+    "photo_tip": {
+      "de": "Vom Hügel aus über die Anlage, am besten bei Rosenblüte (Juni/Juli).",
+      "en": "From the hill looking over the park, best during rose bloom (June/July)."
+    },
+    "hours": {
+      "de": "Immer zugänglich",
+      "en": "Always accessible"
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "d14",
+    "slug": "bootshaus-am-hain",
+    "name": {
+      "de": "Bootshaus am Hain",
+      "en": "Boathouse at the Hain"
+    },
+    "category": "gardens-guilds-trades",
+    "subcategory": "beer-gardens",
+    "tier": "bronze",
+    "coords": [
+      49.8781,
+      10.9023
+    ],
+    "riddle": {
+      "de": "Am Flussufer, wo die Regnitz streng und gerade fließt. Hier steht ein Haus, das auf dem Wasser ruht. Der Biergarten sieht auf die Schiffe.",
+      "en": "On the riverbank where the Regnitz flows straight and strict. Here stands a house that rests on the water. The beer garden looks out over the boats."
+    },
+    "hint": {
+      "de": "Regnitzufer, zwischen Hainpark und Botanischem Garten",
+      "en": "Regnitz bank, between Hain Park and the Botanical Garden"
+    },
+    "question": {
+      "de": "Von welcher Seite aus betrachtet man den Bootshaus-Biergarten – linker oder rechter Regnitzufer?",
+      "en": "From which side do you view the Boathouse beer garden – left or right Regnitz bank?"
+    },
+    "answers": [
+      "rechts",
+      "rechter",
+      "rechte",
+      "right"
+    ],
+    "history_60w": {
+      "de": "Das Bootshaus am Hain steht am östlichen Regnitzufer im Übergang zwischen Hainpark und Botanischem Garten. Der traditionelle Biergarten mit Blick auf die Regnitz ist ein bewährter Rastpunkt auf der Inselrunde. In Bamberg sagt man: Die rechte Seite ist die richtige – man sitzt auf der Stadtseite und schaut zum Hain hinüber.",
+      "en": "The Boathouse at the Hain stands on the eastern Regnitz bank at the transition between Hain Park and the Botanical Garden. The traditional beer garden with views over the Regnitz is a reliable rest stop on the island circuit. In Bamberg they say: the right side is the right one – you sit on the city side and look across toward the Hain."
+    },
+    "look_for": {
+      "de": "Der Blick über die Regnitz zum Hainpark und den alten Baumbestand am Ufer.",
+      "en": "The view across the Regnitz toward Hain Park and the old trees along the bank."
+    },
+    "photo_tip": {
+      "de": "Vom Biergarten über das Wasser zum Hainpark.",
+      "en": "From the beer garden across the water toward Hain Park."
+    },
+    "hours": {
+      "de": "Sa/So ab 11:00, bei schönem Wetter.",
+      "en": "Sat/Sun from 11am, good weather only."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "d15",
+    "slug": "botanischer-garten",
+    "name": {
+      "de": "Botanischer Garten",
+      "en": "Botanical Garden"
+    },
+    "category": "gardens-guilds-trades",
+    "subcategory": "gardens",
+    "tier": "bronze",
+    "coords": [
+      49.881,
+      10.9037
+    ],
+    "riddle": {
+      "de": "Zwischen Leopoldinen- und Leuchtenbergstraße liege ich, ein Garten der Wissenschaft. Tausende Pflanzen aus aller Welt wachsen hier – im Freien und hinter Glas. Der Fischteich erinnert an eine weitere Geschichte.",
+      "en": "Between Leopoldinenstraße and Leuchtenbergstraße I lie, a garden of science. Thousands of plants from around the world grow here – outdoors and under glass. The fish pond recalls another story."
+    },
+    "hint": {
+      "de": "Mühlwörth 21 – am Nordrand des Hainparks",
+      "en": "Mühlwörth 21 – at the northern edge of Hain Park"
+    },
+    "question": {
+      "de": "Seit wann existiert der Botanische Garten an diesem Standort?",
+      "en": "Since when has the Botanical Garden existed at this location?"
+    },
+    "answers": [
+      "1923",
+      "neunzehnhundertdreiundzwanzig"
+    ],
+    "history_60w": {
+      "de": "Der Botanische Garten Bamberg wurde 1923 auf dem Mühlwörth gegründet. Über 10.000 Pflanzenarten aus allen Klimazonen gedeihen in 13 Sondergärten – von alpinem Felsengarten über Steppenbeete bis zu Tropenhäusern. Besonders sehenswert sind der historische Fischteich, die medicinalis (Nutzpflanzenabteilung) und die Suksdorfia-Blüte im Frühjahr. Eintritt frei. Der Garten ist seit 1973 Bayerischer Gartendenkmal.",
+      "en": "The Botanical Garden Bamberg was founded in 1923 on the Mühlwörth. Over 10,000 plant species from all climate zones thrive in 13 special gardens – from alpine rock gardens to steppe beds to tropical houses. Particularly worth seeing are the historic fish pond, the medicinal plants section, and the Suksdorfia bloom in spring. Admission free. The garden has been a Bavarian garden monument since 1973."
+    },
+    "look_for": {
+      "de": "Die Suksdorfia-Bestände im Frühjahr und den historischen Fischteich.",
+      "en": "The Suksdorfia beds in spring and the historic fish pond."
+    },
+    "photo_tip": {
+      "de": "Von der Brücke über den Fischteich, Blick auf die Gewächshäuser.",
+      "en": "From the bridge over the fish pond, looking toward the greenhouses."
+    },
+    "hours": {
+      "de": "April–Okt. täglich 9–18 Uhr. Freier Eintritt.",
+      "en": "Apr–Oct daily 9am–6pm. Free admission."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "c6",
+    "slug": "kanalsteg",
+    "name": {
+      "de": "Kanalsteg",
+      "en": "Canal Walkway"
+    },
+    "category": "water-and-bridges",
+    "subcategory": "waterfront",
+    "tier": "bronze",
+    "coords": [
+      49.8854,
+      10.9035
+    ],
+    "riddle": {
+      "de": "Ein stilles Wasser, das Meer mit Meer verbindet. Auf dem Steg steht man zwischen deux époques – hier fließt die Geschichte, dort die Schiffe.",
+      "en": "A still water linking sea with sea. On the walkway you stand between two eras – here flows history, there the ships."
+    },
+    "hint": {
+      "de": "Westufer der Insel, am Main-Donau-Kanal",
+      "en": "West bank of the island, on the Main-Danube Canal"
+    },
+    "question": {
+      "de": "Wann wurde der Main-Donau-Kanal feierlich eröffnet?",
+      "en": "When was the Main-Danube Canal officially opened?"
+    },
+    "answers": [
+      "1992",
+      "neunzehnhundertzweiundneunzig"
+    ],
+    "history_60w": {
+      "de": "Der Kanal an der Westseite der Insel ist der Main-Donau-Kanal, 1960–1992 erbaut. Er verbindet Bamberg über 171 Kilometer mit Kelheim an der Donau und überwindet an der Europäischen Wasserscheide 406 Meter Höhe. Der Ludwig-Donau-Main-Kanal, sein Vorgänger (1836–1846), verlief nahezu parallel. Beide Kanäle haben Bamberg als Schnittpunkt zwischen Nord- und Südeuropa geprägt. Der Schleusenturm von Bamberg steht wenige hundert Meter nördlich.",
+      "en": "The canal on the island's west side is the Main-Danube Canal, built 1960–1992. It connects Bamberg over171 kilometres to Kelheim on the Danube, crossing the European watershed at 406 metres. Its predecessor, the Ludwig-Danube-Main Canal (1836–1846), ran almost parallel. Both canals shaped Bamberg as a crossing point between northern and southern Europe. The Bamberg lock tower stands a few hundred metres to the north."
+    },
+    "look_for": {
+      "de": "Die Schleusen im Norden und die weite Wasserfläche des Kanals.",
+      "en": "The locks to the north and the wide water surface of the canal."
+    },
+    "photo_tip": {
+      "de": "Vom Steg aus entlang der Wasserfläche, am besten mit einem Schiff im Bild.",
+      "en": "From the walkway along the water, best with a ship in frame."
+    },
+    "hours": {
+      "de": "Immer zugänglich",
+      "en": "Always accessible"
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "d16",
+    "slug": "inselspitze",
+    "name": {
+      "de": "Inselspitze",
+      "en": "Island Tip"
+    },
+    "category": "gardens-guilds-trades",
+    "subcategory": "landmarks",
+    "tier": "bronze",
+    "coords": [
+      49.8973,
+      10.8874
+    ],
+    "riddle": {
+      "de": "Wo Regnitz und Kanal sich trennen, endet die Insel. Zwei Wasser, ein Land. Wer hier steht, hat Bamberg hinter und das Freie vor sich.",
+      "en": "Where the Regnitz and canal divide, the island ends. Two waters, one land. Whoever stands here has Bamberg behind and the open country ahead."
+    },
+    "hint": {
+      "de": "Nördlichster Punkt der Insel – wo sich die Gewässer gabeln",
+      "en": "Northernmost point of the island – where the waters fork"
+    },
+    "question": {
+      "de": "Die Inselstadt wird von welchen zwei Gewässern umflossen?",
+      "en": "Which two bodies of water flow around the island city?"
+    },
+    "answers": [
+      "Regnitz und Main-Donau-Kanal",
+      "Regnitz",
+      "Main-Donau-Kanal",
+      "Regnitz und Kanal"
+    ],
+    "history_60w": {
+      "de": "Die Inselspitze ist der nördlichste Punkt der Bamberger Inselstadt, wo sich die Regnitz und der Main-Donau-Kanal gabeln. Die Landschaft wechselt von urbanem Ufer zu Schilf und Auwald. Nach Norden schließt sich die Buger Flur an, nach Osten der Kaiser-Wilhelm- und Westen der Konrad-Adenauer-Park. Die Inselspitze ist Ruhepunkt und Orientierung: von hier aus sieht man die historische Stadt im Süden und die offene Landschaft im Norden.",
+      "en": "The Island Tip is the northernmost point of Bamberg's island city, where the Regnitz and the Main-Danube Canal fork. The landscape shifts from urban riverbank to reed beds and riparian forest. To the north lies the Buger fields, to the east Kaiser-Wilhelm-Park and to the west Konrad-Adenauer-Park. The Island Tip is a place of rest and orientation: from here you see the historic city to the south and open countryside to the north."
+    },
+    "look_for": {
+      "de": "Die Gabelung der Gewässer und den Übergang von Stadt zu Natur.",
+      "en": "The fork of the waters and the transition from city to nature."
+    },
+    "photo_tip": {
+      "de": "Panorama Richtung Süden mit der Altstadt-Silhouette.",
+      "en": "Panorama toward the south with the old town skyline."
+    },
+    "hours": {
+      "de": "Immer zugänglich",
+      "en": "Always accessible"
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "d17",
+    "slug": "erba-park",
+    "name": {
+      "de": "ERBA-Park",
+      "en": "ERBA Park"
+    },
+    "category": "gardens-guilds-trades",
+    "subcategory": "parks",
+    "tier": "bronze",
+    "coords": [
+      49.9057,
+      10.8641
+    ],
+    "riddle": {
+      "de": "Hier standen einst Maschinen, heute stehen Bäume. Aus einer Baumwollspinnerei wurde ein Garten. Der Fischpass erzählt die Geschichte des Wassers.",
+      "en": "Once machines stood here, now trees stand. A cotton mill became a garden. The fish pass tells the story of the water."
+    },
+    "hint": {
+      "de": "Nördlich der Insel, am Kleingartenverein an der Schwarzen Brücke",
+      "en": "North of the island, at the Kleingartenverein on the Black Bridge"
+    },
+    "question": {
+      "de": "Welches große Gartenereignis fand 2012 in Bamberg statt, bei dem der ERBA-Park eine zentrale Rolle spielte?",
+      "en": "What major gardening event took place in Bamberg in 2012, in which ERBA Park played a central role?"
+    },
+    "answers": [
+      "Landesgartenschau",
+      "LGS",
+      "Landesgartenschau 2012"
+    ],
+    "history_60w": {
+      "de": "Der ERBA-Park entstand auf dem Gelände der ehemaligen Erlangen-Bamberger Baumwollspinnerei (gegr. 1858), die 1992 die Produktion einstellte. Für die bayerische Landesgartenschau 2012 wurde das Areal umgestaltet: 120.000 Quadratmeter Grünflächen, ein 1,2 Kilometer langer Fischpass an der Regnitz und die Umgestaltung der Industriebrache zum Park. Der Fischpass ermöglicht es 26 Fischarten erstmals seit dem Bau des Kanals, die Regnitz flussaufwärts zu wandern. Rund 1 Million Besucher kamen zur Landesgartenschau.",
+      "en": "ERBA Park was created on the site of the former Erlangen-Bamberg Cotton Mill (est. 1858), which ceased production in 1992. For the Bavarian State Garden Show 2012, the area was transformed:120,000 square metres of green space, a1.2-kilometre fish pass on the Regnitz, and the conversion of the industrial wasteland into a park. The fish pass allows 26 fish species to migrate upstream along the Regnitz for the first time since the canal was built. Around 1 million visitors came to the State Garden Show."
+    },
+    "look_for": {
+      "de": "Die überdachte Holzbrücke und den Fischpass an der Regnitz.",
+      "en": "The covered wooden bridge and the fish pass on the Regnitz."
+    },
+    "photo_tip": {
+      "de": "Vom Kleingartenverein über die Anlage, am besten im Abendlicht.",
+      "en": "From the allotment garden looking over the park, best in evening light."
+    },
+    "hours": {
+      "de": "Immer zugänglich",
+      "en": "Always accessible"
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "b12",
+    "slug": "konzert-und-kongresshalle",
+    "name": {
+      "de": "Konzert- und Kongresshalle",
+      "en": "Concert and Congress Hall"
+    },
+    "category": "stone-and-power",
+    "subcategory": "buildings",
+    "tier": "bronze",
+    "coords": [
+      49.8916,
+      10.8878
+    ],
+    "riddle": {
+      "de": "Ein Haus für Musik und Rede, am Fluss erbaut. Der große Saal trägt den Namen eines Dirigenten, der aus Prag kam. Die Symphoniker spielen hier seit 1993.",
+      "en": "A house for music and discourse, built by the river. The great hall bears the name of a conductor who came from Prague. The Philharmonic has played here since 1993."
+    },
+    "hint": {
+      "de": "Am östlichen Regnitzufer, zwischen Ludwig- und Obere Brücke",
+      "en": "On the eastern Regnitz bank, between Ludwig Bridge and the Upper Bridge"
+    },
+    "question": {
+      "de": "Wie hieß der Dirigent, dessen Namen der große Konzertsaal der Kongresshalle trägt?",
+      "en": "What was the name of the conductor after whom the great concert hall of the Congress Hall is named?"
+    },
+    "answers": [
+      "Keilberth",
+      "Joseph Keilberth",
+      "Joseph Keilberth"
+    ],
+    "history_60w": {
+      "de": "Die Bamberger Symphoniker gaben am 20. März 1946 ihr erstes Konzert im Zentralsaal. Gegründet wurden sie von Geflüchteten des Deutschen Philharmonischen Orchesters Prag unter Joseph Keilberth. Die Konzert- und Kongresshalle wurde 1993 am östlichen Regnitzufer eröffnet. Der Keilberth Saal bietet 1.401 Plätze. Das Orchester ist seit 2004 Bayerische Staatsphilharmonie und zählt zu den weltweit renommiertesten Orchestern.",
+      "en": "The Bamberger Symphoniker gave their first concert on 20 March 1946 in the Zentralsaal. They were founded by refugees from the German Philharmonic Orchestra Prague under Joseph Keilberth. The Concert and Congress Hall opened in 1993 on the eastern Regnitz bank. The Keilberth Hall seats 1,401. The orchestra has been Bavarian State Philharmonic since 2004 and is one of the world's most renowned orchestras."
+    },
+    "look_for": {
+      "de": "Die moderne Fassade zum Fluss und den Schriftzug am Eingang.",
+      "en": "The modern facade toward the river and the lettering at the entrance."
+    },
+    "photo_tip": {
+      "de": "Vom anderen Regnitzufer aus, mit dem Fluss im Vordergrund.",
+      "en": "From the opposite Regnitz bank, with the river in the foreground."
+    },
+    "hours": {
+      "de": "Kasse: Mo–Fr 11–13 und 15–18 Uhr. Spielplan variiert.",
+      "en": "Box office: Mon–Fri 11am–1pm & 3pm–6pm. Programme varies."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "a10",
+    "slug": "st-heinrich",
+    "name": {
+      "de": "St. Heinrich",
+      "en": "St. Heinrich"
+    },
+    "category": "a",
+    "subcategory": "churches",
+    "tier": "silver",
+    "coords": [
+      49.904,
+      10.909
+    ],
+    "riddle": {
+      "de": "Ich bin nicht der Dom. Ich bin nicht mittelalterlich. Ich trage den gleichen Namen wie er – Heinrich – aber ich bin 700 Jahre jünger. Mein Gesicht ist rau, mein Kern ist Beton. Steh vor mir und zähle die Grad, um die meine Türme gedreht sind.",
+      "en": "I am not the cathedral. I am not medieval. I bear the same name as it – Heinrich – but I am 700 years younger. My face is rough, my core is concrete. Stand in front of me and count the degrees my towers are turned."
+    },
+    "hint": {
+      "de": "Eugen-Pacelli-Platz, Bamberg-Ost – zwischen Ludwigstraße und Lechleitnerstraße",
+      "en": "Eugen-Pacelli-Platz, Bamberg-East – between Ludwigstraße and Lechleitnerstraße"
+    },
+    "question": {
+      "de": "Steh vor der Westfassade und sieh dir die zwei Türme an. Sie sind quadratisch, aber sie sitzen nicht rechtwinklig zur Wand. Um wie viele Grad ist jeder Turm gedreht?",
+      "en": "Stand in front of the west façade and look at the two towers. They are square in plan, but they do not sit square to the wall. Through how many degrees is each one turned?"
+    },
+    "answers": [
+      "45",
+      "vierundvierzig",
+      "vierundvierzig Grad",
+      "45 Grad"
+    ],
+    "history_60w": {
+      "de": "Das ist nicht der Dom, sondern die Pfarrkirche St. Heinrich – beide dem Kaiser Heinrich II. gewidmet, der das Bistum Bamberg gründete. Die Kirche entstand 1927–1929 nach Plänen des Augsburger Architekten Michael Kurz, mit Hans Döllgast als Mitarbeiter. Sie gilt als eine der frühen Weimarer Kirchen, in denen Sichtbeton das innere Baumaterial bestimmte. Das Äußere trägt eine Haut aus unverputztem Bruchsteinmauerwerk aus den Steinbrüchen bei Winterhausen – rau und unregelmäßig, als stünde hier eine mittelalterliche Wehrkirche. Zwei 35 Meter hohe Türme an der Westfassade sind jeweils um 45 Grad um die eigene Achse verdreht, wodurch die Kanten aus der Fassade herausragen. Im Inneren tragen neun gewölbte Betonpfeiler pro Seitenwand das Schiff; Mosaiken der Apostel schmücken die Pfeilerflächen. Das Zollinger-Holzdach – ein Gitterschalenwerk aus kurzen standardisierten Brettern, eine typische Konstruktion der 1920er Jahre – spannt über dem Langhaus. Den Kreuzweg aus Glasmalerei zerstörte der Zweite Weltkrieg; 1948 ersetzte man ihn durch Mosaikversionen. 1968 gestaltete der Würzburger Dombaumeister Hans Schädel den Chorraum grundlegend um.",
+      "en": "This is not the cathedral, but the parish church of St. Heinrich – both dedicated to Emperor Heinrich II, who founded the Diocese of Bamberg. The church was built 1927–1929 to plans by the Augsburg architect Michael Kurz, with Hans Döllgast as collaborator. It is one of the early Weimar-era churches in which exposed concrete was chosen as the dominant interior material. The exterior carries a skin of unrendered quarry stone from the quarries near Winterhausen – rough and irregular, as if a medieval fortress church stood here. Two 35-metre towers at the west façade are each rotated 45 degrees about their own axis, so the corners project from the wall. Inside, nine arched concrete piers per side carry the nave; mosaics of the apostles adorn the pier faces. The Zollinger timber roof – a lattice-shell system of short standardised boards, characteristic of 1920s German construction – spans the nave. The Stations of the Cross in stained glass were destroyed in the Second World War and replaced by mosaic versions in 1948. In 1968 the Würzburg cathedral architect Hans Schädel thoroughly remodelled the chancel."
+    },
+    "look_for": {
+      "de": "Die zwei um 45 Grad gedrehten Türme an der Westfassade – sie sehen aus wie aufgestellte Schachtfiguren. Die lebensgroße Heinrich-Statue in der Nische zwischen den Türmen. Die Bruchsteinverkleidung aus Winterhäuser Stein.",
+      "en": "The two towers rotated 45 degrees at the west façade – they look like upright chess pieces. The life-size Henry statue in the niche between the towers. The quarry-stone cladding from Winterhausen."
+    },
+    "photo_tip": {
+      "de": "Von Eugen-Pacelli-Platz aus die Westfassade im Gegenlicht – die gedrehten Türme zeigen sich am deutlichsten, wenn die Kanten Schatten werfen.",
+      "en": "From Eugen-Pacelli-Platz, the west façade in backlight – the twisted towers show most clearly when the edges cast shadows."
+    },
+    "hours": {
+      "de": "Tagsüber geöffnet. Zugang zum Inneren nicht garantiert außerhalb der Gottesdienstzeiten. Sonntag: 9:00, 10:30, 18:00.",
+      "en": "Open during the day. Interior access not guaranteed outside service times. Sunday: 9am, 10:30am, 6pm."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "b13",
+    "slug": "aufsesshoeflein",
+    "name": {
+      "de": "Aufseßhöflein",
+      "en": "Aufseßhöflein"
+    },
+    "category": "b",
+    "subcategory": "palaces",
+    "tier": "silver",
+    "coords": [
+      49.915,
+      10.884
+    ],
+    "riddle": {
+      "de": "Ich war Fischwärterhaus, dann Lustschloss, dann Hühnerstall, dann Abrisskandidat. Ich stehe zwischen zwei Bahngleisen und lebe trotzdem noch. Wie viele originale Fensterrahmen hat man für die Rekonstruktion der gesamten Fassadenfensterung gefunden?",
+      "en": "I was a fish-keeper's house, then a pleasure palace, then a hen coop, then scheduled for demolition. I stand between two railway lines and still live. How many original window frames were found for the reconstruction of the entire façade's window pattern?"
+    },
+    "hint": {
+      "de": "Aufseßhöflein 1, nördlich der Altstadt im Gärtnerland, zwischen den Bahngleisen",
+      "en": "Aufseßhöflein 1, north of the old town in the Gärtnerland, between the railway lines"
+    },
+    "question": {
+      "de": "Die gesamte Fensterteilung der Eingangsfassade wurde anhand wie vieler originaler Fensterrahmen rekonstruiert, die hinter einem vermauerten Fenster gefunden wurden?",
+      "en": "The entire window pattern of the entrance façade was reconstructed from how many original window frames found behind a bricked-up opening?"
+    },
+    "answers": [
+      "1",
+      "eins",
+      "einen",
+      "einer",
+      "one"
+    ],
+    "history_60w": {
+      "de": "Ein Fischerhaus auf einer Insel im quadratischen Weiher, 1455 erstmals erwähnt. 1723 ließ Philipp Friedrich von Aufseß an derselben Stelle ein Lustschlösschen errichten, wahrscheinlich nach Plänen von Johann Dientzenhofer. 1752 stuckierte Dominikus Ecker den Saal im Rokoko, nach Entwürfen von Johann Michael Küchel. Die dritte Generation verschwendete das Erbe; 1777 kam das Anwesen unter Zwangsverwaltung. Französische Soldaten durchwühlten 1797 den Keller auf der Suche nach Schätzen. Ab 1839 nutzte eine Gärtnerfamilie den Saal als Heuboden und Hühnerstall. Seit 1852 zwängen zwei Bahngleise das Gebäude in einen Winkel; die Reichsbahn plante 1938 den Abriss. Ein Pressekampfang rettete es. 2011 lasen Stefan und Andrea Fiedler eine Zeitungsanzeige, kauften das Anwesen und restaurierten es mit ihrem Architekten Michael Schelz über vier Jahre mit 1,7 Millionen Euro. Die gesamte Fassadenfensterung wurde anhand eines einzigen originalen Rahmens rekonstruiert, der hinter einem vermauerten Fenster lag. Das Aufseß-Wappen der Familie findet sich heute noch am Wallensteinhaus, Lange Straße 3.",
+      "en": "A fisherman's house on an island in a square pond, first mentioned in 1455. In 1723 Philipp Friedrich von Aufseß had a pleasure palace built on the same spot, probably to plans by Johann Dientzenhofer. In 1752 Dominikus Ecker stuccoed the hall in rococo, to designs by Johann Michael Küchel. The third generation spent the fortune; in 1777 the estate went into receivership. French soldiers dug up the cellar in 1797 searching for treasure. From 1839 a gardener's family used the hall as a hayloft and hen coop. Since 1852 two railway lines have boxed the building into a wedge; the Reichsbahn planned demolition in 1938. A press campaign saved it. In 2011 Stefan and Andrea Fiedler read a newspaper advert, bought the estate and restored it with their architect Michael Schelz over four years for1.7 million euros. The entire façade window pattern was reconstructed from a single original frame found behind a bricked-up opening. The Aufseß family arms can still be found above the archway at Wallensteinhaus, Lange Straße 3."
+    },
+    "look_for": {
+      "de": "Die rekonstruierte Freitreppe, die runden Fenster im Erdgeschoss und die filigrane Fensterteilung der Beletage. Das Mansarddach mit den originalen Proportionen.",
+      "en": "The reconstructed grand stair, the round windows on the ground floor and the delicate window mullions of the piano nobile. The mansard roof with its original proportions."
+    },
+    "photo_tip": {
+      "de": "Vom öffentlichen Weg aus die Eingangsfassade mit Freitreppe – am besten bei streifendem Licht, um die Sandstein-Architekturgliederung zu betonen.",
+      "en": "From the public path, the entrance façade with the grand stair – best in raking light to emphasise the sandstone architectural detailing."
+    },
+    "hours": {
+      "de": "Privatbesitz. Von außen jederzeit sichtbar. Kein Zutritt zum Gelände ohne Veranstaltung. Innenraum nur bei gebuchten Events oder angekündigten Open Days (aufsesshoeflein.de/Veranstaltungen).",
+      "en": "Privately owned. Exterior visible at all times. No access to the grounds without an event. Interior only at booked events or advertised open days (aufsesshoeflein.de/Veranstaltungen)."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
   }
 ]
