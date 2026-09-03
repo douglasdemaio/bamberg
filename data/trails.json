@@ -88,5 +88,20 @@
       "en": "All Gold tier riddles in a chain. Cathedral, Abtsberg, Altenburg – each riddle points to the next."
     },
     "sites": ["bamberger-dom", "abtsberg", "altenburg"]
+  },
+  {
+    "id": "whole-island",
+    "name": { "de": "Die ganze Insel – vom Hain zur ERBA", "en": "The Whole Island – from Hain to ERBA" },
+    "icon": "🌿",
+    "distance_km": 8.5,
+    "elevation_m": 15,
+    "duration": "2.5–3 h",
+    "pace": "flach und weit",
+    "step_free": true,
+    "description": {
+      "de": "Die gesamte Insel von Süd nach Nord: durch den Hainpark, am Kanal entlang, über die Waldspitze hinauf zum ERBA-Park. Flach, grün und überraschend ruhig für eine Stadt this size.",
+      "en": "The entire island from south to north: through Hain Park, along the canal, over the wooded tip up to ERBA Park. Flat, green, and surprisingly quiet for a city this size."
+    },
+    "sites": ["hainpark", "bootshaus-am-hain", "botanischer-garten", "kanalsteg", "inselspitze", "erba-park", "konzert-und-kongresshalle"]
   }
 ]
