@@ -1411,7 +1411,7 @@
     "subcategory": "landmarks",
     "tier": "gold",
     "coords": [
-      49.8805340,
+      49.880534,
       10.8687914
     ],
     "riddle": {
@@ -2681,6 +2681,175 @@
       "en": "Privately owned. Exterior visible at all times. No access to the grounds without an event. Interior only at booked events or advertised open days (aufsesshoeflein.de/Veranstaltungen)."
     },
     "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "a11",
+    "slug": "schloss-seehof",
+    "name": {
+      "de": "Schloss Seehof",
+      "en": "Seehof Palace"
+    },
+    "category": "b",
+    "subcategory": "palaces",
+    "tier": "silver",
+    "coords": [
+      49.9269,
+      10.9478
+    ],
+    "riddle": {
+      "de": "Ein Bischof ließ mich bauen, damit er im Sommer der Stadt entkam. Vier Höfe und ein Garten mit Figuren säumen mich. Wer bin ich?",
+      "en": "A bishop had me built to escape the town in summer. Four courtyards and a garden with figures frame me. What am I?"
+    },
+    "hint": {
+      "de": "Richtung Memmelsdorf, etwa 20 Minuten mit dem Bus.",
+      "en": "Toward Memmelsdorf, about 20 minutes by bus."
+    },
+    "question": {
+      "de": "Wie viele Höfe umschließt das Schloss Seehof?",
+      "en": "How many courtyards does Seehof Palace enclose?"
+    },
+    "answers": [
+      "vier",
+      "4"
+    ],
+    "history_60w": {
+      "de": "Lothar Franz von Schönborn ließ Seehof um 1686 als Sommerresidenz der Bamberger Fürstbischöfe erbauen. Vier Flügel mit vier Ecktürmchen umschließen einen Ehrengarten. Im 19. Jahrhundert diente das Schloss als Kaserne und wurde dann restauriert. Die Schlossgarten-Figuren stehen heute im ganzen Ort verteilt.",
+      "en": "Lothar Franz von Schönborn had Seehof built around 1686 as a summer residence for the prince-bishops of Bamberg. Four wings with four corner towers enclose a courtyard of honor. In the 19th century the palace served as barracks before being restored. The garden figures now stand scattered across the village."
+    },
+    "look_for": {
+      "de": "Die vier Ecktürmchen und der Wassergarten der Zwergenvasen.",
+      "en": "The four corner towers and the water garden of the dwarf vases."
+    },
+    "photo_tip": {
+      "de": "Das Schloss von vorn am Schlossgraben, der Blick über den Wasserspiegel.",
+      "en": "The palace from the front across the moat, looking over the water."
+    },
+    "hours": {
+      "de": "April–Oktober, Mi–So 10–18 Uhr. Innenhof frei zugänglich.",
+      "en": "April–October, Wed–Sun 10am–6pm. Courtyard freely accessible."
+    },
+    "accessible": false,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "c7",
+    "slug": "bambados",
+    "name": {
+      "de": "Bambados",
+      "en": "Bambados Leisure Pool"
+    },
+    "category": "c",
+    "subcategory": "water",
+    "tier": "bronze",
+    "coords": [
+      49.9123,
+      10.9215
+    ],
+    "riddle": {
+      "de": "Ich bin blau, kalt oder warm, drinnen und draußen. Im Sommer ziehen alle zu mir, um sich abzukühlen. Wer bin ich?",
+      "en": "I am blue, cold or warm, inside and out. In summer everyone comes to me to cool off. What am I?"
+    },
+    "hint": {
+      "de": "Das Freizeitbad am Stadtrand, mit Bus Linie 920, 935 oder 936 vom ZOB.",
+      "en": "The leisure pool on the edge of town, by bus lines 920, 935, or 936 from the station."
+    },
+    "question": {
+      "de": "Welche Nummer hat die größte Wasserrutsche im Bambados?",
+      "en": "What is the number of the largest waterslide at Bambados?"
+    },
+    "answers": [
+      "76"
+    ],
+    "history_60w": {
+      "de": "Das Bambados ist das städtische Freizeit- und Hallenbad Bambergs am Rand der Stadt. Es vereint Schwimmbecken, Wasserrutschen und eine Saunalandschaft unter einem Dach. Bei Hitze ist es der kühlste Ort der Stadt; das Freibecken öffnet im Sommer.",
+      "en": "Bambados is Bamberg municipal leisure and indoor pool on the edge of town. It combines swimming pools, waterslides, and a sauna landscape under one roof. On hot days it is the coolest place in the city; the outdoor pool opens in summer."
+    },
+    "look_for": {
+      "de": "Die große Rutsche und der Sprungturm am Freibecken.",
+      "en": "The big slide and the diving tower by the outdoor pool."
+    },
+    "photo_tip": {
+      "de": "Die Wasserfläche am späten Nachmittag, wenn das Licht ins Becken fällt.",
+      "en": "The water late in the afternoon, when the light falls across the pool."
+    },
+    "hours": {
+      "de": "Hallenbad: täglich, saisonale Öffnungszeiten. Freibecken: Mai–Sept.",
+      "en": "Indoor pool: daily, seasonal hours. Outdoor pool: May–Sept."
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null,
+    "beer_style": null,
+    "is_rauchbier": false,
+    "malts_own": false,
+    "house_lore": null,
+    "codeword": null
+  },
+  {
+    "id": "d18",
+    "slug": "bruderwald",
+    "name": {
+      "de": "Bruderwald",
+      "en": "Bruderwald Forest"
+    },
+    "category": "d",
+    "subcategory": "nature",
+    "tier": "bronze",
+    "coords": [
+      49.9087,
+      10.9491
+    ],
+    "riddle": {
+      "de": "Ich bin das grüne Lungenstück im Norden der Stadt. Tausende Bäume, halb Wald, halb Naturwald. Wer bin ich?",
+      "en": "I am the green lung north of the city. Thousands of trees, half forest, half natural woodland. What am I?"
+    },
+    "hint": {
+      "de": "Mit dem Bus Linie 937 oder 918 vom ZOB, Haltestelle Am Bruderwald.",
+      "en": "By bus lines 937 or 918 from the station, stop Am Bruderwald."
+    },
+    "question": {
+      "de": "Hinter welcher Pfadfindergruppe ist eine Lichtung im Bruderwald benannt?",
+      "en": "After which scouting group is a clearing in Bruderwald named?"
+    },
+    "answers": [
+      "pfadfinder"
+    ],
+    "history_60w": {
+      "de": "Der Bruderwald ist der große Stadtwald Bambergs im Norden. Im 19. Jahrhundert als planmäßiger Hochwald angelegt, ist er heute teils Naturwald mit alten Buchen und Eichen. Er lädt zum Wandern, Radfahren und Schwimmen am Rande der Stadt ein. Im Süden reicht er bis an die Regnitz und den Bamberger Osten heran.",
+      "en": "Bruderwald is the great municipal forest north of Bamberg. Laid out in the 19th century as a managed high forest, parts are now natural woodland with old beech and oak. It invites walking, cycling, and even a swim on the edge of the city. To the south it reaches the Regnitz river."
+    },
+    "look_for": {
+      "de": "Die alten Buchenstämme im Naturwaldteil.",
+      "en": "The old beech trunks in the natural-forest section."
+    },
+    "photo_tip": {
+      "de": "Der Waldboden mit Morgenlicht zwischen den Stämmen.",
+      "en": "The forest floor with morning light between the trunks."
+    },
+    "hours": null,
+    "accessible": true,
     "requires_claimed": [],
     "is_solemn": false,
     "verified": false,

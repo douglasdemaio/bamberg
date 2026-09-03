@@ -178,5 +178,6 @@
   "error.meta_title": "Not Found – Bamberg Quest",
   "error.not_found_msg": "Page not found.",
   "error.home_link": "Go to homepage",
-  "passport.footnote": "Toto je devět klasických soukromých pivovarů podle Bamberger Brauereien e.V.: Ambräusianum, Fässla, Greifenklau, Kaiserdom, Keesmann, Klosterbräu, Mahrs Bräu, Schlenkerla, Spezial. Existují i jiné počty."
+  "passport.footnote": "Toto je devět klasických soukromých pivovarů podle Bamberger Brauereien e.V.: Ambräusianum, Fässla, Greifenklau, Kaiserdom, Keesmann, Klosterbräu, Mahrs Bräu, Schlenkerla, Spezial. Existují i jiné počty.",
+  "nav.beyond": "Raus aus der Altstadt"
 }

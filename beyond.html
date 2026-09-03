@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f0ebe1" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1712" media="(prefers-color-scheme: dark)" />
+  <title data-i18n="beyond.meta_title">Raus aus der Altstadt – Bamberg Quest</title>
+  <meta name="description" content="Fünf Ziele rund um Bamberg mit Bus erreichbar. Fahrpläne, Linienpass und Bus-Roulette." data-i18n-meta="beyond.meta_description" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('bq-theme');
+        var mode = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = mode;
+      } catch (_) { document.documentElement.dataset.theme = 'light'; }
+      try {
+        var lang = localStorage.getItem('bq-lang') || 'de';
+        document.documentElement.lang = lang;
+      } catch (_) {}
+    })();
+  </script>
+  <style>
+    .page-header { padding: 2rem 0 1rem; border-bottom: 2px solid var(--verdigris); margin-bottom: 1.5rem; }
+    .page-header h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .subtitle { font-size: 0.85rem; color: var(--text-muted); }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; font-size: 1.05rem; margin: 1rem 0 0.25rem; }
+    .nav-links a { font-weight: 600; }
+    .nav-links a[aria-current='page'] { color: var(--verdigris); }
+    .intro { font-size: 0.95rem; }
+    .privacy-note {
+      margin: 0 0 1.5rem;
+      padding: 0.6rem 0.85rem;
+      background: var(--card-bg);
+      border-left: 3px solid var(--verdigris);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .dest-grid { display: grid; gap: 1rem; margin: 1.5rem 0; }
+    .dest-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .dest-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; }
+    .dest-title { font-size: 1.15rem; margin: 0; }
+    .dest-title a { text-decoration: none; font-family: var(--font-display); }
+    .dest-title a:hover { text-decoration: underline; }
+    .dest-tagline { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.15rem; }
+    .dest-time-badge {
+      flex: 0 0 auto;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: var(--verdigris);
+      color: var(--paper);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+    }
+    .dest-meta { list-style: none; margin: 0.6rem 0; font-size: 0.85rem; display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; color: var(--text-muted); }
+    .dest-meta li::before { margin-right: 0.35rem; }
+    .lines-row { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin-top: 0.5rem; }
+    .line-badge {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: var(--wax-red);
+      color: var(--paper);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+    .sched-row { font-size: 0.85rem; color: var(--text); margin: 0.2rem 0; }
+    .sched-row strong { color: var(--ink); font-family: var(--font-mono); }
+    .sched-note { font-size: 0.72rem; color: var(--text-muted); font-style: italic; }
+    .stamp-status { margin-top: 0.75rem; padding-top: 0.5rem; border-top: 1px dashed var(--border); font-size: 0.8rem; }
+    .stamp-btn {
+      font: inherit; font-size: 0.8rem; font-weight: 600;
+      background: var(--card-bg-hover); border: 1px solid var(--border-strong);
+      color: var(--text); padding: 0.35rem 0.7rem; border-radius: var(--radius); cursor: pointer;
+    }
+    .stamp-btn:hover { border-color: var(--wax-red); }
+    .stamp-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .stamp-claimed-tag { color: var(--verdigris); font-weight: 700; }
+    .roulette {
+      margin: 2rem 0; padding: 1rem 1.1rem; background: var(--card-bg);
+      border: 2px dashed var(--border-strong); border-radius: var(--radius-lg);
+    }
+    .roulette h2 { font-size: 1.1rem; }
+    .roulette-btn {
+      font: inherit; font-size: 1rem; font-weight: 700;
+      background: var(--amber); color: var(--paper);
+      border: none; border-radius: var(--radius); padding: 0.55rem 1.2rem; cursor: pointer; margin-top: 0.5rem;
+    }
+    .roulette-btn:hover { opacity: 0.9; }
+    .roulette-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    .roulette-result { margin-top: 0.75rem; font-size: 0.95rem; min-height: 1.4em; }
+    .roulette-result strong { font-family: var(--font-display); }
+    .linienpass-status { margin: 1.5rem 0; padding: 0.85rem 1rem; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); }
+    .linienpass-progress { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
+    .linienpass-count { font-size: 0.9rem; font-weight: 700; }
+    .linienpass-complete { color: var(--amber); font-weight: 700; }
+    .source-note {
+      margin-top: 2rem; padding: 0.75rem 1rem; background: var(--card-bg);
+      border-radius: var(--radius); border: 1px solid var(--border);
+      font-size: 0.75rem; color: var(--text-muted); line-height: 1.5;
+    }
+    .page-footer { padding: 2rem 0; font-size: 0.85rem; }
+    @media (prefers-reduced-motion: reduce) { .dest-card, .roulette-btn { transition: none; } }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y3GH8HZRT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6Y3GH8HZRT');
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#content" id="skip-link">Zum Inhalt springen</a>
+  <div class="container">
+    <div class="topbar">
+      <select class="lang-select" id="lang-select" aria-label="Sprache / Language" data-i18n-aria="site.language_label">
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="cs">🇨🇿 Čeština</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="sv">🇸🇪 Svenska</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="hi">🇮🇳 हिन्दी</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="ru">🇷🇺 Русский</option>
+      </select>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln / Toggle color mode" title="Farbmodus wechseln / Toggle color mode">
+        <span class="toggle-icon-light" aria-hidden="true">☀︎</span>
+        <span class="toggle-icon-dark" aria-hidden="true">☾</span>
+        <span class="toggle-label"><span class="toggle-icon-light" aria-hidden="true" data-i18n="site.theme_light">Hell</span><span class="toggle-icon-dark" aria-hidden="true" data-i18n="site.theme_dark">Dunkel</span></span>
+      </button>
+    </div>
+    <div id="content">
+      <header class="page-header">
+        <h1>🚌 <span data-i18n="beyond.title">Raus aus der Altstadt</span></h1>
+        <p class="subtitle" data-i18n="beyond.subtitle">Fünf Ziele um Bamberg – mit dem Bus vom ZOB erreichbar</p>
+        <nav class="nav-links" aria-label="Seitennavigation" data-i18n-aria="site.nav_aria">
+          <a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a>
+          <a href="/trails.html"><span data-i18n="nav.trails">Routen</span></a>
+          <a href="/passport.html"><span data-i18n="nav.beerpass">Bierpass</span></a>
+          <a href="/collection.html"><span data-i18n="nav.collection">Sammlung</span></a>
+          <a href="/plan.html"><span data-i18n="nav.plan">Planen</span></a>
+        </nav>
+      </header>
+      <main>
+        <p class="intro" data-i18n="beyond.intro">Willst du Altenburg, Seehof oder den Wald sehen? Steig am ZOB in den Bus. Hier siehst du den nächsten planmäßigen Abfahrtstermin – als Fahrplan, nicht in Echtzeit.</p>
+        <p class="privacy-note" data-i18n="beyond.privacy_note">📻 Kein Standort-Tracking, keine Anfrage an einen Live-Dienst. Fahrpläne werden einmal pro Woche aus den offenen VGN-Daten gebaut und auf deinem Gerät angezeigt.</p>
+
+        <section class="linienpass-status" aria-labelledby="linienpass-heading">
+          <h2 id="linienpass-heading" style="font-size: 1.05rem; margin-bottom: 0.5rem;">🎫 <span data-i18n="beyond.linienpass_title">Linienpass</span></h2>
+          <div class="linienpass-progress">
+            <span class="linienpass-count"><span id="linienpass-count">0</span> / <span id="linienpass-total">5</span> <span data-i18n="beyond.linienpass_stamped">gestempelt</span></span>
+            <span class="linienpass-complete" id="linienpass-complete" hidden><span data-i18n="beyond.linienpass_done">✅ Alle fünf Ziele geschafft!</span></span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0.5rem 0 0;"><span data-i18n="beyond.linienpass_hint">Am Ziel beantwortest du eine Frage und stempelst selbst ab. Ehrlichkeit zählt.</span></p>
+        </section>
+
+        <section aria-labelledby="destinations-heading">
+          <h2 id="destinations-heading" style="font-size: 1.1rem; margin-bottom: 0.75rem;"><span data-i18n="beyond.destinations_title">Die Ziele</span></h2>
+          <div class="dest-grid" id="beyond-root"></div>
+        </section>
+
+        <section class="roulette" aria-labelledby="roulette-heading">
+          <h2 id="roulette-heading">🎲 <span data-i18n="beyond.roulette_title">Bus-Roulette</span></h2>
+          <p style="font-size: 0.85rem; color: var(--text-muted);"><span data-i18n="beyond.roulette_hint">Keine Ahnung wohin? Lass den Bus entscheiden.</span></p>
+          <button type="button" class="roulette-btn" id="roulette-btn"><span data-i18n="beyond.roulette_spin">Ziel ziehen</span></button>
+          <div class="roulette-result" id="roulette-result" role="status" aria-live="polite"></div>
+        </section>
+
+        <aside class="source-note">
+          <p style="margin: 0;"><span data-i18n="beyond.data_note">Fahrpläne: VGN / VAG, Lizenziert unter CC BY 3.0. <span data-i18n="beyond.data_note_fahrplan">Als Fahrplan angezeigt, nicht als Echtzeit.</span></span></p>
+        </aside>
+      </main>
+      <footer class="page-footer"><a href="/index.html"><span data-i18n="beyond.back">← Übersicht</span></a></footer>
+    </div>
+  </div>
+  <script src="/js/game.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/shared.js"></script>
+  <script src="/js/linienpass.js"></script>
+  <script src="/js/beyond.js"></script>
+  <script>
+    fetch('/data/transit.json')
+      .then(function (r) { return r.json(); })
+      .then(function (transit) {
+        initBeyond(document.documentElement.lang || 'de', transit);
+      })
+      .catch(function () {
+        var root = document.getElementById('beyond-root');
+        if (root) root.innerHTML = '<p class="sched-note" data-i18n="beyond.data_error">Fahrplan nicht verfügbar.</p>';
+      });
+  </script>
+</body>
+</html>
