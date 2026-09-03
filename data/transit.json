@@ -1,0 +1,314 @@
+{
+  "generated": "2026-09-03",
+  "source": "VGN GTFS (CC BY 3.0)",
+  "source_url": "https://www.vgn.de/opendata/GTFS.zip",
+  "attribution": "Datenbasis: VGN / VAG. Lizenziert unter CC BY 3.0.",
+  "boarding_stop": {
+    "id": "de:09461:20200:0:A",
+    "name": "Bamberg ZOB",
+    "note": "Starte hier. Einstieg an allen Bahnsteigen des ZOB."
+  },
+  "today_types": {
+    "bambados": "weekday",
+    "seehof": "weekday",
+    "erba": "weekday",
+    "bruderwald": "weekday",
+    "altenburg": "weekday"
+  },
+  "destinations": [
+    {
+      "slug": "altenburg",
+      "poi_slug": "altenburg",
+      "stop": {
+        "id": "de:09461:20131:0:1",
+        "name": "Gaustadt H.-Semlinger-Str."
+      },
+      "walk_from_zob": true,
+      "walk_m": 270,
+      "lines": [
+        {
+          "line": "906",
+          "weekday": {
+            "first_dep": "05:45:00",
+            "last_dep": "20:20:00",
+            "trip_count": 58,
+            "avg_headway_min": 16,
+            "journey_min": 11
+          },
+          "sat": {
+            "first_dep": "06:45:00",
+            "last_dep": "19:30:00",
+            "trip_count": 49,
+            "avg_headway_min": 16,
+            "journey_min": 11
+          },
+          "sun": {
+            "first_dep": "08:15:00",
+            "last_dep": "19:30:00",
+            "trip_count": 23,
+            "avg_headway_min": 31,
+            "journey_min": 11
+          }
+        },
+        {
+          "line": "938",
+          "weekday": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 10,
+            "avg_headway_min": 41,
+            "journey_min": 9
+          },
+          "sat": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 9,
+            "avg_headway_min": 41,
+            "journey_min": 9
+          },
+          "sun": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 7,
+            "avg_headway_min": 40,
+            "journey_min": 9
+          }
+        }
+      ],
+      "today_type": "weekday"
+    },
+    {
+      "slug": "bambados",
+      "poi_slug": "bambados",
+      "stop": {
+        "id": "de:09461:20040:0:2",
+        "name": "Bamberg Bambados"
+      },
+      "walk_from_zob": false,
+      "walk_m": 0,
+      "lines": [
+        {
+          "line": "920",
+          "weekday": {
+            "first_dep": "07:10:00",
+            "last_dep": "19:10:00",
+            "trip_count": 24,
+            "avg_headway_min": 31,
+            "journey_min": 11
+          },
+          "sat": {
+            "first_dep": "08:10:00",
+            "last_dep": "19:10:00",
+            "trip_count": 20,
+            "avg_headway_min": 35,
+            "journey_min": 11
+          },
+          "sun": {
+            "first_dep": "10:10:00",
+            "last_dep": "19:10:00",
+            "trip_count": 10,
+            "avg_headway_min": 60,
+            "journey_min": 11
+          }
+        },
+        {
+          "line": "935",
+          "weekday": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 9,
+            "avg_headway_min": 41,
+            "journey_min": 23
+          },
+          "sat": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 9,
+            "avg_headway_min": 41,
+            "journey_min": 23
+          },
+          "sun": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 7,
+            "avg_headway_min": 40,
+            "journey_min": 23
+          }
+        },
+        {
+          "line": "936",
+          "weekday": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 9,
+            "avg_headway_min": 41,
+            "journey_min": 11
+          },
+          "sat": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 9,
+            "avg_headway_min": 41,
+            "journey_min": 11
+          },
+          "sun": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 7,
+            "avg_headway_min": 40,
+            "journey_min": 11
+          }
+        }
+      ],
+      "today_type": "weekday"
+    },
+    {
+      "slug": "erba",
+      "poi_slug": "erba-park",
+      "stop": {
+        "id": "de:09461:20442:0:1",
+        "name": "Bamberg Wildensorger Str."
+      },
+      "walk_from_zob": true,
+      "walk_m": 320,
+      "lines": [
+        {
+          "line": "910",
+          "weekday": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 37,
+            "avg_headway_min": 44,
+            "journey_min": 13
+          },
+          "sat": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 22,
+            "avg_headway_min": 53,
+            "journey_min": 16
+          },
+          "sun": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 18,
+            "avg_headway_min": 53,
+            "journey_min": 15
+          }
+        }
+      ],
+      "today_type": "weekday"
+    },
+    {
+      "slug": "bruderwald",
+      "poi_slug": "bruderwald",
+      "stop": {
+        "id": "de:09461:20027:0:1",
+        "name": "Bamberg Am Bruderwald"
+      },
+      "walk_from_zob": false,
+      "walk_m": 0,
+      "lines": [
+        {
+          "line": "937",
+          "weekday": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 18,
+            "avg_headway_min": 41,
+            "journey_min": 16
+          },
+          "sat": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 18,
+            "avg_headway_min": 41,
+            "journey_min": 16
+          },
+          "sun": {
+            "first_dep": "24:00:00",
+            "last_dep": "23:20:00",
+            "trip_count": 14,
+            "avg_headway_min": 40,
+            "journey_min": 16
+          }
+        },
+        {
+          "line": "918",
+          "weekday": {
+            "first_dep": "08:43:00",
+            "last_dep": "18:43:00",
+            "trip_count": 11,
+            "avg_headway_min": 60,
+            "journey_min": 14
+          },
+          "sat": {
+            "first_dep": "08:43:00",
+            "last_dep": "18:43:00",
+            "trip_count": 11,
+            "avg_headway_min": 60,
+            "journey_min": 14
+          }
+        }
+      ],
+      "today_type": "weekday"
+    },
+    {
+      "slug": "seehof",
+      "poi_slug": "schloss-seehof",
+      "stop": {
+        "id": "de:09471:20856:0:1",
+        "name": "Seehof (b. Memmelsdorf) Schloß"
+      },
+      "walk_from_zob": false,
+      "walk_m": 0,
+      "lines": [
+        {
+          "line": "907",
+          "weekday": {
+            "first_dep": "06:10:00",
+            "last_dep": "19:10:00",
+            "trip_count": 52,
+            "avg_headway_min": 31,
+            "journey_min": 19
+          },
+          "sat": {
+            "first_dep": "07:10:00",
+            "last_dep": "18:10:00",
+            "trip_count": 34,
+            "avg_headway_min": 60,
+            "journey_min": 19
+          },
+          "sun": {
+            "first_dep": "08:10:00",
+            "last_dep": "18:10:00",
+            "trip_count": 20,
+            "avg_headway_min": 60,
+            "journey_min": 19
+          }
+        },
+        {
+          "line": "917",
+          "weekday": {
+            "first_dep": "06:24:00",
+            "last_dep": "13:14:00",
+            "trip_count": 12,
+            "avg_headway_min": 0,
+            "journey_min": 17
+          }
+        },
+        {
+          "line": "927",
+          "weekday": {
+            "first_dep": "08:00:00",
+            "last_dep": "17:30:00",
+            "trip_count": 8,
+            "avg_headway_min": 90,
+            "journey_min": 16
+          }
+        }
+      ],
+      "today_type": "weekday"
+    }
+  ]
+}

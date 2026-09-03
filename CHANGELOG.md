@@ -1,5 +1,42 @@
 # Changelog
 
+## 2026-09-03 — "Raus aus der Altstadt" (Beyond) tab added
+
+**New page:** `beyond.html` — five destinations around Bamberg reachable by bus from the ZOB, with departure boards (timetable, not realtime), a Linienpass stamp card, and Bus-Roulette.
+
+**New scripts:**
+- `scripts/build-transit.js` — Node.js build step that downloads the VGN GTFS feed (`https://www.vgn.de/opendata/GTFS.zip`), parses `stops/routes/trips/stop_times/calendar/calendar_dates`, and emits `data/transit.json`.
+- `js/beyond.js` — page logic: loads `transit.json` + `sites.json`, renders the five destination cards sorted by fastest journey, drives the Bus-Roulette.
+- `js/linienpass.js` — stamp card using `localStorage` (`bamberg-quest-claims-<slug>`) with `method: "linienpass"` semantics, self-reported.
+
+**New data:** `data/transit.json` (generated 2026-09-03) — per-destination first/last departure, trip count, average headway and journey time for each line, split by weekday/Saturday/Sunday.
+
+**Destinations (5):** Bambados (920/935/936), Schloss Seehof (907/917/927), ERBA (910), Bruderwald (937/918), Altenburg (906/938). Boarding at Bamberg ZOB.
+
+**New POIs added to `data/sites.json`:**
+- `a11` Schloss Seehof (category `b`, subcategory `palaces`, tier `silver`) — coords 49.9269, 10.9478.
+- `c7` Bambados (category `c`, subcategory `water`, tier `bronze`) — coords 49.9123, 10.9215.
+- `d18` Bruderwald (category `d`, subcategory `nature`, tier `bronze`) — coords 49.9087, 10.9491.
+
+(Altenburg and ERBA-Park already existed as `a8` and `d17` and are cross-linked, not duplicated.)
+
+**Nav:** "Raus aus der Altstadt" link added to `index.html` and `collection.html` (`nav.beyond` in all 14 languages). Beyond-specific strings added to `de.json` and `en.json`; `i18n/all.json` rebuilt.
+
+### VGN / VAG data attribution and caveats
+
+- GTFS feed (2026-06-24) used as-is. **VAG PULS API does not cover Bamberg** — only Nürnberg-region stops. So departure boards are **scheduled times (Fahrplan), not live/real-time (Echtzeit).**
+- **Data licensing:** VGN/VAG open data is CC BY 3.0. Attribution line on the page and in `data/transit.json` (`source`, `source_url`, `attribution`).
+- **Privacy:** no requests to a live service; the timetable is bundled, shown locally. This keeps the transit integration out of-server and avoids a TTDSG/DSGVO consent-layer interaction.
+
+### Verification
+
+| Fact | Source |
+|------|--------|
+| Stop IDs resolved from VGN GTFS `stops.txt` | GTFS feed |
+| Journey times (ZOB → destination) computed from GTFS `stop_times` | GTFS feed |
+| Routing assumptions (246 days/weekday/Sun) | GTFS `calendar.txt` |
+| Boarding at Bamberg ZOB (`de:09461:20200:0:*`) | GTFS feed |
+
 ## 2026-09-03 — St. Heinrich (a10) added
 
 **Entry:** `data/sites.json` — id `a10`, slug `st-heinrich`, category `a` (churches), tier `silver`

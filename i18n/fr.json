@@ -178,5 +178,6 @@
   "error.meta_title": "Not Found – Bamberg Quest",
   "error.not_found_msg": "Page not found.",
   "error.home_link": "Go to homepage",
-  "passport.footnote": "Voici les neuf brasseries privées historiques répertoriées par Bamberger Brauereien e.V. : Ambräusianum, Fässla, Greifenklau, Kaiserdom, Keesmann, Klosterbräu, Mahrs Bräu, Schlenkerla, Spezial. D'autres décomptes existent."
+  "passport.footnote": "Voici les neuf brasseries privées historiques répertoriées par Bamberger Brauereien e.V. : Ambräusianum, Fässla, Greifenklau, Kaiserdom, Keesmann, Klosterbräu, Mahrs Bräu, Schlenkerla, Spezial. D'autres décomptes existent.",
+  "nav.beyond": "Raus aus der Altstadt"
 }
