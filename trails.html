@@ -27,8 +27,11 @@
   <style>
     .breadcrumb { padding: 1rem 0; font-size: 0.85rem; }
     .page-header h1 { font-size: 1.5rem; }
+    @media (max-width: 480px) { .page-header h1 { font-size: 1.3rem; } }
     .subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
-    .trail-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+    .trail-list { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-bottom: 2rem; }
+    @media (min-width: 640px) { .trail-list { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1000px) { .trail-list { grid-template-columns: repeat(3, 1fr); } }
     .trail-card { display: flex; gap: 0.75rem; padding: 1rem; background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: border-color 0.15s; }
     .trail-card:hover { border-color: var(--wax-red); }
     .trail-icon { font-size: 1.5rem; }
@@ -79,7 +82,7 @@
     <div id="content">
       <nav class="breadcrumb" aria-label="Brotkrümelnavigation" data-i18n-aria="site.breadcrumb_aria"><a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a></nav>
       <header class="page-header">
-        <h1>🗺 <span data-i18n="trails.title">Routen</span></h1>
+        <h1 class="glb-mini"><img src="/logo.png" alt="" />🗺 <span data-i18n="trails.title">Routen</span></h1>
         <p class="subtitle" data-i18n="trails.subtitle">Kuratierte Spaziergänge durch Bamberg. Entfernung, Höhenmeter und Zeit sind ehrlich geschätzt.</p>
       </header>
       <main>

@@ -28,12 +28,19 @@
     .breadcrumb { padding: 1rem 0; font-size: 0.85rem; }
     .party-page { display: flex; flex-direction: column; align-items: center; padding: 2rem 0; min-height: 60vh; justify-content: center; }
     .party-header h1 { font-size: 2rem; text-align: center; }
+    @media (max-width: 480px) {
+      .party-header h1 { font-size: 1.5rem; }
+    }
     .party-content { text-align: center; padding: 2rem; background: var(--card-bg); border-radius: var(--radius); border: 2px solid var(--amber); max-width: 400px; width: 100%; }
     .party-badge { font-size: 4rem; margin-bottom: 1rem; }
     .party-fireworks { font-size: 2rem; margin: 1rem 0; letter-spacing: 0.5em; }
     .party-code-entry { display: flex; gap: 0.5rem; margin-top: 1rem; justify-content: center; }
     .party-code-entry input { max-width: 200px; padding: 0.5rem 0.75rem; font-size: 0.95rem; border: 2px solid var(--border); border-radius: var(--radius); background: var(--paper); font-family: var(--font-body); }
     .party-code-entry input:focus { outline: none; border-color: var(--wax-red); box-shadow: 0 0 0 3px rgba(140,43,39,0.15); }
+    @media (max-width: 480px) {
+      .party-code-entry { flex-wrap: wrap; }
+      .party-code-entry input { max-width: none; flex: 1 1 100%; }
+    }
     .claim-btn { padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 600; background: var(--wax-red); color: var(--paper); border: none; border-radius: var(--radius); cursor: pointer; white-space: nowrap; }
     .claim-btn:hover { opacity: 0.9; }
     .party-feedback { font-size: 0.85rem; margin-top: 0.5rem; min-height: 1.3em; color: var(--verdigris); }
@@ -80,7 +87,7 @@
       <nav class="breadcrumb" aria-label="Brotkrümelnavigation" data-i18n-aria="site.breadcrumb_aria"><a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a></nav>
       <div id="party-data" hidden></div>
       <article class="party-page">
-        <header class="party-header"><h1>🎉 <span data-i18n="party.title">Party!</span></h1></header>
+        <header class="party-header"><h1 class="glb-mini"><img src="/logo.png" alt="" />🎉 <span data-i18n="party.title">Party!</span></h1></header>
         <section id="party-unlocked" class="party-content" hidden>
           <div class="party-badge">🏆</div>
           <h2 data-i18n="party.congrats_title">Glückwunsch!</h2>

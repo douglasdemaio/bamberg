@@ -27,8 +27,13 @@
   <style>
     .page-header { padding: 2rem 0 1rem; border-bottom: 2px solid var(--verdigris); margin-bottom: 1.5rem; }
     .page-header h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .nav-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; font-size: 1.05rem; margin-bottom: 1rem; }
-    .nav-links a { font-weight: 600; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; font-size: 1.05rem; margin-bottom: 1rem; }
+    .nav-links a { font-weight: 600; text-decoration: none; padding: 0.25rem 0.2rem; }
+    .nav-links a:hover { text-decoration: underline; }
+    @media (max-width: 480px) {
+      .nav-links { gap: 0.2rem 0.65rem; font-size: 0.95rem; }
+      .page-header h1 { font-size: 1.3rem; }
+    }
     .progress-bar { height: 8px; background: var(--sandstone); border-radius: 4px; overflow: hidden; margin-bottom: 0.35rem; }
     .progress-fill { height: 100%; background: var(--verdigris); border-radius: 4px; transition: width 0.3s ease; }
     @media (prefers-reduced-motion: reduce) { .progress-fill { transition: none; } }
@@ -98,7 +103,7 @@
     </div>
     <div id="content">
       <header class="page-header">
-        <h1><span data-i18n="collection.title">Meine Karte</span></h1>
+        <h1 class="glb-mini"><img src="/logo.png" alt="" /><span data-i18n="collection.title">Meine Karte</span></h1>
         <nav class="nav-links" aria-label="Seitennavigation" data-i18n-aria="site.nav_aria">
           <a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a>
           <a href="/trails.html"><span data-i18n="nav.trails">Routen</span></a>
