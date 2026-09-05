@@ -28,9 +28,13 @@
     .page-header { padding: 2rem 0 1rem; border-bottom: 2px solid var(--verdigris); margin-bottom: 1.5rem; }
     .page-header h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     .subtitle { font-size: 0.85rem; color: var(--text-muted); }
-    .nav-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; font-size: 1.05rem; margin: 1rem 0 0.25rem; }
-    .nav-links a { font-weight: 600; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; font-size: 1.05rem; margin: 1rem 0 0.25rem; }
+    .nav-links a { font-weight: 600; text-decoration: none; padding: 0.25rem 0.2rem; }
     .nav-links a[aria-current='page'] { color: var(--verdigris); }
+    @media (max-width: 480px) {
+      .nav-links { gap: 0.2rem 0.65rem; font-size: 0.95rem; }
+      .page-header h1 { font-size: 1.3rem; }
+    }
     .intro { font-size: 0.95rem; }
     .privacy-note {
       margin: 0 0 1.5rem;
@@ -41,7 +45,18 @@
       font-size: 0.8rem;
       color: var(--text-muted);
     }
-    .dest-grid { display: grid; gap: 1rem; margin: 1.5rem 0; }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    @media (min-width: 640px) {
+      .dest-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1000px) {
+      .dest-grid { grid-template-columns: repeat(3, 1fr); }
+    }
     .dest-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -150,7 +165,7 @@
     </div>
     <div id="content">
       <header class="page-header">
-        <h1>🚌 <span data-i18n="beyond.title">Raus aus der Altstadt</span></h1>
+        <h1 class="glb-mini">🚌 <img src="/logo.png" alt="" /><span data-i18n="beyond.title">Raus aus der Altstadt</span></h1>
         <p class="subtitle" data-i18n="beyond.subtitle">Fünf Ziele um Bamberg – mit dem Bus vom ZOB erreichbar</p>
         <nav class="nav-links" aria-label="Seitennavigation" data-i18n-aria="site.nav_aria">
           <a href="/index.html">← <span data-i18n="nav.overview">Übersicht</span></a>

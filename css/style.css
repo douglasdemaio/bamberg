@@ -1,51 +1,53 @@
 :root {
-  --sandstone: #d8cbb4;
-  --ink: #1b1a17;
-  --verdigris: #4e6e63;
-  --wax-red: #8c2b27;
-  --amber: #c98a2b;
-  --paper: #f0ebe1;
-  --paper-dark: #e5dfd0;
-  --text: #1b1a17;
-  --text-muted: #5c5a54;
-  --bg: #f0ebe1;
-  --bg-tint: #ece5d3;
-  --card-bg: #f5f1e9;
-  --card-bg-hover: #efe9dc;
-  --border: #d8cbb4;
-  --border-strong: #b8a988;
-  --focus: #8c2b27;
-  --shadow-sm: 0 1px 2px rgba(52, 40, 20, 0.06);
-  --shadow-md: 0 2px 8px rgba(52, 40, 20, 0.08), 0 1px 2px rgba(52, 40, 20, 0.06);
-  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  --sandstone: #c9d4e2;
+  --ink: #10141c;
+  --verdigris: #2f7fd4;
+  --wax-red: #b9563a;
+  --amber: #e0aa3e;
+  --paper: #f2eee3;
+  --paper-dark: #e7e2d4;
+  --text: #10141c;
+  --text-muted: #5c6570;
+  --bg: #f2eee3;
+  --bg-tint: #e8eef7;
+  --card-bg: #f7f4ec;
+  --card-bg-hover: #eff3fa;
+  --border: #d8dce2;
+  --border-strong: #c3cbd6;
+  --focus: #164374;
+  --shadow-sm: 0 1px 2px rgba(22, 67, 116, 0.08);
+  --shadow-md: 0 2px 8px rgba(22, 67, 116, 0.10), 0 1px 2px rgba(22, 67, 116, 0.07);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.5);
   --font-body: 'Gill Sans', 'Fira Sans', system-ui, -apple-system, sans-serif;
   --font-display: 'Iowan Old Style', 'Charter', Georgia, serif;
   --font-mono: 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
-  --max-w: 42rem;
+  --max-w: 64rem;
+  --max-w-text: 44rem;
   --radius: 8px;
   --radius-lg: 14px;
+  --tap: 0.55rem;
 }
 
 html[data-theme='dark'] {
-  --sandstone: #4a4234;
+  --sandstone: #2b3950;
   --ink: #f0ebe1;
-  --verdigris: #7fa89a;
-  --wax-red: #d15852;
-  --amber: #e6a94e;
-  --paper: #1a1712;
-  --paper-dark: #221d17;
-  --text: #ece5d3;
-  --text-muted: #a09a8a;
-  --bg: #1a1712;
-  --bg-tint: #221d17;
-  --card-bg: #24201a;
-  --card-bg-hover: #2c271f;
-  --border: #3a3428;
-  --border-strong: #5a5140;
-  --focus: #e6a94e;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  --verdigris: #6aa8e8;
+  --wax-red: #d1784f;
+  --amber: #e6b455;
+  --paper: #131822;
+  --paper-dark: #1a2230;
+  --text: #e8eef7;
+  --text-muted: #9aa6b8;
+  --bg: #131822;
+  --bg-tint: #1a2536;
+  --card-bg: #1b2433;
+  --card-bg-hover: #223047;
+  --border: #2b3950;
+  --border-strong: #41526e;
+  --focus: #6aa8e8;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.32);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,7 +61,7 @@ body {
     repeating-linear-gradient(
       135deg,
       transparent 0 6px,
-      rgba(120, 100, 70, 0.018) 6px 7px
+      rgba(22, 67, 116, 0.03) 6px 7px
     );
   background-attachment: fixed;
   line-height: 1.6;
@@ -73,7 +75,7 @@ html[data-theme='dark'] body {
     repeating-linear-gradient(
       135deg,
       transparent 0 6px,
-      rgba(255, 220, 160, 0.012) 6px 7px
+      rgba(106, 168, 232, 0.05) 6px 7px
     );
 }
 
@@ -85,6 +87,16 @@ a:focus-visible {
   border-radius: 2px;
 }
 img { max-width: 100%; height: auto; display: block; }
+.glb-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.glb-mini img {
+  height: 2.6rem;
+  width: auto;
+  object-fit: contain;
+}
 .skip-link {
   position: absolute;
   top: -100%;
@@ -99,7 +111,14 @@ img { max-width: 100%; height: auto; display: block; }
 .container {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.25rem;
+}
+
+.layout-text { max-width: var(--max-w-text); }
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 h1, h2, h3, h4 {
   font-family: var(--font-display);
@@ -118,9 +137,10 @@ p { margin-bottom: 0.75rem; }
   z-index: 20;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0;
-  background: linear-gradient(to bottom, var(--bg) 70%, transparent);
+  background: linear-gradient(to bottom, var(--bg) 78%, transparent);
   backdrop-filter: saturate(1.1) blur(4px);
 }
 .theme-toggle {
@@ -129,8 +149,8 @@ p { margin-bottom: 0.75rem; }
   background: var(--card-bg);
   color: var(--text);
   font: inherit;
-  font-size: 0.85rem;
-  padding: 0.35rem 0.7rem;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.8rem;
   border-radius: 999px;
   cursor: pointer;
   display: inline-flex;
@@ -138,6 +158,7 @@ p { margin-bottom: 0.75rem; }
   gap: 0.35rem;
   box-shadow: var(--shadow-sm);
   transition: background 0.15s, border-color 0.15s;
+  min-height: 2.5rem;
 }
 .theme-toggle:hover { background: var(--card-bg-hover); border-color: var(--wax-red); }
 .theme-toggle:focus-visible {
@@ -154,17 +175,18 @@ html[data-theme='dark'] .theme-toggle .toggle-icon-dark { display: inline; }
   background: var(--card-bg);
   color: var(--text);
   font: inherit;
-  font-size: 0.85rem;
-  padding: 0.35rem 1.6rem 0.35rem 0.7rem;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.8rem 0.5rem 0.8rem;
   border-radius: 999px;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
   transition: background 0.15s, border-color 0.15s;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6' fill='none' stroke='%235c5a54' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6' fill='none' stroke='%235c6570' stroke-width='1.5'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.6rem center;
   background-size: 10px 6px;
-  min-width: 100px;
+  min-width: 96px;
+  min-height: 2.5rem;
 }
 .lang-select:hover { background-color: var(--card-bg-hover); border-color: var(--wax-red); }
 .lang-select:focus-visible {
@@ -194,4 +216,35 @@ html[data-theme='dark'] .theme-toggle .toggle-icon-dark { display: inline; }
 @media (min-width: 600px) {
   h1 { font-size: 2.15rem; }
   h2 { font-size: 1.5rem; }
+}
+
+/* Larger touch targets and roomier control on coarse pointers */
+@media (pointer: coarse) {
+  .theme-toggle, .lang-select {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+  .nav-links a, .breadcrumb a {
+    padding: 0.4rem 0.2rem;
+  }
+}
+
+/* Responsive toggles for the theme button's text label on narrow screens */
+@media (max-width: 480px) {
+  .theme-toggle .toggle-label { display: none; }
+  .theme-toggle { min-height: 2.6rem; }
+  .lang-select { min-width: 3.6rem; max-width: 7.5rem; }
+
+  /* Scale header logos down so they don't crowd small screens */
+  .glb-mini img {
+    height: 2.1rem;
+  }
+  .brand-mark {
+    height: 2.8rem;
+    max-width: 7.5rem;
+  }
+  .site-header-logo {
+    height: 2.6rem !important;
+  }
+  h1 { font-size: 1.55rem; }
 }

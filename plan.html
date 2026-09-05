@@ -34,6 +34,10 @@
     .page-footer { padding: 2rem 0; }
     .donate-block { border-color: var(--amber); }
     .donate-address { display: flex; gap: 0.5rem; align-items: center; margin: 0.75rem 0 0.5rem; }
+    @media (max-width: 480px) {
+      .donate-address { flex-wrap: wrap; }
+      .donate-copy-btn { flex: 1 1 100%; padding: 0.6rem 0.75rem; }
+    }
     .donate-address code { flex: 1; font-family: var(--font-mono); font-size: 0.78rem; padding: 0.5rem 0.65rem; background: var(--paper-dark); border: 1px solid var(--border); border-radius: var(--radius); overflow-wrap: anywhere; word-break: break-all; }
     .donate-copy-btn { flex-shrink: 0; padding: 0.45rem 0.75rem; font-size: 0.8rem; font-weight: 600; background: var(--amber); color: #fff; border: none; border-radius: var(--radius); cursor: pointer; font-family: var(--font-body); }
     .donate-copy-btn:hover { opacity: 0.9; }
@@ -82,7 +86,7 @@
         <a href="/index.html">← <span data-i18n="nav.all_sights">Alle Sehenswürdigkeiten</span></a>
       </nav>
       <article>
-        <h1><span data-i18n="plan.title">Besuch planen</span></h1>
+        <h1 class="glb-mini"><img src="/logo.png" alt="" /><span data-i18n="plan.title">Besuch planen</span></h1>
         <section class="info-block">
           <h2 data-i18n="plan.arrival_title">Anreise</h2>
           <p data-i18n="plan.arrival_text">Bamberg liegt an der ICE-Strecke München–Berlin. Vom Hauptbahnhof sind es 15 Minuten zu Fuß in die Altstadt. Parken: Bitte die Altstadt meiden. Am besten das P+R Bahnhof/Brennerstraße nutzen; auf den Einfahrtsstraßen bieten sich zusätzlich P+R Heinrichsdamm und P+R Kronacher Straße an.</p>

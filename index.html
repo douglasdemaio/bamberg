@@ -28,43 +28,36 @@
   </script>
   <style>
     .site-header {
-      padding: 1rem 0 1.25rem;
+      padding: 0.9rem 0 1.15rem;
       border-bottom: 1px solid var(--border);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
     }
     .header-brand {
       display: flex;
       align-items: center;
       gap: 0.9rem;
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.85rem;
     }
     .brand-mark {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 3rem;
-      height: 3rem;
       flex: 0 0 auto;
-      background: radial-gradient(circle at 30% 30%, #a63431, var(--wax-red) 55%, #6a1e1a 100%);
-      color: var(--paper);
-      border-radius: 50%;
-      box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -3px 6px rgba(0,0,0,0.25);
-      position: relative;
+      height: 3.4rem;
+      max-width: 9.5rem;
+      border-radius: 10px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      padding: 0.3rem 0.5rem;
+      overflow: hidden;
     }
-    .brand-mark::after {
-      content: '';
-      position: absolute;
-      inset: 3px;
-      border-radius: 50%;
-      border: 1px dashed rgba(255, 235, 200, 0.35);
-      pointer-events: none;
-    }
-    .brand-seal {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 700;
-      line-height: 1;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    .brand-mark img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 1px 0 rgba(255,255,255,0.5));
     }
     .brand-text { min-width: 0; }
     .site-title {
@@ -83,11 +76,18 @@
       gap: 0.4rem 1rem;
       font-size: 1.05rem;
     }
-    .nav-links a { text-decoration: none; padding: 0.15rem 0; border-bottom: 1px solid transparent; font-weight: 600; }
+    .nav-links a { text-decoration: none; padding: 0.2rem 0.3rem; border-bottom: 1px solid transparent; font-weight: 600; }
     .nav-links a:hover { border-bottom-color: var(--wax-red); }
     .nav-links a[aria-current='page'] {
       color: var(--text);
       border-bottom-color: var(--verdigris);
+    }
+    @media (max-width: 480px) {
+      .site-title { font-size: 1.5rem; }
+      .site-subtitle { font-size: 0.85rem; }
+      .header-brand { gap: 0.7rem; margin-bottom: 0.7rem; }
+      .nav-links { gap: 0.25rem 0.75rem; font-size: 1rem; }
+      .nav-links a { padding: 0.35rem 0.15rem; }
     }
     .intro { margin-bottom: 1.75rem; font-size: 0.95rem; }
     .intro-lead { font-family: var(--font-display); font-size: 1.05rem; line-height: 1.55; }
@@ -237,9 +237,15 @@
     .category-icon { font-size: 1.1rem; }
     .site-list {
       list-style: none;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 0.5rem;
+    }
+    @media (min-width: 560px) {
+      .site-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .site-list { grid-template-columns: repeat(3, 1fr); }
     }
     .site-card {
       background: var(--card-bg);
@@ -353,7 +359,7 @@
       <header class="site-header">
         <div class="header-brand">
           <span class="brand-mark" aria-hidden="true">
-            <span class="brand-seal">B</span>
+            <img src="/logo.png" alt="" />
           </span>
           <div class="brand-text">
             <h1 class="site-title">Bamberg Quest</h1>
