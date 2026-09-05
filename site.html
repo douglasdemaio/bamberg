@@ -54,9 +54,11 @@
     .riddle-content blockquote { padding: 0.5rem 1rem; border-left: 3px solid var(--amber); margin-bottom: 0.75rem; }
     .hint { margin-top: 0.5rem; font-size: 0.85rem; }
     .hint summary { cursor: pointer; color: var(--verdigris); font-weight: 500; }
-    .legendary-lock { padding: 1rem; background: #3d1412; color: var(--paper); border-radius: var(--radius); margin-bottom: 1rem; border: 2px solid var(--wax-red); }
+    .legendary-lock { padding: 0.9rem 1rem; background: #3d1412; color: var(--paper); border-radius: var(--radius); margin-bottom: 1rem; border: 2px solid var(--wax-red); }
     .legendary-lock p { margin: 0.25rem 0; }
-    .legendary-req { font-size: 0.8rem; opacity: 0.8; }
+    .legendary-lock strong { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .legendary-lock > p:first-child { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+    .legendary-req { font-size: 0.8rem; opacity: 0.85; }
     .legendary-gated { filter: blur(6px) grayscale(0.6); pointer-events: none; user-select: none; transition: filter 0.5s; }
     .claim-block { margin-top: 1.5rem; padding: 1rem; background: var(--card-bg); border-radius: var(--radius); border: 2px solid var(--verdigris); }
     .claim-status { margin-bottom: 0.75rem; font-weight: 600; font-size: 0.95rem; }
@@ -165,9 +167,15 @@
     html += '</div>';
 
     if (site.requires_claimed && site.requires_claimed.length > 0) {
+      var reqNames = site.requires_claimed.map(function(slug){
+        for (var i = 0; i < allSites.length; i++) {
+          if (allSites[i].slug === slug) { return pickLang(allSites[i].name, lang); }
+        }
+        return slug;
+      }).join(', ');
       html += '<div class="legendary-lock" id="legendary-lock">' +
-        '<p>🔒 <strong><span data-i18n="site.legendary">Legendär</span></strong></p>' +
-        '<p class="legendary-req" data-i18n="site.legendary_requires" data-i18n-params=\'{"sites":"' + site.requires_claimed.join(', ') + '"}\'>Erfordert: ' + site.requires_claimed.join(', ') + '</p>' +
+        '<p>🔒 <strong><span data-i18n="site.unlock_needed">Entsperren nötig</span></strong></p>' +
+        '<p class="legendary-req" data-i18n="site.legendary_requires" data-i18n-params=\'{"sites":"' + reqNames + '"}\'>Erfordert: ' + reqNames + '</p>' +
       '</div>';
     }
 
@@ -361,6 +369,7 @@
   var slug = getQueryParam('slug');
   var loadedSite = null;
   var sitesLoaded = false;
+  var allSites = [];
 
   function renderNoneSelected() {
     var lang = document.documentElement.lang || 'de';
@@ -374,6 +383,7 @@
     fetch('/data/sites.json')
       .then(function(r) { return r.json(); })
       .then(function(sites) {
+        allSites = sites;
         var site = null;
         for (var i = 0; i < sites.length; i++) {
           if (sites[i].slug === slug) { site = sites[i]; break; }
