@@ -310,6 +310,23 @@
       font-size: 0.8rem;
       color: var(--text-muted);
     }
+    .unlock-badge {
+      display: inline-block;
+      margin-left: 0.5rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-family: var(--font-mono);
+      color: #fff;
+      background: var(--wax-red);
+      border: 1px solid rgba(0,0,0,0.15);
+      box-shadow: var(--shadow-inset);
+      white-space: nowrap;
+      vertical-align: middle;
+    }
     .site-footer {
       margin-top: 3rem;
       padding: 1.5rem 0 2rem;
@@ -457,11 +474,15 @@
         '<h2 class="category-heading"><span class="category-icon" aria-hidden="true">' + cat.icon + '</span><span class="category-name" data-i18n="' + cat.i18nKey + '">' + cat.id + '</span></h2>' +
         '<ul class="site-list">' +
           cat.sites.map(function(site) {
+            var lockedForUser = site.requires_claimed && site.requires_claimed.length > 0 &&
+              !site.requires_claimed.every(function(s) { return isClaimed(s); });
             return '<li class="site-card" data-slug="' + site.slug + '" id="card-' + site.slug + '" data-tier="' + site.tier + '">' +
               '<a href="/site.html?slug=' + site.slug + '" class="site-link">' +
                 '<span class="seal-icon" id="seal-' + site.slug + '" aria-hidden="true">🫱</span>' +
                 '<span class="site-tier tier-' + site.tier + '" data-i18n="tier_short.' + site.tier + '">' + site.tier + '</span>' +
-                '<span class="site-name">' + pickLang(site.name, uiLang) + '</span>' +
+                '<span class="site-name">' + pickLang(site.name, uiLang) +
+                  (lockedForUser ? ' <span class="unlock-badge" data-i18n="site.unlock_needed">🔒 Entsperren nötig</span>' : '') +
+                '</span>' +
               '</a>' +
             '</li>';
           }).join('') +
