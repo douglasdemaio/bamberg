@@ -2860,5 +2860,59 @@
     "malts_own": false,
     "house_lore": null,
     "codeword": null
+  },
+  {
+    "id": "e5",
+    "slug": "baeckerei-seel",
+    "name": {
+      "de": "Bäckerei Seel – Bambergs älteste Bäckerei",
+      "en": "Bakery Seel – Bamberg's Oldest Bakery"
+    },
+    "category": "gardens-guilds-trades",
+    "subcategory": "craft",
+    "tier": "silver",
+    "coords": [
+      49.8964,
+      10.8919
+    ],
+    "riddle": {
+      "de": "Seit 1427 duftet es hier. Aus meiner Hand kam das erste Hörnla – nicht Kartoffel, sondern Gebäck, aus Butter und Plunderteig. Wer bin ich?",
+      "en": "Since 1427 the scent has lingered here. From my hands came the first Hörnla – not potato, but pastry, of butter and layered dough. What am I?"
+    },
+    "hint": {
+      "de": "Untere Königstraße – Bambergs älteste Bäckerei",
+      "en": "Untere Königstraße – Bamberg's oldest bakery"
+    },
+    "question": {
+      "de": "Seit welchem Jahr ist die Bäckerei Seel urkundlich belegt?",
+      "en": "Since which year is Bakery Seel documented?"
+    },
+    "answers": [
+      "1427",
+      "vierzehnhundertsiebenundzwanzig",
+      "fourteen twenty-seven"
+    ],
+    "history_60w": {
+      "de": "Die Bäckerei Seel an der Unteren Königstraße ist seit 1427 belegt – Bambergs älteste Bäckerei und eine der ältesten Deutschlands. Hier wurde das Bamberger Hörnla erfunden: ein schlankes Butter-Hörnchen aus Plunderteig mit mindestens 20 % Butter (seit einem Urteil von 1977 darf keine Margarine verwendet werden), knuspriger und weniger süß als ein Croissant. Nicht zu verwechseln mit der zweiten Hörnla – der kleinen, hörnchenförmigen Kartoffel, einer handverlesenen Slow-Food-Arche-Sorte für besten Kartoffelsalat.",
+      "en": "Bakery Seel on Untere Königstraße is documented since 1427 – Bamberg's oldest bakery and one of Germany's oldest. This is where the Bamberger Hörnla was first made: a slender butter horn of laminated yeast dough with at least 20% butter (a 1977 court ruling forbids margarine under the traditional name), crisper and less sweet than a croissant. Not to be confused with the other Hörnla – the small, horn-shaped heirloom potato, a hand-harvested Slow Food Ark variety prized for potato salad."
+    },
+    "look_for": {
+      "de": "Die Auslage mit den frischen Hörnla – schmal, goldbraun, knusprig.",
+      "en": "The display of fresh Hörnla – slender, golden-brown, crisp."
+    },
+    "photo_tip": {
+      "de": "Die historische Fassade in der Unteren Königstraße am Morgen.",
+      "en": "The historic facade on Untere Königstraße in the morning light."
+    },
+    "hours": {
+      "de": "Mo–Fr 6:00–18:00, Sa 6:00–13:00. Siehe baeckerei-seel.de",
+      "en": "Mon–Fri 6am–6pm, Sat 6am–1pm. See baeckerei-seel.de"
+    },
+    "accessible": true,
+    "requires_claimed": [],
+    "is_solemn": false,
+    "verified": false,
+    "photo": null,
+    "photo_credit": null
   }
 ]
