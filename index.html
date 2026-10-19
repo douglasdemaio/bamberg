@@ -118,7 +118,8 @@
       width: 100%;
       height: auto;
       display: block;
-      filter: drop-shadow(0 6px 12px rgba(22, 67, 116, 0.16));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
     }
     .merch-body { flex: 1 1 240px; min-width: 0; }
     .merch-intro {
@@ -455,21 +456,7 @@
           <h2 class="merch-heading" id="merch-heading" data-i18n="merch.title">Merchandise</h2>
           <div class="merch-card">
             <div class="merch-preview">
-              <svg class="merch-hoodie" viewBox="0 0 320 360" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                <path fill="var(--merch-fabric-shade)" d="M96 92 C96 44 122 20 160 20 C198 20 224 44 224 92 C224 108 208 118 160 118 C112 118 96 108 96 92 Z"/>
-                <path fill="var(--merch-fabric)" d="M124 96 C110 100 84 112 66 136 L34 268 C30 284 32 288 50 292 L96 300 L104 258 L100 340 C100 352 104 356 118 356 L202 356 C216 356 220 352 220 340 L216 258 L224 300 L270 292 C288 288 290 284 286 268 L254 136 C236 112 210 100 196 96 C186 104 134 104 124 96 Z"/>
-                <path fill="var(--merch-fabric-shade)" d="M124 96 C134 106 186 106 196 96 C190 118 130 118 124 96 Z"/>
-                <path fill="var(--merch-fabric-shade)" d="M118 252 L202 252 L194 332 C170 342 150 342 126 332 Z"/>
-                <g fill="none" stroke="var(--merch-stitch)" stroke-width="4" stroke-linecap="round">
-                  <path d="M148 112 C144 150 140 178 138 208"/>
-                  <path d="M172 112 C176 150 180 178 182 208"/>
-                </g>
-                <g fill="var(--merch-stitch)">
-                  <circle cx="138" cy="210" r="4"/>
-                  <circle cx="182" cy="210" r="4"/>
-                </g>
-                <image href="/logo.png" x="122" y="150" width="76" height="62" preserveAspectRatio="xMidYMid meet"/>
-              </svg>
+              <img class="merch-hoodie" src="/hoodie.png" alt="" />
             </div>
             <div class="merch-body">
               <p class="merch-intro" data-i18n="merch.intro">Trag die Schatzsuche nach Hause.</p>

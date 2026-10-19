@@ -26,10 +26,6 @@
   --radius: 8px;
   --radius-lg: 14px;
   --tap: 0.55rem;
-  /* Hoodie mockup stays dark in both themes so the light logo reads on it */
-  --merch-fabric: #3d4450;
-  --merch-fabric-shade: #2f3540;
-  --merch-stitch: #5b6472;
 }
 
 html[data-theme='dark'] {
