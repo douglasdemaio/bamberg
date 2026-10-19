@@ -134,7 +134,7 @@
     var html = '<nav class="breadcrumb" aria-label="Brotkrümelnavigation" data-i18n-aria="site.breadcrumb_aria"><a href="/trails.html">← <span data-i18n="nav.all_trails">Alle Routen</span></a> <a href="/index.html"><span data-i18n="nav.overview">Übersicht</span></a></nav>';
     html += '<article>';
     html += '<header class="trail-header">';
-    html += '<h1>' + (trail.icon || '') + ' ' + localTrailName + '</h1>';
+    html += '<h1 class="glb-mini"><img src="/logo.png" alt="" />' + (trail.icon || '') + ' ' + localTrailName + '</h1>';
     html += '<div class="trail-stats">' +
       '<div class="stat"><span class="stat-value">' + (trail.distance_km || '') + ' km</span><span class="stat-label" data-i18n="trail_route">Strecke</span></div>' +
       '<div class="stat"><span class="stat-value">' + (trail.elevation_m || '') + ' m</span><span class="stat-label" data-i18n="trail_climb">Aufstieg</span></div>' +
