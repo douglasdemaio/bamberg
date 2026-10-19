@@ -43,7 +43,7 @@
       align-items: center;
       justify-content: center;
       flex: 0 0 auto;
-      height: 3.4rem;
+      height: 5.5rem;
       max-width: 9.5rem;
       border-radius: 10px;
       background: var(--card-bg);
@@ -86,9 +86,62 @@
       .site-title { font-size: 1.5rem; }
       .site-subtitle { font-size: 0.85rem; }
       .header-brand { gap: 0.7rem; margin-bottom: 0.7rem; }
+      .brand-mark { height: 4rem; }
       .nav-links { gap: 0.25rem 0.75rem; font-size: 1rem; }
       .nav-links a { padding: 0.35rem 0.15rem; }
     }
+    .merch-section { margin: 2.75rem 0 1rem; }
+    .merch-heading {
+      font-size: 1.3rem;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .merch-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 1.1rem;
+    }
+    .merch-preview {
+      flex: 0 0 auto;
+      width: 180px;
+      max-width: 45%;
+      margin: 0 auto;
+    }
+    .merch-hoodie {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 6px 12px rgba(22, 67, 116, 0.16));
+    }
+    .merch-body { flex: 1 1 240px; min-width: 0; }
+    .merch-intro {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+    .merch-item-title { font-size: 1.15rem; margin-bottom: 0.35rem; }
+    .merch-item-text { font-size: 0.92rem; margin-bottom: 1rem; }
+    .merch-btn {
+      display: inline-block;
+      background: var(--wax-red);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      box-shadow: var(--shadow-sm);
+      transition: background 0.15s, transform 0.15s;
+    }
+    .merch-btn:hover { background: var(--amber); color: #fff; transform: translateY(-1px); }
+    .merch-note { font-size: 0.78rem; color: var(--text-muted); margin: 0.5rem 0 0; }
     .intro { margin-bottom: 1.75rem; font-size: 0.95rem; }
     .intro-lead { font-family: var(--font-display); font-size: 1.05rem; line-height: 1.55; }
     .dropcap {
@@ -398,6 +451,35 @@
           <p class="intro-lead"><span class="dropcap">W</span><span data-i18n="index.intro">Willkommen in Bamberg, UNESCO-Welterbe auf sieben Hügeln. Ob Guidebook oder Schatzsuche – hier findest du alle Sehenswürdigkeiten.</span></p>
         </section>
         <div id="index-root"></div>
+        <section class="merch-section" aria-labelledby="merch-heading">
+          <h2 class="merch-heading" id="merch-heading" data-i18n="merch.title">Merchandise</h2>
+          <div class="merch-card">
+            <div class="merch-preview">
+              <svg class="merch-hoodie" viewBox="0 0 320 360" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                <path fill="var(--merch-fabric-shade)" d="M96 92 C96 44 122 20 160 20 C198 20 224 44 224 92 C224 108 208 118 160 118 C112 118 96 108 96 92 Z"/>
+                <path fill="var(--merch-fabric)" d="M124 96 C110 100 84 112 66 136 L34 268 C30 284 32 288 50 292 L96 300 L104 258 L100 340 C100 352 104 356 118 356 L202 356 C216 356 220 352 220 340 L216 258 L224 300 L270 292 C288 288 290 284 286 268 L254 136 C236 112 210 100 196 96 C186 104 134 104 124 96 Z"/>
+                <path fill="var(--merch-fabric-shade)" d="M124 96 C134 106 186 106 196 96 C190 118 130 118 124 96 Z"/>
+                <path fill="var(--merch-fabric-shade)" d="M118 252 L202 252 L194 332 C170 342 150 342 126 332 Z"/>
+                <g fill="none" stroke="var(--merch-stitch)" stroke-width="4" stroke-linecap="round">
+                  <path d="M148 112 C144 150 140 178 138 208"/>
+                  <path d="M172 112 C176 150 180 178 182 208"/>
+                </g>
+                <g fill="var(--merch-stitch)">
+                  <circle cx="138" cy="210" r="4"/>
+                  <circle cx="182" cy="210" r="4"/>
+                </g>
+                <image href="/logo.png" x="122" y="150" width="76" height="62" preserveAspectRatio="xMidYMid meet"/>
+              </svg>
+            </div>
+            <div class="merch-body">
+              <p class="merch-intro" data-i18n="merch.intro">Trag die Schatzsuche nach Hause.</p>
+              <h3 class="merch-item-title" data-i18n="merch.item_title">Bamberg Quest Hoodie</h3>
+              <p class="merch-item-text" data-i18n="merch.item_text">Ein bequemer Kapuzenpullover mit dem Bamberg-Quest-Logo – ideal für kühle Abende in der Altstadt.</p>
+              <a class="merch-btn" href="https://sprd.co/AVon4Lb" target="_blank" rel="noopener noreferrer"><span data-i18n="merch.cta">Hoodie kaufen</span></a>
+              <p class="merch-note" data-i18n="merch.note">Öffnet den Spreadshirt-Shop in einem neuen Tab.</p>
+            </div>
+          </div>
+        </section>
       </main>
       <footer class="site-footer">
         <p data-i18n="index.footer">Ein Spaziergang durch Bamberg. Keine App, kein Account, kein Standort-Tracking. Deine Fortschritte bleiben auf deinem Gerät.</p>
@@ -491,11 +573,10 @@
     }).join('');
 
     root.appendChild(panel);
-    var main = document.getElementById('main-content');
     var tempDiv = document.createElement('div');
     tempDiv.innerHTML = sectionsHtml;
     while (tempDiv.firstChild) {
-      main.appendChild(tempDiv.firstChild);
+      root.appendChild(tempDiv.firstChild);
     }
 
     if (window.__applyBqTranslations) {
